@@ -748,7 +748,7 @@ local function starry_init()
     "monokai", "monokai_lighter", "mariana", "emerald", "middlenight_blue", "earlysummer"
   }
 
-  local themes_daytime = {"lighter", "monokai_lighter", "mariana_lighter", "earlysummer_lighter"}
+  local themes_daytime = {"limestone", "monokai_lighter", "mariana_lighter", "earlysummer_lighter"}
 
   if vim.g.starry_daylight_switch and vim.g.starry_style_fix ~= true then
     if 6 < h and h < 18 then
@@ -794,8 +794,8 @@ local function starry_init()
       starry.comments = '#757575'
       starry.line_numbers = '#5C5C5C'
     end
-  elseif vim.g.starry_style == "lighter" then
-    -- Lighter theme style
+  elseif vim.g.starry_style == "limestone" then
+    -- limestone theme style
 
     starry.bg = "#EAEADA"
     starry.bg_alt = "#DFDFBF"
@@ -972,8 +972,8 @@ local function starry_init()
     starry.variable = vim.g.starry_variable_color
   end
 
-  -- Set black titles for lighter style
-  if vim.g.starry_style == 'lighter' then
+  -- Set black titles for limestone style
+  if vim.g.starry_style == 'limestone' then
     starry.title = starry.black
   else
     starry.title = starry.white

@@ -8,10 +8,10 @@ if vim.g.starry_daylight_switch == nil then
 end
 
 local switch = {
-  "darker", "lighter", "palenight", "oceanic", "deep ocean", "moonlight", "dracula",
+  "darker", "limestone", "palenight", "oceanic", "deep ocean", "moonlight", "dracula",
   "dracula_blood", "monokai", "mariana", "emerald", "middlenight_blue", "earlysummer"
 }
-local switch_daytime = {"lighter", "monokai", "mariana", "earlysummer"}
+local switch_daytime = {"limestone", "monokai", "mariana", "earlysummer"}
 
 local all_schemes = {}
 vim.list_extend(all_schemes, switch)
@@ -20,7 +20,7 @@ vim.list_extend(all_schemes, switch_daytime)
 local change_style = function(style)
   vim.g.starry_style = style
   print("Starry style: ", style)
-  if style == 'lighter' then
+  if style == 'limestone' then
     vim.cmd [[set background=light]]
   else
     vim.cmd [[set background=dark]]

@@ -5,8 +5,6 @@ local set = function(theme)
   util.load(theme)
   vim.cmd(
       [[command! -nargs=* -complete=custom,v:lua.package.loaded.starry.theme_complete Starry  lua require('starry.functions').change(<f-args>)]])
-  vim.cmd(
-      [[command! -nargs=* -complete=custom,v:lua.package.loaded.starry.theme_complete Material  lua require('material.functions').change(<f-args>)]])
 end
 
 local clear = function()

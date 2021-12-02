@@ -1,4 +1,4 @@
-# 🌠🌌 starry nvim
+# 🌠🌌 Starry 🌌🌠
 
 A collection of colorschemes for neovim (Neovim 5.0+ required), written in lua.
 
@@ -11,10 +11,10 @@ Following colorschemes added later on:
 
 - Dracula & Dracula_blood theme
 - Monokai (Based on Sublime Build 3)
-- Mariana (The latest Sublime (Build 4) builtin color scheme)
+- Mariana (The latest Sublime (Build 4) builtin color scheme) and Mariana_lighter
 - Emerald (Low contrast green color scheme)
 - Middlenight_blue (The theme to use in middle night)
-- Earlysummer (more vivid colors)
+- Earlysummer (more vivid colors) and Earlysummer_lighter
 
 ## Why this repo:
 
@@ -45,6 +45,11 @@ The basic color palettes of material is from [material.vim](https://github.com/k
 
 Color palettes from [github.com/dracula/vim](https://github.com/dracula/vim)
 ![darcula](https://user-images.githubusercontent.com/1681295/119607837-61038a00-be38-11eb-99b0-48fa7118044f.jpg)
+
+### Dracula_blood
+
+reddish tone of dracula
+![blood](https://user-images.githubusercontent.com/1681295/144513439-4aaef1f1-0ab5-4f62-88a1-1fb2d0aa2ec0.png)
 
 ## Monokai
 
@@ -86,6 +91,12 @@ Some of the scheme allow choose nighttime and day time mode, you can set starry_
 this feature. Here is an example for nighttime and daytime for earlysummer color scheme
 
 ![night time and day time](https://preview.redd.it/ng02dvlthi181.png?width=960&crop=smart&auto=webp&s=3e8c4c492077fa693925bdf70e18e90b2d81d2f8)
+
+## limestone
+
+The only light colorschem
+
+![limestone colorscheme](https://user-images.githubusercontent.com/1681295/144512689-b4d88040-d2ac-4979-bc58-dccbd14ffc8b.png)
 
 ## Supported Plugins
 

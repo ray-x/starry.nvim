@@ -1,4 +1,4 @@
 lua << EOF
 require('starry').clear()
-require('starry').set('lighter')
+require('starry').set('limestone')
 EOF

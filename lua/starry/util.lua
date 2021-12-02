@@ -48,7 +48,7 @@ function util.load(theme)
   if vim.fn.exists("syntax_on") then
     vim.cmd("syntax reset")
   end
-  if theme ~= 'lighter' then
+  if theme ~= 'limestone' then
     vim.o.background = "dark"
   else
     vim.o.background = "light"

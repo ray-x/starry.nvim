@@ -128,13 +128,17 @@ let starry_daylight_switch=false  "this allow using brighter color
 
 Toggle style
 
-```
+```vim
 :colorscheme starry        " this allow pickup a colorscheme randomly
+```
+
+```vim
+:colorscheme mariana        " this allow switch to mariana
 ```
 
 or
 
-```
+```lua
 :lua require('starry.functions').toggle_style()
 ```
 
@@ -150,6 +154,6 @@ Change to specific style
 :Starry dracula_blood
 ```
 
-```
+```lua
 lua require('starry.functions').change_style("dracula_blood")
 ```

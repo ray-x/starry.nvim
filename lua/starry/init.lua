@@ -13,6 +13,11 @@ local clear = function()
   package.loaded['starry.colors'] = nil
   package.loaded['starry.theme'] = nil
   package.loaded['starry.functions'] = nil
+
+  vim.cmd("highlight clear")
+  if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+  end
 end
 
 local function theme_complete()

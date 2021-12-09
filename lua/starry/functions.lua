@@ -19,7 +19,7 @@ vim.list_extend(all_schemes, switch_daytime)
 -- Change_style takes a style name as a parameter and switches to that style
 local change_style = function(style)
   vim.g.starry_style = style
-  print("Starry style: ", style)
+  -- print("Starry style: ", style)
   if style == 'limestone' then
     vim.cmd [[set background=light]]
   else

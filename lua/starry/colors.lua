@@ -938,7 +938,7 @@ local function starry_init()
     starry.floating = starry.bg_alt
   end
 
-  if vim.g.starry_oled == true then
+  if vim.g.starry_deep_black == true then
     starry.black = '#000000'
     local style = vim.g.starry_style
     if style == 'deep ocean' or style == 'darker' or style == 'moonlight' or style =='middlenight_blue' then

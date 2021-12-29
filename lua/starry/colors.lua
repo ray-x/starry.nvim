@@ -580,7 +580,6 @@ local function starry_init()
     teal = '#4DB380',
     paleblue = '#d6e7f0',
     magenta = '#D184C7',
-
   }
 
   local middlenight_blue = {
@@ -937,6 +936,14 @@ local function starry_init()
   else
     starry.sidebar = starry.bg_alt
     starry.floating = starry.bg_alt
+  end
+
+  if vim.g.starry_oled == true then
+    starry.black = '#000000'
+    local style = vim.g.starry_style
+    if style == 'deep ocean' or style == 'darker' or style == 'moonlight' or style =='middlenight_blue' then
+      starry.bg = starry.black
+    end
   end
 
   -- Enable custom variable colors

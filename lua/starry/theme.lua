@@ -135,7 +135,7 @@ theme.loadEditor = function()
     FoldColumn = { fg = starry.blue },
     IncSearch = { fg = starry.white, bg = starry.highlight, style = 'bold,reverse' },
     LineNr = { fg = starry.text, style = 'bold,underline' },
-    LineNrAbove = { fg = starry.line_numbers},
+    LineNrAbove = { fg = starry.line_numbers },
     LineNrBelow = { link = 'LineNrAbove' },
     CursorLineNr = { fg = starry.accent },
     MatchParen = {
@@ -550,6 +550,12 @@ theme.loadPlugins = function()
     -- Indent Blankline
     IndentBlanklineChar = { fg = starry.highlight },
     IndentBlanklineContextChar = { fg = starry.func or starry.sky, style = 'bold' },
+    IndentBlanklineIndent1 = { fg = starry.purple },
+    IndentBlanklineIndent2 = { fg = starry.blue },
+    IndentBlanklineIndent3 = { fg = starry.green },
+    IndentBlanklineIndent4 = { fg = starry.yellow },
+    IndentBlanklineIndent5 = { fg = starry.orange },
+    IndentBlanklineIndent6 = { fg = starry.red },
 
     -- Nvim dap
     DapBreakpoint = { fg = starry.red },

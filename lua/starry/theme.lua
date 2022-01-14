@@ -550,12 +550,12 @@ theme.loadPlugins = function()
     -- Indent Blankline
     IndentBlanklineChar = { fg = starry.highlight },
     IndentBlanklineContextChar = { fg = starry.func or starry.sky, style = 'bold' },
-    IndentBlanklineIndent1 = { fg = starry.purple },
-    IndentBlanklineIndent2 = { fg = starry.blue },
-    IndentBlanklineIndent3 = { fg = starry.green },
-    IndentBlanklineIndent4 = { fg = starry.yellow },
-    IndentBlanklineIndent5 = { fg = starry.orange },
-    IndentBlanklineIndent6 = { fg = starry.red },
+    IndentBlanklineIndent1 = { fg = starry.purple, style="nocombine" },
+    IndentBlanklineIndent2 = { fg = starry.blue, style="nocombine" },
+    IndentBlanklineIndent3 = { fg = starry.green, style="nocombine" },
+    IndentBlanklineIndent4 = { fg = starry.yellow, style="nocombine" },
+    IndentBlanklineIndent5 = { fg = starry.orange, style="nocombine" },
+    IndentBlanklineIndent6 = { fg = starry.red, style="nocombine" },
 
     -- Nvim dap
     DapBreakpoint = { fg = starry.red },

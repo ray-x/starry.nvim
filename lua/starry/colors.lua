@@ -69,6 +69,7 @@ local function starry_init()
     bright = '#ddd0f4',
 
     textdark = '#b4b0e0',
+    text = '#f4f0f0',
 
     -- Dark colors
     darkgreen = '#abcf76',

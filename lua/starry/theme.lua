@@ -477,6 +477,9 @@ theme.loadPlugins = function()
     GitSignsDeleteNr = { fg = starry.red }, -- diff mode: Deleted line |diff.txt|
     GitSignsDeleteLn = { fg = starry.red }, -- diff mode: Deleted line |diff.txt|
 
+    GitSignsAddInline = { style = 'undercurl', sp = starry.green }, -- diff mode: Deleted line |diff.txt|
+    GitSignsDeleteInline = { style = 'underline', sp = starry.error }, -- diff mode: Deleted line |diff.txt|
+    GitSignsChangeInline = { style = 'undercurl', sp = starry.blue }, -- diff mode: Deleted line |diff.txt|
     -- Telescope
     TelescopeNormal = { fg = starry.fg, bg = starry.bg },
     TelescopePromptBorder = { fg = starry.cyan },

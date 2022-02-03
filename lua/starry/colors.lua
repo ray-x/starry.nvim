@@ -352,13 +352,13 @@ local function starry_init()
     blue3 = '#343D46',
     blue4 = '#64738A',
     blue5 = '#5F7484',
-    blue5_day = '#536570',
+    blue5_day = '#434D54',
     blue6 = '#A6ACB9',
     blue7 = '#3F4458',
     blue8 = '#2F3455',
     blue9 = '#303040',
     blueA = '#B0C0F0',
-    blueB = '#506779',
+    blueB = '#304249',
 
     cyan = '#A1EFE4',
     br_green = '#9EC400',
@@ -911,10 +911,10 @@ local function starry_init()
     starry = vim.tbl_extend('force', starry, middlenight_blue)
   elseif vim.g.starry_style == 'earlysummer' or vim.g.starry_style == 'earlysummer_lighter' then
     if vim.g.starry_style == 'earlysummer_lighter' then
-      earlysummer.bg = '#4F5F6F'
-      earlysummer.bg_alt = '#506678'
-      earlysummer.less_active = '#40515D'
-      earlysummer.active = '#58687F'
+      earlysummer.bg = '#404757'
+      earlysummer.bg_alt = '#454F64'
+      earlysummer.less_active = '#2F3446'
+      earlysummer.active = '#50616F'
       earlysummer.line_numbers = '#90A1AD'
       earlysummer.accent = '#A0B1B0'
       earlysummer.selection = '#607180'
@@ -942,7 +942,7 @@ local function starry_init()
   if vim.g.starry_deep_black == true then
     starry.black = '#000000'
     local style = vim.g.starry_style
-    if style == 'deep ocean' or style == 'darker' or style == 'moonlight' or style =='middlenight_blue' then
+    if style == 'deep ocean' or style == 'darker' or style == 'moonlight' or style == 'middlenight_blue' then
       starry.bg = starry.black
     end
   end

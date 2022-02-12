@@ -208,7 +208,7 @@ local function starry_init()
     comments = '#8A6A6A',
     keyword = '#CC4832',
     variable = '#F5D2DD',
-    nunmber = '#6897BB',
+    number = '#6897BB',
     field = '#9373A5',
     string = '#F0C366',
     const = '#9876CA',
@@ -290,7 +290,7 @@ local function starry_init()
     method = '#A0E210',
     text = '#d5edfc',
     comments = '#75715E',
-    nunmber = '#ae8eff',
+    number = '#ae8eff',
     char = '#E6DB74',
     variable = '#F5F2FD',
     parameter = starry.orange,
@@ -390,7 +390,7 @@ local function starry_init()
     method = mariana_colors.pink,
     text = '#D8DEE9',
     comments = mariana_colors.blue6,
-    nunmber = mariana_colors.orange,
+    number = mariana_colors.orange,
     char = mariana_colors.pink,
     variable = mariana_colors.white3,
     parameter = starry.orange,
@@ -497,7 +497,7 @@ local function starry_init()
     method = emerald_colors.pink,
     text = '#e0C2C0',
     comments = emerald_colors.green,
-    nunmber = emerald_colors.orange2,
+    number = emerald_colors.orange2,
     float = emerald_colors.orange,
     char = emerald_colors.aqua,
     variable = emerald_colors.white3,
@@ -600,7 +600,7 @@ local function starry_init()
     method = middlenight_blue_colors.pink,
     text = '#d0d5db',
     comments = '#7171d3',
-    nunmber = '#bb95fb',
+    number = '#bb95fb',
     float = middlenight_blue_colors.orange,
     char = middlenight_blue_colors.aqua,
     variable = middlenight_blue_colors.br_blue2,
@@ -704,7 +704,7 @@ local function starry_init()
     method = earlysummer_colors.br_cyan,
     text = '#e0d5eb',
     comments = earlysummer_colors.warmgrey,
-    nunmber = earlysummer_colors.brown,
+    number = earlysummer_colors.brown,
     float = earlysummer_colors.orange,
     char = earlysummer_colors.aqua,
     variable = earlysummer_colors.blue,
@@ -802,7 +802,7 @@ local function starry_init()
     starry.green = '#71A849'
     starry.green1 = '#51B829'
     starry.yellow = '#F6A434'
-    starry.yellow1 = '#D6D414'
+    starry.yellow1 = '#C6A414'
     starry.yellow2 = '#B69414'
     starry.blue = '#6182B8'
     starry.blue1 = '#5182D8'

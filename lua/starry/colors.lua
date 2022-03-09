@@ -739,6 +739,108 @@ local function starry_init()
     none = 'NONE',
   }
 
+  local ukraine_colors = {
+    -- Common colors
+    white = '#EEFFDF',
+    white2 = '#E7F7F7',
+    white3 = '#D8EED9',
+    grey = '#d3d3d3',
+    darkgray = '#476b61',
+
+    black = '#011002',
+
+    caramel = '#f9c37a',
+    lightgrey = '#64645e',
+    warmgrey = '#657150',
+
+    brown = '#925632',
+    pink = '#ff95b6',
+    green = '#76da84',
+    blue = '#5f95fa',
+    aqua = '#66c9cf',
+    yellow = '#ffda14',
+    yellow2 = '#c2ad04',
+    orange = '#F9AE48',
+    orange2 = '#cd8b39',
+    purple = '#f1b1ff',
+    red = '#EC5F66',
+    red2 = '#F97B58',
+    purered = '#ff0000',
+    darkred = '#5f0000',
+
+    green1 = '#0FE192',
+    green2 = '#caefb3',
+    green3 = '#abce00',
+    green4 = '#648c01',
+    cyan = '#A1EFE4',
+    br_green = '#9EDD00',
+    br_green2 = '#9EFF30',
+    br_yellow = '#E7E527',
+    br_yellow2 = '#F0Fc4a',
+    br_blue = '#AAA6FA',
+    br_blue2 = '#2A56FF',
+    br_purple = '#C77EF0',
+    br_cyan = '#54CED6',
+    br_white = '#FFFFDF',
+
+    salmon = 'F7856E',
+    teal = '#4DB380',
+    paleblue = '#a6e7f0',
+    magenta = '#D184C7',
+  }
+
+  local ukraine = {
+    bg = '#1056B8',
+    bg_alt = '#2040b0',
+    bg_darker = '#1446a6',
+    fg = '#fdee1d',
+    bg2 = '#201022',
+    statement = ukraine_colors.br_yellow,
+    symbol = ukraine_colors.green,
+    operator = ukraine_colors.purple,
+    label = ukraine_colors.orange,
+    condition = ukraine_colors.cyan,
+    keyword = ukraine_colors.orange,
+    keyword_func = ukraine_colors.yellow,
+    func = ukraine_colors.purple,
+    method = ukraine_colors.pink,
+    text = '#f0f52b',
+    comments = '#a19103',
+    number = '#bb95fb',
+    float = ukraine_colors.orange,
+    char = ukraine_colors.aqua,
+    variable = ukraine_colors.br_yellow2,
+    parameter = '#c67eb9',
+    class = '#d3dcca',
+    typedef = '#c6c45e',
+    punctutation = ukraine_colors.green4,
+
+    field = ukraine_colors.br_yellow,
+    bool = ukraine_colors.cyan,
+    string = ukraine_colors.green1,
+    const = '#52d1ce',
+    directory = ukraine_colors.orange2,
+
+    selection = '#5470d2',
+    search_fg = '#f0f0f0',
+    search_bg = '#52408f',
+    contrast = '#1b20cb',
+    less_active = '#242fda',
+    bracket = ukraine_colors.paleblue,
+    active = '#3030E1',
+    more_active = '#3f36F1',
+    border = '#D4D938',
+    line_numbers = '#DdD286',
+    highlight = '#212bF0',
+    disabled = ukraine_colors.br_blue,
+    cursor = '#a0d2ac',
+    accent = '#cecd2d',
+    error = '#a61e20',
+    link = '#80ABF4',
+    type = '#66d9af',
+    none = 'NONE',
+  }
+
   if not vim.g then
     error('only nvim 5.0 supported')
   end
@@ -909,6 +1011,9 @@ local function starry_init()
   elseif vim.g.starry_style == 'middlenight_blue' then
     starry = vim.tbl_extend('force', starry, middlenight_blue_colors)
     starry = vim.tbl_extend('force', starry, middlenight_blue)
+  elseif vim.g.starry_style == 'ukraine' then
+    starry = vim.tbl_extend('force', starry, ukraine_colors)
+    starry = vim.tbl_extend('force', starry, ukraine)
   elseif vim.g.starry_style == 'earlysummer' or vim.g.starry_style == 'earlysummer_lighter' then
     if vim.g.starry_style == 'earlysummer_lighter' then
       earlysummer.bg = '#404757'

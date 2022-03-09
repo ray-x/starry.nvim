@@ -76,10 +76,11 @@ local themes = {
   'mariana',
   'emerald',
   'middlenight_blue',
+  'ukraine',
   'earlysummer',
 }
 
-local themes_daytime = { 'limestone', 'monokai_lighter', 'mariana_lighter', 'earlysummer_lighter' }
+local themes_daytime = { 'limestone', 'monokai_lighter', 'mariana_lighter', 'earlysummer_lighter', 'ukraine' }
 
 -- Load the theme
 function util.load(theme)

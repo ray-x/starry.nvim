@@ -7,7 +7,7 @@ This colorscheme plugin was orignally built based on combination of
 - [material.nvim](https://github.com/marko-cerovac/material.nvim)
 - [moonlight.nvim](https://github.com/shaunsingh/moonlight.nvim)
 
-Following colorschemes added later on:
+Following colorschemes were added later on:
 
 - Dracula & Dracula_blood theme
 - Monokai (Based on Sublime Build 3)
@@ -98,6 +98,10 @@ this feature. Here is an example for nighttime and daytime for earlysummer color
 The only light colorschem
 
 ![limestone colorscheme](https://user-images.githubusercontent.com/1681295/144512689-b4d88040-d2ac-4979-bc58-dccbd14ffc8b.png)
+
+## Ukraine
+Yellow text on blue background. Color palette from Ukraine nation flag.
+<img width="780" alt="image" src="https://user-images.githubusercontent.com/1681295/161696426-20f9a0a5-c62b-42e7-923a-6392a587e058.png">
 
 ## Supported Plugins
 

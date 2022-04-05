@@ -109,7 +109,7 @@ All the plugins supported by starry.nvim, e.g. Treesitter, LSP, Telescope, NvimT
 
 `nvim-cmp`:
 
-![image](https://user-images.githubusercontent.com/1681295/143810714-20c12ba3-5835-44f1-ad9f-58bb02a63136.png =400x)
+![image](https://user-images.githubusercontent.com/1681295/143810714-20c12ba3-5835-44f1-ad9f-58bb02a63136.png)
 
 ## Example Setup
 

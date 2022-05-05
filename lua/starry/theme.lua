@@ -204,6 +204,8 @@ theme.loadEditor = function()
     DashboardHeader = { fg = starry.comments },
     DashboardCenter = { fg = starry.accent },
     DashboardFooter = { fg = starry.green, style = 'italic' },
+
+    WinSeparator = { fg = starry.border },
   }
 
   -- Options:
@@ -223,7 +225,6 @@ theme.loadEditor = function()
   else
     editor.VertSplit = { fg = starry.bg } -- the column separating vertically split windows
   end
-
   -- Set End of Buffer lines (~)
   if vim.g.starry_hide_eob == true then
     editor.EndOfBuffer = { fg = starry.bg } -- ~ lines at the end of a buffer
@@ -368,6 +369,8 @@ theme.loadLSP = function()
   -- Lsp highlight groups
 
   local lsp = {
+    DiagnosticHint = { fg = starry.purple },
+    DiagnosticTruncateLine = { fg = starry.fg },
     DiagnosticError = { fg = starry.error }, -- used for "Error" diagnostic virtual text
     DiagnosticSignError = { fg = starry.error }, -- used for "Error" diagnostic signs in sign column
     DiagnosticFloatingError = { fg = starry.error }, -- used for "Error" diagnostic messages in the diagnostics float
@@ -434,10 +437,16 @@ theme.loadPlugins = function()
   local plugins = {
 
     -- LspTrouble
-    LspTroubleText = { fg = starry.text },
-    LspTroubleCount = { fg = starry.purple, bg = starry.active },
-    LspTroubleNormal = { fg = starry.fg, bg = starry.sidebar },
-
+    TroubleText = { fg = starry.text, bg = starry.sidebar },
+    TroubleCount = { fg = starry.purple, bg = starry.sidebar },
+    TroubleNormal = { fg = starry.fg, bg = starry.sidebar },
+    TroubleSignError = { fg = starry.error, bg = starry.sidebar },
+    TroubleSignWarning = { fg = starry.yellow, bg = starry.sidebar },
+    TroubleSignInformation = { fg = starry.paleblue, bg = starry.sidebar },
+    TroubleSignHint = { fg = starry.purple, bg = starry.sidebar },
+    TroubleFoldIcon = { fg = starry.accent, bg = starry.sidebar },
+    TroubleIndent = { fg = starry.border, bg = starry.sidebar },
+    TroubleLocation = { fg = starry.disabled, bg = starry.sidebar },
     -- Nvim-Compe
     CompeDocumentation = { fg = starry.text, bg = starry.contrast },
     CmpDocumentation = { fg = starry.text, bg = starry.contrast },
@@ -519,11 +528,6 @@ theme.loadPlugins = function()
     WhichKeyFloat = { bg = starry.floating },
 
     -- LspSaga
-    DiagnosticError = { fg = starry.error },
-    DiagnosticWarning = { fg = starry.yellow },
-    DiagnosticInformation = { fg = starry.paleblue },
-    DiagnosticHint = { fg = starry.purple },
-    DiagnosticTruncateLine = { fg = starry.fg },
     LspFloatWinNormal = { bg = starry.contrast },
     LspFloatWinBorder = { fg = starry.purple },
     LspSagaBorderTitle = { fg = starry.cyan },
@@ -540,7 +544,8 @@ theme.loadPlugins = function()
     DefinitionIcon = { fg = starry.blue },
     ReferencesIcon = { fg = starry.blue },
     TargetWord = { fg = starry.cyan },
-
+    FocusedSymbol = { bg = starry.selection },
+    SymbolsOutlineConnector = { fg = starry.border },
     -- BufferLine
     BufferLineIndicatorSelected = { fg = starry.type },
     BufferLineFill = { bg = starry.bg_alt },

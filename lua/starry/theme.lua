@@ -36,6 +36,8 @@ theme.loadSyntax = function()
     Error = { fg = starry.error, bg = starry.none, style = 'bold,undercurl', sp = starry.pink }, -- any erroneous construct
     Todo = { fg = starry.yellow, bg = starry.bg_alt or starry.search_bg, style = 'bold,italic' }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
+    MsgArea = { fg = starry.string or starry.green, bg = starry.none }, -- Any string
+
     htmlLink = { fg = starry.link, style = 'underline', sp = starry.blue },
     htmlH1 = { fg = starry.cyan, style = 'bold' },
     htmlH2 = { fg = starry.red, style = 'bold' },

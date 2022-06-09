@@ -883,6 +883,7 @@ local function starry_init()
     starry.bg_alt = '#DFDFBF'
     starry.fg = '#345E6A'
     starry.text = '#547770'
+    starry.textdark = '#648780'
     starry.comments = '#90A0B2'
     starry.selection = '#80CBC4'
     starry.contrast = '#DEDEDE'
@@ -896,7 +897,6 @@ local function starry_init()
     starry.cursor = '#272727'
     starry.accent = '#00BCD4'
     starry.parameter = '#5193a8'
-
     starry.white = '#FFFFFF'
     starry.gray = '#818CA4'
     starry.black = '#606040'

@@ -18,12 +18,15 @@ util.hlv2 = function(group, style)
     end
     -- lprint(group, val)
   end
+  if style.link then
+    val = { link = style.link }
+  end
   vim.api.nvim_set_hl(0, group, val)
 end
 
 -- Go trough the table and highlight the group with the color values
 util.highlight = function(group, color)
-  if nvim06 and vim.g.starry_set_hl then
+  if nvim06 and vim.g.starry_set_hl ~= false then
     util.hlv2(group, color)
   else
     local style = color.style and 'gui=' .. color.style or 'gui=NONE'
@@ -33,12 +36,11 @@ util.highlight = function(group, color)
     local blend = color.blend and 'blend=' .. tostring(color.blend) or ''
 
     local hlcmd = 'highlight ' .. group .. ' ' .. style .. ' ' .. fg .. ' ' .. bg .. ' ' .. sp .. blend
-
+    if color.link then
+      -- lprint('link' ,group, color)
+      hlcmd = 'highlight! link ' .. group .. ' ' .. color.link
+    end
     vim.cmd(hlcmd)
-  end
-  if color.link then
-    -- lprint('link' ,group, color)
-    vim.cmd('highlight! link ' .. group .. ' ' .. color.link)
   end
 end
 

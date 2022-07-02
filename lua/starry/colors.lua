@@ -916,6 +916,8 @@ local function starry_init()
     starry.violet = '#945eb8'
     starry.type = '#A47EE8'
     starry.lime = '#98BE54'
+    starry.search_fg = '#FAC37D'
+    starry.search_bg = starry.blue1
 
     starry.keyword = starry.orange
   elseif vim.g.starry_style == 'palenight' then

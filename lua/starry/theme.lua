@@ -254,6 +254,9 @@ theme.loadTerminal = function()
   vim.g.terminal_color_13 = starry.purple
   vim.g.terminal_color_14 = starry.cyan
   vim.g.terminal_color_15 = starry.white
+
+  vim.g.terminal_color_foreground = starry.fg
+  vim.g.terminal_color_background = starry.bg
 end
 
 theme.loadTreeSitter = function()

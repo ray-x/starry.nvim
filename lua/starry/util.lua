@@ -2,7 +2,7 @@ local util = {}
 local config = require('starry.config').options
 local nvim06 = vim.fn.has('nvim-0.6')
 
-local ns = vim.api.nvim_create_namespace('color_galaxy')
+local ns = vim.api.nvim_create_namespace('color_starry')
 util.hlv2 = function(group, style)
   local val = { fg = style.fg, bg = style.bg }
   if style.sp then
@@ -18,7 +18,7 @@ util.hlv2 = function(group, style)
     end
     -- lprint(group, val)
   end
-  vim.api.nvim_set_hl(ns, group, val)
+  vim.api.nvim_set_hl(0, group, val)
 end
 
 -- Go trough the table and highlight the group with the color values

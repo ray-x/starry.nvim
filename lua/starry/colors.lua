@@ -182,7 +182,7 @@ local function starry_init()
 
     black = '#101010',
     red = '#A71906',
-    salmon = 'F7856E',
+    salmon = '#F7856E',
     green = '#8FE067',
     teal = '#4DB380',
     yellow = '#FFC66B',
@@ -270,7 +270,7 @@ local function starry_init()
     br_cyan = '#54CED6',
     br_white = '#FFFFFF',
 
-    salmon = 'F7856E',
+    salmon = '#F7856E',
     teal = '#4DB380',
     paleblue = '#a6a7d0',
     blue = '#5594EC',
@@ -368,7 +368,7 @@ local function starry_init()
     br_cyan = '#54CED6',
     br_white = '#FFFFFF',
 
-    salmon = 'F7856E',
+    salmon = '#F7856E',
     teal = '#4DB380',
     paleblue = '#a6a7e0',
     magenta = '#D184C7',
@@ -577,7 +577,7 @@ local function starry_init()
     br_cyan = '#54CED6',
     br_white = '#FFFFFF',
 
-    salmon = 'F7856E',
+    salmon = '#F7856E',
     teal = '#4DB380',
     paleblue = '#d6e7f0',
     magenta = '#D184C7',
@@ -681,7 +681,7 @@ local function starry_init()
     br_cyan = '#54CED6',
     br_white = '#FFFFFF',
 
-    salmon = 'F7856E',
+    salmon = '#F7856E',
     teal = '#4DB380',
     paleblue = '#d6e7f0',
     magenta = '#D184C7',
@@ -783,7 +783,7 @@ local function starry_init()
     br_cyan = '#54CED6',
     br_white = '#FFFFDF',
 
-    salmon = 'F7856E',
+    salmon = '#F7856E',
     teal = '#4DB380',
     paleblue = '#a6e7f0',
     magenta = '#D184C7',

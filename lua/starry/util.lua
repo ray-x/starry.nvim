@@ -122,7 +122,7 @@ function util.load(theme)
     vim.g.colors_name = 'starry'
   end
 
-  -- ns = vim.api.nvim_create_namespace(vim.g.colors_name)
+  -- local ns = vim.api.nvim_create_namespace('color_starry')
   local starry = require('starry.theme')
   -- Load plugins, treesitter and lsp async
   local async
@@ -153,6 +153,7 @@ function util.load(theme)
       end
     end
     util.contrast()
+    vim.api.nvim__set_hl_ns(ns)
     async:close()
     vim.cmd('doautocmd ColorScheme')
   end))

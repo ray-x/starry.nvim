@@ -26,14 +26,14 @@ theme.loadSyntax = function()
     Typedef = { fg = starry.typedef or starry.red }, -- A typedef
     PreCondit = { fg = starry.paleblue }, -- preprocessor #if, #else, #endif, etc.
     Special = { fg = starry.red }, -- any special symbol
-    SpecialChar = { fg = starry.pink }, -- special character in a constant
+    SpecialChar = { link = 'Define' }, -- special character in a constant
     Tag = { fg = starry.lime }, -- you can use CTRL-] on this
     Delimiter = { fg = starry.blue1 }, -- character that needs attention like , or .
-    SpecialComment = { fg = starry.comments or starry.gray }, -- special things inside a comment
-    Debug = { fg = starry.red }, -- debugging statements
+    SpecialComment = { fg = starry.comments }, -- special things inside a comment
+    Debug = { link = 'Special' }, -- debugging statements
     Underlined = { fg = starry.link, bg = starry.none, style = 'undercurl', sp = starry.blue }, -- text that stands out, HTML links
     Ignore = { fg = starry.disabled }, -- left blank, hidden
-    Error = { fg = starry.error, bg = starry.none, style = 'bold,undercurl', sp = starry.pink }, -- any erroneous construct
+    Error = { link = 'DiagnosticError', bg = starry.none, style = 'bold,undercurl', sp = starry.pink }, -- any erroneous construct
     Todo = { fg = starry.yellow, bg = starry.bg_alt or starry.search_bg, style = 'bold,italic' }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     MsgArea = { fg = starry.string or starry.green, bg = starry.none }, -- Any string
@@ -44,12 +44,12 @@ theme.loadSyntax = function()
     htmlH3 = { fg = starry.green, style = 'bold' },
     htmlH4 = { fg = starry.yellow, style = 'bold' },
     htmlH5 = { fg = starry.purple, style = 'bold' },
-    markdownH1 = { fg = starry.cyan, style = 'bold' },
-    markdownH2 = { fg = starry.red, style = 'bold' },
-    markdownH3 = { fg = starry.green, style = 'bold' },
-    markdownH1Delimiter = { fg = starry.cyan },
-    markdownH2Delimiter = { fg = starry.red },
-    markdownH3Delimiter = { fg = starry.green },
+    markdownH1 = { link = 'htmlH1' },
+    markdownH2 = { link = 'htmlH2' },
+    markdownH3 = { link = 'htmlH3' },
+    markdownH1Delimiter = { link = 'Macro' },
+    markdownH2Delimiter = { link = 'Special' },
+    markdownH3Delimiter = { link = 'Question' },
   }
 
   -- Options:
@@ -58,7 +58,7 @@ theme.loadSyntax = function()
   if vim.g.starry_italic_comments == true then
     syntax.Comment = { fg = starry.comments, bg = starry.none, style = 'italic' } -- italic comments
   else
-    syntax.Comment = { fg = starry.comments } -- normal comments
+    syntax.Comment = { link = 'SpecialComment' } -- normal comments
   end
 
   -- Italic string
@@ -86,7 +86,7 @@ theme.loadSyntax = function()
   else
     syntax.Conditional = { fg = starry.condition or starry.purple } -- normal if, then, else, endif, switch, etc.
     syntax.Keyword = { fg = starry.keyword or starry.purple } -- normal for, do, while, etc.
-    syntax.Repeat = { fg = starry.purple } -- normal any other keyword
+    syntax.Repeat = { link = 'PreProc' } -- normal any other keyword
   end
 
   -- Italic Function names
@@ -118,7 +118,7 @@ theme.loadEditor = function()
     FloatShadow = { bg = starry.black, blend = 36 },
     FloatShadowThrough = { bg = starry.black, blend = 66 },
     ColorColumn = { fg = starry.none, bg = starry.active }, --  used for the columns set with 'colorcolumn'
-    Conceal = { fg = starry.disabled }, -- placeholder characters substituted for concealed text (see 'conceallevel')
+    Conceal = { link = 'Ignore' }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = { fg = starry.cursor, bg = starry.none, style = 'reverse' }, -- the character under the cursor
     CursorIM = { fg = starry.cursor, bg = starry.none, style = 'reverse' }, -- like Cursor, but used when in IME mode
     Directory = { fg = starry.directory or starry.blue, bg = starry.none }, -- directory names (and other special names in listings)
@@ -131,10 +131,10 @@ theme.loadEditor = function()
     }, --  diff mode: Changed line
     DiffDelete = { fg = starry.red, bg = starry.none, style = 'reverse' }, -- diff mode: Deleted line
     DiffText = { fg = starry.yellow, bg = starry.none, style = 'reverse' }, -- diff mode: Changed text within a changed line
-    EndOfBuffer = { fg = starry.disabled }, -- ~ lines at the end of a buffer
-    ErrorMsg = { fg = starry.error }, -- error messages
+    EndOfBuffer = { link = 'Ignore' }, -- ~ lines at the end of a buffer
+    ErrorMsg = { link = 'DiagnosticError' }, -- error messages
     Folded = { fg = starry.link, bg = starry.none, style = 'bold' },
-    FoldColumn = { fg = starry.blue },
+    FoldColumn = { link = 'Include' },
     IncSearch = { fg = starry.white, bg = starry.highlight, style = 'bold,reverse' },
     LineNr = { fg = starry.text, style = 'bold,underline' },
     LineNrAbove = { fg = starry.line_numbers },
@@ -147,7 +147,7 @@ theme.loadEditor = function()
     },
     ModeMsg = { fg = starry.accent },
     MoreMsg = { fg = starry.accent },
-    NonText = { fg = starry.disabled },
+    NonText = { link = 'Ignore' },
     Pmenu = { fg = starry.textdark, bg = starry.contrast },
     PmenuSel = {
       fg = starry.accent,
@@ -164,7 +164,7 @@ theme.loadEditor = function()
       bg = starry.search_bg or starry.yellow,
       style = 'reverse',
     },
-    SpecialKey = { fg = starry.purple },
+    SpecialKey = { link = 'PreProc' },
     SpellBad = { fg = starry.orange, bg = starry.none, style = 'undercurl', sp = starry.red },
     SpellCap = { fg = starry.blue, bg = starry.none, style = 'undercurl', sp = starry.violet },
     SpellLocal = { fg = starry.cyan, bg = starry.none, style = 'undercurl' },
@@ -183,7 +183,7 @@ theme.loadEditor = function()
     Tabline = { fg = starry.fg },
     Title = { fg = starry.title, bg = starry.none, style = 'bold' },
     Visual = { fg = starry.none, bg = starry.selection },
-    VisualNOS = { fg = starry.none, bg = starry.selection },
+    VisualNOS = { link = 'Visual' },
     WarningMsg = { fg = starry.yellow },
     WildMenu = { fg = starry.orange, bg = starry.none, style = 'bold' },
     CursorColumn = { fg = starry.none, bg = starry.active },
@@ -195,15 +195,15 @@ theme.loadEditor = function()
     ReplacelMode = { fg = starry.red, bg = starry.none, style = 'reverse' },
     VisualMode = { fg = starry.purple, bg = starry.none, style = 'reverse' },
     CommandMode = { fg = starry.gray, bg = starry.none, style = 'reverse' },
-    Warnings = { fg = starry.yellow },
+    Warnings = { link = 'WarningMsg' },
 
-    healthError = { fg = starry.error },
-    healthSuccess = { fg = starry.green },
-    healthWarning = { fg = starry.yellow },
+    healthError = { link = 'DiagnosticError' },
+    healthSuccess = { link = 'Question' },
+    healthWarning = { link = 'WarningMsg' },
 
     -- Dashboard
-    DashboardShortCut = { fg = starry.red },
-    DashboardHeader = { fg = starry.comments },
+    DashboardShortCut = { link = 'Special' },
+    DashboardHeader = { link = 'SpecialComment' },
     DashboardCenter = { fg = starry.accent },
     DashboardFooter = { fg = starry.green, style = 'italic' },
 
@@ -231,7 +231,7 @@ theme.loadEditor = function()
   if vim.g.starry_hide_eob == true then
     editor.EndOfBuffer = { fg = starry.bg } -- ~ lines at the end of a buffer
   else
-    editor.EndOfBuffer = { fg = starry.disabled } -- ~ lines at the end of a buffer
+    editor.EndOfBuffer = { link = 'Ignore' } -- ~ lines at the end of a buffer
   end
 
   return editor
@@ -263,20 +263,20 @@ theme.loadTreeSitter = function()
   -- TreeSitter highlight groups
 
   local treesitter = {
-    TSAnnotation = { fg = starry.red }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-    TSAttribute = { fg = starry.yellow }, -- (unstable) TODO: docs
+    TSAnnotation = { link = 'Special' }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
+    TSAttribute = { link = 'WarningMsg' }, -- (unstable) TODO: docs
     TSBoolean = { fg = starry.bool or starry.coral, style = 'italic' }, -- For booleans.
     TSCharacter = { fg = starry.char or starry.orange }, -- For characters.
-    TSConstructor = { fg = starry.purple }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+    TSConstructor = { link = 'PreProc' }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     TSConstant = { fg = starry.const or starry.yellow }, -- For constants
     TSConstBuiltin = { fg = starry.const or starry.red }, -- For constant that are built in the language: `nil` in Lua.
-    TSConstMacro = { fg = starry.red }, -- For constants that are defined by macros: `NULL` in C.
-    TSError = { fg = starry.error }, -- For syntax/parser errors.
+    TSConstMacro = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
+    TSError = { link = 'DiagnosticError' }, -- For syntax/parser errors.
     TSException = { fg = starry.red3 }, -- For exception related keywords.
     TSField = { fg = starry.variable or starry.blue1 }, -- For fields.
     TSFloat = { fg = starry.float or starry.red }, -- For floats.
-    TSFuncMacro = { fg = starry.blue }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    TSInclude = { fg = starry.cyan }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+    TSFuncMacro = { link = 'Include' }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+    TSInclude = { link = 'Macro' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 
     TSDefinitionUsage = {
       fg = starry.accent or starry.salmon,
@@ -288,16 +288,16 @@ theme.loadTreeSitter = function()
     TSLabel = { fg = starry.green1 }, -- For labels: `label:` in C and `:label:` in Lua.
     TSNamespace = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
     TSNumber = { fg = starry.number or starry.yellow2 }, -- For all numbers
-    TSOperator = { fg = starry.operator or starry.cyan }, -- For any operator: `+`, but also `->` and `*` in C.
+    TSOperator = { link = 'Operator' }, -- For any operator: `+`, but also `->` and `*` in C.
     TSParameter = { fg = starry.parameter or starry.blue2 }, -- For parameters of a function.
     TSParameterReference = { fg = starry.paleblue }, -- For references to parameters of a function.
     TSProperty = { fg = starry.field or starry.blue1 }, -- Same as `TSField`.
-    TSPunctDelimiter = { fg = starry.cyan }, -- For delimiters ie: `.`
+    TSPunctDelimiter = { link = 'Macro' }, -- For delimiters ie: `.`
     TSPunctBracket = { fg = starry.bracket or starry.pink2 }, -- For brackets and parens.
     TSPunctSpecial = { fg = starry.punctutation or starry.purple1 }, -- For special punctutation that does not fall in the catagories before.
     TSString = { fg = starry.string or starry.green }, -- For strings.
     TSStringRegex = { fg = starry.pink2 }, -- For regexes.
-    TSStringEscape = { fg = starry.disabled }, -- For escape characters within a string.
+    TSStringEscape = { link = 'Ignore' }, -- For escape characters within a string.
     TSSymbol = { fg = starry.symbol or starry.yellow }, -- For identifiers referring to symbols or atoms.
     TSType = { fg = starry.type }, -- For types.
     TSTypeBuiltin = { fg = starry.purple1, style = 'bold' }, -- For builtin types.
@@ -321,7 +321,7 @@ theme.loadTreeSitter = function()
   if vim.g.starry_italic_comments == true then
     treesitter.TSComment = { fg = starry.comments, bg = starry.none, style = 'italic' } -- For comment blocks.
   else
-    treesitter.TSComment = { fg = starry.comments } -- For comment blocks.
+    treesitter.TSComment = { link = 'SpecialComment' } -- For comment blocks.
   end
 
   if vim.g.starry_italic_keywords == true then
@@ -374,45 +374,27 @@ theme.loadLSP = function()
   -- Lsp highlight groups
 
   local lsp = {
-    DiagnosticHint = { fg = starry.purple },
+    DiagnosticHint = { link = 'PreProc' },
     DiagnosticTruncateLine = { fg = starry.fg },
-    DiagnosticError = { fg = starry.error }, -- used for "Error" diagnostic virtual text
-    DiagnosticSignError = { fg = starry.error }, -- used for "Error" diagnostic signs in sign column
-    DiagnosticFloatingError = { fg = starry.error }, -- used for "Error" diagnostic messages in the diagnostics float
-    DiagnosticVirtualTextError = { fg = starry.error }, -- Virtual text "Error"
+    DiagnosticError = { link = 'Special' }, -- used for "Error" diagnostic virtual text
+    DiagnosticSignError = { link = 'DiagnosticError' }, -- used for "Error" diagnostic signs in sign column
+    DiagnosticFloatingError = { link = 'DiagnosticError' }, -- used for "Error" diagnostic messages in the diagnostics float
+    DiagnosticVirtualTextError = { link = 'DiagnosticError' }, -- Virtual text "Error"
     DiagnosticUnderlineError = { style = 'undercurl', sp = starry.error }, -- used to underline "Error" diagnostics.
-    DiagnosticWarn = { fg = starry.yellow }, -- used for "Warning" diagnostic signs in sign column
-    DiagnosticSignWarn = { fg = starry.yellow }, -- used for "Warning" diagnostic signs in sign column
-    DiagnosticFloatingWarn = { fg = starry.yellow }, -- used for "Warning" diagnostic messages in the diagnostics float
-    DiagnosticVirtualTextWarn = { fg = starry.yellow }, -- Virtual text "Warning"
+    DiagnosticWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic signs in sign column
+    DiagnosticSignWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic signs in sign column
+    DiagnosticFloatingWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic messages in the diagnostics float
+    DiagnosticVirtualTextWarn = { link = 'WarningMsg' }, -- Virtual text "Warning"
     DiagnosticUnderlineWarn = { style = 'undercurl', sp = starry.yellow }, -- used to underline "Warning" diagnostics.
     DiagnosticInfo = { fg = starry.paleblue }, -- used for "Information" diagnostic virtual text
-    DiagnosticSignInfo = { fg = starry.paleblue }, -- used for "Information" diagnostic signs in sign column
-    DiagnosticFloatingInfo = { fg = starry.paleblue }, -- used for "Information" diagnostic messages in the diagnostics float
-    DiagnosticVirtualTextInfo = { fg = starry.paleblue }, -- Virtual text "Information"
+    DiagnosticSignInfo = { link = 'DiagnosticInfo' }, -- used for "Information" diagnostic signs in sign column
+    DiagnosticFloatingInfo = { link = 'DiagnosticInfo' }, -- used for "Information" diagnostic messages in the diagnostics float
+    DiagnosticVirtualTextInfo = { link = 'DiagnosticInfo' }, -- Virtual text "Information"
     DiagnosticUnderlineInfo = { style = 'undercurl', sp = starry.paleblue }, -- used to underline "Information" diagnostics.
     DiagnosticDefaultHint = { fg = starry.link }, -- used for "Hint" diagnostic virtual text
-    DiagnosticSignHint = { fg = starry.link }, -- used for "Hint" diagnostic signs in sign column
+    DiagnosticSignHint = { link = 'DiagnosticDefaultHint' }, -- used for "Hint" diagnostic signs in sign column
     DiagnosticUnderlineHint = { style = 'undercurl', sp = starry.paleblue }, -- used to underline "Hint" diagnostics.
 
-    LspDiagnosticsDefaultError = { fg = starry.error }, -- used for "Error" diagnostic virtual text
-    LspDiagnosticsSignError = { fg = starry.error }, -- used for "Error" diagnostic signs in sign column
-    LspDiagnosticsFloatingError = { fg = starry.error }, -- used for "Error" diagnostic messages in the diagnostics float
-    LspDiagnosticsVirtualTextError = { fg = starry.error }, -- Virtual text "Error"
-    LspDiagnosticsUnderlineError = { style = 'undercurl', sp = starry.error }, -- used to underline "Error" diagnostics.
-    LspDiagnosticsDefaultWarning = { fg = starry.yellow }, -- used for "Warning" diagnostic signs in sign column
-    LspDiagnosticsSignWarning = { fg = starry.yellow }, -- used for "Warning" diagnostic signs in sign column
-    LspDiagnosticsFloatingWarning = { fg = starry.yellow }, -- used for "Warning" diagnostic messages in the diagnostics float
-    LspDiagnosticsVirtualTextWarning = { fg = starry.yellow }, -- Virtual text "Warning"
-    LspDiagnosticsUnderlineWarning = { style = 'undercurl', sp = starry.yellow }, -- used to underline "Warning" diagnostics.
-    LspDiagnosticsDefaultInformation = { fg = starry.paleblue }, -- used for "Information" diagnostic virtual text
-    LspDiagnosticsSignInformation = { fg = starry.paleblue }, -- used for "Information" diagnostic signs in sign column
-    LspDiagnosticsFloatingInformation = { fg = starry.paleblue }, -- used for "Information" diagnostic messages in the diagnostics float
-    LspDiagnosticsVirtualTextInformation = { fg = starry.paleblue }, -- Virtual text "Information"
-    LspDiagnosticsUnderlineInformation = { style = 'undercurl', sp = starry.paleblue }, -- used to underline "Information" diagnostics.
-    LspDiagnosticsDefaultHint = { fg = starry.link }, -- used for "Hint" diagnostic virtual text
-    LspDiagnosticsSignHint = { fg = starry.link }, -- used for "Hint" diagnostic signs in sign column
-    LspDiagnosticsUnderlineHint = { style = 'undercurl', sp = starry.paleblue }, -- used to underline "Hint" diagnostics.
     LspReferenceText = { style = 'bold,italic,undercurl', sp = 'yellow' }, -- used for highlighting "text" references
     LspReferenceRead = {
       -- fg = starry.accent or starry.salmon,
@@ -457,76 +439,76 @@ theme.loadPlugins = function()
     CmpDocumentation = { fg = starry.text, bg = starry.contrast },
 
     -- Diff
-    diffAdded = { fg = starry.green },
-    diffRemoved = { fg = starry.red },
-    diffChanged = { fg = starry.blue },
-    diffOldFile = { fg = starry.text },
+    diffAdded = { bg = starry.active },
+    diffRemoved = { link = 'Special' },
+    diffChanged = { bg = starry.active },
+    diffOldFile = { link = 'TSText' },
     diffNewFile = { fg = starry.title },
     diffFile = { fg = starry.gray },
-    diffLine = { fg = starry.cyan },
-    diffIndexLine = { fg = starry.purple },
+    diffLine = { link = 'Macro' },
+    diffIndexLine = { link = 'PreProc' },
 
     -- Neogit
     NeogitBranch = { fg = starry.paleblue },
-    NeogitRemote = { fg = starry.purple },
+    NeogitRemote = { link = 'PreProc' },
     NeogitHunkHeader = { fg = starry.fg, bg = starry.highlight },
     NeogitHunkHeaderHighlight = { fg = starry.blue, bg = starry.contrast },
     NeogitDiffContextHighlight = { fg = starry.text, bg = starry.contrast },
-    NeogitDiffDeleteHighlight = { fg = starry.red },
-    NeogitDiffAddHighlight = { fg = starry.green },
+    NeogitDiffDeleteHighlight = { link = 'Special' },
+    NeogitDiffAddHighlight = { link = 'Question' },
 
     -- GitGutter
-    GitGutterAdd = { fg = starry.green }, -- diff mode: Added line |diff.txt|
-    GitGutterChange = { fg = starry.blue }, -- diff mode: Changed line |diff.txt|
-    GitGutterDelete = { fg = starry.red }, -- diff mode: Deleted line |diff.txt|
+    GitGutterAdd = { link = 'Question' }, -- diff mode: Added line |diff.txt|
+    GitGutterChange = { link = 'Include' }, -- diff mode: Changed line |diff.txt|
+    GitGutterDelete = { link = 'Special' }, -- diff mode: Deleted line |diff.txt|
 
     -- GitSigns
-    GitSignsAdd = { fg = starry.green }, -- diff mode: Added line |diff.txt|
-    GitSignsAddNr = { fg = starry.green }, -- diff mode: Added line |diff.txt|
-    GitSignsAddLn = { fg = starry.green }, -- diff mode: Added line |diff.txt|
-    GitSignsChange = { fg = starry.blue }, -- diff mode: Changed line |diff.txt|
-    GitSignsChangeNr = { fg = starry.blue }, -- diff mode: Changed line |diff.txt|
-    GitSignsChangeLn = { fg = starry.blue }, -- diff mode: Changed line |diff.txt|
-    GitSignsDelete = { fg = starry.red }, -- diff mode: Deleted line |diff.txt|
-    GitSignsDeleteNr = { fg = starry.red }, -- diff mode: Deleted line |diff.txt|
-    GitSignsDeleteLn = { fg = starry.red }, -- diff mode: Deleted line |diff.txt|
+    GitSignsAdd = { link = 'Question' }, -- diff mode: Added line |diff.txt|
+    GitSignsAddNr = { link = 'Question' }, -- diff mode: Added line |diff.txt|
+    GitSignsAddLn = { link = 'Question' }, -- diff mode: Added line |diff.txt|
+    GitSignsChange = { link = 'Include' }, -- diff mode: Changed line |diff.txt|
+    GitSignsChangeNr = { link = 'Include' }, -- diff mode: Changed line |diff.txt|
+    GitSignsChangeLn = { link = 'Include' }, -- diff mode: Changed line |diff.txt|
+    GitSignsDelete = { link = 'Special' }, -- diff mode: Deleted line |diff.txt|
+    GitSignsDeleteNr = { link = 'Special' }, -- diff mode: Deleted line |diff.txt|
+    GitSignsDeleteLn = { link = 'Special' }, -- diff mode: Deleted line |diff.txt|
 
     GitSignsAddInline = { style = 'undercurl', sp = starry.green }, -- diff mode: Deleted line |diff.txt|
     GitSignsDeleteInline = { style = 'underline', sp = starry.error }, -- diff mode: Deleted line |diff.txt|
     GitSignsChangeInline = { style = 'undercurl', sp = starry.blue }, -- diff mode: Deleted line |diff.txt|
     -- Telescope
     TelescopeNormal = { fg = starry.fg, bg = starry.bg },
-    TelescopePromptBorder = { fg = starry.cyan },
-    TelescopeResultsBorder = { fg = starry.purple },
-    TelescopePreviewBorder = { fg = starry.green },
-    TelescopeSelectionCaret = { fg = starry.purple },
+    TelescopePromptBorder = { link = 'Macro' },
+    TelescopeResultsBorder = { link = 'PreProc' },
+    TelescopePreviewBorder = { link = 'Question' },
+    TelescopeSelectionCaret = { link = 'PreProc' },
     TelescopeSelection = { fg = starry.purple, bg = starry.active },
-    TelescopeMatching = { fg = starry.cyan },
+    TelescopeMatching = { link = 'Macro' },
 
     -- NvimTree
     NvimTreeRootFolder = { fg = starry.title, style = 'italic' },
-    NvimTreeFolderName = { fg = starry.text },
+    NvimTreeFolderName = { link = 'TSText' },
     NvimTreeFolderIcon = { fg = starry.accent },
-    NvimTreeEmptyFolderName = { fg = starry.disabled },
+    NvimTreeEmptyFolderName = { link = 'Ignore' },
     NvimTreeOpenedFolderName = { fg = starry.accent, style = 'italic' },
-    NvimTreeIndentMarker = { fg = starry.disabled },
-    NvimTreeGitDirty = { fg = starry.blue },
-    NvimTreeGitNew = { fg = starry.lime },
-    NvimTreeGitStaged = { fg = starry.comments },
-    NvimTreeGitDeleted = { fg = starry.red },
+    NvimTreeIndentMarker = { link = 'Ignore' },
+    NvimTreeGitDirty = { link = 'Include' },
+    NvimTreeGitNew = { link = 'Tag' },
+    NvimTreeGitStaged = { link = 'SpecialComment' },
+    NvimTreeGitDeleted = { link = 'Special' },
     NvimTreeOpenedFile = { fg = starry.accent },
-    NvimTreeImageFile = { fg = starry.yellow },
-    NvimTreeMarkdownFile = { fg = starry.pink },
-    NvimTreeExecFile = { fg = starry.green },
+    NvimTreeImageFile = { link = 'WarningMsg' },
+    NvimTreeMarkdownFile = { link = 'Define' },
+    NvimTreeExecFile = { link = 'Question' },
     NvimTreeSpecialFile = { fg = starry.purple, style = 'underline' },
-    LspDiagnosticsError = { fg = starry.error },
-    LspDiagnosticsWarning = { fg = starry.yellow },
+    LspDiagnosticsError = { link = 'DiagnosticError' },
+    LspDiagnosticsWarning = { link = 'WarningMsg' },
     LspDiagnosticsInformation = { fg = starry.paleblue },
-    LspDiagnosticsHint = { fg = starry.purple },
+    LspDiagnosticsHint = { link = 'PreProc' },
 
     -- WhichKey
     WhichKey = { fg = starry.accent, style = 'bold' },
-    WhichKeyGroup = { fg = starry.text },
+    WhichKeyGroup = { link = 'TSText' },
     WhichKeyDesc = { fg = starry.blue, style = 'italic' },
     WhichKeySeperator = { fg = starry.fg },
     WhichKeyFloating = { bg = starry.floating },
@@ -534,21 +516,21 @@ theme.loadPlugins = function()
 
     -- LspSaga
     LspFloatWinNormal = { bg = starry.contrast },
-    LspFloatWinBorder = { fg = starry.purple },
-    LspSagaBorderTitle = { fg = starry.cyan },
+    LspFloatWinBorder = { link = 'PreProc' },
+    LspSagaBorderTitle = { link = 'Macro' },
     LspSagaHoverBorder = { fg = starry.paleblue },
-    LspSagaRenameBorder = { fg = starry.green },
-    LspSagaDefPreviewBorder = { fg = starry.green },
-    LspSagaCodeActionBorder = { fg = starry.blue },
-    LspSagaFinderSelection = { fg = starry.green },
+    LspSagaRenameBorder = { link = 'Question' },
+    LspSagaDefPreviewBorder = { link = 'Question' },
+    LspSagaCodeActionBorder = { link = 'Include' },
+    LspSagaFinderSelection = { link = 'Question' },
     LspSagaCodeActionTitle = { fg = starry.paleblue },
-    LspSagaCodeActionContent = { fg = starry.purple },
-    LspSagaSignatureHelpBorder = { fg = starry.pink },
-    ReferencesCount = { fg = starry.purple },
-    DefinitionCount = { fg = starry.purple },
-    DefinitionIcon = { fg = starry.blue },
-    ReferencesIcon = { fg = starry.blue },
-    TargetWord = { fg = starry.cyan },
+    LspSagaCodeActionContent = { link = 'PreProc' },
+    LspSagaSignatureHelpBorder = { link = 'Define' },
+    ReferencesCount = { link = 'PreProc' },
+    DefinitionCount = { link = 'PreProc' },
+    DefinitionIcon = { link = 'Include' },
+    ReferencesIcon = { link = 'Include' },
+    TargetWord = { link = 'Macro' },
     FocusedSymbol = { bg = starry.selection },
     SymbolsOutlineConnector = { fg = starry.border },
     -- BufferLine
@@ -571,14 +553,14 @@ theme.loadPlugins = function()
     IndentBlanklineIndent6 = { fg = starry.red, style = 'nocombine' },
 
     -- Nvim dap
-    DapBreakpoint = { fg = starry.red },
-    DapStopped = { fg = starry.green },
+    DapBreakpoint = { link = 'Special' },
+    DapStopped = { link = 'Question' },
 
     -- Hop
     HopNextKey = { fg = starry.keyword or starry.func or starry.red, style = 'bold,underline' },
     HopNextKey1 = { fg = starry.purple, style = 'bold' },
     HopNextKey2 = { fg = starry.blue, style = 'bold' },
-    HopUnmatched = { fg = starry.comments or starry.gray7 },
+    HopUnmatched = { link = 'SpecialComment' },
 
     -- Lightspeed
     LightspeedLabel = {
@@ -591,7 +573,7 @@ theme.loadPlugins = function()
     LightspeedShortcut = { fg = starry.orange, bg = starry.bg, style = 'italic' },
     LightspeedShortcutOverlapped = { fg = starry.orange, style = 'bold' },
     LightspeedMaskedChar = { fg = starry.red, style = 'undercurl' },
-    LightspeedGreyWash = { fg = starry.comment },
+    LightspeedGreyWash = { link = 'SpecialComment' },
     LightspeedUnlabeledMatch = { fg = starry.red, style = 'underline' },
     LightspeedOneCharMatch = { fg = starry.red, style = 'underline' },
     LightspeedUniqueChar = { fg = starry.white, style = 'underline' },
@@ -610,7 +592,7 @@ theme.loadPlugins = function()
     CmpItemKindMethod = { fg = starry.method },
     CmpItemKindKeyword = { fg = starry.keyword },
     -- Fern
-    FernBranchText = { fg = starry.blue },
+    FernBranchText = { link = 'Include' },
   }
 
   -- Options:

@@ -561,8 +561,9 @@ theme.loadPlugins = function()
     SneakScope = { bg = starry.selection },
 
     -- Indent Blankline
-    IndentBlanklineChar = { fg = starry.highlight, style = 'bold' },
-    IndentBlanklineContextChar = { fg = starry.highlight, style = 'bold' },
+    IndentBlanklineChar = { fg = starry.purple, style = 'bold' },
+    IndentBlanklineContextChar = { fg = starry.purple, style = 'bold' },
+    IndentBlanklineContextStart = { style = 'bold,' .. underdouble, sp = starry.violet },
     IndentBlanklineIndent1 = { fg = starry.purple, style = 'nocombine' },
     IndentBlanklineIndent2 = { fg = starry.blue, style = 'nocombine' },
     IndentBlanklineIndent3 = { fg = starry.green, style = 'nocombine' },

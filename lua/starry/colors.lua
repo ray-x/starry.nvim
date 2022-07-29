@@ -1072,13 +1072,13 @@ local function starry_init()
 
   -- Check if vim.g.starry_custom_colors = is a table
   if type(vim.g.starry_custom_colors) == 'table' then
-    -- Iterate trough the table
+    -- Iterate through the table
     for key, value in pairs(vim.g.starry_custom_colors) do
       -- If the key doesn't exist:
       if not starry[key] then
         error('Color ' .. key .. ' does not exist')
       end
-      -- If it exists and the sting starts with a "#"
+      -- If it exists and the string starts with a "#"
       if string.sub(value, 1, 1) == '#' then
         -- Hex override
         starry[key] = value

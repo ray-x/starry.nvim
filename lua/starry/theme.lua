@@ -1,6 +1,20 @@
 local starry = require('starry.colors').starry()
 
 local theme = {}
+local underdouble = 'underline'
+local underdot = 'underline'
+local underdash = 'underline'
+if vim.fn.has('nvim-0.8') == 0 and vim.fn.has('nvim-0.7') == 1 then
+  underdot = 'underdot'
+  underdash = 'underdash'
+  underdouble = 'underlineline'
+end
+
+if vim.fn.has('nvim-0.8') == 1 then
+  underdouble = 'underdouble'
+  underdot = 'underdotted'
+  underdash = 'underdashed'
+end
 
 theme.loadSyntax = function()
   -- Syntax highlight groups
@@ -39,7 +53,7 @@ theme.loadSyntax = function()
     MsgArea = { fg = starry.string or starry.green, bg = starry.none }, -- Any string
 
     htmlLink = { fg = starry.link, style = 'underline', sp = starry.blue },
-    htmlH1 = { fg = starry.cyan, style = 'bold' },
+    htmlH1 = { fg = starry.cyan, style = 'bold,' .. underdouble },
     htmlH2 = { fg = starry.red, style = 'bold' },
     htmlH3 = { fg = starry.green, style = 'bold' },
     htmlH4 = { fg = starry.yellow, style = 'bold' },
@@ -95,7 +109,7 @@ theme.loadSyntax = function()
       fg = starry.func or starry.blue,
       bg = starry.none,
       style = 'italic,bold',
-    } -- italic funtion names
+    } -- italic function names
   else
     syntax.Function = { fg = starry.func or starry.blue, style = 'bold' } -- normal function names
   end
@@ -103,7 +117,7 @@ theme.loadSyntax = function()
   if vim.g.starry_italic_variables == true then
     syntax.Identifier = { fg = starry.variable, bg = starry.none, style = 'italic' } -- any variable name
   else
-    syntax.Identifier = { fg = starry.variable } -- any variable name
+    syntax.Identifier = { fg = starry.variable, style = underdot } -- any variable name
   end
 
   return syntax
@@ -113,8 +127,6 @@ theme.loadEditor = function()
   -- Editor highlight groups
 
   local editor = {
-    NormalFloat = { fg = starry.fg, bg = starry.floating }, -- normal text and background color for floating windows
-    FloatBorder = { fg = starry.comments, bg = starry.less_active },
     FloatShadow = { bg = starry.black, blend = 36 },
     FloatShadowThrough = { bg = starry.black, blend = 66 },
     ColorColumn = { fg = starry.none, bg = starry.active }, --  used for the columns set with 'colorcolumn'
@@ -122,15 +134,15 @@ theme.loadEditor = function()
     Cursor = { fg = starry.cursor, bg = starry.none, style = 'reverse' }, -- the character under the cursor
     CursorIM = { fg = starry.cursor, bg = starry.none, style = 'reverse' }, -- like Cursor, but used when in IME mode
     Directory = { fg = starry.directory or starry.blue, bg = starry.none }, -- directory names (and other special names in listings)
-    DiffAdd = { fg = starry.green, bg = starry.none, style = 'undercurl', sp = starry.active }, -- diff mode: Added line
+    DiffAdd = { bg = starry.active, style = 'bold,' .. underdash }, -- diff mode: Added line
     DiffChange = {
       fg = starry.orange,
       bg = starry.none,
-      style = 'undercurl,reverse',
+      style = 'reverse,bold,' .. underdot,
       sp = starry.red,
     }, --  diff mode: Changed line
-    DiffDelete = { fg = starry.red, bg = starry.none, style = 'reverse' }, -- diff mode: Deleted line
-    DiffText = { fg = starry.yellow, bg = starry.none, style = 'reverse' }, -- diff mode: Changed text within a changed line
+    DiffDelete = { bg = starry.less_active, style = 'strikethrough' }, -- diff mode: Deleted line
+    DiffText = { bg = starry.none, style = 'reverse' }, -- diff mode: Changed text within a changed line
     EndOfBuffer = { link = 'Ignore' }, -- ~ lines at the end of a buffer
     ErrorMsg = { link = 'DiagnosticError' }, -- error messages
     Folded = { fg = starry.link, bg = starry.none, style = 'bold' },
@@ -162,7 +174,7 @@ theme.loadEditor = function()
     Search = {
       fg = starry.search_fg or starry.highlight,
       bg = starry.search_bg or starry.yellow,
-      style = 'reverse',
+      style = 'reverse,bold',
     },
     SpecialKey = { link = 'PreProc' },
     SpellBad = { fg = starry.orange, bg = starry.none, style = 'undercurl', sp = starry.red },
@@ -216,9 +228,15 @@ theme.loadEditor = function()
   if vim.g.starry_disable_background == true then
     editor.Normal = { fg = starry.fg, bg = starry.none } -- normal text and background color
     editor.SignColumn = { fg = starry.fg, bg = starry.none }
+
+    editor.NormalFloat = { fg = starry.fg, bg = starry.none } -- normal text and background color for floating windows
+    editor.FloatBorder = { fg = starry.comments, bg = starry.none }
   else
     editor.Normal = { fg = starry.fg, bg = starry.bg } -- normal text and background color
     editor.SignColumn = { fg = starry.fg, bg = starry.bg }
+
+    editor.NormalFloat = { fg = starry.fg, bg = starry.floating } -- normal text and background color for floating windows
+    editor.FloatBorder = { fg = starry.comments, bg = starry.less_active }
   end
 
   -- Remove window split borders
@@ -275,16 +293,16 @@ theme.loadTreeSitter = function()
     TSException = { fg = starry.red3 }, -- For exception related keywords.
     TSField = { fg = starry.variable or starry.blue1 }, -- For fields.
     TSFloat = { fg = starry.float or starry.red }, -- For floats.
-    TSFuncMacro = { link = 'Include' }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+    TSFuncMacro = { link = 'Include' }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
     TSInclude = { link = 'Macro' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 
     TSDefinitionUsage = {
       fg = starry.accent or starry.salmon,
-      style = 'bold,undercurl',
+      style = 'bold,underline',
       sp = 'white',
     }, -- used for highlighting "read" references
 
-    TSDefinition = { fg = starry.keyword or 'yellow', style = 'bold,undercurl', sp = 'red' }, -- used for highlighting "write" references
+    TSDefinition = { fg = starry.keyword or 'yellow', style = 'bold,' .. underdouble, sp = 'red' }, -- used for highlighting "write" references
     TSLabel = { fg = starry.green1 }, -- For labels: `label:` in C and `:label:` in Lua.
     TSNamespace = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
     TSNumber = { fg = starry.number or starry.yellow2 }, -- For all numbers
@@ -294,7 +312,7 @@ theme.loadTreeSitter = function()
     TSProperty = { fg = starry.field or starry.blue1 }, -- Same as `TSField`.
     TSPunctDelimiter = { link = 'Macro' }, -- For delimiters ie: `.`
     TSPunctBracket = { fg = starry.bracket or starry.pink2 }, -- For brackets and parens.
-    TSPunctSpecial = { fg = starry.punctutation or starry.purple1 }, -- For special punctutation that does not fall in the catagories before.
+    TSPunctSpecial = { fg = starry.punctutation or starry.purple1 }, -- For special punctutation that does not fall in the categories before.
     TSString = { fg = starry.string or starry.green }, -- For strings.
     TSStringRegex = { fg = starry.pink2 }, -- For regexes.
     TSStringEscape = { link = 'Ignore' }, -- For escape characters within a string.
@@ -306,13 +324,13 @@ theme.loadTreeSitter = function()
     TSText = { fg = starry.text }, -- For strings considered text in a markup language.
     TSTextReference = { fg = starry.keyword, bg = starry.bg_alt }, -- FIXME
     TSEmphasis = { fg = starry.paleblue }, -- For text to be represented with emphasis.
-    TSUnderline = { fg = starry.fg, bg = starry.none, style = 'underline' }, -- For text to be represented with an underline.
-    TSStrike = { fg = starry.gray }, -- For strikethrough text.
+    TSUnderline = { fg = starry.fg, bg = starry.none, style = underdouble }, -- For text to be represented with an underline.
+    TSStrike = { fg = starry.gray, style = 'strikethrough' }, -- For strikethrough text.
     TSCurrentScope = { bg = starry.less_active or starry.active },
     TSTitle = { fg = starry.title, bg = starry.none, style = 'bold' }, -- Text that is part of a title.
     TSLiteral = { link = 'TSText' }, -- Literal text.
     TSURI = { link = 'htmlLink' }, -- Any URI like a link or email.
-    -- TSNone =                    { },    -- TODO: docs
+    TSNone = { link = 'SpecialComment' }, -- TODO: docs
   }
 
   -- Options:
@@ -331,26 +349,26 @@ theme.loadTreeSitter = function()
     treesitter.TSKeywordFunction = {
       fg = starry.keyword_func or starry.keyword or starry.purple,
       style = 'italic,bold',
-    } -- For keywords used to define a fuction.
+    } -- For keywords used to define a function.
   else
     treesitter.TSConditional = { fg = starry.condition or starry.purple } -- For keywords related to conditionnals.
     treesitter.TSKeyword = { fg = starry.keyword or starry.purple, style = 'bold' } -- For keywords that don't fall in previous categories.
     treesitter.TSRepeat = { fg = starry.condition or starry.purple, style = 'bold' } -- For keywords related to loops.
     treesitter.TSKeywordFunction = {
-      fg = starry.keyword_func or starry.keyword or starry.purple,
+      fg = starry.keyword_func or starry.keyword,
       style = 'bold',
-    } -- For keywords used to define a fuction.
+    } -- For keywords used to define a function.
   end
 
   if vim.g.starry_italic_functions == true then
-    treesitter.TSFunction = { fg = starry.func or starry.blue, style = 'italic,bold' } -- For fuction (calls and definitions).
+    treesitter.TSFunction = { fg = starry.func or starry.blue, style = 'italic,bold' } -- For function (calls and definitions).
     treesitter.TSMethod = {
       fg = starry.method or starry.func or starry.blue,
       style = 'italic,bold',
     } -- For method calls and definitions.
     treesitter.TSFuncBuiltin = { fg = starry.func or starry.cyan, style = 'italic,bold' } -- For builtin functions: `table.insert` in Lua.
   else
-    treesitter.TSFunction = { fg = starry.func or starry.blue, style = 'bold' } -- For fuction (calls and definitions).
+    treesitter.TSFunction = { fg = starry.func or starry.blue, style = 'bold' } -- For function (calls and definitions).
     treesitter.TSMethod = { fg = starry.method or starry.blue, style = 'bold' } -- For method calls and definitions.
     treesitter.TSFuncBuiltin = { fg = starry.func or starry.cyan, style = 'bold' } -- For builtin functions: `table.insert` in Lua.
   end
@@ -397,20 +415,20 @@ theme.loadLSP = function()
 
     LspReferenceText = { style = 'bold,italic,undercurl', sp = 'yellow' }, -- used for highlighting "text" references
     LspReferenceRead = {
-      -- fg = starry.accent or starry.salmon,
-      style = 'bold,italic,undercurl',
+      fg = starry.accent or starry.salmon,
+      style = 'bold,italic,' .. underdash,
       sp = 'lime',
     }, -- used for highlighting "read" references
     LspReferenceWrite = {
       fg = starry.keyword or 'yellow',
       bg = starry.highlight,
-      style = 'bold,italic,undercurl',
+      style = 'bold,italic,' .. underdouble,
       sp = 'red2',
     }, -- used for highlighting "write" references
     LspSignatureActiveParameter = {
       fg = starry.search_fg or starry.yellow,
       bg = starry.search_bg or starry.highlight,
-      style = 'bold,italic,undercurl',
+      style = 'bold,italic,' .. underdouble,
       sp = 'violet',
     },
   }
@@ -477,7 +495,7 @@ theme.loadPlugins = function()
     GitSignsDeleteInline = { style = 'underline', sp = starry.error }, -- diff mode: Deleted line |diff.txt|
     GitSignsChangeInline = { style = 'undercurl', sp = starry.blue }, -- diff mode: Deleted line |diff.txt|
     -- Telescope
-    TelescopeNormal = { fg = starry.fg, bg = starry.bg },
+    TelescopeNormal = { link = 'NormalFloat' },
     TelescopePromptBorder = { link = 'Macro' },
     TelescopeResultsBorder = { link = 'PreProc' },
     TelescopePreviewBorder = { link = 'Question' },
@@ -543,8 +561,8 @@ theme.loadPlugins = function()
     SneakScope = { bg = starry.selection },
 
     -- Indent Blankline
-    IndentBlanklineChar = { fg = starry.highlight },
-    IndentBlanklineContextChar = { fg = starry.func or starry.sky, style = 'bold' },
+    IndentBlanklineChar = { fg = starry.highlight, style = 'bold' },
+    IndentBlanklineContextChar = { fg = starry.highlight, style = 'bold' },
     IndentBlanklineIndent1 = { fg = starry.purple, style = 'nocombine' },
     IndentBlanklineIndent2 = { fg = starry.blue, style = 'nocombine' },
     IndentBlanklineIndent3 = { fg = starry.green, style = 'nocombine' },
@@ -557,7 +575,7 @@ theme.loadPlugins = function()
     DapStopped = { link = 'Question' },
 
     -- Hop
-    HopNextKey = { fg = starry.keyword or starry.func or starry.red, style = 'bold,underline' },
+    HopNextKey = { fg = starry.keyword or starry.func, style = 'bold,underline' },
     HopNextKey1 = { fg = starry.purple, style = 'bold' },
     HopNextKey2 = { fg = starry.blue, style = 'bold' },
     HopUnmatched = { link = 'SpecialComment' },
@@ -606,5 +624,4 @@ theme.loadPlugins = function()
 
   return plugins
 end
-
 return theme

@@ -824,7 +824,7 @@ local function starry_init()
     directory = dark_solar_colors.blue,
 
     selection = '#234252',
-    search_fg = dark_solar_colors.orange,
+    search_fg = dark_solar_colors.yellow,
     search_bg = '#303010',
     contrast = '#1b1c2b',
     less_active = '#203154',

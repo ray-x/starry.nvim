@@ -147,7 +147,7 @@ theme.loadEditor = function()
     ErrorMsg = { link = 'DiagnosticError' }, -- error messages
     Folded = { fg = starry.link, bg = starry.none, style = 'bold' },
     FoldColumn = { link = 'Include' },
-    IncSearch = { fg = starry.white, bg = starry.highlight, style = 'bold,reverse' },
+    IncSearch = { fg = starry.orange, bg = starry.highlight, style = 'bold,reverse' },
     LineNr = { fg = starry.text, style = 'bold,underline' },
     LineNrAbove = { fg = starry.line_numbers },
     LineNrBelow = { link = 'LineNrAbove' },

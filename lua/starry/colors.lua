@@ -757,7 +757,6 @@ local function starry_init()
     pink = '#ff95b6',
     redwine = '#e95680',
     green = '#56ba6c',
-    br_green = '#56ee9c',
     blue = '#2f75ca',
     blue2 = '#80e5fa',
     blue3 = '#90f5fa',
@@ -778,7 +777,7 @@ local function starry_init()
     green3 = '#abce00',
     dark_green = '#a0be70',
     cyan = '#299F84',
-    br_green = '#9EC400',
+    br_green = '#56ee9c',
     br_yellow = '#B77E37',
     br_yellow2 = '#d0ac7a',
     br_blue = '#1A86DA',
@@ -794,23 +793,23 @@ local function starry_init()
   }
 
   local dark_solar = {
-    bg = '#292f3d',
-    bg_alt = '#303648',
-    bg_darker = '#202336',
-    fg = '#bbccdd',
-    statement = dark_solar_colors.red1,
-    symbol = dark_solar_colors.yellow,
-    operator = dark_solar_colors.redwine,
+    bg = dark_solar_colors.black,
+    bg_alt = '#203648',
+    bg_darker = '#000316',
+    fg = dark_solar_colors.white,
+    statement = dark_solar_colors.green,
+    symbol = dark_solar_colors.br_cyan,
+    operator = dark_solar_colors.br_green,
     label = dark_solar_colors.orange,
     condition = dark_solar_colors.megenta,
-    keyword = dark_solar_colors.red,
-    keyword_func = dark_solar_colors.purple,
+    keyword = dark_solar_colors.br_green,
+    keyword_func = dark_solar_colors.green2,
     func = dark_solar_colors.blue2,
     method = dark_solar_colors.br_cyan,
-    text = '#e0d5eb',
+    text = dark_solar_colors.blue2,
     comments = dark_solar_colors.warmgrey,
-    number = dark_solar_colors.brown,
-    float = dark_solar_colors.orange,
+    number = dark_solar_colors.blue2,
+    float = dark_solar_colors.teal,
     char = dark_solar_colors.aqua,
     variable = dark_solar_colors.blue,
     parameter = dark_solar_colors.pink,
@@ -824,23 +823,23 @@ local function starry_init()
     const = dark_solar_colors.cyan,
     directory = dark_solar_colors.blue,
 
-    selection = '#544062',
+    selection = '#234252',
     search_fg = dark_solar_colors.orange,
     search_bg = '#303010',
     contrast = '#1b1c2b',
-    less_active = '#202124',
+    less_active = '#203154',
     bracket = dark_solar_colors.orange,
-    active = '#313043',
+    active = '#314053',
     more_active = '#4f5681',
-    border = '#393F48',
-    line_numbers = '#4d5266',
-    highlight = '#4f4b60',
+    border = '#193F48',
+    line_numbers = '#2d5266',
+    highlight = '#2f4b80',
     disabled = dark_solar_colors.darkgray,
     cursor = '#f34a00',
     accent = '#8eadbd',
     error = dark_solar_colors.br_red,
-    link = '#808BF4',
-    type = '#66d9af',
+    link = '#407BF4',
+    type = dark_solar_colors.br_yellow,
     none = 'NONE',
   }
 
@@ -1118,6 +1117,9 @@ local function starry_init()
   elseif vim.g.starry_style == 'middlenight_blue' then
     starry = vim.tbl_extend('force', starry, middlenight_blue_colors)
     starry = vim.tbl_extend('force', starry, middlenight_blue)
+  elseif vim.g.starry_style == 'dark_solar' then
+    starry = vim.tbl_extend('force', starry, dark_solar_colors)
+    starry = vim.tbl_extend('force', starry, dark_solar)
   elseif vim.g.starry_style == 'ukraine' then
     starry = vim.tbl_extend('force', starry, ukraine_colors)
     starry = vim.tbl_extend('force', starry, ukraine)

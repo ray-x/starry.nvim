@@ -576,10 +576,10 @@ theme.loadPlugins = function()
     DapStopped = { link = 'Question' },
 
     -- Hop
-    HopNextKey = { fg = starry.keyword or starry.func, style = 'bold,underline' },
-    HopNextKey1 = { fg = starry.purple, style = 'bold' },
-    HopNextKey2 = { fg = starry.blue, style = 'bold' },
-    HopUnmatched = { link = 'SpecialComment' },
+    HopNextKey = { fg = starry.red, style = 'bold,undercurl' },
+    HopNextKey1 = { fg = starry.purple, style = 'bold,undercurl' },
+    HopNextKey2 = { fg = starry.blue, style = 'bold,undercurl' },
+    HopUnmatched = { fg = starry.comments},
 
     -- Lightspeed
     LightspeedLabel = {

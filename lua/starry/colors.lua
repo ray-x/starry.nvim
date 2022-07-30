@@ -1056,7 +1056,7 @@ local function starry_init()
 
   -- Enable custom variable colors
   if vim.g.starry_variable_color == nil then
-    starry.variable = starry.variable or starry.gray
+    starry.variable = starry.variable or starry.blue
   else
     starry.variable = vim.g.starry_variable_color
   end

@@ -9,7 +9,7 @@ end
 
 local switch = {
   "darker", "limestone", "palenight", "oceanic", "deep ocean", "moonlight", "dracula",
-  "dracula_blood", "monokai", "mariana", "emerald", "middlenight_blue", "earlysummer"
+  "dracula_blood", "monokai", "mariana", "emerald", "middlenight_blue", "earlysummer", "dark_solar"
 }
 local switch_daytime = {"limestone", "monokai", "mariana", "earlysummer"}
 

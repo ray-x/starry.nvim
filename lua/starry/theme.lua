@@ -265,13 +265,13 @@ theme.loadTerminal = function()
   vim.g.terminal_color_6 = starry.cyan
   vim.g.terminal_color_7 = starry.white
   vim.g.terminal_color_8 = starry.gray
-  vim.g.terminal_color_9 = starry.red
-  vim.g.terminal_color_10 = starry.green
-  vim.g.terminal_color_11 = starry.yellow
-  vim.g.terminal_color_12 = starry.blue
-  vim.g.terminal_color_13 = starry.purple
-  vim.g.terminal_color_14 = starry.cyan
-  vim.g.terminal_color_15 = starry.white
+  vim.g.terminal_color_9 = starry.br_red or starry.red
+  vim.g.terminal_color_10 = starry.br_green or starry.green
+  vim.g.terminal_color_11 = starry.br_yellow or starry.yellow
+  vim.g.terminal_color_12 = starry.br_blue or starry.blue
+  vim.g.terminal_color_13 = starry.br_purple or starry.purple
+  vim.g.terminal_color_14 = starry.br_cyan or starry.cyan
+  vim.g.terminal_color_15 = starry.br_white or starry.white
 
   vim.g.terminal_color_foreground = starry.fg
   vim.g.terminal_color_background = starry.bg
@@ -579,7 +579,7 @@ theme.loadPlugins = function()
     HopNextKey = { fg = starry.red, style = 'bold,undercurl' },
     HopNextKey1 = { fg = starry.purple, style = 'bold,undercurl' },
     HopNextKey2 = { fg = starry.blue, style = 'bold,undercurl' },
-    HopUnmatched = { fg = starry.comments},
+    HopUnmatched = { fg = starry.comments },
 
     -- Lightspeed
     LightspeedLabel = {

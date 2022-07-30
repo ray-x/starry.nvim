@@ -15,6 +15,7 @@ Following colorschemes were added later on:
 - Emerald (Low contrast green color scheme)
 - Middlenight_blue (The theme to use in middle night)
 - Earlysummer (more vivid colors) and Earlysummer_lighter
+- Darksolar (dark solarized)
 - Ukraine yellow text on blue background
 
 ## Why this repo:

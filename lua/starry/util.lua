@@ -80,6 +80,7 @@ local themes = {
   'middlenight_blue',
   'ukraine',
   'earlysummer',
+  'dark_solar'
 }
 
 local themes_daytime = { 'limestone', 'monokai_lighter', 'mariana_lighter', 'earlysummer_lighter', 'ukraine' }

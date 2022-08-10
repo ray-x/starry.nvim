@@ -2,7 +2,8 @@ local function starry_init()
   local starry = {
     -- Common colors
 
-    white = '#EEFFFF',
+    white = '#EEEFFF',
+    br_white = '#FEFFFF',
     light_gray = '#A1ACD4',
     gray = '#717CB4',
     gray5 = '#5f496e',
@@ -11,8 +12,10 @@ local function starry_init()
     dark = '#13113f',
     neardark2 = '#282437',
 
+
     red = '#F07178',
     red1 = '#ec5f67',
+    br_red = '#f9a3a3',
     red2 = '#F92772',
     caramel = '#f9c37a',
     crimson = '#DC143C',
@@ -27,10 +30,12 @@ local function starry_init()
     green = '#C3E88D',
     lime = '#98EE64',
     green1 = '#1aad16',
+    br_green = '#1afd16',
     green2 = '#77d507',
     c = '#c988ce',
 
     yellow = '#FFCB6B',
+    br_yellow = '#FFFB6B',
     yellow1 = '#fbec9f',
     yellow2 = '#bBa03A',
     tan = '#DDCFBF',
@@ -38,11 +43,15 @@ local function starry_init()
     blue = '#82AAFF',
     paleblue = '#B0C9FF',
     blue1 = '#10aef8',
+    br_blue = '#408ef8',
     blue2 = '#01d5f1',
     cyan = '#89DDFF',
+    br_cyan = '#A9EDFF',
 
+    megenta = '#FF00FF',
     hoki = '#5f7e97',
     purple = '#C792EA',
+    br_purple = '#D792FA',
     violet = '#B66FFD',
 
     purple1 = '#ae81ef',
@@ -62,14 +71,6 @@ local function starry_init()
     pink2 = '#f19bb6',
     pink3 = '#fecbc9',
 
-    error = '#FF5370',
-    link = '#80CBC4',
-    cursor = '#FFCC00',
-    type = '#C789E0',
-    bright = '#ddd0f4',
-
-    textdark = '#b4b0e0',
-    text = '#f4f0f0',
 
     -- Dark colors
     darkgreen = '#abcf76',
@@ -79,7 +80,59 @@ local function starry_init()
     darkorange = '#e2795b',
 
     none = 'NONE',
+
   }
+
+  local default = {
+    statement = starry.pink,
+    symbol = starry.br_cyan,
+    operator = starry.cyan,
+    label = starry.purple1,
+    condition = starry.megenta,
+    keyword = starry.purple,
+    keyword_func = starry.green2,
+    func = starry.blue2,
+    method = starry.br_cyan,
+    comments = starry.warmgrey,
+    number = starry.coral,
+    float = starry.orange,
+    char = starry.orange,
+    variable = starry.blue,
+    parameter = starry.pink,
+    class = starry.cyan,
+    typedef = starry.red2,
+    punctutation = starry.br_blue,
+    structure = starry.purple,
+    cursor = '#FFCC00',
+    bright = '#ddd0f4',
+
+    textdark = '#b4b0e0',
+    text = '#f4f0f0',
+
+    field = starry.blue1,
+    bool = starry.orange,
+    string = starry.green,
+    const = starry.yellow,
+    directory = starry.blue,
+
+    selection = starry.gary7,
+    search_fg = starry.yellow,
+    search_bg = starry.gray7,
+    contrast = starry.dark,
+    less_active = starry.neardark2,
+    bracket = starry.orange,
+    active = starry.gray5,
+    more_active = starry.gray7,
+    border = starry.textdark,
+    line_numbers = starry.textdark,
+    highlight = starry.gray5,
+    disabled = starry.darkgray,
+    accent = starry.gray7,
+    error = starry.br_red,
+    link = starry.blue1,
+    type = starry.br_yellow,
+  }
+  starry = vim.tbl_extend('keep', starry, default)
 
   local starry_moonlight = {
     -- Common colors
@@ -112,7 +165,7 @@ local function starry_init()
     more_active = '#3f3a63',
     border = '#413893',
     line_numbers = '#5b6395',
-    highlight = '#615b80',
+    highlight = '#514b70',
     disabled = '#515772',
     cursor = '#5cb4fc',
     accent = '#a3ace1',
@@ -222,7 +275,7 @@ local function starry_init()
     more_active = '#584a4e',
     border = '#414245',
     line_numbers = '#5F4755',
-    highlight = '#616b70',
+    highlight = '#515b70',
     disabled = '#6f5456',
     cursor = '#7c44fc',
     accent = '#a34ca1',
@@ -310,7 +363,7 @@ local function starry_init()
     more_active = '#503f4f',
     border = '#414245',
     line_numbers = '#676765',
-    highlight = '#616b70',
+    highlight = '#515b70',
     disabled = '#4f5466',
     cursor = '#7c44fc',
     accent = '#66d9ef',
@@ -413,7 +466,7 @@ local function starry_init()
     more_active = mariana_colors.blue5,
     border = mariana_colors.blue4,
     line_numbers = mariana_colors.blue4,
-    highlight = '#616b70',
+    highlight = '#515b70',
     disabled = mariana_colors.blue4,
     cursor = '#7c44fc',
     accent = mariana_colors.white3,

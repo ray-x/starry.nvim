@@ -21,23 +21,23 @@ theme.loadSyntax = function()
 
   local syntax = {
     Type = { fg = starry.type }, -- int, long, char, etc.
-    StorageClass = { fg = starry.class or starry.cyan }, -- static, register, volatile, etc.
-    Structure = { fg = starry.structure or starry.puple }, -- struct, union, enum, etc.
-    Constant = { fg = starry.const or starry.yellow }, -- any constant
-    String = { fg = starry.string or starry.green, bg = starry.none }, -- Any string
+    StorageClass = { fg = starry.class }, -- static, register, volatile, etc.
+    Structure = { fg = starry.structure }, -- struct, union, enum, etc.
+    Constant = { fg = starry.const }, -- any constant
+    String = { fg = starry.string, bg = starry.none }, -- Any string
     Character = { fg = starry.orange }, -- any character constant: 'c', '\n'
-    Number = { fg = starry.number or starry.coral }, -- a number constant: 5
-    Boolean = { fg = starry.bool or starry.orange, style = 'italic' }, -- a boolean constant: TRUE, false
-    Float = { fg = starry.float or starry.number }, -- a floating point constant: 2.3e10
-    Statement = { fg = starry.statement or starry.pink }, -- any statement
-    Label = { fg = starry.label or starry.purple }, -- case, default, etc.
-    Operator = { fg = starry.operator or starry.cyan }, -- sizeof", "+", "*", etc.
+    Number = { fg = starry.number }, -- a number constant: 5
+    Boolean = { fg = starry.bool, style = 'italic' }, -- a boolean constant: TRUE, false
+    Float = { fg = starry.float }, -- a floating point constant: 2.3e10
+    Statement = { fg = starry.statement }, -- any statement
+    Label = { fg = starry.label }, -- case, default, etc.
+    Operator = { fg = starry.operator }, -- sizeof", "+", "*", etc.
     Exception = { fg = starry.purple2 }, -- try, catch, throw
     PreProc = { fg = starry.purple }, -- generic Preprocessor
     Include = { fg = starry.blue }, -- preprocessor #include
     Define = { fg = starry.pink }, -- preprocessor #define
     Macro = { fg = starry.cyan }, -- same as Define
-    Typedef = { fg = starry.typedef or starry.red }, -- A typedef
+    Typedef = { fg = starry.typedef }, -- A typedef
     PreCondit = { fg = starry.paleblue }, -- preprocessor #if, #else, #endif, etc.
     Special = { fg = starry.red }, -- any special symbol
     SpecialChar = { link = 'Define' }, -- special character in a constant
@@ -48,9 +48,9 @@ theme.loadSyntax = function()
     Underlined = { fg = starry.link, bg = starry.none, style = 'undercurl', sp = starry.blue }, -- text that stands out, HTML links
     Ignore = { fg = starry.disabled }, -- left blank, hidden
     Error = { link = 'DiagnosticError', bg = starry.none, style = 'bold,undercurl', sp = starry.pink }, -- any erroneous construct
-    Todo = { fg = starry.yellow, bg = starry.bg_alt or starry.search_bg, style = 'bold,italic' }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo = { fg = starry.yellow, bg = starry.bg_alt, style = 'bold,italic' }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
-    MsgArea = { fg = starry.string or starry.green, bg = starry.none }, -- Any string
+    MsgArea = { fg = starry.string, bg = starry.none }, -- Any string
 
     htmlLink = { fg = starry.link, style = 'underline', sp = starry.blue },
     htmlH1 = { fg = starry.cyan, style = 'bold,' .. underdouble },
@@ -83,41 +83,41 @@ theme.loadSyntax = function()
   -- Italic Keywords
   if vim.g.starry_italic_keywords == true then
     syntax.Conditional = {
-      fg = starry.condition or starry.purple,
+      fg = starry.condition,
       bg = starry.none,
       style = 'italic',
     } -- italic if, then, else, endif, switch, etc.
     syntax.Keyword = {
-      fg = starry.keyword or starry.purple,
+      fg = starry.keyword,
       bg = starry.none,
       style = 'italic',
     } -- italic for, do, while, etc.
     syntax.Repeat = {
-      fg = starry.condition or starry.purple,
+      fg = starry.condition,
       bg = starry.none,
       style = 'italic',
     } -- italic any other keyword
   else
-    syntax.Conditional = { fg = starry.condition or starry.purple } -- normal if, then, else, endif, switch, etc.
-    syntax.Keyword = { fg = starry.keyword or starry.purple } -- normal for, do, while, etc.
+    syntax.Conditional = { fg = starry.condition } -- normal if, then, else, endif, switch, etc.
+    syntax.Keyword = { fg = starry.keyword } -- normal for, do, while, etc.
     syntax.Repeat = { link = 'PreProc' } -- normal any other keyword
   end
 
   -- Italic Function names
   if vim.g.starry_italic_functions == true then
     syntax.Function = {
-      fg = starry.func or starry.blue,
+      fg = starry.func,
       bg = starry.none,
       style = 'italic,bold',
     } -- italic function names
   else
-    syntax.Function = { fg = starry.func or starry.blue, style = 'bold' } -- normal function names
+    syntax.Function = { fg = starry.func, style = 'bold' } -- normal function names
   end
 
   if vim.g.starry_italic_variables == true then
     syntax.Identifier = { fg = starry.variable, bg = starry.none, style = 'italic' } -- any variable name
   else
-    syntax.Identifier = { fg = starry.variable, style = underdot } -- any variable name
+    syntax.Identifier = { link = 'TSVariable' } -- any variable name
   end
 
   return syntax
@@ -133,7 +133,7 @@ theme.loadEditor = function()
     Conceal = { link = 'Ignore' }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = { fg = starry.cursor, bg = starry.none, style = 'reverse' }, -- the character under the cursor
     CursorIM = { fg = starry.cursor, bg = starry.none, style = 'reverse' }, -- like Cursor, but used when in IME mode
-    Directory = { fg = starry.directory or starry.blue, bg = starry.none }, -- directory names (and other special names in listings)
+    Directory = { fg = starry.directory, bg = starry.none }, -- directory names (and other special names in listings)
     DiffAdd = { bg = starry.active, style = 'bold,' .. underdash }, -- diff mode: Added line
     DiffChange = {
       fg = starry.orange,
@@ -151,19 +151,19 @@ theme.loadEditor = function()
     LineNr = { fg = starry.text, style = 'bold,underline' },
     LineNrAbove = { fg = starry.line_numbers },
     LineNrBelow = { link = 'LineNrAbove' },
-    CursorLineNr = { fg = starry.accent },
+    CursorLineNr = { link = 'ModeMsg', style = 'bold' },
     MatchParen = {
       fg = starry.yellow,
-      bg = starry.active or starry.none,
+      bg = starry.active,
       style = 'bold,underline',
     },
     ModeMsg = { fg = starry.accent },
-    MoreMsg = { fg = starry.accent },
+    MoreMsg = { link = 'ModeMsg' },
     NonText = { link = 'Ignore' },
     Pmenu = { fg = starry.textdark, bg = starry.contrast },
     PmenuSel = {
       fg = starry.accent,
-      bg = starry.more_active or starry.active,
+      bg = starry.more_active,
       style = 'bold,italic',
     },
     PmenuSbar = { fg = starry.text, bg = starry.contrast },
@@ -173,17 +173,17 @@ theme.loadEditor = function()
     qfLineNr = { fg = starry.highlight, bg = starry.white, style = 'reverse' },
     Search = {
       fg = starry.search_fg or starry.highlight,
-      bg = starry.search_bg or starry.yellow,
+      bg = starry.search_bg,
       style = 'reverse,bold',
     },
     SpecialKey = { link = 'PreProc' },
     SpellBad = { fg = starry.orange, bg = starry.none, style = 'undercurl', sp = starry.red },
     SpellCap = { fg = starry.blue, bg = starry.none, style = 'undercurl', sp = starry.violet },
-    SpellLocal = { fg = starry.cyan, bg = starry.none, style = 'undercurl' },
+    SpellLocal = { fg = starry.cyan, bg = starry.none, style = underdot },
     SpellRare = {
       fg = starry.purple,
       bg = starry.none,
-      style = 'undercurl',
+      style = underdot,
       sp = starry.darkred,
     },
     StatusLine = { fg = starry.accent, bg = starry.active },
@@ -265,13 +265,13 @@ theme.loadTerminal = function()
   vim.g.terminal_color_6 = starry.cyan
   vim.g.terminal_color_7 = starry.white
   vim.g.terminal_color_8 = starry.gray
-  vim.g.terminal_color_9 = starry.br_red or starry.red
-  vim.g.terminal_color_10 = starry.br_green or starry.green
-  vim.g.terminal_color_11 = starry.br_yellow or starry.yellow
-  vim.g.terminal_color_12 = starry.br_blue or starry.blue
-  vim.g.terminal_color_13 = starry.br_purple or starry.purple
-  vim.g.terminal_color_14 = starry.br_cyan or starry.cyan
-  vim.g.terminal_color_15 = starry.br_white or starry.white
+  vim.g.terminal_color_9 = starry.br_red
+  vim.g.terminal_color_10 = starry.br_green
+  vim.g.terminal_color_11 = starry.br_yellow
+  vim.g.terminal_color_12 = starry.br_blue
+  vim.g.terminal_color_13 = starry.br_purple
+  vim.g.terminal_color_14 = starry.br_cyan
+  vim.g.terminal_color_15 = starry.br_white
 
   vim.g.terminal_color_foreground = starry.fg
   vim.g.terminal_color_background = starry.bg
@@ -283,47 +283,47 @@ theme.loadTreeSitter = function()
   local treesitter = {
     TSAnnotation = { link = 'Special' }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
     TSAttribute = { link = 'WarningMsg' }, -- (unstable) TODO: docs
-    TSBoolean = { fg = starry.bool or starry.coral, style = 'italic' }, -- For booleans.
-    TSCharacter = { fg = starry.char or starry.orange }, -- For characters.
+    TSBoolean = { fg = starry.bool, style = 'italic' }, -- For booleans.
+    TSCharacter = { fg = starry.char }, -- For characters.
     TSConstructor = { link = 'PreProc' }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-    TSConstant = { fg = starry.const or starry.yellow }, -- For constants
-    TSConstBuiltin = { fg = starry.const or starry.red }, -- For constant that are built in the language: `nil` in Lua.
+    TSConstant = { fg = starry.const }, -- For constants
+    TSConstBuiltin = { fg = starry.const }, -- For constant that are built in the language: `nil` in Lua.
     TSConstMacro = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
     TSError = { link = 'DiagnosticError' }, -- For syntax/parser errors.
     TSException = { fg = starry.red3 }, -- For exception related keywords.
-    TSField = { fg = starry.variable or starry.blue1 }, -- For fields.
-    TSFloat = { fg = starry.float or starry.red }, -- For floats.
+    TSField = { link = 'TSVariable' }, -- For fields.
+    TSFloat = { fg = starry.float }, -- For floats.
     TSFuncMacro = { link = 'Include' }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
     TSInclude = { link = 'Macro' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 
     TSDefinitionUsage = {
-      fg = starry.accent or starry.salmon,
+      fg = starry.accent,
       style = 'bold,underline',
       sp = 'white',
     }, -- used for highlighting "read" references
 
-    TSDefinition = { fg = starry.keyword or 'yellow', style = 'bold,' .. underdouble, sp = 'red' }, -- used for highlighting "write" references
+    TSDefinition = { fg = starry.keyword, style = 'bold,' .. underdouble, sp = 'red' }, -- used for highlighting "write" references
     TSLabel = { fg = starry.green1 }, -- For labels: `label:` in C and `:label:` in Lua.
     TSNamespace = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
-    TSNumber = { fg = starry.number or starry.yellow2 }, -- For all numbers
+    TSNumber = { link = 'Number' }, -- For all numbers
     TSOperator = { link = 'Operator' }, -- For any operator: `+`, but also `->` and `*` in C.
-    TSParameter = { fg = starry.parameter or starry.blue2 }, -- For parameters of a function.
-    TSParameterReference = { fg = starry.paleblue }, -- For references to parameters of a function.
-    TSProperty = { fg = starry.field or starry.blue1 }, -- Same as `TSField`.
+    TSParameter = { fg = starry.parameter }, -- For parameters of a function.
+    TSParameterReference = { link = 'PreCondit' }, -- For references to parameters of a function.
+    TSProperty = { fg = starry.field }, -- Same as `TSField`.
     TSPunctDelimiter = { link = 'Macro' }, -- For delimiters ie: `.`
-    TSPunctBracket = { fg = starry.bracket or starry.pink2 }, -- For brackets and parens.
-    TSPunctSpecial = { fg = starry.punctutation or starry.purple1 }, -- For special punctutation that does not fall in the categories before.
-    TSString = { fg = starry.string or starry.green }, -- For strings.
+    TSPunctBracket = { fg = starry.bracket }, -- For brackets and parens.
+    TSPunctSpecial = { fg = starry.punctutation }, -- For special punctutation that does not fall in the categories before.
+    TSString = { link = 'String' }, -- For strings.
     TSStringRegex = { fg = starry.pink2 }, -- For regexes.
     TSStringEscape = { link = 'Ignore' }, -- For escape characters within a string.
-    TSSymbol = { fg = starry.symbol or starry.yellow }, -- For identifiers referring to symbols or atoms.
+    TSSymbol = { fg = starry.symbol }, -- For identifiers referring to symbols or atoms.
     TSType = { fg = starry.type }, -- For types.
     TSTypeBuiltin = { fg = starry.purple1, style = 'bold' }, -- For builtin types.
     TSTag = { fg = starry.red1 }, -- Tags like html tag names.
     TSTagDelimiter = { fg = starry.yellow2 }, -- Tag delimiter like `<` `>` `/`
     TSText = { fg = starry.text }, -- For strings considered text in a markup language.
     TSTextReference = { fg = starry.keyword, bg = starry.bg_alt }, -- FIXME
-    TSEmphasis = { fg = starry.paleblue }, -- For text to be represented with emphasis.
+    TSEmphasis = { link = 'PreCondit' }, -- For text to be represented with emphasis.
     TSUnderline = { fg = starry.fg, bg = starry.none, style = underdouble }, -- For text to be represented with an underline.
     TSStrike = { fg = starry.gray, style = 'strikethrough' }, -- For strikethrough text.
     TSCurrentScope = { bg = starry.less_active or starry.active },
@@ -343,17 +343,17 @@ theme.loadTreeSitter = function()
   end
 
   if vim.g.starry_italic_keywords == true then
-    treesitter.TSConditional = { fg = starry.condition or starry.purple, style = 'italic' } -- For keywords related to conditionnals.
-    treesitter.TSKeyword = { fg = starry.keyword or starry.purple, style = 'italic,bold' } -- For keywords that don't fall in previous categories.
-    treesitter.TSRepeat = { fg = starry.condition or starry.purple, style = 'italic,bold' } -- For keywords related to loops.
+    treesitter.TSConditional = { fg = starry.condition, style = 'italic' } -- For keywords related to conditionnals.
+    treesitter.TSKeyword = { fg = starry.keyword, style = 'italic,bold' } -- For keywords that don't fall in previous categories.
+    treesitter.TSRepeat = { fg = starry.condition, style = 'italic,bold' } -- For keywords related to loops.
     treesitter.TSKeywordFunction = {
-      fg = starry.keyword_func or starry.keyword or starry.purple,
+      fg = starry.keyword_func or starry.keyword,
       style = 'italic,bold',
     } -- For keywords used to define a function.
   else
-    treesitter.TSConditional = { fg = starry.condition or starry.purple } -- For keywords related to conditionnals.
-    treesitter.TSKeyword = { fg = starry.keyword or starry.purple, style = 'bold' } -- For keywords that don't fall in previous categories.
-    treesitter.TSRepeat = { fg = starry.condition or starry.purple, style = 'bold' } -- For keywords related to loops.
+    treesitter.TSConditional = { fg = starry.condition } -- For keywords related to conditionnals.
+    treesitter.TSKeyword = { fg = starry.keyword, style = 'bold' } -- For keywords that don't fall in previous categories.
+    treesitter.TSRepeat = { fg = starry.condition, style = 'bold' } -- For keywords related to loops.
     treesitter.TSKeywordFunction = {
       fg = starry.keyword_func or starry.keyword,
       style = 'bold',
@@ -361,16 +361,16 @@ theme.loadTreeSitter = function()
   end
 
   if vim.g.starry_italic_functions == true then
-    treesitter.TSFunction = { fg = starry.func or starry.blue, style = 'italic,bold' } -- For function (calls and definitions).
+    treesitter.TSFunction = { fg = starry.func, style = 'italic,bold' } -- For function (calls and definitions).
     treesitter.TSMethod = {
-      fg = starry.method or starry.func or starry.blue,
+      fg = starry.method or starry.func,
       style = 'italic,bold',
     } -- For method calls and definitions.
-    treesitter.TSFuncBuiltin = { fg = starry.func or starry.cyan, style = 'italic,bold' } -- For builtin functions: `table.insert` in Lua.
+    treesitter.TSFuncBuiltin = { fg = starry.func, style = 'italic,bold' } -- For builtin functions: `table.insert` in Lua.
   else
-    treesitter.TSFunction = { fg = starry.func or starry.blue, style = 'bold' } -- For function (calls and definitions).
-    treesitter.TSMethod = { fg = starry.method or starry.blue, style = 'bold' } -- For method calls and definitions.
-    treesitter.TSFuncBuiltin = { fg = starry.func or starry.cyan, style = 'bold' } -- For builtin functions: `table.insert` in Lua.
+    treesitter.TSFunction = { fg = starry.func, style = 'bold' } -- For function (calls and definitions).
+    treesitter.TSMethod = { fg = starry.method, style = 'bold' } -- For method calls and definitions.
+    treesitter.TSFuncBuiltin = { fg = starry.func, style = 'bold' } -- For builtin functions: `table.insert` in Lua.
   end
 
   if vim.g.starry_italic_variables == true then
@@ -394,17 +394,17 @@ theme.loadLSP = function()
   local lsp = {
     DiagnosticHint = { link = 'PreProc' },
     DiagnosticTruncateLine = { fg = starry.fg },
-    DiagnosticError = { link = 'Special' }, -- used for "Error" diagnostic virtual text
+    DiagnosticError = { link = 'Special', style = 'bold' }, -- used for "Error" diagnostic virtual text
     DiagnosticSignError = { link = 'DiagnosticError' }, -- used for "Error" diagnostic signs in sign column
     DiagnosticFloatingError = { link = 'DiagnosticError' }, -- used for "Error" diagnostic messages in the diagnostics float
     DiagnosticVirtualTextError = { link = 'DiagnosticError' }, -- Virtual text "Error"
-    DiagnosticUnderlineError = { style = 'undercurl', sp = starry.error }, -- used to underline "Error" diagnostics.
+    DiagnosticUnderlineError = { style = 'bold,undercurl', sp = starry.error }, -- used to underline "Error" diagnostics.
     DiagnosticWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic signs in sign column
     DiagnosticSignWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic signs in sign column
     DiagnosticFloatingWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic messages in the diagnostics float
     DiagnosticVirtualTextWarn = { link = 'WarningMsg' }, -- Virtual text "Warning"
     DiagnosticUnderlineWarn = { style = 'undercurl', sp = starry.yellow }, -- used to underline "Warning" diagnostics.
-    DiagnosticInfo = { fg = starry.paleblue }, -- used for "Information" diagnostic virtual text
+    DiagnosticInfo = { link = 'PreCondit' }, -- used for "Information" diagnostic virtual text
     DiagnosticSignInfo = { link = 'DiagnosticInfo' }, -- used for "Information" diagnostic signs in sign column
     DiagnosticFloatingInfo = { link = 'DiagnosticInfo' }, -- used for "Information" diagnostic messages in the diagnostics float
     DiagnosticVirtualTextInfo = { link = 'DiagnosticInfo' }, -- Virtual text "Information"
@@ -415,19 +415,19 @@ theme.loadLSP = function()
 
     LspReferenceText = { style = 'bold,italic,undercurl', sp = 'yellow' }, -- used for highlighting "text" references
     LspReferenceRead = {
-      fg = starry.accent or starry.salmon,
+      fg = starry.accent,
       style = 'bold,italic,' .. underdash,
       sp = 'lime',
     }, -- used for highlighting "read" references
     LspReferenceWrite = {
-      fg = starry.keyword or 'yellow',
+      fg = starry.keyword,
       bg = starry.highlight,
       style = 'bold,italic,' .. underdouble,
       sp = 'red2',
     }, -- used for highlighting "write" references
     LspSignatureActiveParameter = {
-      fg = starry.search_fg or starry.yellow,
-      bg = starry.search_bg or starry.highlight,
+      fg = starry.search_fg,
+      bg = starry.search_bg,
       style = 'bold,italic,' .. underdouble,
       sp = 'violet',
     },
@@ -447,7 +447,7 @@ theme.loadPlugins = function()
     TroubleNormal = { fg = starry.fg, bg = starry.sidebar },
     TroubleSignError = { fg = starry.error, bg = starry.sidebar },
     TroubleSignWarning = { fg = starry.yellow, bg = starry.sidebar },
-    TroubleSignInformation = { fg = starry.paleblue, bg = starry.sidebar },
+    TroubleSignInformation = { link = 'PreCondit', bg = starry.sidebar },
     TroubleSignHint = { fg = starry.purple, bg = starry.sidebar },
     TroubleFoldIcon = { fg = starry.accent, bg = starry.sidebar },
     TroubleIndent = { fg = starry.border, bg = starry.sidebar },
@@ -467,7 +467,7 @@ theme.loadPlugins = function()
     diffIndexLine = { link = 'PreProc' },
 
     -- Neogit
-    NeogitBranch = { fg = starry.paleblue },
+    NeogitBranch = { link = 'PreCondit' },
     NeogitRemote = { link = 'PreProc' },
     NeogitHunkHeader = { fg = starry.fg, bg = starry.highlight },
     NeogitHunkHeaderHighlight = { fg = starry.blue, bg = starry.contrast },
@@ -521,7 +521,7 @@ theme.loadPlugins = function()
     NvimTreeSpecialFile = { fg = starry.purple, style = 'underline' },
     LspDiagnosticsError = { link = 'DiagnosticError' },
     LspDiagnosticsWarning = { link = 'WarningMsg' },
-    LspDiagnosticsInformation = { fg = starry.paleblue },
+    LspDiagnosticsInformation = { link = 'PreCondit' },
     LspDiagnosticsHint = { link = 'PreProc' },
 
     -- WhichKey
@@ -536,12 +536,12 @@ theme.loadPlugins = function()
     LspFloatWinNormal = { bg = starry.contrast },
     LspFloatWinBorder = { link = 'PreProc' },
     LspSagaBorderTitle = { link = 'Macro' },
-    LspSagaHoverBorder = { fg = starry.paleblue },
+    LspSagaHoverBorder = { link = 'PreCondit' },
     LspSagaRenameBorder = { link = 'Question' },
     LspSagaDefPreviewBorder = { link = 'Question' },
     LspSagaCodeActionBorder = { link = 'Include' },
     LspSagaFinderSelection = { link = 'Question' },
-    LspSagaCodeActionTitle = { fg = starry.paleblue },
+    LspSagaCodeActionTitle = { link = 'PreCondit' },
     LspSagaCodeActionContent = { link = 'PreProc' },
     LspSagaSignatureHelpBorder = { link = 'Define' },
     ReferencesCount = { link = 'PreProc' },
@@ -583,8 +583,8 @@ theme.loadPlugins = function()
 
     -- Lightspeed
     LightspeedLabel = {
-      fg = starry.search_fg or starry.yellow,
-      bg = starry.search_bg or starry.highlight,
+      fg = starry.search_fg,
+      bg = starry.search_bg,
     },
     LightspeedOverlapped = { bg = starry.selection, fg = starry.red },
     LightspeedLabelDistant = { bg = starry.magenta, fg = starry.bg },
@@ -594,9 +594,9 @@ theme.loadPlugins = function()
     LightspeedMaskedChar = { fg = starry.red, style = 'undercurl' },
     LightspeedGreyWash = { link = 'SpecialComment' },
     LightspeedUnlabeledMatch = { fg = starry.red, style = 'underline' },
-    LightspeedOneCharMatch = { fg = starry.red, style = 'underline' },
+    LightspeedOneCharMatch = { link = 'LightspeedUnlabeledMatch' },
     LightspeedUniqueChar = { fg = starry.white, style = 'underline' },
-    LightspeedPendingOpArea = { fg = starry.white, style = 'underline' },
+    LightspeedPendingOpArea = { link = 'LightspeedUniqueChar' },
     LightspeedPendingChangeOpArea = { fg = starry.white, style = 'underline' },
     LightspeedCursor = { fg = starry.black, bg = starry.blue },
 

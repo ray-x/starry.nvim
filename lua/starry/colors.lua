@@ -12,7 +12,6 @@ local function starry_init()
     dark = '#13113f',
     neardark2 = '#282437',
 
-
     red = '#F07178',
     red1 = '#ec5f67',
     br_red = '#f9a3a3',
@@ -48,7 +47,7 @@ local function starry_init()
     cyan = '#89DDFF',
     br_cyan = '#A9EDFF',
 
-    megenta = '#FF00FF',
+    megenta = '#BF32BF',
     hoki = '#5f7e97',
     purple = '#C792EA',
     br_purple = '#D792FA',
@@ -71,7 +70,6 @@ local function starry_init()
     pink2 = '#f19bb6',
     pink3 = '#fecbc9',
 
-
     -- Dark colors
     darkgreen = '#abcf76',
     darkyellow = '#e6b455',
@@ -80,7 +78,6 @@ local function starry_init()
     darkorange = '#e2795b',
 
     none = 'NONE',
-
   }
 
   local default = {
@@ -1120,7 +1117,7 @@ local function starry_init()
     starry.bg = '#20272f'
     starry.bg_alt = '#192027'
     starry.fg = '#B0BEC5'
-    starry.text = '#607D8B'
+    starry.text = '#687F94'
     starry.comments = '#666B8D'
     starry.selection = '#445E6A'
 

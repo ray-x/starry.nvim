@@ -27,6 +27,7 @@ Following colorschemes were added later on:
 - Tracking latest neovim/lsp/treesitter highlight updates. e.g. `NormalFloat`, `FloatShadow`, `LspReferenceRead/Write`
 - Random loading
 - Daylight mode, tune the color for daytime
+- Transparent background ready
 
 ## Credits:
 
@@ -126,7 +127,7 @@ let starry_italic_functions = false
 let starry_italic_variables = false
 let starry_contrast = true
 let starry_borders = false
-let starry_disable_background = false
+let starry_disable_background = false  "set to true to disable background and allow transparent background
 let starry_style_fix=v:true  "disable random loading
 let starry_style="moonlight"  "load moonlight everytime or
 let starry_darker_contrast=v:true

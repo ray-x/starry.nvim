@@ -80,7 +80,7 @@ local themes = {
   'middlenight_blue',
   'ukraine',
   'earlysummer',
-  'dark_solar'
+  'dark_solar',
 }
 
 local themes_daytime = { 'limestone', 'monokai_lighter', 'mariana_lighter', 'earlysummer_lighter', 'ukraine' }
@@ -108,6 +108,7 @@ function util.load(theme)
     vim.g.starry_style_fix = true
   end
   -- Set the theme environment
+
   if vim.fn.exists('syntax_on') then
     vim.cmd('syntax reset')
   end

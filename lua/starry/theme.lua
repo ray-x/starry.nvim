@@ -291,7 +291,7 @@ theme.loadTreeSitter = function()
     TSConstMacro = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
     TSError = { link = 'DiagnosticError' }, -- For syntax/parser errors.
     TSException = { fg = starry.red3 }, -- For exception related keywords.
-    TSField = { link = 'TSVariable' }, -- For fields.
+    TSField = { fg = starry.field }, -- For fields.
     TSFloat = { fg = starry.float }, -- For floats.
     TSFuncMacro = { link = 'Include' }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
     TSInclude = { link = 'Macro' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.

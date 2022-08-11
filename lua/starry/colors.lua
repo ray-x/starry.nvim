@@ -1,3 +1,46 @@
+local function clamp(component)
+  return math.min(math.max(component, 0), 255)
+end
+local function LightenDarkenColor(col, amt)
+  if type(amt) == 'number' then
+    amt = { amt, amt, amt }
+  end
+  local num = tonumber(col:sub(2), 16)
+  if num == nil then
+    return col
+  end
+  local r = math.floor(num / 0x10000) + amt[1]
+  local g = (math.floor(num / 0x100) % 0x100) + amt[2]
+  local b = (num % 0x100) + amt[3]
+  return string.format('#%06x', clamp(r) * 0x10000 + clamp(g) * 0x100 + clamp(b))
+end
+
+local function LightenDarkenColorScheme(values, amt)
+  values.white = LightenDarkenColor(values.white, amt)
+  values.br_white = LightenDarkenColor(values.br_white, amt)
+  values.green = LightenDarkenColor(values.green, amt)
+  values.green2 = LightenDarkenColor(values.green2, amt)
+  values.br_green = LightenDarkenColor(values.br_green, amt)
+  values.yellow = LightenDarkenColor(values.yellow, amt)
+  values.br_yellow = LightenDarkenColor(values.br_yellow, amt)
+  values.blue = LightenDarkenColor(values.blue, amt)
+  values.blue1 = LightenDarkenColor(values.blue1, amt)
+  values.blue2 = LightenDarkenColor(values.blue2, amt)
+  values.br_blue = LightenDarkenColor(values.br_blue, amt)
+  values.purple = LightenDarkenColor(values.purple, amt)
+  values.br_purple = LightenDarkenColor(values.br_purple, amt)
+  values.cyan = LightenDarkenColor(values.cyan, amt)
+  values.br_cyan = LightenDarkenColor(values.br_cyan, amt)
+
+  values.megenta = LightenDarkenColor(values.megenta, amt)
+  values.gray = LightenDarkenColor(values.gray, amt)
+  values.gray5 = LightenDarkenColor(values.gray5, amt)
+  values.gray7 = LightenDarkenColor(values.gray7, amt)
+
+  values.orange = LightenDarkenColor(values.orange, amt)
+  return values
+end
+
 local function starry_init()
   local starry = {
     -- Common colors
@@ -31,7 +74,6 @@ local function starry_init()
     green1 = '#1aad16',
     br_green = '#1afd16',
     green2 = '#77d507',
-    c = '#c988ce',
 
     yellow = '#FFCB6B',
     br_yellow = '#FFFB6B',
@@ -69,7 +111,7 @@ local function starry_init()
     pink1 = '#da71c2',
     pink2 = '#f19bb6',
     pink3 = '#fecbc9',
-
+    pink4 = '#c988ce',
     -- Dark colors
     darkgreen = '#abcf76',
     darkyellow = '#e6b455',
@@ -80,56 +122,58 @@ local function starry_init()
     none = 'NONE',
   }
 
-  local default = {
-    statement = starry.pink,
-    symbol = starry.br_cyan,
-    operator = starry.cyan,
-    label = starry.purple1,
-    condition = starry.megenta,
-    keyword = starry.purple,
-    keyword_func = starry.green2,
-    func = starry.blue2,
-    method = starry.br_cyan,
-    comments = starry.warmgrey,
-    number = starry.coral,
-    float = starry.orange,
-    char = starry.orange,
-    variable = starry.blue,
-    parameter = starry.pink,
-    class = starry.cyan,
-    typedef = starry.red2,
-    punctutation = starry.br_blue,
-    structure = starry.purple,
-    cursor = '#FFCC00',
-    bright = '#ddd0f4',
+  local function get_default(starry_colors)
+    return {
+      statement = starry_colors.pink,
+      symbol = starry_colors.br_cyan,
+      operator = starry_colors.cyan,
+      label = starry_colors.purple1,
+      condition = starry_colors.megenta,
+      keyword = starry_colors.purple,
+      keyword_func = starry_colors.green2,
+      func = starry_colors.blue2,
+      method = starry_colors.br_cyan,
+      comments = starry_colors.warmgrey,
+      number = starry_colors.coral,
+      float = starry_colors.orange,
+      char = starry_colors.tan,
+      variable = starry_colors.blue,
+      parameter = starry_colors.pink1,
+      class = starry_colors.cyan,
+      typedef = starry_colors.red2,
+      punctutation = starry_colors.br_blue,
+      structure = starry_colors.purple2,
+      cursor = '#FFCC80',
+      bright = starry_colors.br_white,
 
-    textdark = '#b4b0e0',
-    text = '#f4f0f0',
+      textdark = starry_colors.lightgray,
+      text = starry_colors.white,
 
-    field = starry.blue1,
-    bool = starry.orange,
-    string = starry.green,
-    const = starry.yellow,
-    directory = starry.blue,
+      field = starry_colors.blue1,
+      bool = starry_colors.orange,
+      string = starry_colors.green,
+      const = starry_colors.yellow,
+      directory = starry_colors.blue,
 
-    selection = starry.gary7,
-    search_fg = starry.yellow,
-    search_bg = starry.gray7,
-    contrast = starry.dark,
-    less_active = starry.neardark2,
-    bracket = starry.orange,
-    active = starry.gray5,
-    more_active = starry.gray7,
-    border = starry.textdark,
-    line_numbers = starry.textdark,
-    highlight = starry.gray5,
-    disabled = starry.darkgray,
-    accent = starry.gray7,
-    error = starry.br_red,
-    link = starry.blue1,
-    type = starry.br_yellow,
-  }
-  starry = vim.tbl_extend('keep', starry, default)
+      selection = starry_colors.gary7,
+      search_fg = starry_colors.yellow,
+      search_bg = starry_colors.gray7,
+      contrast = starry_colors.dark,
+      less_active = starry_colors.neardark2,
+      bracket = starry_colors.orange,
+      active = starry_colors.gray5,
+      more_active = starry_colors.gray7,
+      border = starry_colors.textdark,
+      line_numbers = starry_colors.textdark,
+      highlight = starry_colors.gray5,
+      disabled = starry_colors.darkgray,
+      accent = starry_colors.gray7,
+      error = starry_colors.br_red,
+      link = starry_colors.darkblue,
+      type = starry_colors.br_yellow,
+    }
+  end
+  starry = vim.tbl_extend('keep', starry, get_default(starry))
 
   local starry_moonlight = {
     -- Common colors
@@ -226,7 +270,6 @@ local function starry_init()
 
   local starry_dracula_blood = {
     -- Common colors
-
     white = '#EEE8EE',
     gray = '#a1abe0',
 
@@ -999,16 +1042,12 @@ local function starry_init()
     error('only nvim 5.0 supported')
   end
 
-  -- print("theme", vim.g.starry_style)
-
-  local earlysummer_lighter = {}
-  local mariana_lighter = {}
-  local monokai_lighter = {}
-
   -- Style specific colors
   if vim.g.starry_style == 'darker' then
     -- Darker theme style
 
+    starry = LightenDarkenColorScheme(starry, { -25, -20, -10 })
+    starry = vim.tbl_extend('force', starry, get_default(starry))
     starry.bg = '#212121'
     starry.bg_alt = '#1A1A1A'
     starry.fg = '#B0BEC5'
@@ -1077,6 +1116,7 @@ local function starry_init()
   elseif vim.g.starry_style == 'palenight' then
     -- Palenight theme style
 
+    -- print(vim.inspect(starry))
     starry.bg = '#292D3E'
     starry.bg_alt = '#1B1E2B'
     starry.fg = '#A6ACCD'
@@ -1095,6 +1135,9 @@ local function starry_init()
   elseif vim.g.starry_style == 'deep ocean' then
     -- Deep Ocean theme style
 
+    starry = LightenDarkenColorScheme(starry, { -20, 0, 10 })
+    starry = vim.tbl_extend('force', starry, get_default(starry))
+    -- print(vim.inspect(starry))
     starry.bg = '#0F111A'
     starry.bg_alt = '#090B10'
     starry.fg = '#8F93A2'
@@ -1111,9 +1154,10 @@ local function starry_init()
     starry.disabled = '#464B5D'
     starry.accent = '#84FFFF'
   elseif vim.g.starry_style == 'oceanic' then
+    starry = LightenDarkenColorScheme(starry, { 10, 30, 25 })
+    starry = vim.tbl_extend('force', starry, get_default(starry))
     vim.g.starry_style = 'oceanic'
     -- Oceanic theme style
-
     starry.bg = '#20272f'
     starry.bg_alt = '#192027'
     starry.fg = '#B0BEC5'

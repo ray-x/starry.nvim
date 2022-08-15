@@ -417,7 +417,7 @@ theme.loadLSP = function()
     LspReferenceRead = {
       fg = starry.accent,
       style = 'bold,italic,' .. underdash,
-      sp = 'lime',
+      sp = starry.lime or 'lime',
     }, -- used for highlighting "read" references
     LspReferenceWrite = {
       fg = starry.keyword,
@@ -554,6 +554,7 @@ theme.loadPlugins = function()
     -- BufferLine
     BufferLineIndicatorSelected = { fg = starry.type },
     BufferLineFill = { bg = starry.bg_alt },
+    BufferLineBackground = { bg = starry.bg },
     BufferLineBufferSelected = { fg = starry.statement, bg = starry.less_active },
 
     -- Sneak

@@ -1072,24 +1072,6 @@ local function starry_init()
   elseif vim.g.starry_style == 'limestone' then
     -- limestone theme style
 
-    starry.bg = '#EAEADA'
-    starry.bg_alt = '#DFDFBF'
-    starry.fg = '#345E6A'
-    starry.text = '#547770'
-    starry.textdark = '#648780'
-    starry.comments = '#90A0B2'
-    starry.selection = '#80CBC4'
-    starry.contrast = '#DEDEDE'
-    starry.less_active = '#E0E0D4'
-    starry.active = '#E0D0D3'
-    starry.more_active = '#C7C8A3'
-    starry.border = '#A381E8'
-    starry.line_numbers = '#AFC8AC'
-    starry.highlight = '#C7C7A8'
-    starry.disabled = '#A2A4A5'
-    starry.cursor = '#272727'
-    starry.accent = '#00BCD4'
-    starry.parameter = '#5193a8'
     starry.white = '#FFFFFF'
     starry.gray = '#818CA4'
     starry.black = '#606040'
@@ -1107,11 +1089,32 @@ local function starry_init()
     starry.orange = '#F76D47'
     starry.pink = '#EF5370'
     starry.violet = '#945eb8'
-    starry.type = '#A47EE8'
     starry.lime = '#98BE54'
+
+    starry = vim.tbl_extend('force', starry, get_default(starry))
+
+    starry.bg = '#EAEADA'
+    starry.bg_alt = '#DFDFBF'
+    starry.fg = '#345E6A'
+    starry.text = '#547770'
+    starry.textdark = '#648780'
+    starry.comments = '#90A0B2'
+    starry.selection = '#80CBC4'
+    starry.contrast = '#DEDEDE'
+    starry.less_active = '#E0E0D4'
+    starry.active = '#E0D0D3'
+    starry.more_active = '#C7C8A3'
+    starry.border = '#A381E8'
+    starry.line_numbers = '#AFC8AC'
+    starry.highlight = '#C7C7A8'
+    starry.disabled = '#A2A4A5'
+    starry.cursor = '#272727'
+    starry.parameter = '#5193a8'
+    starry.type = '#A47EE8'
     starry.search_fg = '#FAC37D'
     starry.search_bg = starry.blue1
 
+    starry.accent = '#60BCD4'
     starry.keyword = starry.orange
   elseif vim.g.starry_style == 'palenight' then
     -- Palenight theme style

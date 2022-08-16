@@ -187,6 +187,7 @@ local function starry_init()
     yellow = '#ffc777',
     paleblue = '#B0C9FF',
     cyan = '#b994f1',
+    br_cyan = '#a984e1',
     blue = '#04d1f9',
     purple = '#b4a4f4',
     orange = '#f67f81',
@@ -1112,6 +1113,7 @@ local function starry_init()
     starry.parameter = '#5193a8'
     starry.type = '#A47EE8'
     starry.search_fg = '#FAC37D'
+    starry.search_bg = starry.blue1
     starry.search_bg = starry.blue1
 
     starry.accent = '#60BCD4'

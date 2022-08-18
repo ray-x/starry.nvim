@@ -86,11 +86,11 @@ I heard green can reduce eye strain :-P
 
 Colorful colorscheme
 
+![Earlysummer](https://user-images.githubusercontent.com/1681295/132972253-45584b1f-d2f1-46f1-a9f7-f1d5bf89ec64.jpg)
+
 ## Dark solar
 Bluish colorscheme
-<img width="1179" alt="image" src="https://user-images.githubusercontent.com/1681295/181907955-a80a4898-aecc-4cd6-a581-e7b91d94c45e.png">
-
-![Earlysummer](https://user-images.githubusercontent.com/1681295/132972253-45584b1f-d2f1-46f1-a9f7-f1d5bf89ec64.jpg)
+<img width="1367" alt="darksolar" src="https://user-images.githubusercontent.com/1681295/185341657-8dd31ed7-e9de-4710-8a20-c3d85ca02c1c.png">
 
 ## Nighttime and daytime
 

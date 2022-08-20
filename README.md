@@ -117,6 +117,24 @@ All the plugins supported by starry.nvim, e.g. Treesitter, LSP, Telescope, NvimT
 
 ![image](https://user-images.githubusercontent.com/1681295/143810714-20c12ba3-5835-44f1-ad9f-58bb02a63136.png)
 
+## install
+
+Plug
+
+```vim
+Plug 'ray-x/starry.nvim'
+```
+
+packer:
+
+```lua
+use {'ray-x/starry.nvim', setup = function() 
+-- see example setup below
+vim.g.starry_italic_comments = true
+...
+end}
+```
+
 ## Example Setup
 
 ```vim

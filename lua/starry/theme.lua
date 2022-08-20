@@ -99,7 +99,7 @@ theme.loadSyntax = function()
       style = 'italic',
     } -- italic any other keyword
   else
-    syntax.Conditional = { fg = starry.condition , style = 'bold'} -- normal if, then, else, endif, switch, etc.
+    syntax.Conditional = { fg = starry.condition, style = 'bold' } -- normal if, then, else, endif, switch, etc.
     syntax.Keyword = { fg = starry.keyword, style = 'bold' } -- normal for, do, while, etc.
     syntax.Repeat = { link = 'PreProc' } -- normal any other keyword
   end
@@ -149,7 +149,7 @@ theme.loadEditor = function()
     Folded = { fg = starry.link, bg = starry.none, style = 'bold' },
     FoldColumn = { link = 'Include' },
     IncSearch = { fg = starry.orange, bg = starry.highlight, style = 'bold,reverse' },
-    LineNr = { fg = starry.text, style = 'bold,underline' },
+    LineNr = { fg = starry.text, style = 'bold,' .. underdot },
     LineNrAbove = { fg = starry.line_numbers },
     LineNrBelow = { link = 'LineNrAbove' },
     CursorLineNr = { link = 'ModeMsg', style = 'bold' },
@@ -414,17 +414,17 @@ theme.loadLSP = function()
     DiagnosticSignHint = { link = 'DiagnosticDefaultHint' }, -- used for "Hint" diagnostic signs in sign column
     DiagnosticUnderlineHint = { style = 'undercurl', sp = starry.paleblue }, -- used to underline "Hint" diagnostics.
 
-    LspReferenceText = { style = 'bold,underline', sp = 'yellow' }, -- used for highlighting "text" references
+    LspReferenceText = { style = 'bold,' .. underdot, sp = 'green' }, -- used for highlighting "text" references
     LspReferenceRead = {
       fg = starry.accent,
       style = 'bold,' .. underdash,
-      sp = starry.lime or 'lime',
+      sp = starry.green or 'green',
     }, -- used for highlighting "read" references
     LspReferenceWrite = {
       fg = starry.keyword,
       bg = starry.highlight,
       style = 'bold,' .. underdouble,
-      sp = 'red2',
+      sp = 'yellow',
     }, -- used for highlighting "write" references
     LspSignatureActiveParameter = {
       fg = starry.search_fg,

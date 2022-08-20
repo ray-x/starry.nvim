@@ -1,5 +1,5 @@
 lua << EOF
-local  has, plugin = pcall(require, modulename)
+local  has, plugin = pcall(require, 'starry')
 if not has then
   vim.cmd('packadd starry.nvim')
 end

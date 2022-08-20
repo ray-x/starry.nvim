@@ -57,7 +57,7 @@ theme.loadSyntax = function()
     htmlH2 = { fg = starry.red, style = 'bold' },
     htmlH3 = { fg = starry.green, style = 'bold' },
     htmlH4 = { fg = starry.yellow, style = 'bold' },
-    htmlH5 = { fg = starry.purple, style = 'bold' },
+    htmlH5 = { fg = starry.br_purple, style = 'bold' },
     markdownH1 = { link = 'htmlH1' },
     markdownH2 = { link = 'htmlH2' },
     markdownH3 = { link = 'htmlH3' },
@@ -232,6 +232,12 @@ theme.loadEditor = function()
 
     editor.NormalFloat = { fg = starry.fg, bg = starry.none } -- normal text and background color for floating windows
     editor.FloatBorder = { fg = starry.comments, bg = starry.none }
+  elseif vim.g.starry_darker_contrast == true and starry.bg_darker then
+    editor.Normal = { fg = starry.fg, bg = starry.bg_darker } -- normal text and background color
+    editor.SignColumn = { fg = starry.fg, bg = starry.bg_darker }
+
+    editor.NormalFloat = { fg = starry.fg, bg = starry.bg } -- normal text and background color for floating windows
+    editor.FloatBorder = { fg = starry.comments, bg = starry.bg }
   else
     editor.Normal = { fg = starry.fg, bg = starry.bg } -- normal text and background color
     editor.SignColumn = { fg = starry.fg, bg = starry.bg }
@@ -412,7 +418,7 @@ theme.loadLSP = function()
     DiagnosticUnderlineInfo = { style = 'undercurl', sp = starry.paleblue }, -- used to underline "Information" diagnostics.
     DiagnosticDefaultHint = { fg = starry.link }, -- used for "Hint" diagnostic virtual text
     DiagnosticSignHint = { link = 'DiagnosticDefaultHint' }, -- used for "Hint" diagnostic signs in sign column
-    DiagnosticUnderlineHint = { style = 'undercurl', sp = starry.paleblue }, -- used to underline "Hint" diagnostics.
+    DiagnosticUnderlineHint = { style = 'undercurl', sp = starry.br_blue }, -- used to underline "Hint" diagnostics.
 
     LspReferenceText = { style = 'bold,' .. underdot, sp = 'green' }, -- used for highlighting "text" references
     LspReferenceRead = {
@@ -494,7 +500,7 @@ theme.loadPlugins = function()
 
     GitSignsAddInline = { style = 'undercurl', sp = starry.green }, -- diff mode: Deleted line |diff.txt|
     GitSignsDeleteInline = { style = 'underline', sp = starry.error }, -- diff mode: Deleted line |diff.txt|
-    GitSignsChangeInline = { style = 'undercurl', sp = starry.blue }, -- diff mode: Deleted line |diff.txt|
+    GitSignsChangeInline = { style = 'undercurl', sp = starry.br_blue }, -- diff mode: Deleted line |diff.txt|
     -- Telescope
     TelescopeNormal = { link = 'NormalFloat' },
     TelescopePromptBorder = { link = 'Macro' },
@@ -579,7 +585,7 @@ theme.loadPlugins = function()
 
     -- Hop
     HopNextKey = { fg = starry.red, style = 'bold,undercurl' },
-    HopNextKey1 = { fg = starry.purple, style = 'bold,undercurl' },
+    HopNextKey1 = { fg = starry.br_purple, style = 'bold,undercurl' },
     HopNextKey2 = { fg = starry.blue, style = 'bold,undercurl' },
     HopUnmatched = { fg = starry.comments },
 
@@ -607,7 +613,7 @@ theme.loadPlugins = function()
     CmpItemAbbrMatch = { fg = starry.search_fg, bg = starry.search_bg },
     CmpItemAbbrMatchFuzzy = { fg = starry.search_fg, bg = starry.search_bg },
     CmpItemKindVariable = { fg = starry.variable },
-    CmpItemKindInterface = { fg = starry.blue2 },
+    CmpItemKindInterface = { fg = starry.br_blue },
     CmpItemKindText = { fg = starry.fg },
     CmpItemKindFunction = { fg = starry.func },
     CmpItemKindMethod = { fg = starry.method },

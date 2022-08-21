@@ -294,14 +294,14 @@ theme.loadTreeSitter = function()
     TSCharacter = { fg = starry.char }, -- For characters.
     TSConstructor = { link = 'PreProc' }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     TSConstant = { fg = starry.const }, -- For constants
-    TSConstBuiltin = { fg = starry.const }, -- For constant that are built in the language: `nil` in Lua.
+    TSConstBuiltin = { fg = starry.const, style='bold'}, -- For constant that are built in the language: `nil` in Lua.
     TSConstMacro = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
     TSError = { link = 'DiagnosticError' }, -- For syntax/parser errors.
     TSException = { fg = starry.red3 }, -- For exception related keywords.
     TSField = { fg = starry.field }, -- For fields.
     TSFloat = { fg = starry.float }, -- For floats.
-    TSFuncMacro = { link = 'Include' }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
-    TSInclude = { link = 'Macro' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+    TSFuncMacro = { link = 'Macro' }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
+    TSInclude = { link = 'Include' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 
     TSDefinitionUsage = {
       fg = starry.accent,

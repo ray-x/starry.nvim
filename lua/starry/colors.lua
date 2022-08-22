@@ -1,6 +1,7 @@
 local function clamp(component)
   return math.min(math.max(component, 0), 255)
 end
+local starry_color_table
 local function LightenDarkenColor(col, amt)
   if type(amt) == 'number' then
     amt = { amt, amt, amt }
@@ -359,7 +360,7 @@ local function starry_init()
     cyan = '#A1EFE4',
     br_green = '#9EC400',
     br_yellow = '#E7C547',
-    br_blue = '#7AA6DA',
+    br_blue = '#63D6FA',
     br_purple = '#B77EE0',
     br_cyan = '#54CED6',
     br_white = '#FFFFFF',
@@ -369,7 +370,10 @@ local function starry_init()
     paleblue = '#a6a7d0',
     blue = '#5594EC',
     magenta = '#D184C7',
-    bg = '#262632',
+  }
+  local monokai = {
+    -- syntax
+    bg = '#262721',
     bg_alt = '#2C2C34',
     bg_darker = '#191a21',
     fg = '#CED1D4',
@@ -386,12 +390,12 @@ local function starry_init()
     comments = '#75715E',
     number = '#ae8eff',
     char = '#E6DB74',
-    variable = '#F5F2FD',
-    parameter = starry.orange,
-    class = '#A0E21D',
+    variable = starry_monokai.changefg,
+    parameter = starry_monokai.orange,
+    class = starry_monokai.blue,
     typedef = '#6570EF',
 
-    field = '#E373A5',
+    field = starry_monokai.br_blue,
     bool = '#E04480',
     string = '#F0C366',
     const = '#A876FA',
@@ -422,7 +426,7 @@ local function starry_init()
     grey = '#333333',
     lightgray = '#575b61',
 
-    black = '#000000',
+    black = '#000510',
 
     darkgrey = '#64645e',
     warmgrey = '#75715E',
@@ -442,17 +446,17 @@ local function starry_init()
 
     blue = '#6699CC',
     blue1 = '#6699CC',
-    blue2 = '#4E5A65',
+    blue2 = '#3E4A55',
     blue3 = '#343D46',
     blue4 = '#64738A',
     blue5 = '#5F7484',
-    blue5_day = '#434D54',
+    blue5_day = '#383F48',
     blue6 = '#A6ACB9',
     blue7 = '#3F4458',
-    blue8 = '#2F3455',
+    blue8 = '#2F3440',
     blue9 = '#303040',
     blueA = '#B0C0F0',
-    blueB = '#304249',
+    blueB = '#303449',
 
     cyan = '#A1EFE4',
     br_green = '#9EC400',
@@ -783,9 +787,9 @@ local function starry_init()
   }
 
   local earlysummer = {
-    bg = '#292f3d',
+    bg = '#212c31',
     bg_alt = '#303648',
-    bg_darker = '#202336',
+    bg_darker = '#15232e',
     fg = '#bbccdd',
     statement = earlysummer_colors.red1,
     symbol = earlysummer_colors.yellow,
@@ -1189,10 +1193,10 @@ local function starry_init()
     starry = vim.tbl_extend('force', starry, starry_dracula_blood)
   elseif vim.g.starry_style == 'monokai' or vim.g.starry_style == 'monokai_lighter' then
     if vim.g.starry_style == 'monokai_lighter' then
-      starry_monokai.bg = '#4F4F3F'
-      starry_monokai.bg_alt = '#535443'
-      starry_monokai.less_active = '#424832'
-      starry_monokai.active = '#594F53'
+      starry_monokai.bg = '#2F2F23'
+      starry_monokai.bg_alt = '#33342d'
+      starry_monokai.less_active = '#373826'
+      starry_monokai.active = '#494437'
       starry_monokai.line_numbers = '#A2AF93'
       starry_monokai.accent = '#A9AF83'
       starry_monokai.selection = '#696F43'
@@ -1200,9 +1204,12 @@ local function starry_init()
       starry_monokai.comments = '#9E9F7D'
     end
     starry = vim.tbl_extend('force', starry, starry_monokai)
+    starry = vim.tbl_extend('force', starry, monokai)
   elseif vim.g.starry_style == 'mariana' or vim.g.starry_style == 'mariana_lighter' then
+    starry = vim.tbl_extend('force', starry, mariana_colors)
     if vim.g.starry_style == 'mariana_lighter' then
       mariana.bg = mariana_colors.blue5_day
+      mariana.fg = mariana_colors.white2
       mariana.bg_alt = mariana_colors.blue2
       mariana.less_active = mariana_colors.blueB
       mariana.active = mariana_colors.blue7
@@ -1210,7 +1217,6 @@ local function starry_init()
       mariana.accent = mariana.blueA
       mariana.contrast = mariana.less_active
     end
-    starry = vim.tbl_extend('force', starry, mariana_colors)
     starry = vim.tbl_extend('force', starry, mariana)
   elseif vim.g.starry_style == 'emerald' then
     starry = vim.tbl_extend('force', starry, emerald_colors)
@@ -1226,10 +1232,10 @@ local function starry_init()
     starry = vim.tbl_extend('force', starry, ukraine)
   elseif vim.g.starry_style == 'earlysummer' or vim.g.starry_style == 'earlysummer_lighter' then
     if vim.g.starry_style == 'earlysummer_lighter' then
-      earlysummer.bg = '#404757'
-      earlysummer.bg_alt = '#454F64'
-      earlysummer.less_active = '#2F3446'
-      earlysummer.active = '#50616F'
+      earlysummer.bg = '#292f3d'
+      earlysummer.bg_alt = '#353449'
+      earlysummer.less_active = '#212426'
+      earlysummer.active = '#30414F'
       earlysummer.line_numbers = '#90A1AD'
       earlysummer.accent = '#A0B1B0'
       earlysummer.selection = '#607180'
@@ -1241,6 +1247,7 @@ local function starry_init()
     starry = vim.tbl_extend('force', starry, earlysummer)
   else
     starry = vim.tbl_extend('force', starry, starry_monokai)
+    starry = vim.tbl_extend('force', starry, monokai)
   end
 
   -- Optional colors
@@ -1301,7 +1308,12 @@ local function starry_init()
     end
   end
 
+  starry_color_table = starry
   return starry
 end
 
-return { starry = starry_init }
+local function color_table()
+  return starry_color_table
+end
+
+return { starry = starry_init, color_table = color_table }

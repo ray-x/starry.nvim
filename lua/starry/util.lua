@@ -76,6 +76,7 @@ local themes = {
   'monokai',
   'monokai_lighter',
   'mariana',
+  'mariana_lighter',
   'emerald',
   'middlenight_blue',
   'ukraine',
@@ -100,7 +101,7 @@ function util.load(theme)
       local v = math.random(1, #themes)
       vim.g.starry_style = themes[v]
     else
-      vim.g.starry_style = vim.g.starry_style or 'mariana'
+      vim.g.starry_style = vim.g.starry_style or 'monokai'
     end
     theme = vim.g.starry_style
   else

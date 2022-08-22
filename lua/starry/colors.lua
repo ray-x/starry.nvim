@@ -455,8 +455,9 @@ local function starry_init()
     blue7 = '#3F4458',
     blue8 = '#243038',
     blue9 = '#303040',
-    blueA = '#B0C0F0',
+    blueA = '#B4C0F0',
     blueB = '#303449',
+    blueC = '#B0C4D5',
 
     cyan = '#A1EFE4',
     br_green = '#9EC400',
@@ -471,7 +472,6 @@ local function starry_init()
     paleblue = '#a6a7e0',
     magenta = '#D184C7',
   }
-
   local mariana = {
     bg = mariana_colors.blue3,
     bg_alt = mariana_colors.blue9,
@@ -496,7 +496,7 @@ local function starry_init()
     typedef = mariana_colors.blue5,
     punctutation = mariana_colors.blue5,
 
-    field = mariana_colors.blue6,
+    field = mariana_colors.blueC,
     bool = '#E04480',
     string = mariana_colors.green,
     const = mariana_colors.red,

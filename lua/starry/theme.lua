@@ -116,11 +116,10 @@ theme.loadSyntax = function()
   end
 
   if vim.g.starry_italic_variables == true then
-    syntax.Identifier = { fg = starry.variable, bg = starry.none, style = 'italic' } -- any variable name
+    syntax.Identifier = { fg = starry.variable, style = 'italic' } -- Variable names that are defined by the languages, like `this` or `self`.
   else
-    syntax.Identifier = { link = 'TSVariable' } -- any variable name
+    syntax.Identifier = { fg = starry.variable } -- Variable names that are defined by the languages, like `this` or `self`.
   end
-
   return syntax
 end
 
@@ -294,7 +293,7 @@ theme.loadTreeSitter = function()
     TSCharacter = { fg = starry.char }, -- For characters.
     TSConstructor = { link = 'PreProc' }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     TSConstant = { fg = starry.const }, -- For constants
-    TSConstBuiltin = { fg = starry.const, style='bold'}, -- For constant that are built in the language: `nil` in Lua.
+    TSConstBuiltin = { fg = starry.const, style = 'bold' }, -- For constant that are built in the language: `nil` in Lua.
     TSConstMacro = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
     TSError = { link = 'DiagnosticError' }, -- For syntax/parser errors.
     TSException = { fg = starry.red3 }, -- For exception related keywords.
@@ -381,13 +380,12 @@ theme.loadTreeSitter = function()
   end
 
   if vim.g.starry_italic_variables == true then
-    treesitter.TSVariable = { fg = starry.variable, style = 'italic' } -- Any variable name that does not have another highlight.
     treesitter.TSVariableBuiltin = { fg = starry.variable, style = 'italic' } -- Variable names that are defined by the languages, like `this` or `self`.
   else
-    treesitter.TSVariable = { fg = starry.variable } -- Any variable name that does not have another highlight.
     treesitter.TSVariableBuiltin = { fg = starry.variable } -- Variable names that are defined by the languages, like `this` or `self`.
   end
 
+  treesitter.TSVariable = { link = 'Identifier' } -- Any variable name that does not have another highlight.
   if vim.g.starry_italic_strings == true then
     treesitter.TSString.style = 'italic' -- For strings.
   end

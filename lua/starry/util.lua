@@ -156,7 +156,11 @@ function util.load(theme)
       end
     end
     util.contrast()
-    vim.api.nvim__set_hl_ns(ns)
+    if vim.api.nvim__set_hl_ns ~= nil then
+      vim.api.nvim__set_hl_ns(ns)
+    else
+      vim.api.nvim_set_hl_ns(ns)
+    end
     async:close()
     vim.cmd('doautocmd ColorScheme')
   end))
@@ -177,7 +181,12 @@ function util.load(theme)
   async:send()
 
   vim.cmd('hi Normal guibg=' .. editor.Normal.bg .. ' guifg=' .. editor.Normal.fg)
-  vim.api.nvim__set_hl_ns(ns)
+
+  if vim.api.nvim__set_hl_ns ~= nil then
+    vim.api.nvim__set_hl_ns(ns)
+  else
+    vim.api.nvim_set_hl_ns(ns)
+  end
 end
 
 return util

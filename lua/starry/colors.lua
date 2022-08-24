@@ -131,7 +131,7 @@ local function starry_init()
       label = starry_colors.purple1,
       condition = starry_colors.megenta,
       keyword = starry_colors.purple,
-      keyword_func = starry_colors.green2,
+      keyword_func = starry_colors.sky,
       func = starry_colors.blue2,
       method = starry_colors.br_cyan,
       comments = starry_colors.warmgrey,
@@ -179,42 +179,54 @@ local function starry_init()
   local starry_moonlight = {
     -- Common colors
 
-    white = '#EEFFFF',
+    white = '#EEF5FF',
     gray = '#a1abe0',
+    warmgrey = '#8c9a9b',
 
-    black = '#000000',
+    black = '#001010',
     red = '#ff757f',
-    green = '#2df4c0',
+    green = '#8dc4a0',
     yellow = '#ffc777',
+    br_yellow = '#efc727',
     paleblue = '#B0C9FF',
-    cyan = '#b994f1',
-    br_cyan = '#a984e1',
-    blue = '#04d1f9',
+    cyan = '#79e4fc',
+    br_cyan = '#4994cc',
+    fg = starry.purple,
+
+    blue = '#0451c9',
+    blue1 = '#94c1f9',
+    blue2 = '#6491a9',
+    br_blue = '#3aa1cc',
     purple = '#b4a4f4',
     orange = '#f67f81',
     pink = '#ecb2f0',
+  }
+  local moonlight = {
     bg = '#212337',
     bg_alt = '#1B1E2B',
-    fg = '#e4f3fa',
-    text = '#757dac',
+    fg = '#fefcd7',
+    text = '#f5fdac',
+    string = '#c5cdcc',
+    variable = '#3aa7c7',
     type = '#b08af0',
-    comments = '#7486d6',
+    comments = '#045676',
+    func = '#6093D9',
+    method = '#9cccf0',
     selection = '#403c64',
     structure = 'HotPink',
     class = 'PaleVioletRed',
     contrast = '#1b1c2b',
     less_active = '#28222f',
     active = '#313843',
-    more_active = '#3f3a63',
+    more_active = '#323043',
     border = '#413893',
     line_numbers = '#5b6395',
     highlight = '#514b70',
     disabled = '#515772',
-    cursor = '#5cb4fc',
+    cursor = '#F1E4DC',
     accent = '#a3ace1',
-    error = '#FF5370',
-    link = '#80CBC4',
-    none = 'NONE',
+    error = '#EF83D0',
+    link = '#D9BBE4',
   }
 
   local starry_dracula = {
@@ -1146,7 +1158,7 @@ local function starry_init()
   elseif vim.g.starry_style == 'deep ocean' then
     -- Deep Ocean theme style
 
-    starry = LightenDarkenColorScheme(starry, { -20, 0, 10 })
+    starry = LightenDarkenColorScheme(starry, { -10, -5, 5 })
     starry = vim.tbl_extend('force', starry, get_default(starry))
     -- print(vim.inspect(starry))
     starry.bg = '#0F111A'
@@ -1165,7 +1177,7 @@ local function starry_init()
     starry.disabled = '#464B5D'
     starry.accent = '#84FFFF'
   elseif vim.g.starry_style == 'oceanic' then
-    starry = LightenDarkenColorScheme(starry, { 10, 30, 25 })
+    starry = LightenDarkenColorScheme(starry, { 10, 10, 20 })
     starry = vim.tbl_extend('force', starry, get_default(starry))
     vim.g.starry_style = 'oceanic'
     -- Oceanic theme style
@@ -1187,6 +1199,8 @@ local function starry_init()
     starry.accent = '#009688'
   elseif vim.g.starry_style == 'moonlight' then
     starry = vim.tbl_extend('force', starry, starry_moonlight)
+    starry = vim.tbl_extend('force', starry, get_default(starry))
+    starry = vim.tbl_extend('force', starry, moonlight)
   elseif vim.g.starry_style == 'dracula' then
     starry = vim.tbl_extend('force', starry, starry_dracula)
   elseif vim.g.starry_style == 'dracula_blood' then

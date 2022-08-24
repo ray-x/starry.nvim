@@ -569,7 +569,7 @@ theme.loadPlugins = function()
     -- Indent Blankline
     IndentBlanklineChar = { fg = starry.purple, style = 'bold' },
     IndentBlanklineContextChar = { fg = starry.purple, style = 'bold' },
-    IndentBlanklineContextStart = { style = 'bold,' .. underdouble, sp = starry.violet },
+    IndentBlanklineContextStart = { style = 'bold,' .. 'underline', sp = starry.violet },
     IndentBlanklineIndent1 = { fg = starry.purple, style = 'nocombine' },
     IndentBlanklineIndent2 = { fg = starry.blue, style = 'nocombine' },
     IndentBlanklineIndent3 = { fg = starry.green, style = 'nocombine' },

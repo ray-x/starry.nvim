@@ -313,8 +313,9 @@ theme.loadTreeSitter = function()
     TSNamespace = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
     TSNumber = { link = 'Number' }, -- For all numbers
     TSOperator = { link = 'Operator' }, -- For any operator: `+`, but also `->` and `*` in C.
-    TSParameter = { fg = starry.parameter }, -- For parameters of a function.
+    TSParameter = { fg = starry.parameter, style = 'bold' }, -- For parameters of a function.
     TSParameterReference = { link = 'PreCondit' }, -- For references to parameters of a function.
+    Hlargs = { link = 'TSParameterReference' },
     TSProperty = { fg = starry.field }, -- Same as `TSField`.
     TSPunctDelimiter = { link = 'Macro' }, -- For delimiters ie: `.`
     TSPunctBracket = { fg = starry.bracket }, -- For brackets and parens.

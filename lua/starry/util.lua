@@ -2,7 +2,6 @@ local util = {}
 local config = require('starry.config').options
 local nvim06 = vim.fn.has('nvim-0.6')
 
-local ns = vim.api.nvim_create_namespace('color_starry')
 util.hlv2 = function(group, style)
   local val = { fg = style.fg, bg = style.bg }
   if style.sp then
@@ -25,7 +24,7 @@ util.hlv2 = function(group, style)
 end
 
 -- Go trough the table and highlight the group with the color values
-util.highlight = function(group, color)
+util.highlight = function(group, color, col)
   if nvim06 and vim.g.starry_set_hl ~= false then
     util.hlv2(group, color)
   else
@@ -157,9 +156,9 @@ function util.load(theme)
     end
     util.contrast()
     if vim.api.nvim__set_hl_ns ~= nil then
-      vim.api.nvim__set_hl_ns(ns)
+      vim.api.nvim__set_hl_ns(0)
     else
-      vim.api.nvim_set_hl_ns(ns)
+      vim.api.nvim_set_hl_ns(0)
     end
     async:close()
     vim.cmd('doautocmd ColorScheme')
@@ -183,9 +182,9 @@ function util.load(theme)
   vim.cmd('hi Normal guibg=' .. editor.Normal.bg .. ' guifg=' .. editor.Normal.fg)
 
   if vim.api.nvim__set_hl_ns ~= nil then
-    vim.api.nvim__set_hl_ns(ns)
+    vim.api.nvim__set_hl_ns(0)
   else
-    vim.api.nvim_set_hl_ns(ns)
+    vim.api.nvim_set_hl_ns(0)
   end
 end
 

@@ -2,20 +2,19 @@
 
 A collection of colorschemes for neovim (Neovim 5.0+ required), written in lua.
 
-This colorscheme plugin was orignally built based on combination of
+This colorscheme plugin was built based on
 
 - [material.nvim](https://github.com/marko-cerovac/material.nvim)
-- [moonlight.nvim](https://github.com/shaunsingh/moonlight.nvim)
 
 Following colorschemes were added later on:
-
+- Moonlight (Low contrast bluish clean and elegant color theme)
 - Dracula & Dracula_blood theme
 - Monokai (Based on Sublime Build 3)
 - Mariana (The latest Sublime (Build 4) builtin color scheme) and Mariana_lighter
 - Emerald (Low contrast green color scheme)
 - Middlenight_blue (The theme to use in middle night)
 - Earlysummer (more vivid colors) and Earlysummer_lighter
-- Darksolar (dark solarized)
+- Darksolar (dark solarized)<F13><F49><F13>
 - Ukraine yellow text on blue background
 
 ## Why this repo:
@@ -32,17 +31,19 @@ Following colorschemes were added later on:
 ## Credits:
 
 - [marko-cerovac](https://github.com/marko-cerovac) For the material color palettes. The lua color scheme framework
-- [shaunsingh](https://github.com/shaunsingh) For the moonlight color schema
+- [shaunsingh](https://github.com/shaunsingh) for his work of schemes based on material
 
 The basic color palettes of material is from [material.vim](https://github.com/kaicataldo/material.vim)
 
 ## materail.vim
-
+[palette]()
 ![material.vim](https://raw.githubusercontent.com/kaicataldo/material.vim/main/screenshots/material-all-variants.png)
 
 ## moonlight.nvim
+<img width="1115" alt="moonlight" src="https://user-images.githubusercontent.com/1681295/186778877-f29aeed9-15f2-4622-b568-a7a6656923b4.png">
+![moon color palette](https://user-images.githubusercontent.com/1681295/186777638-2df2ab4e-d710-44a2-a4d6-36d7253ba712.png)
 
-![moonlight](https://user-images.githubusercontent.com/71196912/117904602-a3a55e00-b29f-11eb-9fc0-ab585eafb46e.png)
+
 
 ## Dracula
 

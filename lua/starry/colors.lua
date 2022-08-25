@@ -213,7 +213,7 @@ local function starry_init()
     variable = '#3aa7c7',
     type = starry_moonlight.blue2,
     condition = starry_moonlight.br_blue,
-    keyword = starry_moonlight.br_cyan,
+    keyword = starry_moonlight.green,
     keyword_func = starry_moonlight.cyan,
     comments = '#045676',
     func = '#6093D9',

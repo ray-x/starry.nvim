@@ -36,12 +36,12 @@ Following colorschemes were added later on:
 The basic color palettes of material is from [material.vim](https://github.com/kaicataldo/material.vim)
 
 ## materail.vim
-[palette]()
 ![material.vim](https://raw.githubusercontent.com/kaicataldo/material.vim/main/screenshots/material-all-variants.png)
 
 ## moonlight.nvim
 <img width="1115" alt="moonlight" src="https://user-images.githubusercontent.com/1681295/186778877-f29aeed9-15f2-4622-b568-a7a6656923b4.png">
-![moon color palette](https://user-images.githubusercontent.com/1681295/186777638-2df2ab4e-d710-44a2-a4d6-36d7253ba712.png)
+
+![moonlight color palette](https://user-images.githubusercontent.com/1681295/186777638-2df2ab4e-d710-44a2-a4d6-36d7253ba712.png)
 
 
 

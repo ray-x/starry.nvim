@@ -433,7 +433,7 @@ theme.loadLSP = function()
     }, -- used for highlighting "write" references
     LspSignatureActiveParameter = {
       fg = starry.search_fg,
-      bg = starry.search_bg,
+      bg = starry.darkblue,
       style = 'bold,' .. underdouble,
       sp = 'violet',
     },

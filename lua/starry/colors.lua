@@ -116,7 +116,7 @@ local function starry_init()
     -- Dark colors
     darkgreen = '#abcf76',
     darkyellow = '#e6b455',
-    darkblue = '#6e98eb',
+    darkblue = '#4c7b9b',
     darkcyan = '#71c6e7',
     darkorange = '#e2795b',
 
@@ -185,8 +185,9 @@ local function starry_init()
 
     black = '#001010',
     red = '#ff757f',
-    green = '#8dc4a0',
+    green = '#4dc4a0',
     yellow = '#ffc777',
+    yellow1 = '#cfb7a7',
     br_yellow = '#efc727',
     paleblue = '#B0C9FF',
     cyan = '#79e4fc',
@@ -196,8 +197,10 @@ local function starry_init()
     blue = '#0451c9',
     blue1 = '#94c1f9',
     blue2 = '#6491a9',
+    darkblue = '#24748a',
     br_blue = '#3aa1cc',
     purple = '#b4a4f4',
+    purple1 = '#c4d4f4',
     orange = '#f67f81',
     pink = '#ecb2f0',
   }
@@ -208,10 +211,14 @@ local function starry_init()
     text = '#f5fdac',
     string = '#c5cdcc',
     variable = '#3aa7c7',
-    type = '#b08af0',
+    type = starry_moonlight.blue2,
+    condition = starry_moonlight.br_blue,
+    keyword = starry_moonlight.br_cyan,
+    keyword_func = starry_moonlight.cyan,
     comments = '#045676',
     func = '#6093D9',
     method = '#9cccf0',
+    bracket = starry_moonlight.yellow1,
     selection = '#403c64',
     structure = 'HotPink',
     class = 'PaleVioletRed',
@@ -226,6 +233,8 @@ local function starry_init()
     cursor = '#F1E4DC',
     accent = '#a3ace1',
     error = '#EF83D0',
+    search_bg = '#14587c',
+    search_fg = '#8498ac',
     link = '#D9BBE4',
   }
 

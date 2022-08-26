@@ -192,7 +192,6 @@ local function starry_init()
     paleblue = '#B0C9FF',
     cyan = '#79e4fc',
     br_cyan = '#4994cc',
-    fg = starry.purple,
 
     blue = '#3481d9',
     blue1 = '#94c1f9',
@@ -206,6 +205,7 @@ local function starry_init()
   }
   local moonlight = {
     bg = '#212337',
+    bg_darker = '#060816',
     bg_alt = '#1B1E2B',
     fg = '#fefcd7',
     text = '#f5fdac',
@@ -223,9 +223,9 @@ local function starry_init()
     structure = 'HotPink',
     class = 'PaleVioletRed',
     contrast = '#1b1c2b',
-    less_active = '#28222f',
-    active = '#313843',
-    more_active = '#323043',
+    less_active = '#122a40',
+    active = '#24343c',
+    more_active = '#323548',
     border = '#413893',
     line_numbers = '#5b6395',
     highlight = '#514b70',

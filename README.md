@@ -39,10 +39,12 @@ The basic color palettes of material is from [material.vim](https://github.com/k
 ![material.vim](https://raw.githubusercontent.com/kaicataldo/material.vim/main/screenshots/material-all-variants.png)
 
 ## moonlight.nvim
+### transparent mode
 <img width="1115" alt="moonlight" src="https://user-images.githubusercontent.com/1681295/186778877-f29aeed9-15f2-4622-b568-a7a6656923b4.png">
 
 ![moonlight color palette](https://user-images.githubusercontent.com/1681295/186777638-2df2ab4e-d710-44a2-a4d6-36d7253ba712.png)
-
+### non-transparent mode
+<img width="1175" alt="moonlight" src="https://user-images.githubusercontent.com/1681295/186844098-19fc0454-f84a-41d3-b8f6-ac667212efb8.png">
 
 
 ## Dracula

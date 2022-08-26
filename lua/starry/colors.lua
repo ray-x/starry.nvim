@@ -194,7 +194,7 @@ local function starry_init()
     br_cyan = '#4994cc',
     fg = starry.purple,
 
-    blue = '#0451c9',
+    blue = '#3481d9',
     blue1 = '#94c1f9',
     blue2 = '#6491a9',
     darkblue = '#24748a',

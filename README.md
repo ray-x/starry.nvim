@@ -79,7 +79,9 @@ Please check README of starry.nvim project for setups.
 
 I heard green can reduce eye strain :-P
 
-![emerald](https://user-images.githubusercontent.com/1681295/125885744-b19b33e7-cb7c-452c-9def-9a1c4db59603.jpg)
+
+<img width="1445" alt="emerald" src="https://user-images.githubusercontent.com/1681295/187136363-4338d102-12f1-4442-8074-580493d829c9.png">
+
 
 ## Middlenight_blue
 

@@ -2,7 +2,7 @@
 
 A collection of colorschemes for neovim (Neovim 5.0+ required), written in lua.
 
-This colorscheme plugin was built based on
+This first version of starry plugin was built based on
 
 - [material.nvim](https://github.com/marko-cerovac/material.nvim)
 
@@ -35,8 +35,8 @@ Following colorschemes were added later on:
 
 The basic color palettes of material is from [material.vim](https://github.com/kaicataldo/material.vim)
 
-## materail.vim
-![material.vim](https://raw.githubusercontent.com/kaicataldo/material.vim/main/screenshots/material-all-variants.png)
+## material.vim
+<img width="1308" alt="material" src="https://user-images.githubusercontent.com/1681295/187317446-4da617f5-05b5-437a-b44c-9bc5307ad7e5.png">
 
 ## moonlight.nvim
 ### transparent mode

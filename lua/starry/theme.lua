@@ -47,7 +47,7 @@ theme.loadSyntax = function()
     Debug = { link = 'Special' }, -- debugging statements
     Underlined = { fg = starry.link, bg = starry.none, style = 'undercurl', sp = starry.blue }, -- text that stands out, HTML links
     Ignore = { fg = starry.disabled }, -- left blank, hidden
-    Error = { link = 'DiagnosticError', bg = starry.none, style = 'bold,undercurl', sp = starry.pink }, -- any erroneous construct
+    Error = { fg = starry.error , style = 'bold,undercurl', sp = starry.pink }, -- any erroneous construct
     Todo = { fg = starry.yellow, bg = starry.bg_alt, style = 'bold,italic' }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     MsgArea = { fg = starry.string, bg = starry.none }, -- Any string
@@ -295,7 +295,7 @@ theme.loadTreeSitter = function()
     TSConstant = { fg = starry.const }, -- For constants
     TSConstBuiltin = { fg = starry.const, style = 'bold' }, -- For constant that are built in the language: `nil` in Lua.
     TSConstMacro = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
-    TSError = { link = 'DiagnosticError' }, -- For syntax/parser errors.
+    TSError = { link = 'Error' }, -- For syntax/parser errors.
     TSException = { fg = starry.red3 }, -- For exception related keywords.
     TSField = { fg = starry.field }, -- For fields.
     TSFloat = { fg = starry.float }, -- For floats.

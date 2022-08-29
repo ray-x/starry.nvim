@@ -33,12 +33,12 @@ theme.loadSyntax = function()
     Label = { fg = starry.label }, -- case, default, etc.
     Operator = { fg = starry.operator }, -- sizeof", "+", "*", etc.
     Exception = { fg = starry.purple2 }, -- try, catch, throw
-    PreProc = { fg = starry.purple }, -- generic Preprocessor
+    PreProc = { fg = starry.preproc or starry.purple }, -- generic Preprocessor
     Include = { fg = starry.blue }, -- preprocessor #include
     Define = { fg = starry.pink }, -- preprocessor #define
     Macro = { fg = starry.cyan }, -- same as Define
     Typedef = { fg = starry.typedef }, -- A typedef
-    PreCondit = { fg = starry.paleblue }, -- preprocessor #if, #else, #endif, etc.
+    PreCondit = { fg = starry.precondit or starry.paleblue, style = 'bold' }, -- preprocessor #if, #else, #endif, etc.
     Special = { fg = starry.red }, -- any special symbol
     SpecialChar = { link = 'Define' }, -- special character in a constant
     Tag = { fg = starry.lime }, -- you can use CTRL-] on this
@@ -313,6 +313,7 @@ theme.loadTreeSitter = function()
     TSNamespace = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
     TSNumber = { link = 'Number' }, -- For all numbers
     TSOperator = { link = 'Operator' }, -- For any operator: `+`, but also `->` and `*` in C.
+    TSKeywordOperator = { link = 'Operator', style='bold' }, -- For any operator: `+`, but also `->` and `*` in C.
     TSParameter = { fg = starry.parameter, style = 'bold' }, -- For parameters of a function.
     TSParameterReference = { link = 'PreCondit' }, -- For references to parameters of a function.
     Hlargs = { link = 'TSParameterReference' },
@@ -325,8 +326,8 @@ theme.loadTreeSitter = function()
     TSStringEscape = { link = 'Ignore' }, -- For escape characters within a string.
     TSSymbol = { fg = starry.symbol }, -- For identifiers referring to symbols or atoms.
     TSType = { fg = starry.type }, -- For types.
-    TSTypeBuiltin = { fg = starry.purple1, style = 'bold' }, -- For builtin types.
-    TSTag = { fg = starry.red1 }, -- Tags like html tag names.
+    TSTypeBuiltin = { fg = starry.builtin or starry.purple1, style = 'bold' }, -- For builtin types.
+    TSTag = { fg = starry.tag or starry.red1 }, -- Tags like html tag names.
     TSTagDelimiter = { fg = starry.yellow2 }, -- Tag delimiter like `<` `>` `/`
     TSText = { fg = starry.text }, -- For strings considered text in a markup language.
     TSTextReference = { fg = starry.keyword, bg = starry.bg_alt }, -- FIXME

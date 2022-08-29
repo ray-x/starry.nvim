@@ -576,7 +576,7 @@ local function starry_init()
     orange = '#F9AE58',
     orange2 = '#cd8b59',
     purple = '#ae81ff',
-    red = '#EC5F66',
+    red = '#EC7F86',
     red2 = '#F97B58',
     purered = '#ff0000',
     darkred = '#5f0000',
@@ -640,7 +640,8 @@ local function starry_init()
       punctutation = emerald_colors.green4,
       preproc = emerald_colors.br_cyan,
       precondit = emerald_colors.white3,
-      tag = emerald_colors.greene,
+      tag = emerald_colors.orange2,
+      include = emerald_colors.orange,
 
       field = emerald_colors.green8,
       bool = '#C06431',

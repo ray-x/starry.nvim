@@ -34,7 +34,7 @@ theme.loadSyntax = function()
     Operator = { fg = starry.operator }, -- sizeof", "+", "*", etc.
     Exception = { fg = starry.purple2 }, -- try, catch, throw
     PreProc = { fg = starry.preproc or starry.purple }, -- generic Preprocessor
-    Include = { fg = starry.blue }, -- preprocessor #include
+    Include = { fg = starry.include or starry.blue }, -- preprocessor #include
     Define = { fg = starry.pink }, -- preprocessor #define
     Macro = { fg = starry.cyan }, -- same as Define
     Typedef = { fg = starry.typedef }, -- A typedef
@@ -321,6 +321,7 @@ theme.loadTreeSitter = function()
     TSPunctDelimiter = { link = 'Macro' }, -- For delimiters ie: `.`
     TSPunctBracket = { fg = starry.bracket }, -- For brackets and parens.
     TSPunctSpecial = { fg = starry.punctutation }, -- For special punctutation that does not fall in the categories before.
+    TSFunctionCall = {fg = starry.func},
     TSString = { link = 'String' }, -- For strings.
     TSStringRegex = { fg = starry.pink2 }, -- For regexes.
     TSStringEscape = { link = 'Ignore' }, -- For escape characters within a string.

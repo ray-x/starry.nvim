@@ -52,16 +52,21 @@ The basic color palettes of material is from [material.vim](https://github.com/k
 Color palettes from [github.com/dracula/vim](https://github.com/dracula/vim)
 ![darcula](https://user-images.githubusercontent.com/1681295/119607837-61038a00-be38-11eb-99b0-48fa7118044f.jpg)
 
+<img width="1027" alt="dracula" src="https://user-images.githubusercontent.com/1681295/187320632-c45ce928-2446-49a3-bea3-b78697d53590.png">
+
 ### Dracula_blood
 
 reddish tone of dracula
 ![blood](https://user-images.githubusercontent.com/1681295/144513439-4aaef1f1-0ab5-4f62-88a1-1fb2d0aa2ec0.png)
+<img width="1035" alt="dracula_blood" src="https://user-images.githubusercontent.com/1681295/187320415-0f1b83ea-854f-4ed6-9183-1c41c7e7c7a5.png">
 
 ## Monokai
 
 Color palettes from [colors/monokai.vim](https://github.com/crusoexia/vim-monokai)
 
 ![monokai](https://user-images.githubusercontent.com/1681295/119609635-3ff06880-be3b-11eb-9394-00ca016abe0b.png)
+
+<img width="1035" alt="monokai" src="https://user-images.githubusercontent.com/1681295/187320860-d1e00aa0-f0ce-439c-85c5-5fac7915a441.png">
 
 ## Mariana
 

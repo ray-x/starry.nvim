@@ -973,7 +973,7 @@ local function starry_init()
       contrast = '#1b1c2b',
       less_active = '#203154',
       bracket = dark_solar_colors.orange,
-      active = '#314053',
+      active = '#374854',
       more_active = '#4f5681',
       border = '#193F48',
       line_numbers = '#2d5266',

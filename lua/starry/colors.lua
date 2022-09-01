@@ -233,6 +233,7 @@ local function starry_init()
       disabled = '#515772',
       cursor = '#F1E4DC',
       accent = '#a3ace1',
+      tag = starry.cyan,
       error = '#EF83D0',
       search_bg = '#14587c',
       search_fg = '#8498ac',
@@ -240,24 +241,25 @@ local function starry_init()
     }
   end
 
-  local starry_dracula = function()
+  local starry_dracula = {
+    -- Common colors
+    white = '#FEF8F2',
+    gray = '#a1abe0',
+
+    black = '#101010',
+    red = '#ff555f',
+    green = '#50fa7b',
+    yellow = '#f1fa87',
+    paleblue = '#8697b0',
+    cyan = '#8be4f1',
+    blue = '#04d1f9',
+    purple = '#bd94f4',
+    orange = '#ff79c1',
+    pink = '#ff79c7',
+  }
+  local dracula = function()
     return {
-      -- Common colors
-
-      white = '#FEF8F2',
-      gray = '#a1abe0',
-
-      black = '#101010',
-      red = '#ff555f',
-      green = '#50fa7b',
-      yellow = '#f1fa87',
-      paleblue = '#8697b0',
-      cyan = '#8be4f1',
-      blue = '#04d1f9',
-      purple = '#bd94f4',
-      orange = '#ff79c1',
-      pink = '#ff79c7',
-      bg = '#282a37',
+      bg = '#181a37',
       bg_alt = '#21222c',
       bg_darker = '#191a21',
       fg = '#f4f3f2',
@@ -276,50 +278,52 @@ local function starry_init()
       const = '#9876AA',
       bracket = '#f8f6AA',
       comments = '#6476a6',
-      number = '#6897BB',
-      selection = '#504c48',
-      contrast = '#1b1c2b',
+      number = starry.purple,
+      selection = '#483031',
+      contrast = '#2b2c3b',
       less_active = '#302f3f',
       active = '#363B40',
       more_active = '#3d3f4f',
-      border = '#514463',
+      border = '#5144a3',
       line_numbers = '#5b6395',
       highlight = '#716f90',
       disabled = '#615752',
       cursor = '#7c44fc',
       accent = '#a34c81',
       error = '#FF5370',
+      tag = starry.cyan,
       link = '#80CBC4',
-      type = '#ef67a0',
+      type = starry.blue,
       none = 'NONE',
     }
   end
 
-  local starry_dracula_blood = function()
-    return {
-      -- Common colors
-      white = '#EEE8EE',
-      gray = '#a1abe0',
+  local starry_dracula_blood = {
+    -- Common colors
+    white = '#EEE8EE',
+    gray = '#a1abe0',
 
-      black = '#101010',
-      red = '#A71906',
-      salmon = '#F7856E',
-      green = '#8FE067',
-      teal = '#4DB380',
-      yellow = '#FFC66B',
-      paleblue = '#8677c0',
-      cyan = '#299999',
-      blue = '#5594EC',
-      purple = '#A781BB',
-      orange = '#DA632B',
-      magenta = '#D184C7',
-      pink = '#fe69c7',
-      bg = '#272822',
+    black = '#101010',
+    red = '#A71906',
+    salmon = '#F7856E',
+    green = '#8FE067',
+    teal = '#4DB380',
+    yellow = '#FFC66B',
+    paleblue = '#8677c0',
+    cyan = '#299999',
+    blue = '#5594EC',
+    purple = '#A781BB',
+    orange = '#DA632B',
+    magenta = '#D184C7',
+    pink = '#fe69c7',
+  }
+  local dracula_blood = function()
+    return {
+      bg = '#271822',
       bg_alt = '#2C2C34',
       bg_darker = '#191a21',
       fg = '#E8E8E3',
       bg2 = '#103b41',
-
       search_fg = '#A51516',
       search_bg = '#F6FB44',
       statement = starry.dark_orange,
@@ -329,26 +333,20 @@ local function starry_init()
       comments = '#8A6A6A',
       keyword = '#CC4832',
       variable = '#F5D2DD',
-      number = '#6897BB',
-      field = '#9373A5',
       string = '#F0C366',
       const = '#9876CA',
       condition = '#EF70A0',
-      class = 'salmon',
-      selection = '#544041',
-      bracket = '#f8f6AA',
-      contrast = '#1b1c2b',
-      less_active = '#343032',
+      contrast = '#2f2c3b',
+      less_active = '#342028',
       active = '#453737',
       more_active = '#584a4e',
-      border = '#414245',
+      border = '#814265',
       line_numbers = '#5F4755',
       highlight = '#515b70',
       disabled = '#6f5456',
       cursor = '#7c44fc',
       accent = '#a34ca1',
       error = '#EF4360',
-      link = '#80CBC4',
       type = '#F070C0',
       none = 'NONE',
     }
@@ -1237,9 +1235,15 @@ local function starry_init()
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, moonlight())
   elseif vim.g.starry_style == 'dracula' then
-    starry = vim.tbl_extend('force', starry, starry_dracula())
+    starry = vim.tbl_extend('force', starry, starry_dracula)
+    starry = vim.tbl_extend('force', starry, get_default(starry))
+    starry = vim.tbl_extend('force', starry, dracula())
   elseif vim.g.starry_style == 'dracula_blood' then
-    starry = vim.tbl_extend('force', starry, starry_dracula_blood())
+    starry = vim.tbl_extend('force', starry, starry_dracula)
+    starry = vim.tbl_extend('force', starry, starry_dracula_blood)
+    starry = vim.tbl_extend('force', starry, get_default(starry))
+    starry = vim.tbl_extend('force', starry, dracula())
+    starry = vim.tbl_extend('force', starry, dracula_blood())
   elseif vim.g.starry_style == 'monokai' or vim.g.starry_style == 'monokai_lighter' then
     if vim.g.starry_style == 'monokai_lighter' then
       starry_monokai.bg = '#2F2F23'

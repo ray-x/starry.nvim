@@ -726,9 +726,9 @@ local function starry_init()
 
   local middlenight_blue = function()
     return {
-      bg = '#191622',
+      bg = '#101022',
       bg_alt = '#20202a',
-      bg_darker = '#140616',
+      bg_darker = '#040D16',
       fg = '#ddeedd',
       bg2 = '#201022',
       statement = middlenight_blue_colors.br_yellow,
@@ -807,11 +807,11 @@ local function starry_init()
     orange = '#D99E58',
     orange2 = '#cd8b59',
     purple = '#d191ff',
-    red = '#eF5F86',
+    red = '#EF5F86',
     red1 = '#FF9F96',
     red2 = '#F97B58',
-    purered = '#ff0000',
-    darkred = '#5f0000',
+    purered = '#ff0080',
+    darkred = '#5f0030',
 
     green1 = '#0FC192',
     green2 = '#caefb3',

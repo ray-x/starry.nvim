@@ -285,6 +285,7 @@ local function starry_init()
       active = '#363B40',
       more_active = '#3d3f4f',
       border = '#5144a3',
+      precondit = starry.yellow,
       line_numbers = '#5b6395',
       highlight = '#716f90',
       disabled = '#615752',
@@ -682,6 +683,7 @@ local function starry_init()
 
     brown = '#925632',
     pink = '#ff95b6',
+    violet = '#9f45b6',
     green = '#76da84',
     blue = '#5f95fa',
     aqua = '#66c9cf',

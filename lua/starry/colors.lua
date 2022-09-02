@@ -55,7 +55,7 @@ local function starry_init()
     black = '#07050f',
     dark = '#13113f',
     neardark2 = '#282437',
-
+    aqua = '#66d9ef',
     red = '#F07178',
     red1 = '#ec5f67',
     br_red = '#f9a3a3',
@@ -168,6 +168,7 @@ local function starry_init()
       line_numbers = starry_colors.textdark,
       highlight = starry_colors.gray5,
       disabled = starry_colors.darkgray,
+      precondit = starry_colors.yellow,
       accent = starry_colors.gray7,
       error = starry_colors.br_red,
       link = starry_colors.darkblue,
@@ -368,7 +369,6 @@ local function starry_init()
 
     pink = '#F92772',
     green = '#A6E22D',
-    aqua = '#66d9ef',
     yellow = '#E6DB74',
     orange = '#FD9720',
     purple = '#ae81ff',
@@ -682,10 +682,14 @@ local function starry_init()
     warmgrey = '#657150',
 
     brown = '#925632',
-    pink = '#ff95b6',
-    violet = '#9f45b6',
+    pink = '#df75b6',
+    purple = '#A75ED0',
+    violet = '#6f25f6',
     green = '#76da84',
     blue = '#5f95fa',
+    blue2 = '#0f85ff',
+    blue3 = '#0fA5CF',
+    blue4 = '#7fB5FF',
     aqua = '#66c9cf',
     yellow = '#ffca44',
     yellow2 = '#c2ad54',
@@ -709,14 +713,14 @@ local function starry_init()
     br_yellow = '#E7E547',
     br_yellow2 = '#F0Fc7a',
     br_blue = '#AAA6FA',
-    br_blue2 = '#EAE6FF',
+    br_blue2 = '#CAD6FF',
     br_purple = '#C77EF0',
     br_cyan = '#54CED6',
     br_white = '#FFFFFF',
 
     salmon = '#F7856E',
     teal = '#4DB380',
-    paleblue = '#d6e7f0',
+    paleblue = '#b6b7f0',
     magenta = '#D184C7',
   }
 
@@ -731,11 +735,11 @@ local function starry_init()
       symbol = '#757db3',
       operator = middlenight_blue_colors.purple,
       label = middlenight_blue_colors.orange,
-      condition = middlenight_blue_colors.cyan,
-      keyword = '#DC4FF0',
+      condition = starry.blue3,
+      keyword = middlenight_blue_colors.auqa,
       keyword_func = middlenight_blue_colors.br_purple,
-      func = middlenight_blue_colors.purple,
-      method = middlenight_blue_colors.violet,
+      func = middlenight_blue_colors.blue4,
+      method = middlenight_blue_colors.blue,
       text = '#d0d5db',
       comments = '#7171d3',
       number = '#bb95fb',
@@ -746,15 +750,16 @@ local function starry_init()
       class = '#838cca',
       typedef = '#c6c45e',
       punctutation = middlenight_blue_colors.green4,
+      precondit = middlenight_blue_colors.aqua,
 
       field = middlenight_blue_colors.br_blue,
       bool = middlenight_blue_colors.cyan,
-      string = middlenight_blue_colors.green1,
+      string = middlenight_blue_colors.teal,
       const = '#52d1ce',
       directory = middlenight_blue_colors.orange2,
 
       selection = '#544092',
-      search_fg = '#f0f0f0',
+      search_fg = '#a0a0d0',
       search_bg = '#52408f',
       contrast = '#1b203b',
       less_active = '#242f3a',
@@ -769,6 +774,7 @@ local function starry_init()
       accent = '#8eadbd',
       error = '#a61e20',
       link = '#80ABF4',
+      tag = middlenight_blue_colors.blue2,
       type = '#66d9af',
       none = 'NONE',
     }
@@ -1259,9 +1265,11 @@ local function starry_init()
       starry_monokai.comments = '#9E9F7D'
     end
     starry = vim.tbl_extend('force', starry, starry_monokai)
+    starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, monokai())
   elseif vim.g.starry_style == 'mariana' or vim.g.starry_style == 'mariana_lighter' then
     starry = vim.tbl_extend('force', starry, mariana_colors)
+    starry = vim.tbl_extend('force', starry, get_default(starry))
     local ma = vim.tbl_extend('force', starry, mariana())
     if vim.g.starry_style == 'mariana_lighter' then
       ma.bg = mariana_colors.blue5_day
@@ -1276,19 +1284,23 @@ local function starry_init()
     starry = ma
   elseif vim.g.starry_style == 'emerald' then
     starry = vim.tbl_extend('force', starry, emerald_colors)
+    starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, emerald())
   elseif vim.g.starry_style == 'middlenight_blue' then
     starry = vim.tbl_extend('force', starry, middlenight_blue_colors)
+    starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, middlenight_blue())
   elseif vim.g.starry_style == 'dark_solar' then
     starry = vim.tbl_extend('force', starry, dark_solar_colors)
+    starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, dark_solar())
   elseif vim.g.starry_style == 'ukraine' then
     starry = vim.tbl_extend('force', starry, ukraine_colors)
+    starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, ukraine())
   elseif vim.g.starry_style == 'earlysummer' or vim.g.starry_style == 'earlysummer_lighter' then
     starry = vim.tbl_extend('force', starry, earlysummer_colors)
-
+    starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, earlysummer())
     if vim.g.starry_style == 'earlysummer_lighter' then
       starry.bg = '#292f3d'
@@ -1305,6 +1317,7 @@ local function starry_init()
     starry = vim.tbl_extend('force', starry, earlysummer())
   else
     starry = vim.tbl_extend('force', starry, starry_monokai)
+    starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, monokai())
   end
 

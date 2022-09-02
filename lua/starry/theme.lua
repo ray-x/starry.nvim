@@ -38,7 +38,7 @@ theme.loadSyntax = function()
     Define = { fg = starry.pink }, -- preprocessor #define
     Macro = { fg = starry.cyan }, -- same as Define
     Typedef = { fg = starry.typedef }, -- A typedef
-    PreCondit = { fg = starry.precondit or starry.paleblue, style = 'bold' }, -- preprocessor #if, #else, #endif, etc.
+    PreCondit = { fg = starry.precondit, style = 'bold' }, -- preprocessor #if, #else, #endif, etc.
     Special = { fg = starry.red }, -- any special symbol
     SpecialChar = { link = 'Define' }, -- special character in a constant
     Tag = { fg = starry.lime }, -- you can use CTRL-] on this
@@ -172,8 +172,8 @@ theme.loadEditor = function()
     QuickFixLine = { fg = starry.highlight, bg = starry.white, style = 'reverse' },
     qfLineNr = { fg = starry.highlight, bg = starry.white, style = 'reverse' },
     Search = {
-      fg = starry.search_fg or starry.highlight,
-      bg = starry.search_bg,
+      fg = starry.search_fg ,
+      bg = starry.highlight,
       style = 'reverse,bold',
     },
     SpecialKey = { link = 'PreProc' },

@@ -90,7 +90,7 @@ I heard green can reduce eye strain :-P
 
 ## Middlenight_blue
 
-![middlenight_blue](https://user-images.githubusercontent.com/1681295/125889413-ad5e4b35-d274-4b6d-a8d2-a074628c0d93.jpg)
+![middlenight](https://user-images.githubusercontent.com/1681295/188315123-8a1f8a85-f194-4567-b906-9082653cf4cf.jpg)
 
 ## Earlysummer
 

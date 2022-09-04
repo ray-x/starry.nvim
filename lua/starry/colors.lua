@@ -758,7 +758,7 @@ local function starry_init()
       const = '#52d1ce',
       directory = middlenight_blue_colors.orange2,
 
-      selection = '#544092',
+      selection = '#143062',
       search_fg = '#a0a0d0',
       search_bg = '#52408f',
       contrast = '#1b203b',

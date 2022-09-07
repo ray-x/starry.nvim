@@ -47,7 +47,7 @@ theme.loadSyntax = function()
     Debug = { link = 'Special' }, -- debugging statements
     Underlined = { fg = starry.link, bg = starry.none, style = 'undercurl', sp = starry.blue }, -- text that stands out, HTML links
     Ignore = { fg = starry.disabled }, -- left blank, hidden
-    Error = { fg = starry.error , style = 'bold,undercurl', sp = starry.pink }, -- any erroneous construct
+    Error = { fg = starry.error, style = 'bold,undercurl', sp = starry.pink }, -- any erroneous construct
     Todo = { fg = starry.yellow, bg = starry.bg_alt, style = 'bold,italic' }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     MsgArea = { fg = starry.string, bg = starry.none }, -- Any string
@@ -172,7 +172,7 @@ theme.loadEditor = function()
     QuickFixLine = { fg = starry.highlight, bg = starry.white, style = 'reverse' },
     qfLineNr = { fg = starry.highlight, bg = starry.white, style = 'reverse' },
     Search = {
-      fg = starry.search_fg ,
+      fg = starry.search_fg,
       bg = starry.highlight,
       style = 'reverse,bold',
     },
@@ -313,7 +313,7 @@ theme.loadTreeSitter = function()
     TSNamespace = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
     TSNumber = { link = 'Number' }, -- For all numbers
     TSOperator = { link = 'Operator' }, -- For any operator: `+`, but also `->` and `*` in C.
-    TSKeywordOperator = { link = 'Operator', style='bold' }, -- For any operator: `+`, but also `->` and `*` in C.
+    TSKeywordOperator = { link = 'Operator', style = 'bold' }, -- For any operator: `+`, but also `->` and `*` in C.
     TSParameter = { fg = starry.parameter, style = 'bold' }, -- For parameters of a function.
     TSParameterReference = { link = 'PreCondit' }, -- For references to parameters of a function.
     Hlargs = { link = 'TSParameterReference' },
@@ -321,7 +321,7 @@ theme.loadTreeSitter = function()
     TSPunctDelimiter = { link = 'Macro' }, -- For delimiters ie: `.`
     TSPunctBracket = { fg = starry.bracket }, -- For brackets and parens.
     TSPunctSpecial = { fg = starry.punctutation }, -- For special punctutation that does not fall in the categories before.
-    TSFunctionCall = {fg = starry.func},
+    TSFunctionCall = { fg = starry.func },
     TSString = { link = 'String' }, -- For strings.
     TSStringRegex = { fg = starry.pink2 }, -- For regexes.
     TSStringEscape = { link = 'Ignore' }, -- For escape characters within a string.
@@ -528,9 +528,12 @@ theme.loadPlugins = function()
     NvimTreeExecFile = { link = 'Question' },
     NvimTreeSpecialFile = { fg = starry.purple, style = 'underline' },
     LspDiagnosticsError = { link = 'DiagnosticError' },
-    LspDiagnosticsWarning = { link = 'WarningMsg' },
+    LspDiagnosticsWarning = { link = 'WarningMsg' }, -- LspDiagXXX deprecated
+    DiagnosticsWarning = { link = 'WarningMsg' },
     LspDiagnosticsInformation = { link = 'PreCondit' },
+    DiagnosticsInformation = { link = 'PreCondit' },
     LspDiagnosticsHint = { link = 'PreProc' },
+    DiagnosticsHint = { link = 'PreProc' },
 
     -- WhichKey
     WhichKey = { fg = starry.accent, style = 'bold' },

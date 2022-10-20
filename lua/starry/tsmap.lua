@@ -1,3 +1,4 @@
+-- https://github.com/nvim-treesitter/nvim-treesitter/commit/42ab95d5e11f247c6f0c8f5181b02e816caa4a4f#commitcomment-87014462
 local hl = function(group, opts)
   opts.default = true
   vim.api.nvim_set_hl(0, group, opts)

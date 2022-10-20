@@ -155,11 +155,7 @@ function util.load(theme)
       end
     end
     util.contrast()
-    if vim.api.nvim__set_hl_ns ~= nil then
-      vim.api.nvim__set_hl_ns(0)
-    else
-      vim.api.nvim_set_hl_ns(0)
-    end
+    vim.api.nvim_set_hl_ns(0)
     async:close()
     vim.cmd('doautocmd ColorScheme')
   end))
@@ -181,11 +177,8 @@ function util.load(theme)
 
   vim.cmd('hi Normal guibg=' .. editor.Normal.bg .. ' guifg=' .. editor.Normal.fg)
 
-  if vim.api.nvim__set_hl_ns ~= nil then
-    vim.api.nvim__set_hl_ns(0)
-  else
-    vim.api.nvim_set_hl_ns(0)
-  end
+  vim.api.nvim_set_hl_ns(0)
+  require('starry.tsmap').link()
 end
 
 return util

@@ -563,10 +563,8 @@ theme.loadPlugins = function()
     FocusedSymbol = { bg = starry.selection },
     SymbolsOutlineConnector = { fg = starry.border },
     -- BufferLine
-    BufferLineIndicatorSelected = { fg = starry.type },
     BufferLineFill = { bg = starry.bg_alt },
     BufferLineBackground = { bg = starry.bg },
-    BufferLineBufferSelected = { fg = starry.statement, bg = starry.less_active },
 
     -- Sneak
     Sneak = { fg = starry.bg, bg = starry.accent },

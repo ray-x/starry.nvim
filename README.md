@@ -1,7 +1,6 @@
 # 🌠🌌 Starry 🌌🌠
 
-A collection of colorschemes for neovim (Neovim 5.0+ required), written in lua.
-
+A collection of colorschemes for neovim (Neovim 8.0+ required), written in lua.
 This first version of starry plugin was built based on
 
 - [material.nvim](https://github.com/marko-cerovac/material.nvim)
@@ -23,6 +22,7 @@ Following colorschemes were added later on:
 - Better color contrast and easy for eyes tuning for material.nvim and moonlight.nvim
 - Colorscheme color random loading (loading from Deep ocean, Oceanic, Palenight, Lighter, Darker, moonlight, dracula,
   monokai, mariana, emerald, middlenight_blue, earlysummer randomly )
+- Built with latest neovim API
 - Tracking latest neovim/lsp/treesitter highlight updates. e.g. `NormalFloat`, `FloatShadow`, `LspReferenceRead/Write`
 - Random loading
 - Daylight mode, tune the color for daytime

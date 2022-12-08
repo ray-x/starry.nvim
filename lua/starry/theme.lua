@@ -160,6 +160,7 @@ theme.loadEditor = function()
     ModeMsg = { fg = starry.accent },
     MoreMsg = { link = 'ModeMsg' },
     NonText = { link = 'Ignore' },
+    VirtColumn = { link = 'ColorColumn' },
     Pmenu = { fg = starry.textdark, bg = starry.contrast },
     PmenuSel = {
       fg = starry.accent,

@@ -1,4 +1,5 @@
 local util = require('starry.util')
+local cfg = require('starry.config')
 
 -- Load the theme
 local set = function(theme)
@@ -26,4 +27,4 @@ local function theme_complete()
 
 end
 
-return {set = set, clear = clear, theme_complete = theme_complete}
+return {set = set, clear = clear, theme_complete = theme_complete, setup = cfg.setup}

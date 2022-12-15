@@ -199,3 +199,44 @@ Change to specific style
 ```lua
 lua require('starry.functions').change_style("dracula_blood")
 ```
+
+override default color group, please also check [material.nvim Configuration](https://github.com/marko-cerovac/material.nvim#%EF%B8%8F-configuration)
+Example:
+```lua
+local starry = require 'starry'
+local colors = require 'starry.colors'
+
+starry.setup{
+    custom_highlights = {
+        LineNr = { bg = '#9F809E' }
+        CursorLine = { fg = colors.editor.constrast , underline = true },
+
+        -- This is a list of possible values
+        -- override @string of treesitter
+        @string = {
+            fg = "#339922", -- foreground color
+            bg = "NONE", -- background color
+            sp = "#779988", -- special color (for colored underlines, undercurls...)
+            bold = false, -- make group bold
+            italic = false, -- make group italic
+            underline = false, -- make group underlined
+            undercurl = false, -- make group undercurled
+            underdot = false, -- make group underdotted
+            underdash = false -- make group underslashed
+            striketrough = false, -- make group striked trough
+            reverse = false, -- reverse the fg and bg colors
+            link = "Comment" -- link to some other highlight group
+        }
+    },
+
+    -- Custom colors must be a function that takes in the default colors table as
+    -- a paramter, and then modifies them.
+    -- To se the available colors, see lua/material/colors/init.lua
+    custom_colors = function(colors)
+        colors.editor.bg = "#SOME_COLOR"
+        colors.main.purple = "#SOME_COLOR"
+        colors.lsp.error = "#SOME_COLOR"
+    end
+}
+vim.cmd('colorscheme oceanic')
+```

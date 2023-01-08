@@ -422,16 +422,14 @@ theme.loadLSP = function()
     DiagnosticSignHint = { link = 'DiagnosticDefaultHint' }, -- used for "Hint" diagnostic signs in sign column
     DiagnosticUnderlineHint = { style = 'undercurl', sp = starry.br_blue }, -- used to underline "Hint" diagnostics.
 
-    LspReferenceText = { style = 'bold,' .. underdot, 
-      bg = starry.highlight,
-      sp = 'green' }, -- used for highlighting "text" references
+    LspReferenceText = { style = 'bold,' .. underdot, bg = starry.less_active, sp = 'green' }, -- used for highlighting "text" references
     LspReferenceRead = {
-      bg = starry.highlight,
+      bg = starry.less_active,
       style = 'bold,' .. underdash,
       sp = 'green',
     }, -- used for highlighting "read" references
     LspReferenceWrite = {
-      bg = starry.highlight,
+      bg = starry.less_active,
       style = 'bold,' .. underdouble,
       sp = 'yellow',
     }, -- used for highlighting "write" references

@@ -125,6 +125,10 @@ end
 
 theme.loadEditor = function()
   -- Editor highlight groups
+  local lineNrStyle
+  if vim.wo.relativenumber == true then
+    lineNrStyle = 'bold,' .. underdot
+  end
 
   local editor = {
     FloatShadow = { bg = starry.black, blend = 36 },
@@ -148,7 +152,7 @@ theme.loadEditor = function()
     Folded = { fg = starry.link, bg = starry.none, style = 'bold' },
     FoldColumn = { link = 'Include' },
     IncSearch = { fg = starry.inc_search, bg = starry.highlight, style = 'bold,reverse' },
-    LineNr = { fg = starry.text, style = 'bold,' .. underdot },
+    LineNr = { fg = starry.text, style = lineNrStyle },
     LineNrAbove = { fg = starry.line_numbers },
     LineNrBelow = { link = 'LineNrAbove' },
     CursorLineNr = { link = 'ModeMsg', style = 'bold' },

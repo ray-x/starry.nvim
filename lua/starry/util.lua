@@ -88,8 +88,8 @@ local themes_daytime = { 'limestone', 'monokai_lighter', 'mariana_lighter', 'ear
 -- Load the theme
 function util.load(theme)
   if theme == nil then
-    local h = tonumber(os.date('%H'))
     if vim.g.starry_daylight_switch and vim.g.starry_style_fix ~= true then
+      local h = tonumber(os.date('%H'))
       if 6 < h and h < 18 then
         themes = themes_daytime
       end

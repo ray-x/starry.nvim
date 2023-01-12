@@ -165,7 +165,7 @@ theme.loadEditor = function()
     MoreMsg = { link = 'ModeMsg' },
     NonText = { link = 'Ignore' },
     VirtColumn = { link = 'ColorColumn' },
-    Pmenu = { fg = starry.textdark, bg = starry.contrast },
+    Pmenu = { fg = starry.text, bg = starry.contrast },
     PmenuSel = {
       fg = starry.accent,
       bg = starry.more_active,

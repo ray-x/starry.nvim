@@ -327,7 +327,7 @@ local function starry_init()
       bg_darker = '#191a21',
       fg = '#E8E8E3',
       bg2 = '#103b41',
-      search_fg = '#A51516',
+      search_fg = '#451516',
       search_bg = '#F6FB44',
       statement = starry.dark_orange,
       func = 'PaleGreen',
@@ -344,7 +344,7 @@ local function starry_init()
       active = '#453737',
       more_active = '#584a4e',
       border = '#814265',
-      line_numbers = '#5F4755',
+      line_numbers = '#5F6785',
       highlight = '#515b70',
       disabled = '#6f5456',
       cursor = '#7c44fc',
@@ -361,7 +361,7 @@ local function starry_init()
     white = '#E8E8E3',
     white2 = '#d8d8d3',
     gray = '#8F908A',
-    lightgray = '#97Ab91',
+    lightgray = '#A7AFA1',
 
     black = '#272822',
 
@@ -453,7 +453,7 @@ local function starry_init()
     white2 = '#F7F7F7',
     white3 = '#D8DEE9',
     grey = '#333333',
-    lightgray = '#575b61',
+    lightgray = '#a7abbd',
 
     black = '#000510',
 
@@ -516,7 +516,7 @@ local function starry_init()
       keyword = mariana_colors.red,
       func = mariana_colors.blueA,
       method = mariana_colors.pink,
-      text = '#D8DEE9',
+      text = mariana_colors.white3,
       comments = mariana_colors.blue6,
       number = mariana_colors.orange,
       char = mariana_colors.pink,
@@ -534,7 +534,7 @@ local function starry_init()
       search_fg = mariana_colors.orange2,
       search_bg = mariana_colors.grey,
       inc_search = mariana_colors.green,
-      contrast = '#1b1c2b',
+      contrast = mariana_colors.blue2,
       less_active = mariana_colors.blue7,
       float = mariana_colors.orange,
       bracket = mariana_colors.orange,
@@ -792,6 +792,8 @@ local function starry_init()
     darkgray = '#476b61',
 
     black = '#011002',
+    dark = '#313D46',
+    darker = '#15232e',
 
     caramel = '#ffa37a',
     lightgrey = '#64645e',
@@ -839,8 +841,8 @@ local function starry_init()
   local function earlysummer()
     return {
       bg = '#212c31',
-      bg_alt = '#303648',
-      bg_darker = '#15232e',
+      bg_alt = earlysummer_colors.dark,
+      bg_darker = earlysummer_colors.darker,
       fg = '#bbccdd',
       statement = earlysummer_colors.red1,
       symbol = earlysummer_colors.yellow,
@@ -872,13 +874,13 @@ local function starry_init()
       search_fg = earlysummer_colors.orange,
       inc_search = earlysummer_colors.purple,
       search_bg = '#303010',
-      contrast = '#1b1c2b',
+      contrast = bg_alt,
       less_active = '#202124',
       bracket = earlysummer_colors.orange,
       active = '#313043',
       more_active = '#4f5681',
       border = '#393F48',
-      line_numbers = '#4d5266',
+      line_numbers = '#5d6276',
       highlight = '#4f4b60',
       disabled = earlysummer_colors.darkgray,
       cursor = '#a0d2ac',
@@ -1124,7 +1126,7 @@ local function starry_init()
     starry.active = '#2f2335'
     starry.more_active = '#424252'
     starry.border = '#31314B'
-    starry.line_numbers = '#424252'
+    starry.line_numbers = '#525272'
     starry.highlight = '#423F6F'
     starry.disabled = '#4A4A4A'
     starry.accent = '#FF9800'
@@ -1161,7 +1163,6 @@ local function starry_init()
     starry.bg_alt = '#DFDFBF'
     starry.fg = '#345E6A'
     starry.text = '#547770'
-    starry.textdark = '#648780'
     starry.comments = '#90A0B2'
     starry.selection = '#80CBC4'
     starry.contrast = '#DEDEDE'
@@ -1195,7 +1196,7 @@ local function starry_init()
     starry.active = '#363743'
     starry.more_active = '#414863'
     starry.border = '#676E95'
-    starry.line_numbers = '#4A4F58'
+    starry.line_numbers = '#5A5F98'
     starry.highlight = '#545287'
     starry.disabled = '#515772'
     starry.accent = '#AB47BC'
@@ -1216,7 +1217,7 @@ local function starry_init()
     starry.active = '#242435'
     starry.more_active = '#3A3555'
     starry.border = '#312443'
-    starry.line_numbers = '#4B4F61'
+    starry.line_numbers = '#5B5F91'
     starry.highlight = '#4F3F63'
     starry.disabled = '#464B5D'
     starry.accent = '#84FFFF'
@@ -1237,7 +1238,7 @@ local function starry_init()
     starry.active = '#273d3f'
     starry.more_active = '#375354'
     starry.border = '#2A373E'
-    starry.line_numbers = '#475F6F'
+    starry.line_numbers = '#577FAF'
     starry.highlight = '#425B67'
     starry.disabled = '#415967'
     starry.accent = '#009688'

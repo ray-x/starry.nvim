@@ -178,7 +178,7 @@ theme.loadEditor = function()
     qfLineNr = { fg = starry.highlight, bg = starry.white, style = 'reverse' },
     Search = {
       fg = starry.search_fg,
-      bg = starry.highlight,
+      bg = starry.search_bg,
       style = 'reverse,bold',
     },
     SpecialKey = { link = 'PreProc' },

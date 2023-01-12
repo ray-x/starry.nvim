@@ -361,7 +361,7 @@ local function starry_init()
     white = '#E8E8E3',
     white2 = '#d8d8d3',
     gray = '#8F908A',
-    lightgray = '#575b61',
+    lightgray = '#97Ab91',
 
     black = '#272822',
 
@@ -428,8 +428,8 @@ local function starry_init()
       string = '#F0C366',
       const = '#A876FA',
       selection = '#474b51',
-      search_fg = '#353536',
-      search_bg = '#E6DB74',
+      search_bg = '#252056',
+      search_fg = '#B69B24',
       contrast = '#1b1c2b',
       less_active = '#343032',
       active = '#343032',
@@ -1176,7 +1176,6 @@ local function starry_init()
     starry.parameter = '#5193a8'
     starry.type = '#A47EE8'
     starry.search_fg = '#FAC37D'
-    starry.search_bg = starry.blue1
     starry.search_bg = starry.blue1
 
     starry.accent = '#60BCD4'

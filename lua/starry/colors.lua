@@ -48,7 +48,7 @@ local function starry_init()
 
     white = '#EEEFFF',
     br_white = '#FEFFFF',
-    light_gray = '#A1ACD4',
+    lightgray = '#A1ACD4',
     gray = '#717CB4',
     gray5 = '#5f496e',
     gray7 = '#777087',

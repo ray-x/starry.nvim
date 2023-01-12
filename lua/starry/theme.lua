@@ -126,7 +126,7 @@ end
 theme.loadEditor = function()
   -- Editor highlight groups
   local lineNrStyle
-  if vim.wo.relativenumber == true then
+  if vim.wo.relativenumber == true or vim.o.relativenumber == true then
     lineNrStyle = 'bold,' .. underdot
   end
 
@@ -152,8 +152,8 @@ theme.loadEditor = function()
     Folded = { fg = starry.link, bg = starry.none, style = 'bold' },
     FoldColumn = { link = 'Include' },
     IncSearch = { fg = starry.inc_search, bg = starry.highlight, style = 'bold,reverse' },
-    LineNr = { fg = starry.text, style = lineNrStyle },
-    LineNrAbove = { fg = starry.line_numbers },
+    LineNr = { fg = starry.line_numbers, style = lineNrStyle },
+    LineNrAbove = { fg = starry.more_active },
     LineNrBelow = { link = 'LineNrAbove' },
     CursorLineNr = { link = 'ModeMsg', style = 'bold' },
     MatchParen = {
@@ -615,7 +615,7 @@ theme.loadPlugins = function()
     LightspeedCursor = { fg = starry.black, bg = starry.blue },
 
     -- Cmp
-    CmpItemAbbrDeprecated = { fg = starry.light_gray, style = 'strikethrough' },
+    CmpItemAbbrDeprecated = { fg = starry.lightgray, style = 'strikethrough' },
     CmpItemAbbrMatch = { fg = starry.search_fg, bg = starry.search_bg },
     CmpItemAbbrMatchFuzzy = { fg = starry.search_fg, bg = starry.search_bg },
     CmpItemKindVariable = { fg = starry.variable },

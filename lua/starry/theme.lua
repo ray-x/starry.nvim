@@ -16,9 +16,14 @@ if vim.fn.has('nvim-0.8') == 1 then
   underdash = 'underdashed'
 end
 
+if vim.g.starry_disable_background == true then
+  starry.bg = starry.none
+  starry.bg_alt = starry.none
+  starry.bg_darker = starry.none
+  starry.floating = starry.none
+end
 theme.loadSyntax = function()
   -- Syntax highlight groups
-
   local syntax = {
     Type = { fg = starry.type }, -- int, long, char, etc.
     StorageClass = { fg = starry.class }, -- static, register, volatile, etc.
@@ -229,14 +234,7 @@ theme.loadEditor = function()
 
   -- Options:
 
-  -- Set transparent background
-  if vim.g.starry_disable_background == true then
-    editor.Normal = { fg = starry.fg, bg = starry.none } -- normal text and background color
-    editor.SignColumn = { fg = starry.fg, bg = starry.none }
-
-    editor.NormalFloat = { fg = starry.fg, bg = starry.none } -- normal text and background color for floating windows
-    editor.FloatBorder = { fg = starry.comments, bg = starry.none }
-  elseif vim.g.starry_darker_contrast == true and starry.bg_darker then
+  if vim.g.starry_darker_contrast == true and starry.bg_darker then
     editor.Normal = { fg = starry.fg, bg = starry.bg_darker } -- normal text and background color
     editor.SignColumn = { fg = starry.fg, bg = starry.bg_darker }
 
@@ -247,7 +245,7 @@ theme.loadEditor = function()
     editor.SignColumn = { fg = starry.fg, bg = starry.bg }
 
     editor.NormalFloat = { fg = starry.fg, bg = starry.floating } -- normal text and background color for floating windows
-    editor.FloatBorder = { fg = starry.comments, bg = starry.less_active }
+    editor.FloatBorder = { fg = starry.comments, bg = starry.bg_alt }
   end
 
   -- Remove window split borders

@@ -347,7 +347,7 @@ local function starry_init()
       active = '#453737',
       more_active = '#584a4e',
       border = '#814265',
-      line_numbers = '#5F6785',
+      line_numbers = '#6F7795',
       highlight = '#515b70',
       disabled = '#6f5456',
       cursor = '#7c44fc',

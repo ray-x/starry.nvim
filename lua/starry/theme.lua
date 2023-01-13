@@ -153,7 +153,7 @@ theme.loadEditor = function()
     FoldColumn = { link = 'Include' },
     IncSearch = { fg = starry.inc_search, style = 'bold,reverse' },
     LineNr = { fg = starry.line_numbers, style = lineNrStyle },
-    LineNrAbove = { fg = starry.gray7 },
+    LineNrAbove = { fg = starry.disabled },
     LineNrBelow = { link = 'LineNrAbove' },
     CursorLineNr = { link = 'ModeMsg', style = 'bold' },
     MatchParen = {
@@ -443,6 +443,7 @@ theme.loadLSP = function()
       style = 'bold,' .. underdouble,
       sp = 'violet',
     },
+    LspCodeLens = { link = 'DiagnosticHint' },
   }
 
   return lsp

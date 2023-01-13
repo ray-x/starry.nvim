@@ -48,7 +48,7 @@ theme.loadSyntax = function()
     Underlined = { fg = starry.link, bg = starry.none, style = 'undercurl', sp = starry.blue }, -- text that stands out, HTML links
     Ignore = { fg = starry.disabled }, -- left blank, hidden
     Error = { fg = starry.error, style = 'bold,undercurl', sp = starry.pink }, -- any erroneous construct
-    Todo = { fg = starry.yellow, bg = starry.bg_alt, style = 'bold,italic' }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo = { fg = starry.yellow, bg = starry.bg_alt, style = starry.highlight_style }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     MsgArea = { fg = starry.string, bg = starry.none }, -- Any string
 
@@ -142,7 +142,7 @@ theme.loadEditor = function()
     DiffChange = {
       fg = starry.orange,
       bg = starry.none,
-      style = 'reverse,bold,' .. underdot,
+      style = starry.search_style .. ',' .. underdot,
       sp = starry.red,
     }, --  diff mode: Changed line
     DiffDelete = { bg = starry.less_active, style = 'strikethrough' }, -- diff mode: Deleted line
@@ -151,9 +151,9 @@ theme.loadEditor = function()
     ErrorMsg = { link = 'DiagnosticError' }, -- error messages
     Folded = { fg = starry.link, bg = starry.none, style = 'bold' },
     FoldColumn = { link = 'Include' },
-    IncSearch = { fg = starry.inc_search, bg = starry.highlight, style = 'bold,reverse' },
+    IncSearch = { fg = starry.inc_search, style = 'bold,reverse' },
     LineNr = { fg = starry.line_numbers, style = lineNrStyle },
-    LineNrAbove = { fg = starry.more_active },
+    LineNrAbove = { fg = starry.gray7 },
     LineNrBelow = { link = 'LineNrAbove' },
     CursorLineNr = { link = 'ModeMsg', style = 'bold' },
     MatchParen = {
@@ -169,7 +169,7 @@ theme.loadEditor = function()
     PmenuSel = {
       fg = starry.accent,
       bg = starry.more_active,
-      style = 'bold,italic',
+      style = starry.highlight_style,
     },
     PmenuSbar = { fg = starry.text, bg = starry.contrast },
     PmenuThumb = { fg = starry.fg, bg = starry.accent },
@@ -179,7 +179,7 @@ theme.loadEditor = function()
     Search = {
       fg = starry.search_fg,
       bg = starry.search_bg,
-      style = 'reverse,bold',
+      style = starry.search_style,
     },
     SpecialKey = { link = 'PreProc' },
     SpellBad = { fg = starry.orange, bg = starry.none, style = 'undercurl', sp = starry.red },

@@ -48,8 +48,8 @@ local function starry_init()
 
     white = '#EEEFFF',
     br_white = '#FEFFFF',
-    lightgray = '#A1ACD4',
-    gray = '#717CB4',
+    lightgray = '#A8ACB4',
+    gray = '#888CA4',
     gray5 = '#5f496e',
     gray7 = '#777087',
     darkgray = '#676067',
@@ -120,6 +120,8 @@ local function starry_init()
     darkblue = '#4c7b9b',
     darkcyan = '#71c6e7',
     darkorange = '#e2795b',
+    highlight_style = 'bold,italic',
+    search_style = 'reverse,bold',
 
     none = 'NONE',
   }
@@ -158,9 +160,9 @@ local function starry_init()
       directory = starry_colors.blue,
 
       selection = starry_colors.gary7,
-      search_fg = starry_colors.yellow,
-      search_bg = starry_colors.gray7,
-      inc_search = starry_colors.orange,
+      search_fg = starry_colors.orange,
+      search_bg = 'NONE',
+      inc_search = starry_colors.yellow,
       contrast = starry_colors.dark,
       less_active = starry_colors.neardark2,
       bracket = starry_colors.orange,
@@ -238,7 +240,7 @@ local function starry_init()
       accent = '#a3ace1',
       tag = starry.cyan,
       error = '#EF83D0',
-      search_bg = '#14587c',
+      search_bg = starry.black,
       search_fg = '#8498ac',
       link = '#D9BBE4',
     }
@@ -328,8 +330,8 @@ local function starry_init()
       bg_darker = '#191a21',
       fg = '#E8E8E3',
       bg2 = '#103b41',
-      search_fg = '#451516',
-      search_bg = '#F6FB44',
+      search_fg = starry_dracula_blood.salmon,
+      search_bg = starry.none,
       statement = starry.dark_orange,
       func = 'PaleGreen',
       method = '#A0E210',
@@ -1118,7 +1120,7 @@ local function starry_init()
     starry.bg = '#212121'
     starry.bg_alt = '#1A1A1A'
     starry.fg = '#B0BEC5'
-    starry.text = '#727272'
+    starry.text = '#9292A8'
     starry.comments = '#616161'
     starry.selection = '#474849'
     starry.contrast = '#1A1A1A'
@@ -1189,7 +1191,7 @@ local function starry_init()
     starry.bg = '#292D3E'
     starry.bg_alt = '#1B1E2B'
     starry.fg = '#A6ACCD'
-    starry.text = '#717CB4'
+    starry.text = '#818CB4'
     starry.comments = '#878EA5'
     starry.selection = '#44425F'
     starry.contrast = '#202331'
@@ -1210,7 +1212,7 @@ local function starry_init()
     starry.bg = '#0F111A'
     starry.bg_alt = '#090B10'
     starry.fg = '#8F93A2'
-    starry.text = '#717CB4'
+    starry.text = '#818CB4'
     starry.comments = '#666B7D'
     starry.selection = '#373448'
     starry.contrast = '#090B10'
@@ -1230,7 +1232,7 @@ local function starry_init()
     starry.bg = '#20272f'
     starry.bg_alt = '#192027'
     starry.fg = '#B0BEC5'
-    starry.text = '#687F94'
+    starry.text = '#89AFB4'
     starry.comments = '#666B8D'
     starry.selection = '#445E6A'
 

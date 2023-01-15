@@ -145,6 +145,9 @@ theme.loadEditor = function()
       style = starry.search_style .. ',' .. underdot,
       sp = starry.red,
     }, --  diff mode: Changed line
+
+    TermCursor = { link = 'Cursor' },
+    TermCursorNC = { link = 'Cursor' },
     DiffDelete = { bg = starry.less_active, style = 'strikethrough' }, -- diff mode: Deleted line
     DiffText = { style = 'reverse' }, -- diff mode: Changed text within a changed line
     EndOfBuffer = { link = 'Ignore' }, -- ~ lines at the end of a buffer
@@ -164,7 +167,6 @@ theme.loadEditor = function()
     ModeMsg = { fg = starry.accent },
     MoreMsg = { link = 'ModeMsg' },
     NonText = { link = 'Ignore' },
-    VirtColumn = { link = 'ColorColumn' },
     Pmenu = { fg = starry.text, bg = starry.contrast },
     PmenuSel = {
       fg = starry.accent,
@@ -200,6 +202,8 @@ theme.loadEditor = function()
     Title = { fg = starry.title, style = 'bold' },
     Visual = { bg = starry.selection },
     VisualNOS = { link = 'Visual' },
+    VisualNC = { link = 'Visual' },
+    NormalNC = { link = 'Normal' }, -- normal text and background color
     WarningMsg = { fg = starry.yellow },
     WildMenu = { fg = starry.orange, style = 'bold' },
     CursorColumn = { bg = starry.active },

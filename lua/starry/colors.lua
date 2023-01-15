@@ -521,7 +521,7 @@ local function starry_init()
       variable = mariana_colors.white3,
       parameter = starry.orange,
       class = mariana_colors.pink,
-      typedef = mariana_colors.blue5,
+      typedef = mariana_colors.br_cyan,
       punctutation = mariana_colors.blue5,
 
       field = mariana_colors.blueC,

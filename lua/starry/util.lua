@@ -1,9 +1,15 @@
 local util = {}
 local config = require('starry.config').options
-local nvim06 = vim.fn.has('nvim-0.6')
+local nvim06 = (vim.fn.has('nvim-0.6') == 1)
 
 util.hlv2 = function(group, style)
-  local val = { fg = style.fg, bg = style.bg }
+  local val = {}
+  if style.bg and style.bg ~= 'NONE' then
+    val.bg = style.bg
+  end
+  if style.fg and style.fg ~= 'NONE' then
+    val.fg = style.fg
+  end
   if style.sp then
     val.sp = style.sp
   end
@@ -175,7 +181,7 @@ function util.load(theme)
 
   async:send()
 
-  vim.cmd('hi Normal guibg=' .. editor.Normal.bg .. ' guifg=' .. editor.Normal.fg)
+  vim.cmd('hi Normal guibg=' .. (editor.Normal.bg or 'NONE') .. ' guifg=' .. editor.Normal.fg)
 
   vim.api.nvim_set_hl_ns(0)
   require('starry.tsmap').link()

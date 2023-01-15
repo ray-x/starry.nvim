@@ -29,7 +29,7 @@ theme.loadSyntax = function()
     StorageClass = { fg = starry.class }, -- static, register, volatile, etc.
     Structure = { fg = starry.structure }, -- struct, union, enum, etc.
     Constant = { fg = starry.const }, -- any constant
-    String = { fg = starry.string, bg = starry.none }, -- Any string
+    String = { fg = starry.string }, -- Any string
     Character = { fg = starry.orange }, -- any character constant: 'c', '\n'
     Number = { fg = starry.number }, -- a number constant: 5
     Boolean = { fg = starry.bool, style = 'italic' }, -- a boolean constant: TRUE, false
@@ -50,12 +50,12 @@ theme.loadSyntax = function()
     Delimiter = { fg = starry.blue1 }, -- character that needs attention like , or .
     SpecialComment = { fg = starry.comments }, -- special things inside a comment
     Debug = { link = 'Special' }, -- debugging statements
-    Underlined = { fg = starry.link, bg = starry.none, style = 'undercurl', sp = starry.blue }, -- text that stands out, HTML links
+    Underlined = { fg = starry.link, style = 'undercurl', sp = starry.blue }, -- text that stands out, HTML links
     Ignore = { fg = starry.disabled }, -- left blank, hidden
     Error = { fg = starry.error, style = 'bold,undercurl', sp = starry.pink }, -- any erroneous construct
     Todo = { fg = starry.yellow, bg = starry.bg_alt, style = starry.highlight_style }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
-    MsgArea = { fg = starry.string, bg = starry.none }, -- Any string
+    MsgArea = { fg = starry.string }, -- Any string
 
     htmlLink = { fg = starry.link, style = 'underline', sp = starry.blue },
     htmlH1 = { fg = starry.cyan, style = 'bold,' .. underdouble },
@@ -75,7 +75,7 @@ theme.loadSyntax = function()
 
   -- Italic comments
   if vim.g.starry_italic_comments == true then
-    syntax.Comment = { fg = starry.comments, bg = starry.none, style = 'italic' } -- italic comments
+    syntax.Comment = { fg = starry.comments, style = 'italic' } -- italic comments
   else
     syntax.Comment = { link = 'SpecialComment' } -- normal comments
   end
@@ -89,18 +89,15 @@ theme.loadSyntax = function()
   if vim.g.starry_italic_keywords == true then
     syntax.Conditional = {
       fg = starry.condition,
-      bg = starry.none,
       style = 'italic',
     } -- italic if, then, else, endif, switch, etc.
     syntax.Keyword = {
       fg = starry.keyword,
-      bg = starry.none,
       style = 'italic',
       bold = true,
     } -- italic for, do, while, etc.
     syntax.Repeat = {
       fg = starry.condition,
-      bg = starry.none,
       style = 'italic',
     } -- italic any other keyword
   else
@@ -113,7 +110,6 @@ theme.loadSyntax = function()
   if vim.g.starry_italic_functions == true then
     syntax.Function = {
       fg = starry.func,
-      bg = starry.none,
       style = 'italic,bold',
     } -- italic function names
   else
@@ -138,23 +134,22 @@ theme.loadEditor = function()
   local editor = {
     FloatShadow = { bg = starry.black, blend = 36 },
     FloatShadowThrough = { bg = starry.black, blend = 66 },
-    ColorColumn = { fg = starry.none, bg = starry.active }, --  used for the columns set with 'colorcolumn'
+    ColorColumn = { bg = starry.active }, --  used for the columns set with 'colorcolumn'
     Conceal = { link = 'Ignore' }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor = { fg = starry.cursor, bg = starry.none, style = 'reverse' }, -- the character under the cursor
-    CursorIM = { fg = starry.cursor, bg = starry.none, style = 'reverse' }, -- like Cursor, but used when in IME mode
-    Directory = { fg = starry.directory, bg = starry.none }, -- directory names (and other special names in listings)
+    Cursor = { fg = starry.cursor, style = 'reverse' }, -- the character under the cursor
+    CursorIM = { fg = starry.cursor, style = 'reverse' }, -- like Cursor, but used when in IME mode
+    Directory = { fg = starry.directory }, -- directory names (and other special names in listings)
     DiffAdd = { bg = starry.active, style = 'bold,' .. underdash }, -- diff mode: Added line
     DiffChange = {
       fg = starry.orange,
-      bg = starry.none,
       style = starry.search_style .. ',' .. underdot,
       sp = starry.red,
     }, --  diff mode: Changed line
     DiffDelete = { bg = starry.less_active, style = 'strikethrough' }, -- diff mode: Deleted line
-    DiffText = { bg = starry.none, style = 'reverse' }, -- diff mode: Changed text within a changed line
+    DiffText = { style = 'reverse' }, -- diff mode: Changed text within a changed line
     EndOfBuffer = { link = 'Ignore' }, -- ~ lines at the end of a buffer
     ErrorMsg = { link = 'DiagnosticError' }, -- error messages
-    Folded = { fg = starry.link, bg = starry.none, style = 'bold' },
+    Folded = { fg = starry.link, style = 'bold' },
     FoldColumn = { link = 'Include' },
     IncSearch = { fg = starry.inc_search, style = 'bold,reverse' },
     LineNr = { fg = starry.line_numbers, style = lineNrStyle },
@@ -187,12 +182,11 @@ theme.loadEditor = function()
       style = starry.search_style,
     },
     SpecialKey = { link = 'PreProc' },
-    SpellBad = { fg = starry.orange, bg = starry.none, style = 'undercurl', sp = starry.red },
-    SpellCap = { fg = starry.blue, bg = starry.none, style = 'undercurl', sp = starry.violet },
-    SpellLocal = { fg = starry.cyan, bg = starry.none, style = underdot },
+    SpellBad = { fg = starry.orange, style = 'undercurl', sp = starry.red },
+    SpellCap = { fg = starry.blue, style = 'undercurl', sp = starry.violet },
+    SpellLocal = { fg = starry.cyan, style = underdot },
     SpellRare = {
       fg = starry.purple,
-      bg = starry.none,
       style = underdot,
       sp = starry.darkred,
     },
@@ -201,22 +195,22 @@ theme.loadEditor = function()
     StatusLineTerm = { fg = starry.fg, bg = starry.active },
     StatusLineTermNC = { fg = starry.text, bg = starry.less_active },
     TabLineFill = { fg = starry.fg },
-    TablineSel = { fg = starry.bg, bg = starry.accent },
+    TablineSel = { bg = starry.accent, fg = starry.dark },
     Tabline = { fg = starry.fg },
-    Title = { fg = starry.title, bg = starry.none, style = 'bold' },
-    Visual = { fg = starry.none, bg = starry.selection },
+    Title = { fg = starry.title, style = 'bold' },
+    Visual = { bg = starry.selection },
     VisualNOS = { link = 'Visual' },
     WarningMsg = { fg = starry.yellow },
-    WildMenu = { fg = starry.orange, bg = starry.none, style = 'bold' },
-    CursorColumn = { fg = starry.none, bg = starry.active },
-    CursorLine = { fg = starry.none, bg = starry.active },
+    WildMenu = { fg = starry.orange, style = 'bold' },
+    CursorColumn = { bg = starry.active },
+    CursorLine = { bg = starry.active },
     ToolbarLine = { fg = starry.fg, bg = starry.bg_alt },
-    ToolbarButton = { fg = starry.fg, bg = starry.none, style = 'bold' },
+    ToolbarButton = { fg = starry.fg, style = 'bold' },
     NormalMode = { fg = starry.accent, bg = starry.bg, style = 'reverse' },
-    InsertMode = { fg = starry.green, bg = starry.none, style = 'reverse' },
-    ReplacelMode = { fg = starry.red, bg = starry.none, style = 'reverse' },
-    VisualMode = { fg = starry.purple, bg = starry.none, style = 'reverse' },
-    CommandMode = { fg = starry.gray, bg = starry.none, style = 'reverse' },
+    InsertMode = { fg = starry.green, style = 'reverse' },
+    ReplacelMode = { fg = starry.red, style = 'reverse' },
+    VisualMode = { fg = starry.purple, style = 'reverse' },
+    CommandMode = { fg = starry.gray, style = 'reverse' },
     Warnings = { link = 'WarningMsg' },
 
     healthError = { link = 'DiagnosticError' },
@@ -336,10 +330,10 @@ theme.loadTreeSitter = function()
     TSText = { fg = starry.text }, -- For strings considered text in a markup language.
     TSTextReference = { fg = starry.keyword, bg = starry.bg_alt }, -- FIXME
     TSEmphasis = { link = 'PreCondit' }, -- For text to be represented with emphasis.
-    TSUnderline = { fg = starry.fg, bg = starry.none, style = underdouble }, -- For text to be represented with an underline.
+    TSUnderline = { fg = starry.fg, style = underdouble }, -- For text to be represented with an underline.
     TSStrike = { fg = starry.gray, style = 'strikethrough' }, -- For strikethrough text.
     TSCurrentScope = { bg = starry.less_active or starry.active },
-    TSTitle = { fg = starry.title, bg = starry.none, style = 'bold' }, -- Text that is part of a title.
+    TSTitle = { fg = starry.title, style = 'bold' }, -- Text that is part of a title.
     TSLiteral = { link = 'TSText' }, -- Literal text.
     TSURI = { link = 'htmlLink' }, -- Any URI like a link or email.
     TSNone = { link = 'SpecialComment' }, -- TODO: docs
@@ -349,7 +343,7 @@ theme.loadTreeSitter = function()
 
   -- Italic comments
   if vim.g.starry_italic_comments == true then
-    treesitter.TSComment = { fg = starry.comments, bg = starry.none, style = 'italic' } -- For comment blocks.
+    treesitter.TSComment = { fg = starry.comments, style = 'italic' } -- For comment blocks.
   else
     treesitter.TSComment = { link = 'SpecialComment' } -- For comment blocks.
   end
@@ -570,7 +564,7 @@ theme.loadPlugins = function()
     BufferLineBackground = { bg = starry.bg },
 
     -- Sneak
-    Sneak = { fg = starry.bg, bg = starry.accent },
+    Sneak = { bg = starry.accent, style = 'reverse' },
     SneakScope = { bg = starry.selection },
 
     -- Indent Blankline
@@ -602,7 +596,7 @@ theme.loadPlugins = function()
     LightspeedOverlapped = { bg = starry.selection, fg = starry.red },
     LightspeedLabelDistant = { bg = starry.magenta, fg = starry.bg },
     LightspeedLabelDistantOverlapped = { bg = starry.magenta, fg = starry.bg },
-    LightspeedShortcut = { fg = starry.orange, bg = starry.bg, style = 'italic' },
+    LightspeedShortcut = { fg = starry.orange, style = 'italic' },
     LightspeedShortcutOverlapped = { fg = starry.orange, style = 'bold' },
     LightspeedMaskedChar = { fg = starry.red, style = 'undercurl' },
     LightspeedGreyWash = { link = 'SpecialComment' },
@@ -631,7 +625,7 @@ theme.loadPlugins = function()
 
   -- Disable nvim-tree background
   if vim.g.starry_disable_background == true then
-    plugins.NvimTreeNormal = { fg = starry.fg, bg = starry.none }
+    plugins.NvimTreeNormal = { link = 'Normal' }
   else
     plugins.NvimTreeNormal = { fg = starry.fg, bg = starry.sidebar }
   end

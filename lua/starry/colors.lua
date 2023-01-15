@@ -122,7 +122,6 @@ local function starry_init()
     darkorange = '#e2795b',
     highlight_style = 'bold,italic',
     search_style = 'reverse,bold',
-
     none = 'NONE',
   }
 
@@ -161,7 +160,7 @@ local function starry_init()
 
       selection = starry_colors.gary7,
       search_fg = starry_colors.orange,
-      search_bg = 'NONE',
+      search_bg = starry_colors.black,
       inc_search = starry_colors.yellow,
       contrast = starry_colors.dark,
       less_active = starry_colors.neardark2,
@@ -300,7 +299,6 @@ local function starry_init()
       tag = starry.cyan,
       link = '#80CBC4',
       type = starry.blue,
-      none = 'NONE',
     }
   end
 
@@ -331,7 +329,6 @@ local function starry_init()
       fg = '#E8E8E3',
       bg2 = '#103b41',
       search_fg = starry_dracula_blood.salmon,
-      search_bg = starry.none,
       statement = starry.dark_orange,
       func = 'PaleGreen',
       method = '#A0E210',
@@ -354,7 +351,6 @@ local function starry_init()
       accent = '#a34ca1',
       error = '#EF4360',
       type = '#F070C0',
-      none = 'NONE',
     }
   end
 
@@ -446,7 +442,6 @@ local function starry_init()
       error = '#EF4360',
       link = '#80CBC4',
       type = '#66d9ef',
-      none = 'NONE',
     }
   end
 
@@ -552,7 +547,6 @@ local function starry_init()
       error = '#EF4360',
       link = '#80CBC4',
       type = '#66d9ef',
-      none = 'NONE',
     }
   end
 
@@ -669,7 +663,6 @@ local function starry_init()
       error = '#CA1414',
       link = emerald_colors.bluee,
       type = '#66d9af',
-      none = 'NONE',
     }
   end
 
@@ -782,7 +775,6 @@ local function starry_init()
       link = '#80ABF4',
       tag = middlenight_blue_colors.blue2,
       type = '#66d9af',
-      none = 'NONE',
     }
   end
 
@@ -891,7 +883,6 @@ local function starry_init()
       error = earlysummer_colors.red2,
       link = '#808BF4',
       type = '#66d9af',
-      none = 'NONE',
     }
   end
 
@@ -999,7 +990,6 @@ local function starry_init()
       error = dark_solar_colors.br_red,
       link = '#407BF4',
       type = dark_solar_colors.br_yellow,
-      none = 'NONE',
     }
   end
 
@@ -1103,7 +1093,6 @@ local function starry_init()
       error = '#a61e20',
       link = '#80ABF4',
       type = '#66d9af',
-      none = 'NONE',
     }
   end
 

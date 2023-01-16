@@ -174,7 +174,7 @@ theme.loadEditor = function()
       style = starry.highlight_style,
     },
     PmenuSbar = { fg = starry.text, bg = starry.contrast },
-    PmenuThumb = { fg = starry.fg, bg = starry.accent },
+    PmenuThumb = { bg = starry.accent },
     Question = { fg = starry.green },
     QuickFixLine = { fg = starry.highlight, bg = starry.white, style = 'reverse' },
     qfLineNr = { fg = starry.highlight, bg = starry.white, style = 'reverse' },
@@ -258,7 +258,6 @@ theme.loadEditor = function()
   else
     editor.EndOfBuffer = { link = 'Ignore' } -- ~ lines at the end of a buffer
   end
-
   return editor
 end
 

@@ -479,7 +479,7 @@ local function starry_init()
     blue5 = '#5F7484',
     blue5_day = '#343d48', -- note: this is base color of original mariana
     blue6 = '#A6ACB9',
-    blue7 = '#3F4458',
+    blue7 = '#304868',
     blue8 = '#243038',
     blue9 = '#303040',
     blueA = '#B4C0F0',

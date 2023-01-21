@@ -55,6 +55,7 @@ local function starry_init()
     darkgray = '#676067',
     black = '#07050f',
     dark = '#13113f',
+    darker = '#07102f',
     neardark2 = '#282437',
     aqua = '#66d9ef',
     red = '#F07178',
@@ -186,6 +187,7 @@ local function starry_init()
     white = '#EEF5FF',
     gray = '#a1abe0',
     warmgrey = '#8c9a9b',
+    dark = '#212337',
 
     black = '#001010',
     red = '#ff757f',
@@ -209,8 +211,9 @@ local function starry_init()
   }
   local moonlight = function()
     return {
-      bg = '#212337',
+      bg = starry_moonlight.dark,
       bg_darker = '#060816',
+      darker = '#060816',
       bg_alt = '#1B1E2B',
       fg = '#fefcd7',
       text = '#f5fdac',
@@ -250,6 +253,7 @@ local function starry_init()
     white = '#FEF8F2',
     gray = '#a1abe0',
 
+    dark = '#181a37',
     black = '#101010',
     red = '#ff555f',
     green = '#50fa7b',
@@ -263,7 +267,7 @@ local function starry_init()
   }
   local dracula = function()
     return {
-      bg = '#181a37',
+      bg = starry.dark,
       bg_alt = '#21222c',
       bg_darker = '#191a21',
       fg = '#f4f3f2',
@@ -307,6 +311,8 @@ local function starry_init()
     white = '#EEE8EE',
     gray = '#a1abe0',
 
+    dark = '#271822',
+    darker = '#191a21',
     black = '#101010',
     red = '#A71906',
     salmon = '#F7856E',
@@ -323,9 +329,9 @@ local function starry_init()
   }
   local dracula_blood = function()
     return {
-      bg = '#271822',
+      bg = starry_dracula_blood.dark,
       bg_alt = '#2C2C34',
-      bg_darker = '#191a21',
+      bg_darker = starry_dracula_blood.darker,
       fg = '#E8E8E3',
       bg2 = '#103b41',
       search_fg = starry_dracula_blood.salmon,
@@ -367,6 +373,8 @@ local function starry_init()
     darkgrey = '#64645e',
     warmgrey = '#75715E',
 
+    dark = '#262721',
+    darker = '#191a21',
     pink = '#F92772',
     green = '#A6E22D',
     yellow = '#E6DB74',
@@ -400,9 +408,9 @@ local function starry_init()
   local monokai = function()
     return {
       -- syntax
-      bg = '#262721',
+      bg = starry_monokai.dark,
       bg_alt = '#2C2C34',
-      bg_darker = '#191a21',
+      bg_darker = starry_monokai.darker,
       fg = '#CED1D4',
       bg2 = '#103b41',
       statement = '#F82773',
@@ -475,12 +483,14 @@ local function starry_init()
     blue1 = '#6699CC',
     blue2 = '#3E4A55',
     blue3 = '#2A333C',
+    dark = '#2A333C',
     blue4 = '#64738A',
     blue5 = '#5F7484',
     blue5_day = '#343d48', -- note: this is base color of original mariana
     blue6 = '#A6ACB9',
     blue7 = '#304868',
     blue8 = '#243038',
+    darker = '#243038',
     blue9 = '#303040',
     blueA = '#B4C0F0',
     blueB = '#303449',
@@ -501,9 +511,9 @@ local function starry_init()
   }
   local mariana = function()
     return {
-      bg = mariana_colors.blue3,
+      bg = mariana_colors.dark,
       bg_alt = mariana_colors.blue9,
-      bg_darker = mariana_colors.blue8,
+      bg_darker = mariana_colors.darker,
       fg = mariana_colors.white3,
       bg2 = '#103b41',
       statement = '#F82773',
@@ -559,6 +569,7 @@ local function starry_init()
     darkgray = '#476b61',
 
     black = '#112012',
+    dark = '#112012',
 
     caramel = '#f9c37a',
     lightgrey = '#64645e',
@@ -589,6 +600,7 @@ local function starry_init()
     green8 = '#C6Dc93',
     green9 = '#132a15',
     greena = '#10210e',
+    darker = '#10210e',
     greenb = '#046806',
     greenc = '#065836',
     greend = '#46f836',
@@ -612,9 +624,9 @@ local function starry_init()
 
   local function emerald()
     return {
-      bg = emerald_colors.black,
+      bg = emerald_colors.dark,
       bg_alt = emerald_colors.green9,
-      bg_darker = emerald_colors.greena,
+      bg_darker = emerald_colors.darker,
       fg = emerald_colors.white3,
       bg2 = '#103b41',
       statement = '#DbB0A0',
@@ -674,6 +686,8 @@ local function starry_init()
     grey = '#d3d3d3',
     darkgray = '#476b61',
 
+    dark = '#101022',
+    darker = '#040D16',
     black = '#011002',
 
     caramel = '#f9c37a',
@@ -725,9 +739,9 @@ local function starry_init()
 
   local middlenight_blue = function()
     return {
-      bg = '#101022',
+      bg = middlenight_blue_colors.dark,
       bg_alt = '#20202a',
-      bg_darker = '#040D16',
+      bg_darker = middlenight_blue_colors.darker,
       fg = '#ddeedd',
       bg2 = '#201022',
       statement = middlenight_blue_colors.br_yellow,
@@ -787,8 +801,9 @@ local function starry_init()
     darkgray = '#476b61',
 
     black = '#011002',
-    dark = '#313D46',
+    dark = '#212c31',
     darker = '#15232e',
+    dark2 = '#313D46',
 
     caramel = '#ffa37a',
     lightgrey = '#64645e',
@@ -835,8 +850,8 @@ local function starry_init()
 
   local function earlysummer()
     return {
-      bg = '#212c31',
-      bg_alt = earlysummer_colors.dark,
+      bg = earlysummer_colors.dark,
+      bg_alt = earlysummer_colors.dark2,
       bg_darker = earlysummer_colors.darker,
       fg = '#bbccdd',
       statement = earlysummer_colors.red1,
@@ -896,6 +911,7 @@ local function starry_init()
     darkgray = '#074051',
 
     bg = '#012731',
+    dark = '#012731',
     black = '#011e26',
 
     caramel = '#ffa37a',
@@ -1001,6 +1017,8 @@ local function starry_init()
     grey = '#d3d3d3',
     darkgray = '#476b61',
 
+    dark = '#1056B8',
+    darker = '#1446a6',
     black = '#011002',
 
     caramel = '#f9c37a',
@@ -1045,9 +1063,9 @@ local function starry_init()
 
   local ukraine = function()
     return {
-      bg = '#1056B8',
+      bg = ukraine_colors.dark,
       bg_alt = '#2040b0',
-      bg_darker = '#1446a6',
+      bg_darker = ukraine_colors.darker,
       fg = '#fdee1d',
       bg2 = '#201022',
       statement = ukraine_colors.br_yellow,
@@ -1107,6 +1125,7 @@ local function starry_init()
     starry = LightenDarkenColorScheme(starry, { -25, -20, -10 })
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry.bg = '#212121'
+    starry.dark = '#212121'
     starry.bg_alt = '#1A1A1A'
     starry.fg = '#B0BEC5'
     starry.text = '#9292A8'
@@ -1178,6 +1197,7 @@ local function starry_init()
 
     -- print(vim.inspect(starry))
     starry.bg = '#292D3E'
+    starry.dark = '#292D3E'
     starry.bg_alt = '#1B1E2B'
     starry.fg = '#A6ACCD'
     starry.text = '#818CB4'
@@ -1199,6 +1219,7 @@ local function starry_init()
     starry = vim.tbl_extend('force', starry, get_default(starry))
     -- print(vim.inspect(starry))
     starry.bg = '#0F111A'
+    starry.dark = '#0F111A'
     starry.bg_alt = '#090B10'
     starry.fg = '#8F93A2'
     starry.text = '#818CB4'
@@ -1206,7 +1227,7 @@ local function starry_init()
     starry.selection = '#373448'
     starry.contrast = '#090B10'
     starry.less_active = '#1F162F'
-    starry.active = '#242435'
+    starry.active = '#202030'
     starry.more_active = '#3A3555'
     starry.border = '#312443'
     starry.line_numbers = '#5B5F91'
@@ -1219,6 +1240,7 @@ local function starry_init()
     vim.g.starry_style = 'oceanic'
     -- Oceanic theme style
     starry.bg = '#20272f'
+    starry.dark = '#20272f'
     starry.bg_alt = '#192027'
     starry.fg = '#B0BEC5'
     starry.text = '#89AFB4'
@@ -1227,7 +1249,7 @@ local function starry_init()
 
     starry.less_active = '#252f35'
     starry.contrast = '#1E272C'
-    starry.active = '#273d3f'
+    starry.active = '#26323f'
     starry.more_active = '#375354'
     starry.border = '#2A373E'
     starry.line_numbers = '#577FAF'

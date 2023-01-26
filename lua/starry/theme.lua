@@ -500,7 +500,7 @@ theme.loadPlugins = function()
     GitSignsDeleteLn = { link = 'Special' }, -- diff mode: Deleted line |diff.txt|
 
     GitSignsAddInline = { style = 'undercurl', sp = starry.green }, -- diff mode: Deleted line |diff.txt|
-    GitSignsDeleteInline = { style = 'underline', sp = starry.error }, -- diff mode: Deleted line |diff.txt|
+    GitSignsDeleteInline = { style = 'strikethrough', sp = starry.error }, -- diff mode: Deleted line |diff.txt|
     GitSignsChangeInline = { style = 'undercurl', sp = starry.br_blue }, -- diff mode: Deleted line |diff.txt|
     -- Telescope
     TelescopeNormal = { link = 'NormalFloat' },

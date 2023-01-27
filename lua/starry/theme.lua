@@ -499,9 +499,9 @@ theme.loadPlugins = function()
     GitSignsDeleteNr = { link = 'Special' }, -- diff mode: Deleted line |diff.txt|
     GitSignsDeleteLn = { link = 'Special' }, -- diff mode: Deleted line |diff.txt|
 
-    GitSignsAddInline = { style = 'undercurl', sp = starry.green }, -- diff mode: Deleted line |diff.txt|
+    GitSignsAddInline = { style = 'underdotted', sp = starry.green }, -- diff mode: Deleted line |diff.txt|
     GitSignsDeleteInline = { style = 'strikethrough', sp = starry.error }, -- diff mode: Deleted line |diff.txt|
-    GitSignsChangeInline = { style = 'undercurl', sp = starry.br_blue }, -- diff mode: Deleted line |diff.txt|
+    GitSignsChangeInline = { style = 'underdotted', sp = starry.br_blue }, -- diff mode: Deleted line |diff.txt|
     -- Telescope
     TelescopeNormal = { link = 'NormalFloat' },
     TelescopePromptBorder = { link = 'Macro' },

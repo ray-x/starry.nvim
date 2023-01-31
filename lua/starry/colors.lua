@@ -33,7 +33,7 @@ local function LightenDarkenColorScheme(values, amt)
   values.cyan = LightenDarkenColor(values.cyan, amt)
   values.br_cyan = LightenDarkenColor(values.br_cyan, amt)
 
-  values.megenta = LightenDarkenColor(values.megenta, amt)
+  values.magenta = LightenDarkenColor(values.magenta, amt)
   values.gray = LightenDarkenColor(values.gray, amt)
   values.gray5 = LightenDarkenColor(values.gray5, amt)
   values.gray7 = LightenDarkenColor(values.gray7, amt)
@@ -92,7 +92,7 @@ local function starry_init()
     cyan = '#89DDFF',
     br_cyan = '#A9EDFF',
 
-    megenta = '#BF32BF',
+    magenta = '#BF32BF',
     hoki = '#5f7e97',
     purple = '#C792EA',
     br_purple = '#D792FA',
@@ -132,7 +132,7 @@ local function starry_init()
       symbol = starry_colors.br_cyan,
       operator = starry_colors.cyan,
       label = starry_colors.purple1,
-      condition = starry_colors.megenta,
+      condition = starry_colors.magenta,
       keyword = starry_colors.purple,
       keyword_func = starry_colors.sky,
       func = starry_colors.blue2,
@@ -858,7 +858,7 @@ local function starry_init()
       symbol = earlysummer_colors.yellow,
       operator = earlysummer_colors.redwine,
       label = earlysummer_colors.orange,
-      condition = earlysummer_colors.megenta,
+      condition = earlysummer_colors.magenta,
       keyword = earlysummer_colors.red,
       keyword_func = earlysummer_colors.purple,
       func = earlysummer_colors.blue2,
@@ -967,7 +967,7 @@ local function starry_init()
       symbol = dark_solar_colors.br_cyan,
       operator = dark_solar_colors.br_green,
       label = dark_solar_colors.orange,
-      condition = dark_solar_colors.megenta,
+      condition = dark_solar_colors.magenta,
       keyword = dark_solar_colors.br_green,
       keyword_func = dark_solar_colors.green2,
       func = dark_solar_colors.blue2,

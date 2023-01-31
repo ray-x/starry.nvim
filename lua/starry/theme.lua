@@ -591,24 +591,14 @@ theme.loadPlugins = function()
     HopNextKey2 = { fg = starry.blue, style = 'bold,undercurl' },
     HopUnmatched = { fg = starry.comments },
 
-    -- Lightspeed
-    LightspeedLabel = {
+    -- Leap
+    LeapMatch = {
       fg = starry.search_fg,
       bg = starry.search_bg,
     },
-    LightspeedOverlapped = { bg = starry.selection, fg = starry.red },
-    LightspeedLabelDistant = { bg = starry.magenta, fg = starry.bg },
-    LightspeedLabelDistantOverlapped = { bg = starry.magenta, fg = starry.bg },
-    LightspeedShortcut = { fg = starry.orange, style = 'italic' },
-    LightspeedShortcutOverlapped = { fg = starry.orange, style = 'bold' },
-    LightspeedMaskedChar = { fg = starry.red, style = 'undercurl' },
-    LightspeedGreyWash = { link = 'SpecialComment' },
-    LightspeedUnlabeledMatch = { fg = starry.red, style = 'underline' },
-    LightspeedOneCharMatch = { link = 'LightspeedUnlabeledMatch' },
-    LightspeedUniqueChar = { fg = starry.white, style = 'underline' },
-    LightspeedPendingOpArea = { link = 'LightspeedUniqueChar' },
-    LightspeedPendingChangeOpArea = { fg = starry.white, style = 'underline' },
-    LightspeedCursor = { fg = starry.black, bg = starry.blue },
+    LeapLabelPrimary = { fg = starry.purple, style = 'bold' },
+    LeapLabelSecondary = { fg = starry.blue, style = 'bold' },
+    LeapBackdrop = { fg = starry.comments },
 
     -- Cmp
     CmpItemAbbrDeprecated = { fg = starry.lightgray, style = 'strikethrough' },

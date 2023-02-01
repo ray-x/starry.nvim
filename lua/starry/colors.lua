@@ -231,9 +231,9 @@ local function starry_init()
       structure = 'HotPink',
       class = 'PaleVioletRed',
       contrast = '#1b1c2b',
-      less_active = '#122a40',
+      less_active = '#222a30',
       active = '#24344c',
-      more_active = '#425578',
+      more_active = '#324558',
       border = '#413893',
       line_numbers = starry_moonlight.hoki,
       highlight = '#514b70',
@@ -311,9 +311,9 @@ local function starry_init()
     white = '#EEE8EE',
     gray = '#a1abe0',
 
-    dark = '#271822',
+    dark = '#21222c',
     darker = '#191a21',
-    black = '#101010',
+    black = '#101011',
     red = '#A71906',
     salmon = '#F7856E',
     green = '#8FE067',
@@ -346,7 +346,7 @@ local function starry_init()
       const = '#9876CA',
       condition = '#EF70A0',
       contrast = '#2f2c3b',
-      less_active = '#342028',
+      less_active = '#242028',
       active = '#453737',
       more_active = '#584a4e',
       border = '#814265',
@@ -1226,7 +1226,7 @@ local function starry_init()
     starry.comments = '#666B7D'
     starry.selection = '#373448'
     starry.contrast = '#090B10'
-    starry.less_active = '#1F162F'
+    starry.less_active = '#141628'
     starry.active = '#202030'
     starry.more_active = '#3A3555'
     starry.border = '#312443'
@@ -1255,7 +1255,7 @@ local function starry_init()
     starry.line_numbers = '#577FAF'
     starry.highlight = '#425B67'
     starry.disabled = '#415967'
-    starry.accent = '#009688'
+    starry.accent = '#A0A6F8'
   elseif vim.g.starry_style == 'moonlight' then
     starry = vim.tbl_extend('force', starry, starry_moonlight)
     starry = vim.tbl_extend('force', starry, get_default(starry))
@@ -1274,7 +1274,7 @@ local function starry_init()
     if vim.g.starry_style == 'monokai_lighter' then
       starry_monokai.bg = '#2F2F23'
       starry_monokai.bg_alt = '#33342d'
-      starry_monokai.less_active = '#373826'
+      starry_monokai.less_active = '#373830'
       starry_monokai.active = '#494437'
       starry_monokai.line_numbers = '#A2AF93'
       starry_monokai.accent = '#A9AF83'

@@ -207,7 +207,7 @@ theme.loadEditor = function()
     WarningMsg = { fg = starry.yellow },
     WildMenu = { fg = starry.orange, style = 'bold' },
     CursorColumn = { bg = starry.active },
-    CursorLine = { bg = starry.active },
+    CursorLine = { bg = starry.less_active },
     ToolbarLine = { fg = starry.fg, bg = starry.bg_alt },
     ToolbarButton = { fg = starry.fg, style = 'bold' },
     NormalMode = { fg = starry.accent, bg = starry.bg, style = 'reverse' },

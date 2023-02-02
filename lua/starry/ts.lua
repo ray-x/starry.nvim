@@ -121,8 +121,8 @@ return {
       ['@character'] = { fg = starry.char }, -- For characters.
       ['@constructor'] = { link = 'PreProc' }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
       ['@constant'] = { fg = starry.const }, -- For constants
-      ['@const.builtin'] = { fg = starry.const, style = 'bold' }, -- For constant that are built in the language: `nil` in Lua.
-      ['@const.macro'] = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
+      ['@constant.builtin'] = { fg = starry.const, style = 'bold' }, -- For constant that are built in the language: `nil` in Lua.
+      ['@constant.macro'] = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
       ['@error'] = { link = 'Error' }, -- For syntax/parser errors.
       ['@field'] = { fg = starry.field }, -- For fields.
       ['@float'] = { fg = starry.float }, -- For floats.

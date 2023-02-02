@@ -28,6 +28,7 @@ theme.loadSyntax = function()
     Type = { fg = starry.type }, -- int, long, char, etc.
     StorageClass = { fg = starry.class }, -- static, register, volatile, etc.
     Structure = { fg = starry.structure }, -- struct, union, enum, etc.
+    Struct = { link = 'Structure' }, -- struct, union, enum, etc.
     Constant = { fg = starry.const }, -- any constant
     String = { fg = starry.string }, -- Any string
     Character = { fg = starry.orange }, -- any character constant: 'c', '\n'
@@ -115,6 +116,7 @@ theme.loadSyntax = function()
   else
     syntax.Function = { fg = starry.func, style = 'bold' } -- normal function names
   end
+  syntax.Method = { link = 'Function' }
 
   if vim.g.starry_italic_variables == true then
     syntax.Identifier = { fg = starry.variable, style = 'italic' } -- Variable names that are defined by the languages, like `this` or `self`.
@@ -192,6 +194,7 @@ theme.loadEditor = function()
       style = underdot,
       sp = starry.darkred,
     },
+    Rare = { link = 'SpellRare' },
     StatusLine = { fg = starry.accent, bg = starry.active },
     StatusLineNC = { fg = starry.text, bg = starry.less_active },
     StatusLineTerm = { fg = starry.fg, bg = starry.active },
@@ -384,6 +387,7 @@ theme.loadPlugins = function()
     GitGutterAdd = { link = 'Question' }, -- diff mode: Added line |diff.txt|
     GitGutterChange = { link = 'Include' }, -- diff mode: Changed line |diff.txt|
     GitGutterDelete = { link = 'Special' }, -- diff mode: Deleted line |diff.txt|
+    GitGutterChangeDelete = { link = 'GitGutterDelete' }, -- diff mode: Changed line |diff.txt|
 
     -- GitSigns
     GitSignsAdd = { link = 'Question' }, -- diff mode: Added line |diff.txt|
@@ -410,7 +414,7 @@ theme.loadPlugins = function()
 
     -- NvimTree
     NvimTreeRootFolder = { fg = starry.title, style = 'italic' },
-    NvimTreeFolderName = { link = 'TSText' },
+    NvimTreeFolderName = { link = 'Idnetifier' },
     NvimTreeFolderIcon = { fg = starry.accent },
     NvimTreeEmptyFolderName = { link = 'Ignore' },
     NvimTreeOpenedFolderName = { fg = starry.accent, style = 'italic' },
@@ -434,7 +438,7 @@ theme.loadPlugins = function()
 
     -- WhichKey
     WhichKey = { fg = starry.accent, style = 'bold' },
-    WhichKeyGroup = { link = 'TSText' },
+    WhichKeyGroup = { link = 'Identifier' },
     WhichKeyDesc = { fg = starry.blue, style = 'italic' },
     WhichKeySeperator = { fg = starry.fg },
     WhichKeyFloating = { bg = starry.floating },

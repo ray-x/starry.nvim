@@ -18,6 +18,7 @@ return {
       TSFuncMacro = { link = 'Macro' }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
       TSInclude = { link = 'Include' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 
+      TSCurrentScope = { bg = starry.less_active or starry.active },
       TSDefinitionUsage = {
         fg = starry.accent,
         style = 'bold,underline',
@@ -50,7 +51,6 @@ return {
       TSEmphasis = { link = 'PreCondit' }, -- For text to be represented with emphasis.
       TSUnderline = { fg = starry.fg, style = underdouble }, -- For text to be represented with an underline.
       TSStrike = { fg = starry.gray, style = 'strikethrough' }, -- For strikethrough text.
-      TSCurrentScope = { bg = starry.less_active or starry.active },
       TSTitle = { fg = starry.title, style = 'bold' }, -- Text that is part of a title.
       TSLiteral = { link = 'TSText' }, -- Literal text.
       TSURI = { link = 'htmlLink' }, -- Any URI like a link or email.
@@ -121,13 +121,11 @@ return {
       ['@character'] = { fg = starry.char }, -- For characters.
       ['@constructor'] = { link = 'PreProc' }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
       ['@constant'] = { fg = starry.const }, -- For constants
-      ['@constBuiltin'] = { fg = starry.const, style = 'bold' }, -- For constant that are built in the language: `nil` in Lua.
-      ['@constMacro'] = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
+      ['@const.builtin'] = { fg = starry.const, style = 'bold' }, -- For constant that are built in the language: `nil` in Lua.
+      ['@const.macro'] = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
       ['@error'] = { link = 'Error' }, -- For syntax/parser errors.
-      ['@exception'] = { fg = starry.red3 }, -- For exception related keywords.
       ['@field'] = { fg = starry.field }, -- For fields.
       ['@float'] = { fg = starry.float }, -- For floats.
-      ['@funcMacro'] = { link = 'Macro' }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
       ['@include'] = { link = 'Include' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 
       ['@definition.usage'] = {
@@ -209,11 +207,11 @@ return {
         fg = starry.method or starry.func,
         style = 'italic,bold',
       } -- For method calls and definitions.
-      treesitter['@func.builtin'] = { fg = starry.func, style = 'italic,bold' } -- For builtin functions: `table.insert` in Lua.
+      treesitter['@function.builtin'] = { fg = starry.func, style = 'italic,bold' } -- For builtin functions: `table.insert` in Lua.
     else
       treesitter['@function'] = { fg = starry.func, style = 'bold' } -- For function (calls and definitions).
       treesitter['@method'] = { fg = starry.method, style = 'bold' } -- For method calls and definitions.
-      treesitter['@func.builtin'] = { fg = starry.func, style = 'bold' } -- For builtin functions: `table.insert` in Lua.
+      treesitter['@function.builtin'] = { fg = starry.func, style = 'bold' } -- For builtin functions: `table.insert` in Lua.
     end
     treesitter['@method.call'] = { link = '@method' } -- For method calls and definitions.
 
@@ -239,6 +237,7 @@ return {
     treesitter['@text.environment'] = { link = 'Macro' }
     treesitter['@text.environment.name'] = { link = 'Type' }
     treesitter['@text.reference'] = { link = 'Constant' }
+    treesitter['@exception'] = { link = 'Exception' }
 
     treesitter['@text.todo'] = { link = 'Todo' }
     treesitter['@text.note'] = { link = 'SpecialComment' }
@@ -250,6 +249,16 @@ return {
     treesitter['@tag'] = { link = 'Tag' }
     treesitter['@tag.attribute'] = { link = 'Identifier' }
     treesitter['@tag.delimiter'] = { link = 'Delimiter' }
+
+    -- TSTextObjects
+    treesitter.TSCurrentScope = { bg = starry.less_active or starry.active }
+    treesitter.TSDefinitionUsage = {
+        fg = starry.accent,
+        style = 'bold,underline',
+        sp = 'white',
+      } -- used for highlighting "read" references
+
+    treesitter.TSDefinition = { fg = starry.keyword, style = 'bold,' .. underdouble, sp = 'red' } -- used for highlighting "write" references
 
     return treesitter
   end,

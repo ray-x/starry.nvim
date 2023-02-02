@@ -133,12 +133,17 @@ function util.load(theme)
   -- local ns = vim.api.nvim_create_namespace('color_starry')
   local starry = require('starry.theme')
   -- Load plugins, treesitter and lsp async
+
+  local treesitter = starry.loadTreesitter()
+  for group, colors in pairs(treesitter) do
+    util.highlight(group, colors)
+  end
+
+  -- vim.api.nvim_set_hl_ns(0)
+  -- require('starry.tsmap').link()
+
   local async
   async = vim.loop.new_async(vim.schedule_wrap(function()
-    local treesitter = starry.loadTreeSitter()
-    for group, colors in pairs(treesitter) do
-      util.highlight(group, colors)
-    end
 
     if config.disable.term_colors == false then
       starry.loadTerminal()
@@ -183,8 +188,6 @@ function util.load(theme)
 
   vim.cmd('hi Normal guibg=' .. (editor.Normal.bg or 'NONE') .. ' guifg=' .. editor.Normal.fg)
 
-  vim.api.nvim_set_hl_ns(0)
-  require('starry.tsmap').link()
 end
 
 return util

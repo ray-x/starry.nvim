@@ -283,119 +283,6 @@ theme.loadTerminal = function()
   vim.g.terminal_color_background = starry.bg
 end
 
-theme.loadTreeSitter = function()
-  -- TreeSitter highlight groups
-
-  local treesitter = {
-    TSAnnotation = { link = 'Special' }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-    TSAttribute = { link = 'WarningMsg' }, -- (unstable) TODO: docs
-    TSBoolean = { fg = starry.bool, style = 'italic' }, -- For booleans.
-    TSCharacter = { fg = starry.char }, -- For characters.
-    TSConstructor = { link = 'PreProc' }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-    TSConstant = { fg = starry.const }, -- For constants
-    TSConstBuiltin = { fg = starry.const, style = 'bold' }, -- For constant that are built in the language: `nil` in Lua.
-    TSConstMacro = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
-    TSError = { link = 'Error' }, -- For syntax/parser errors.
-    TSException = { fg = starry.red3 }, -- For exception related keywords.
-    TSField = { fg = starry.field }, -- For fields.
-    TSFloat = { fg = starry.float }, -- For floats.
-    TSFuncMacro = { link = 'Macro' }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
-    TSInclude = { link = 'Include' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-
-    TSDefinitionUsage = {
-      fg = starry.accent,
-      style = 'bold,underline',
-      sp = 'white',
-    }, -- used for highlighting "read" references
-
-    TSDefinition = { fg = starry.keyword, style = 'bold,' .. underdouble, sp = 'red' }, -- used for highlighting "write" references
-    TSLabel = { fg = starry.green1 }, -- For labels: `label:` in C and `:label:` in Lua.
-    TSNamespace = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
-    TSNumber = { link = 'Number' }, -- For all numbers
-    TSOperator = { link = 'Operator' }, -- For any operator: `+`, but also `->` and `*` in C.
-    TSKeywordOperator = { link = 'Operator', style = 'bold' }, -- For any operator: `+`, but also `->` and `*` in C.
-    TSParameter = { fg = starry.parameter, style = 'bold' }, -- For parameters of a function.
-    TSParameterReference = { link = 'PreCondit' }, -- For references to parameters of a function.
-    Hlargs = { link = 'TSParameterReference' },
-    TSProperty = { fg = starry.field }, -- Same as `TSField`.
-    TSPunctDelimiter = { link = 'Macro' }, -- For delimiters ie: `.`
-    TSPunctBracket = { fg = starry.bracket }, -- For brackets and parens.
-    TSPunctSpecial = { fg = starry.punctutation }, -- For special punctutation that does not fall in the categories before.
-    TSFunctionCall = { fg = starry.func },
-    TSString = { link = 'String' }, -- For strings.
-    TSStringRegex = { fg = starry.pink2 }, -- For regexes.
-    TSStringEscape = { link = 'Ignore' }, -- For escape characters within a string.
-    TSSymbol = { fg = starry.symbol }, -- For identifiers referring to symbols or atoms.
-    TSType = { fg = starry.type }, -- For types.
-    TSTypeBuiltin = { fg = starry.builtin or starry.purple1, style = 'bold' }, -- For builtin types.
-    TSTag = { fg = starry.tag or starry.red1 }, -- Tags like html tag names.
-    TSTagDelimiter = { fg = starry.yellow2 }, -- Tag delimiter like `<` `>` `/`
-    TSText = { fg = starry.text }, -- For strings considered text in a markup language.
-    TSTextReference = { fg = starry.keyword, bg = starry.bg_alt }, -- FIXME
-    TSEmphasis = { link = 'PreCondit' }, -- For text to be represented with emphasis.
-    TSUnderline = { fg = starry.fg, style = underdouble }, -- For text to be represented with an underline.
-    TSStrike = { fg = starry.gray, style = 'strikethrough' }, -- For strikethrough text.
-    TSCurrentScope = { bg = starry.less_active or starry.active },
-    TSTitle = { fg = starry.title, style = 'bold' }, -- Text that is part of a title.
-    TSLiteral = { link = 'TSText' }, -- Literal text.
-    TSURI = { link = 'htmlLink' }, -- Any URI like a link or email.
-    TSNone = { link = 'SpecialComment' }, -- TODO: docs
-  }
-
-  -- Options:
-
-  -- Italic comments
-  if vim.g.starry_italic_comments == true then
-    treesitter.TSComment = { fg = starry.comments, style = 'italic' } -- For comment blocks.
-  else
-    treesitter.TSComment = { link = 'SpecialComment' } -- For comment blocks.
-  end
-
-  if vim.g.starry_italic_keywords == true then
-    treesitter.TSConditional = { fg = starry.condition, style = 'italic' } -- For keywords related to conditionnals.
-    treesitter.TSKeyword = { fg = starry.keyword, style = 'italic,bold' } -- For keywords that don't fall in previous categories.
-    treesitter.TSRepeat = { fg = starry.condition, style = 'italic,bold' } -- For keywords related to loops.
-    treesitter.TSKeywordFunction = {
-      fg = starry.keyword_func or starry.keyword,
-      style = 'italic,bold',
-    } -- For keywords used to define a function.
-  else
-    treesitter.TSConditional = { fg = starry.condition } -- For keywords related to conditionnals.
-    treesitter.TSKeyword = { fg = starry.keyword, style = 'bold' } -- For keywords that don't fall in previous categories.
-    treesitter.TSRepeat = { fg = starry.condition, style = 'bold' } -- For keywords related to loops.
-    treesitter.TSKeywordFunction = {
-      fg = starry.keyword_func or starry.keyword,
-      style = 'bold',
-    } -- For keywords used to define a function.
-  end
-
-  if vim.g.starry_italic_functions == true then
-    treesitter.TSFunction = { fg = starry.func, style = 'italic,bold' } -- For function (calls and definitions).
-    treesitter.TSMethod = {
-      fg = starry.method or starry.func,
-      style = 'italic,bold',
-    } -- For method calls and definitions.
-    treesitter.TSFuncBuiltin = { fg = starry.func, style = 'italic,bold' } -- For builtin functions: `table.insert` in Lua.
-  else
-    treesitter.TSFunction = { fg = starry.func, style = 'bold' } -- For function (calls and definitions).
-    treesitter.TSMethod = { fg = starry.method, style = 'bold' } -- For method calls and definitions.
-    treesitter.TSFuncBuiltin = { fg = starry.func, style = 'bold' } -- For builtin functions: `table.insert` in Lua.
-  end
-
-  if vim.g.starry_italic_variables == true then
-    treesitter.TSVariableBuiltin = { fg = starry.variable, style = 'italic' } -- Variable names that are defined by the languages, like `this` or `self`.
-  else
-    treesitter.TSVariableBuiltin = { fg = starry.variable } -- Variable names that are defined by the languages, like `this` or `self`.
-  end
-
-  treesitter.TSVariable = { link = 'Identifier' } -- Any variable name that does not have another highlight.
-  if vim.g.starry_italic_strings == true then
-    treesitter.TSString.style = 'italic' -- For strings.
-  end
-
-  return treesitter
-end
-
 theme.loadLSP = function()
   -- Lsp highlight groups
 
@@ -444,6 +331,14 @@ theme.loadLSP = function()
   return lsp
 end
 
+theme.loadTreesitter = function()
+  if vim.fn.has('nvim-0.8') == 1 then
+    return require('starry.ts').link_v8(starry, underdouble)
+  else
+    return require('starry.ts').link_v8(starry, underdouble)
+  end
+end
+
 theme.loadPlugins = function()
   -- Plugins highlight groups
 
@@ -464,11 +359,13 @@ theme.loadPlugins = function()
     CompeDocumentation = { fg = starry.text, bg = starry.contrast },
     CmpDocumentation = { fg = starry.text, bg = starry.contrast },
 
+    Hlargs = { link = 'WarningMsg' },
+
     -- Diff
     diffAdded = { bg = starry.active },
     diffRemoved = { link = 'Special' },
     diffChanged = { bg = starry.active },
-    diffOldFile = { link = 'TSText' },
+    diffOldFile = { link = 'Text' },
     diffNewFile = { fg = starry.title },
     diffFile = { fg = starry.gray },
     diffLine = { link = 'Macro' },

@@ -252,8 +252,7 @@ local function starry_init()
     -- Common colors
     white = '#FEF8F2',
     gray = '#a1abe0',
-
-    dark = '#181a37',
+    dark = '#21222c',
     black = '#101010',
     red = '#ff555f',
     green = '#50fa7b',
@@ -268,7 +267,7 @@ local function starry_init()
   local dracula = function()
     return {
       bg = starry.dark,
-      bg_alt = '#21222c',
+      bg_alt = '#282A36',
       bg_darker = '#191a21',
       fg = '#f4f3f2',
       text = '#a5adec',
@@ -884,7 +883,7 @@ local function starry_init()
       search_fg = earlysummer_colors.orange,
       inc_search = earlysummer_colors.purple,
       search_bg = '#303010',
-      contrast = bg_alt,
+      contrast = earlysummer_colors.dark2,
       less_active = '#202124',
       bracket = earlysummer_colors.orange,
       active = '#313043',

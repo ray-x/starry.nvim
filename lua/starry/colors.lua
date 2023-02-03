@@ -455,6 +455,7 @@ local function starry_init()
 
   local mariana_colors = {
     -- Common colors
+    dark = '#2A333C',
     white = '#FFFFFF',
     white2 = '#F7F7F7',
     white3 = '#D8DEE9',
@@ -483,7 +484,6 @@ local function starry_init()
     blue1 = '#6699CC',
     blue2 = '#3E4A55',
     blue3 = '#2A333C',
-    dark = '#2A333C',
     blue4 = '#64738A',
     blue5 = '#5F7484',
     blue5_day = '#343d48', -- note: this is base color of original mariana
@@ -543,10 +543,10 @@ local function starry_init()
       search_bg = mariana_colors.grey,
       inc_search = mariana_colors.orange2,
       contrast = mariana_colors.blue2,
-      less_active = mariana_colors.blue7,
+      less_active = mariana_colors.blue2,
       float = mariana_colors.orange,
       bracket = mariana_colors.orange,
-      active = mariana_colors.blue2,
+      active = mariana_colors.blue7,
       more_active = mariana_colors.blue5,
       border = mariana_colors.blue4,
       line_numbers = mariana_colors.blue4,

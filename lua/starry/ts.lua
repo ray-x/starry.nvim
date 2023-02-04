@@ -4,7 +4,9 @@ return {
 
     local treesitter = {
       TSAnnotation = { link = 'Special' }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-      TSAttribute = { link = 'WarningMsg' }, -- (unstable) TODO: docs
+
+      TSAttribute = { link = 'WarningMsg' }, -- (unstable)  TODO: docs
+
       TSBoolean = { fg = starry.bool, style = 'italic' }, -- For booleans.
       TSCharacter = { fg = starry.char }, -- For characters.
       TSConstructor = { link = 'PreProc' }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
@@ -25,7 +27,7 @@ return {
         sp = 'white',
       }, -- used for highlighting "read" references
 
-      TSDefinition = { fg = starry.keyword, style = 'bold,' .. underdouble, sp = 'red' }, -- used for highlighting "write" references
+      TSDefinition = { fg = starry.keyword, style = 'bold,' .. underdouble, sp = starry.keyword }, -- used for highlighting "write" references
       TSLabel = { fg = starry.green1 }, -- For labels: `label:` in C and `:label:` in Lua.
       TSNamespace = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
       TSNumber = { link = 'Number' }, -- For all numbers
@@ -128,13 +130,6 @@ return {
       ['@float'] = { fg = starry.float }, -- For floats.
       ['@include'] = { link = 'Include' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 
-      ['@definition.usage'] = {
-        fg = starry.accent,
-        style = 'bold,underline',
-        sp = 'white',
-      }, -- used for highlighting "read" references
-
-      ['@definition'] = { fg = starry.keyword, style = 'bold,' .. underdouble, sp = 'red' }, -- used for highlighting "write" references
       ['@label'] = { fg = starry.green1 }, -- For labels: `label:` in C and `:label:` in Lua.
       ['@namespace'] = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
       ['@number'] = { link = 'Number' }, -- For all numbers
@@ -161,7 +156,9 @@ return {
       ['@type.deinition'] = { link = 'Typedef' }, -- For types.
       ['@tag'] = { fg = starry.tag or starry.red1 }, -- Tags like html tag names.
       ['@tag.delimiter'] = { fg = starry.yellow2 }, -- Tag delimiter like `<` `>` `/`
+
       ['@text'] = { fg = starry.text }, -- For strings considered text in a markup language.
+
       ['@text.reference'] = { fg = starry.keyword, bg = starry.bg_alt }, -- FIXME
       ['@emphasis'] = { link = 'PreCondit' }, -- For text to be represented with emphasis.
       ['@underline'] = { fg = starry.fg, style = underdouble }, -- For text to be represented with an underline.
@@ -169,6 +166,7 @@ return {
       ['@current.scope'] = { bg = starry.less_active or starry.active },
       ['@title'] = { fg = starry.title, style = 'bold' }, -- Text that is part of a title.
       ['@literal'] = { link = 'Text' }, -- Literal text.
+
       ['@none'] = { link = 'SpecialComment' }, -- TODO: docs
     }
 
@@ -253,10 +251,10 @@ return {
     -- TSTextObjects
     treesitter.TSCurrentScope = { bg = starry.less_active or starry.active }
     treesitter.TSDefinitionUsage = {
-        fg = starry.accent,
-        style = 'bold,underline',
-        sp = 'white',
-      } -- used for highlighting "read" references
+      fg = starry.accent,
+      style = 'bold,underline',
+      sp = 'white',
+    } -- used for highlighting "read" references
 
     treesitter.TSDefinition = { fg = starry.keyword, style = 'bold,' .. underdouble, sp = 'red' } -- used for highlighting "write" references
 

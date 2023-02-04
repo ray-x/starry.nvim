@@ -20,7 +20,6 @@ if vim.g.starry_disable_background == true then
   starry.bg = starry.none
   starry.bg_alt = starry.none
   starry.bg_darker = starry.none
-  starry.floating = starry.none
 end
 theme.loadSyntax = function()
   -- Syntax highlight groups
@@ -134,8 +133,8 @@ theme.loadEditor = function()
   end
 
   local editor = {
-    FloatShadow = { bg = starry.black, blend = 36 },
-    FloatShadowThrough = { bg = starry.black, blend = 66 },
+    FloatShadow = { bg = starry.darker, blend = 36 },
+    FloatShadowThrough = { bg = starry.darker, blend = 66 },
     ColorColumn = { bg = starry.active }, --  used for the columns set with 'colorcolumn'
     Conceal = { link = 'Ignore' }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = { fg = starry.cursor, style = 'reverse' }, -- the character under the cursor
@@ -238,13 +237,11 @@ theme.loadEditor = function()
   if vim.g.starry_darker_contrast == true and starry.bg_darker then
     editor.Normal = { fg = starry.fg, bg = starry.bg_darker } -- normal text and background color
     editor.SignColumn = { fg = starry.fg, bg = starry.bg_darker }
-
-    editor.NormalFloat = { fg = starry.fg, bg = starry.bg } -- normal text and background color for floating windows
-    editor.FloatBorder = { fg = starry.comments, bg = starry.bg }
+    editor.NormalFloat = { fg = starry.fg, bg = starry.black } -- normal text and background color for floating windows
+    editor.FloatBorder = { fg = starry.comments, bg = starry.bg_darker }
   else
     editor.Normal = { fg = starry.fg, bg = starry.bg } -- normal text and background color
     editor.SignColumn = { fg = starry.fg, bg = starry.bg }
-
     editor.NormalFloat = { fg = starry.fg, bg = starry.floating } -- normal text and background color for floating windows
     editor.FloatBorder = { fg = starry.comments, bg = starry.bg_alt }
   end
@@ -404,7 +401,7 @@ theme.loadPlugins = function()
     GitSignsDeleteInline = { style = 'strikethrough', sp = starry.error }, -- diff mode: Deleted line |diff.txt|
     GitSignsChangeInline = { style = 'underdotted', sp = starry.br_blue }, -- diff mode: Deleted line |diff.txt|
     -- Telescope
-    TelescopeNormal = { link = 'NormalFloat' },
+    TelescopeNormal = { fg = starry.text, bg = starry.bg },
     TelescopePromptBorder = { link = 'Macro' },
     TelescopeResultsBorder = { link = 'PreProc' },
     TelescopePreviewBorder = { link = 'Question' },

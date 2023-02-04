@@ -188,8 +188,9 @@ local function starry_init()
     gray = '#a1abe0',
     warmgrey = '#8c9a9b',
     dark = '#212337',
+    darker = '#1A2030',
 
-    black = '#001010',
+    black = '#101418',
     red = '#ff757f',
     green = '#4dc4a0',
     yellow = '#ffe777',
@@ -253,6 +254,7 @@ local function starry_init()
     white = '#FEF8F2',
     gray = '#a1abe0',
     dark = '#21222c',
+    darker = '#141520',
     black = '#101010',
     red = '#ff555f',
     green = '#50fa7b',
@@ -368,13 +370,13 @@ local function starry_init()
     gray = '#8F908A',
     lightgray = '#A7AFA1',
 
-    black = '#272822',
+    dark = '#262721',
+    darker = '#191a21',
+    black = '#121812',
 
     darkgrey = '#64645e',
     warmgrey = '#75715E',
 
-    dark = '#262721',
-    darker = '#191a21',
     pink = '#F92772',
     green = '#A6E22D',
     yellow = '#E6DB74',
@@ -456,13 +458,13 @@ local function starry_init()
   local mariana_colors = {
     -- Common colors
     dark = '#2A333C',
+    darker = '#243037',
+    black = '#102023',
     white = '#FFFFFF',
     white2 = '#F7F7F7',
     white3 = '#D8DEE9',
     grey = '#333333',
     lightgray = '#a7abbd',
-
-    black = '#000510',
 
     darkgrey = '#64645e',
     warmgrey = '#75715E',
@@ -489,9 +491,9 @@ local function starry_init()
     blue5_day = '#343d48', -- note: this is base color of original mariana
     blue6 = '#A6ACB9',
     blue7 = '#304868',
+
     blue8 = '#243038',
-    darker = '#243038',
-    blue9 = '#303040',
+    blue9 = '#303540',
     blueA = '#B4C0F0',
     blueB = '#303449',
     blueC = '#B0C4D5',
@@ -568,8 +570,9 @@ local function starry_init()
     grey = '#233323',
     darkgray = '#476b61',
 
-    black = '#112012',
     dark = '#112012',
+    darker = '#101D0e',
+    black = '#08170A',
 
     caramel = '#f9c37a',
     lightgrey = '#64645e',
@@ -600,7 +603,6 @@ local function starry_init()
     green8 = '#C6Dc93',
     green9 = '#132a15',
     greena = '#10210e',
-    darker = '#10210e',
     greenb = '#046806',
     greenc = '#065836',
     greend = '#46f836',
@@ -688,7 +690,7 @@ local function starry_init()
 
     dark = '#101022',
     darker = '#040D16',
-    black = '#011002',
+    black = '#010B10',
 
     caramel = '#f9c37a',
     lightgrey = '#64645e',
@@ -800,7 +802,7 @@ local function starry_init()
     grey = '#d3d3d3',
     darkgray = '#476b61',
 
-    black = '#011002',
+    black = '#111420',
     dark = '#212c31',
     darker = '#15232e',
     dark2 = '#313D46',
@@ -912,7 +914,8 @@ local function starry_init()
 
     bg = '#012731',
     dark = '#012731',
-    black = '#011e26',
+    darker = '#012026',
+    black = '#01141D',
 
     caramel = '#ffa37a',
     lightgrey = '#94a4be',
@@ -1019,7 +1022,7 @@ local function starry_init()
 
     dark = '#1056B8',
     darker = '#1446a6',
-    black = '#011002',
+    black = '#012052',
 
     caramel = '#f9c37a',
     lightgrey = '#64645e',
@@ -1126,6 +1129,7 @@ local function starry_init()
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry.bg = '#212121'
     starry.dark = '#212121'
+    starry.darker = '#1C1C1C'
     starry.bg_alt = '#1A1A1A'
     starry.fg = '#B0BEC5'
     starry.text = '#9292A8'
@@ -1198,6 +1202,7 @@ local function starry_init()
     -- print(vim.inspect(starry))
     starry.bg = '#292D3E'
     starry.dark = '#292D3E'
+    starry.darker = '#262738'
     starry.bg_alt = '#1B1E2B'
     starry.fg = '#A6ACCD'
     starry.text = '#818CB4'
@@ -1220,6 +1225,7 @@ local function starry_init()
     -- print(vim.inspect(starry))
     starry.bg = '#0F111A'
     starry.dark = '#0F111A'
+    starry.darker = '#0D0F15'
     starry.bg_alt = '#090B10'
     starry.fg = '#8F93A2'
     starry.text = '#818CB4'
@@ -1241,6 +1247,7 @@ local function starry_init()
     -- Oceanic theme style
     starry.bg = '#20272f'
     starry.dark = '#20272f'
+    starry.darker = '#1A2429'
     starry.bg_alt = '#192027'
     starry.fg = '#B0BEC5'
     starry.text = '#89AFB4'

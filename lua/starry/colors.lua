@@ -66,6 +66,7 @@ local function starry_init()
     crimson = '#DC143C',
     darkred = '#821040',
     darkred2 = '#dc6068',
+    darkred3 = '#4c0018',
 
     violet1 = '#EE82EE',
     tomato = '#FF6347',
@@ -104,7 +105,7 @@ local function starry_init()
     purple4 = '#7202da',
     purple5 = '#b480d6',
     darkpurple = '#57308a',
-    darkpurple2 = '#4d0c5d',
+    darkpurple2 = '#400c5d',
 
     orange = '#F78C6C',
     red_orange = '#af5f5f',
@@ -117,6 +118,7 @@ local function starry_init()
     pink4 = '#c988ce',
     -- Dark colors
     darkgreen = '#abcf76',
+    darkgreen2 = '#2b4f06',
     darkyellow = '#e6b455',
     darkblue = '#4c7b9b',
     darkcyan = '#71c6e7',

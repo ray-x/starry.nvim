@@ -142,15 +142,14 @@ theme.loadEditor = function()
     Directory = { fg = starry.directory }, -- directory names (and other special names in listings)
     DiffAdd = { bg = starry.active, style = 'bold,' .. underdash }, -- diff mode: Added line
     DiffChange = {
-      fg = starry.orange,
+      fg = starry.dark_orange,
       style = starry.search_style .. ',' .. underdot,
       sp = starry.red,
     }, --  diff mode: Changed line
-
+    DiffDelete = { bg = starry.less_active, style = 'strikethrough' }, -- diff mode: Deleted line
+    DiffText = { bg = starry.darkgreen2, style = 'bold,'..underdash}, -- diff mode: Changed text within a changed line
     TermCursor = { link = 'Cursor' },
     TermCursorNC = { link = 'Cursor' },
-    DiffDelete = { bg = starry.less_active, style = 'strikethrough' }, -- diff mode: Deleted line
-    DiffText = { style = 'reverse' }, -- diff mode: Changed text within a changed line
     EndOfBuffer = { link = 'Ignore' }, -- ~ lines at the end of a buffer
     ErrorMsg = { link = 'DiagnosticError' }, -- error messages
     Folded = { fg = starry.link, style = 'bold' },

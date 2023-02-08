@@ -225,7 +225,7 @@ return {
     end
     treesitter['@text'] = { link = 'Normal' }
     treesitter['@text.strong'] = { style = 'bold' }
-    treesitter['@text.emphasis'] = { style = 'italic' }
+    treesitter['@text.emphasis'] = { style = 'bold,italic' }
     treesitter['@text.underline'] = { style = 'underline' }
     treesitter['@text.strike'] = { style = 'strikethrough' }
     treesitter['@text.title'] = { link = 'Title' }

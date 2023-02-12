@@ -147,7 +147,7 @@ theme.loadEditor = function()
       sp = starry.red,
     }, --  diff mode: Changed line
     DiffDelete = { bg = starry.less_active, style = 'strikethrough' }, -- diff mode: Deleted line
-    DiffText = { bg = starry.darkgreen2, style = 'bold,'..underdash}, -- diff mode: Changed text within a changed line
+    DiffText = { bg = starry.darkgreen2, style = 'bold,' .. underdash }, -- diff mode: Changed text within a changed line
     TermCursor = { link = 'Cursor' },
     TermCursorNC = { link = 'Cursor' },
     EndOfBuffer = { link = 'Ignore' }, -- ~ lines at the end of a buffer
@@ -396,9 +396,9 @@ theme.loadPlugins = function()
     GitSignsDeleteNr = { link = 'Special' }, -- diff mode: Deleted line |diff.txt|
     GitSignsDeleteLn = { link = 'Special' }, -- diff mode: Deleted line |diff.txt|
 
-    GitSignsAddInline = { style = 'underdotted', sp = starry.green }, -- diff mode: Deleted line |diff.txt|
+    GitSignsAddInline = { style = underdot, sp = starry.green }, -- diff mode: Deleted line |diff.txt|
     GitSignsDeleteInline = { style = 'strikethrough', sp = starry.error }, -- diff mode: Deleted line |diff.txt|
-    GitSignsChangeInline = { style = 'underdotted', sp = starry.br_blue }, -- diff mode: Deleted line |diff.txt|
+    GitSignsChangeInline = { style = underdot, sp = starry.br_blue }, -- diff mode: Deleted line |diff.txt|
     -- Telescope
     TelescopeNormal = { fg = starry.text, bg = starry.bg },
     TelescopePromptBorder = { link = 'Macro' },

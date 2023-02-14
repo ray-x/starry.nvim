@@ -40,7 +40,17 @@ util.highlight = function(group, color, col)
     local sp = color.sp and 'guisp=' .. color.sp or ''
     local blend = color.blend and 'blend=' .. tostring(color.blend) or ''
 
-    local hlcmd = 'highlight ' .. group .. ' ' .. style .. ' ' .. fg .. ' ' .. bg .. ' ' .. sp .. blend
+    local hlcmd = 'highlight '
+      .. group
+      .. ' '
+      .. style
+      .. ' '
+      .. fg
+      .. ' '
+      .. bg
+      .. ' '
+      .. sp
+      .. blend
     if color.link then
       -- lprint('link' ,group, color)
       hlcmd = 'highlight! link ' .. group .. ' ' .. color.link
@@ -65,7 +75,9 @@ util.contrast = function()
   vim.cmd([[  autocmd!]])
   vim.cmd([[  autocmd ColorScheme * lua require("starry.util").onColorScheme()]])
   vim.cmd([[  autocmd TermOpen * setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
-  vim.cmd([[  autocmd FileType packer setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
+  vim.cmd(
+    [[  autocmd FileType packer setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]]
+  )
   vim.cmd([[  autocmd FileType qf setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
   vim.cmd([[augroup end]])
 end
@@ -89,7 +101,8 @@ local themes = {
   'dark_solar',
 }
 
-local themes_daytime = { 'limestone', 'monokai_lighter', 'mariana_lighter', 'earlysummer_lighter', 'ukraine' }
+local themes_daytime =
+  { 'limestone', 'monokai_lighter', 'mariana_lighter', 'earlysummer_lighter', 'ukraine' }
 
 -- Load the theme
 function util.load(theme)
@@ -144,7 +157,6 @@ function util.load(theme)
 
   local async
   async = vim.loop.new_async(vim.schedule_wrap(function()
-
     if config.disable.term_colors == false then
       starry.loadTerminal()
     end
@@ -166,7 +178,11 @@ function util.load(theme)
       end
     end
     util.contrast()
-    vim.api.nvim_set_hl_ns(0)
+    if vim.fn.has('nvim-0.8') == 0 then
+      vim.api.nvim__set_hl_ns(0)
+    else
+      vim.api.nvim_set_hl_ns(0)
+    end
     async:close()
     vim.cmd('doautocmd ColorScheme')
   end))
@@ -187,7 +203,6 @@ function util.load(theme)
   async:send()
 
   vim.cmd('hi Normal guibg=' .. (editor.Normal.bg or 'NONE') .. ' guifg=' .. editor.Normal.fg)
-
 end
 
 return util

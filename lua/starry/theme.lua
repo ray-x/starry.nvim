@@ -20,6 +20,7 @@ if vim.g.starry_disable_background == true then
   starry.bg = starry.none
   starry.bg_alt = starry.none
   starry.bg_darker = starry.none
+  starry.floating = starry.none
 end
 theme.loadSyntax = function()
   -- Syntax highlight groups

@@ -13,7 +13,6 @@ return {
       TSConstant = { fg = starry.const }, -- For constants
       TSConstBuiltin = { fg = starry.const, style = 'bold' }, -- For constant that are built in the language: `nil` in Lua.
       TSConstMacro = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
-      TSError = { link = 'Error' }, -- For syntax/parser errors.
       TSException = { fg = starry.red3 }, -- For exception related keywords.
       TSField = { fg = starry.field }, -- For fields.
       TSFloat = { fg = starry.float }, -- For floats.
@@ -125,7 +124,6 @@ return {
       ['@constant'] = { fg = starry.const }, -- For constants
       ['@constant.builtin'] = { fg = starry.const, style = 'bold' }, -- For constant that are built in the language: `nil` in Lua.
       ['@constant.macro'] = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
-      ['@error'] = { link = 'Error' }, -- For syntax/parser errors.
       ['@field'] = { fg = starry.field }, -- For fields.
       ['@float'] = { fg = starry.float }, -- For floats.
       ['@include'] = { link = 'Include' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.

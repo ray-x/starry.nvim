@@ -160,9 +160,15 @@ function util.load(theme)
     if config.disable.term_colors == false then
       starry.loadTerminal()
     end
-    -- imort tables for plugins and lsp
+    -- import tables for plugins and lsp
     local plugins = starry.loadPlugins()
     local lsp = starry.loadLSP()
+
+    for group, colors in pairs(plugins) do
+      util.highlight(group, colors)
+    end
+
+    lsp = starry.loadLSPV9()
 
     for group, colors in pairs(plugins) do
       util.highlight(group, colors)

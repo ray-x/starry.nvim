@@ -339,6 +339,12 @@ theme.loadTreesitter = function()
   end
 end
 
+theme.loadLSPV9 = function()
+  if vim.fn.has('nvim-0.9') then
+    return require('starry.lsp').link_v9(starry, underdouble)
+  end
+end
+
 theme.loadPlugins = function()
   -- Plugins highlight groups
 

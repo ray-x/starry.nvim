@@ -169,6 +169,8 @@ theme.loadEditor = function()
     MoreMsg = { link = 'ModeMsg' },
     NonText = { link = 'Ignore' },
     Pmenu = { fg = starry.text, bg = starry.contrast },
+    PmenuKind = { fg = starry.green, bg = starry.contrast },
+    PmenuExtra = { fg = starry.paleblue, bg = starry.contrast },
     PmenuSel = {
       fg = starry.accent,
       bg = starry.more_active,

@@ -9,7 +9,9 @@ local link_v9 = function(starry, underdouble)
     ['@lsp.type.parameter'] = { link = '@parameter' },
     ['@lsp.type.property'] = { link = '@property' },
     ['@lsp.type.variable'] = { link = '@variable' },
+    ['@lsp.type.modifier'] = { link = 'Special' },
     ['@lsp.typemod.function.defaultLibrary'] = { link = 'Special' },
+    ['@lsp.typemod.variable.readonly'] = { link = '@constant' },
   }
   return lsp
 end

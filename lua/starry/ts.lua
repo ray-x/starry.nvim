@@ -228,6 +228,8 @@ return {
     treesitter['@text.strike'] = { style = 'strikethrough' }
     treesitter['@text.title'] = { link = 'Title' }
     treesitter['@text.literal'] = { link = 'String' }
+    treesitter['@text.literal.markdown'] = { link = 'Normal' }
+    treesitter['@text.literal.markdown_inline'] = { link = 'Special' }
     treesitter['@text.uri'] = { link = 'Underlined' }
     treesitter['@text.math'] = { link = 'Special' }
     treesitter['@text.environment'] = { link = 'Macro' }
@@ -236,6 +238,8 @@ return {
     treesitter['@exception'] = { link = 'Exception' }
 
     treesitter['@text.todo'] = { link = 'Todo' }
+    treesitter['@text.todo.unchecked'] = { link = 'Todo' }
+    treesitter['@text.todo.checked'] = { link = 'Comment' }
     treesitter['@text.note'] = { link = 'SpecialComment' }
     treesitter['@text.warning'] = { link = 'WarningMsg' }
     treesitter['@text.danger'] = { link = 'ErrorMsg' }

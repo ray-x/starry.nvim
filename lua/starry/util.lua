@@ -19,7 +19,9 @@ util.hlv2 = function(group, style)
   if style.style then
     local s = vim.split(style.style, ',')
     for i = 1, #s do
-      val[s[i]] = true
+      if vim.g['starry_' .. s[i]] ~= false then
+        val[s[i]] = true
+      end
     end
     -- lprint(group, val)
   end

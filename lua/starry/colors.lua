@@ -174,7 +174,7 @@ local function starry_init()
       line_numbers = starry_colors.gray7,
       highlight = starry_colors.gray5,
       disabled = starry_colors.darkgray,
-      precondit = starry_colors.yellow,
+      precondit = starry_colors.br_blue,
       accent = starry_colors.gray7,
       error = starry_colors.br_red,
       link = starry_colors.darkblue,

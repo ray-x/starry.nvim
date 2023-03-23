@@ -300,15 +300,15 @@ theme.loadLSP = function()
     DiagnosticSignWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic signs in sign column
     DiagnosticFloatingWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic messages in the diagnostics float
     DiagnosticVirtualTextWarn = { link = 'WarningMsg' }, -- Virtual text "Warning"
-    DiagnosticUnderlineWarn = { style = 'undercurl', sp = starry.yellow }, -- used to underline "Warning" diagnostics.
+    DiagnosticUnderlineWarn = { style = 'underline', sp = starry.yellow }, -- used to underline "Warning" diagnostics.
     DiagnosticInfo = { link = 'PreCondit' }, -- used for "Information" diagnostic virtual text
     DiagnosticSignInfo = { link = 'DiagnosticInfo' }, -- used for "Information" diagnostic signs in sign column
     DiagnosticFloatingInfo = { link = 'DiagnosticInfo' }, -- used for "Information" diagnostic messages in the diagnostics float
     DiagnosticVirtualTextInfo = { link = 'DiagnosticInfo' }, -- Virtual text "Information"
-    DiagnosticUnderlineInfo = { style = 'undercurl', sp = starry.paleblue }, -- used to underline "Information" diagnostics.
+    DiagnosticUnderlineInfo = { style = underdash, sp = starry.darkblue }, -- used to underline "Information" diagnostics.
     DiagnosticDefaultHint = { fg = starry.link }, -- used for "Hint" diagnostic virtual text
     DiagnosticSignHint = { link = 'DiagnosticDefaultHint' }, -- used for "Hint" diagnostic signs in sign column
-    DiagnosticUnderlineHint = { style = 'undercurl', sp = starry.br_blue }, -- used to underline "Hint" diagnostics.
+    DiagnosticUnderlineHint = { style = underdot, sp = starry.darkblue }, -- used to underline "Hint" diagnostics.
 
     LspReferenceText = { style = 'bold,' .. underdot, bg = starry.less_active, sp = 'green' }, -- used for highlighting "text" references
     LspReferenceRead = {

@@ -161,7 +161,7 @@ local function starry_init()
       const = starry_colors.yellow,
       directory = starry_colors.blue,
 
-      selection = starry_colors.gary7,
+      selection = starry_colors.gray7,
       search_fg = starry_colors.orange,
       search_bg = starry_colors.black,
       inc_search = starry_colors.yellow,
@@ -1362,7 +1362,12 @@ local function starry_init()
   if vim.g.starry_deep_black == true then
     starry.black = '#000000'
     local style = vim.g.starry_style
-    if style == 'deep ocean' or style == 'darker' or style == 'moonlight' or style == 'middlenight_blue' then
+    if
+      style == 'deep ocean'
+      or style == 'darker'
+      or style == 'moonlight'
+      or style == 'middlenight_blue'
+    then
       starry.bg = starry.black
     end
   end

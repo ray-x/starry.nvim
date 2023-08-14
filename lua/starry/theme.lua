@@ -419,7 +419,7 @@ theme.loadPlugins = function()
 
     -- NvimTree
     NvimTreeRootFolder = { fg = starry.title, style = 'italic' },
-    NvimTreeFolderName = { link = 'Idnetifier' },
+    NvimTreeFolderName = { link = 'Identifier' },
     NvimTreeFolderIcon = { fg = starry.accent },
     NvimTreeEmptyFolderName = { link = 'Ignore' },
     NvimTreeOpenedFolderName = { fg = starry.accent, style = 'italic' },

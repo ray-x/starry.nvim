@@ -225,6 +225,8 @@ theme.loadEditor = function()
     healthSuccess = { link = 'Question' },
     healthWarning = { link = 'WarningMsg' },
 
+    -- Notify
+    NotifyBackground = { link = 'Normal' },
     -- Dashboard
     DashboardShortCut = { link = 'Special' },
     DashboardHeader = { link = 'SpecialComment' },

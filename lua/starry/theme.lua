@@ -498,6 +498,9 @@ theme.loadPlugins = function()
     HopNextKey1 = { fg = starry.br_purple, style = 'bold,undercurl' },
     HopNextKey2 = { fg = starry.blue, style = 'bold,undercurl' },
     HopUnmatched = { fg = starry.comments },
+    -- Flash
+    FlashLabel = { link = 'HopNextKey' },
+    FlashBackdrop = { link = 'HopUnmatched' },
 
     -- Leap
     LeapMatch = {

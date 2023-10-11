@@ -49,7 +49,7 @@ theme.loadSyntax = function()
     SpecialChar = { link = 'Define' }, -- special character in a constant
     Tag = { fg = starry.lime }, -- you can use CTRL-] on this
     Delimiter = { fg = starry.blue1 }, -- character that needs attention like , or .
-    SpecialComment = { fg = starry.comments }, -- special things inside a comment
+    SpecialComment = { fg = starry.comments, style = 'bold' }, -- special things inside a comment
     Debug = { link = 'Special' }, -- debugging statements
     Underlined = { fg = starry.link, style = 'undercurl', sp = starry.blue }, -- text that stands out, HTML links
     Ignore = { fg = starry.disabled }, -- left blank, hidden
@@ -289,8 +289,7 @@ end
 
 theme.loadLSP = function()
   -- Lsp highlight groups
-
-  local lsp = {
+  return {
     DiagnosticHint = { link = 'PreProc' },
     DiagnosticTruncateLine = { fg = starry.fg },
     DiagnosticError = { link = 'Special', style = 'bold' }, -- used for "Error" diagnostic virtual text
@@ -330,9 +329,9 @@ theme.loadLSP = function()
       sp = 'violet',
     },
     LspCodeLens = { link = 'DiagnosticHint' },
+    LspInlayHint = { fg = starry.gray7 },
   }
 
-  return lsp
 end
 
 theme.loadTreesitter = function()

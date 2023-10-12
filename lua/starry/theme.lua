@@ -331,7 +331,6 @@ theme.loadLSP = function()
     LspCodeLens = { link = 'DiagnosticHint' },
     LspInlayHint = { fg = starry.gray7 },
   }
-
 end
 
 theme.loadTreesitter = function()
@@ -478,9 +477,8 @@ theme.loadPlugins = function()
     SneakScope = { bg = starry.selection },
 
     -- Indent Blankline
-    IndentBlanklineChar = { fg = starry.purple, style = 'bold' },
-    IndentBlanklineContextChar = { fg = starry.purple, style = 'bold' },
-    IndentBlanklineContextStart = { style = 'bold,' .. 'underline', sp = starry.violet },
+    IblIndent = { fg = starry.purple },
+    IblScope = { fg = starry.purple, style = 'bold' },
     IndentBlanklineIndent1 = { fg = starry.purple, style = 'nocombine' },
     IndentBlanklineIndent2 = { fg = starry.blue, style = 'nocombine' },
     IndentBlanklineIndent3 = { fg = starry.green, style = 'nocombine' },

@@ -141,13 +141,14 @@ theme.loadEditor = function()
     Cursor = { fg = starry.cursor, style = 'reverse' }, -- the character under the cursor
     CursorIM = { fg = starry.cursor, style = 'reverse' }, -- like Cursor, but used when in IME mode
     Directory = { fg = starry.directory }, -- directory names (and other special names in listings)
-    DiffAdd = { bg = starry.active, style = 'bold,' .. underdash }, -- diff mode: Added line
+    DiffAdd = { bg = starry.less_active, style = 'bold,' .. underdash }, -- diff mode: Added line
     DiffChange = {
       fg = starry.dark_orange,
+      bg = starry.less_active,
       style = starry.search_style .. ',' .. underdot,
       sp = starry.red,
     }, --  diff mode: Changed line
-    DiffDelete = { bg = starry.less_active, style = 'strikethrough' }, -- diff mode: Deleted line
+    DiffDelete = { bg = starry.less_active, fg = starry.active, style = 'strikethrough' }, -- diff mode: Deleted line
     DiffText = { bg = starry.darkgreen2, style = 'bold,' .. underdash }, -- diff mode: Changed text within a changed line
     TermCursor = { link = 'Cursor' },
     TermCursorNC = { link = 'Cursor' },

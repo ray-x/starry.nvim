@@ -158,24 +158,23 @@ function util.load(theme)
   -- require('starry.tsmap').link()
 
   local async
-  async = vim.loop.new_async(vim.schedule_wrap(function()
+  local uv = vim.uv or vim.loop
+  async = uv.new_async(vim.schedule_wrap(function()
     if config.disable.term_colors == false then
       starry.loadTerminal()
     end
     -- import tables for plugins and lsp
-    local plugins = starry.loadPlugins()
     local lsp = starry.loadLSP()
+    for group, colors in pairs(lsp) do
+      util.highlight(group, colors)
+    end
 
+    local plugins = starry.loadPlugins()
     for group, colors in pairs(plugins) do
       util.highlight(group, colors)
     end
 
     lsp = starry.loadLSPV9()
-
-    for group, colors in pairs(plugins) do
-      util.highlight(group, colors)
-    end
-
     for group, colors in pairs(lsp) do
       util.highlight(group, colors)
     end

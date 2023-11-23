@@ -49,7 +49,7 @@ theme.loadSyntax = function()
     SpecialChar = { link = 'Define' }, -- special character in a constant
     Tag = { fg = starry.lime }, -- you can use CTRL-] on this
     Delimiter = { fg = starry.blue1 }, -- character that needs attention like , or .
-    SpecialComment = { fg = starry.comments }, -- special things inside a comment
+    SpecialComment = { fg = starry.comments, style = 'bold' }, -- special things inside a comment
     Debug = { link = 'Special' }, -- debugging statements
     Underlined = { fg = starry.link, style = 'undercurl', sp = starry.blue }, -- text that stands out, HTML links
     Ignore = { fg = starry.disabled }, -- left blank, hidden
@@ -226,6 +226,8 @@ theme.loadEditor = function()
     healthSuccess = { link = 'Question' },
     healthWarning = { link = 'WarningMsg' },
 
+    -- Notify
+    NotifyBackground = { link = 'Normal' },
     -- Dashboard
     DashboardShortCut = { link = 'Special' },
     DashboardHeader = { link = 'SpecialComment' },
@@ -288,8 +290,7 @@ end
 
 theme.loadLSP = function()
   -- Lsp highlight groups
-
-  local lsp = {
+  return {
     DiagnosticHint = { link = 'PreProc' },
     DiagnosticTruncateLine = { fg = starry.fg },
     DiagnosticError = { link = 'Special', style = 'bold' }, -- used for "Error" diagnostic virtual text
@@ -329,9 +330,8 @@ theme.loadLSP = function()
       sp = 'violet',
     },
     LspCodeLens = { link = 'DiagnosticHint' },
+    LspInlayHint = { fg = starry.gray7 },
   }
-
-  return lsp
 end
 
 theme.loadTreesitter = function()
@@ -420,7 +420,7 @@ theme.loadPlugins = function()
 
     -- NvimTree
     NvimTreeRootFolder = { fg = starry.title, style = 'italic' },
-    NvimTreeFolderName = { link = 'Idnetifier' },
+    NvimTreeFolderName = { link = 'Identifier' },
     NvimTreeFolderIcon = { fg = starry.accent },
     NvimTreeEmptyFolderName = { link = 'Ignore' },
     NvimTreeOpenedFolderName = { fg = starry.accent, style = 'italic' },
@@ -478,9 +478,8 @@ theme.loadPlugins = function()
     SneakScope = { bg = starry.selection },
 
     -- Indent Blankline
-    IndentBlanklineChar = { fg = starry.purple, style = 'bold' },
-    IndentBlanklineContextChar = { fg = starry.purple, style = 'bold' },
-    IndentBlanklineContextStart = { style = 'bold,' .. 'underline', sp = starry.violet },
+    IblIndent = { fg = starry.purple },
+    IblScope = { fg = starry.purple, style = 'bold' },
     IndentBlanklineIndent1 = { fg = starry.purple, style = 'nocombine' },
     IndentBlanklineIndent2 = { fg = starry.blue, style = 'nocombine' },
     IndentBlanklineIndent3 = { fg = starry.green, style = 'nocombine' },
@@ -497,6 +496,9 @@ theme.loadPlugins = function()
     HopNextKey1 = { fg = starry.br_purple, style = 'bold,undercurl' },
     HopNextKey2 = { fg = starry.blue, style = 'bold,undercurl' },
     HopUnmatched = { fg = starry.comments },
+    -- Flash
+    FlashLabel = { link = 'HopNextKey' },
+    FlashBackdrop = { link = 'HopUnmatched' },
 
     -- Leap
     LeapMatch = {

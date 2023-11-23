@@ -161,7 +161,7 @@ local function starry_init()
       const = starry_colors.yellow,
       directory = starry_colors.blue,
 
-      selection = starry_colors.gary7,
+      selection = starry_colors.gray7,
       search_fg = starry_colors.orange,
       search_bg = starry_colors.black,
       inc_search = starry_colors.yellow,
@@ -800,7 +800,7 @@ local function starry_init()
     -- Common colors
     white = '#EEFFFF',
     white2 = '#E7F7F7',
-    white3 = '#D8EED9',
+    white3 = '#A8BEC9',
     grey = '#d3d3d3',
     darkgray = '#476b61',
 
@@ -814,7 +814,7 @@ local function starry_init()
     warmgrey = '#658180',
 
     brown = '#925632',
-    pink = '#ff95b6',
+    pink = '#ef6596',
     redwine = '#e95680',
     green = '#76da84',
     blue = '#7fb5fa',
@@ -835,7 +835,7 @@ local function starry_init()
     green1 = '#0FC192',
     green2 = '#caefb3',
     green3 = '#abce00',
-    dark_green = '#a0be70',
+    dark_green = '#a0be79',
     cyan = '#39DFE4',
     br_green = '#9EC400',
     br_yellow = '#E7C547',
@@ -867,7 +867,7 @@ local function starry_init()
       keyword_func = earlysummer_colors.purple,
       func = earlysummer_colors.blue2,
       method = earlysummer_colors.br_cyan,
-      text = '#e0d5eb',
+      text = earlysummer_colors.white3,
       comments = earlysummer_colors.warmgrey,
       number = earlysummer_colors.brown,
       float = earlysummer_colors.orange,
@@ -880,7 +880,7 @@ local function starry_init()
 
       field = earlysummer_colors.caramel,
       bool = '#C06431',
-      string = earlysummer_colors.br_green,
+      string = earlysummer_colors.dark_green,
       const = earlysummer_colors.cyan,
       directory = earlysummer_colors.blue,
 
@@ -1362,7 +1362,12 @@ local function starry_init()
   if vim.g.starry_deep_black == true then
     starry.black = '#000000'
     local style = vim.g.starry_style
-    if style == 'deep ocean' or style == 'darker' or style == 'moonlight' or style == 'middlenight_blue' then
+    if
+      style == 'deep ocean'
+      or style == 'darker'
+      or style == 'moonlight'
+      or style == 'middlenight_blue'
+    then
       starry.bg = starry.black
     end
   end

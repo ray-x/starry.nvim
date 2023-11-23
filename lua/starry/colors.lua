@@ -1118,13 +1118,10 @@ local function starry_init()
       type = '#66d9af',
     }
   end
-
-  if not vim.g then
-    error('only nvim 5.0 supported')
-  end
-
+  local config = require('starry.config').options
+  local style_name = config.style.name
   -- Style specific colors
-  if vim.g.starry_style == 'darker' then
+  if style_name == 'darker' then
     -- Darker theme style
 
     starry = LightenDarkenColorScheme(starry, { -25, -20, -10 })
@@ -1147,12 +1144,12 @@ local function starry_init()
     starry.highlight = '#423F6F'
     starry.disabled = '#4A4A4A'
     starry.accent = '#FF9800'
-    if vim.g.starry_darker_contrast == true then
+    if config.style.darker_contrast == true then
       -- Lighter theme style with high contrast
       starry.comments = '#858585'
       starry.line_numbers = '#5C5C5C'
     end
-  elseif vim.g.starry_style == 'limestone' then
+  elseif style_name == 'limestone' then
     -- limestone theme style
 
     starry.white = '#FFFFFF'
@@ -1198,7 +1195,7 @@ local function starry_init()
 
     starry.accent = '#60BCD4'
     starry.keyword = starry.orange
-  elseif vim.g.starry_style == 'palenight' then
+  elseif style_name == 'palenight' then
     -- Palenight theme style
 
     -- print(vim.inspect(starry))
@@ -1219,7 +1216,7 @@ local function starry_init()
     starry.highlight = '#545287'
     starry.disabled = '#515772'
     starry.accent = '#AB47BC'
-  elseif vim.g.starry_style == 'deep ocean' then
+  elseif style_name == 'deep ocean' then
     -- Deep Ocean theme style
 
     starry = LightenDarkenColorScheme(starry, { -10, -5, 5 })
@@ -1242,10 +1239,10 @@ local function starry_init()
     starry.highlight = '#4F3F63'
     starry.disabled = '#464B5D'
     starry.accent = '#84FFFF'
-  elseif vim.g.starry_style == 'oceanic' then
+  elseif style_name == 'oceanic' then
     starry = LightenDarkenColorScheme(starry, { 10, 10, 20 })
     starry = vim.tbl_extend('force', starry, get_default(starry))
-    vim.g.starry_style = 'oceanic'
+    style_name = 'oceanic'
     -- Oceanic theme style
     starry.bg = '#20272f'
     starry.dark = '#20272f'
@@ -1265,22 +1262,22 @@ local function starry_init()
     starry.highlight = '#425B67'
     starry.disabled = '#415967'
     starry.accent = '#A0A6F8'
-  elseif vim.g.starry_style == 'moonlight' then
+  elseif style_name == 'moonlight' then
     starry = vim.tbl_extend('force', starry, starry_moonlight)
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, moonlight())
-  elseif vim.g.starry_style == 'dracula' then
+  elseif style_name == 'dracula' then
     starry = vim.tbl_extend('force', starry, starry_dracula)
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, dracula())
-  elseif vim.g.starry_style == 'dracula_blood' then
+  elseif style_name == 'dracula_blood' then
     starry = vim.tbl_extend('force', starry, starry_dracula)
     starry = vim.tbl_extend('force', starry, starry_dracula_blood)
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, dracula())
     starry = vim.tbl_extend('force', starry, dracula_blood())
-  elseif vim.g.starry_style == 'monokai' or vim.g.starry_style == 'monokai_lighter' then
-    if vim.g.starry_style == 'monokai_lighter' then
+  elseif style_name == 'monokai' or style_name == 'monokai_lighter' then
+    if style_name == 'monokai_lighter' then
       starry_monokai.bg = '#2F2F23'
       starry_monokai.bg_alt = '#33342d'
       starry_monokai.less_active = '#373830'
@@ -1294,11 +1291,11 @@ local function starry_init()
     starry = vim.tbl_extend('force', starry, starry_monokai)
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, monokai())
-  elseif vim.g.starry_style == 'mariana' or vim.g.starry_style == 'mariana_lighter' then
+  elseif style_name == 'mariana' or style_name == 'mariana_lighter' then
     starry = vim.tbl_extend('force', starry, mariana_colors)
     starry = vim.tbl_extend('force', starry, get_default(starry))
     local ma = vim.tbl_extend('force', starry, mariana())
-    if vim.g.starry_style == 'mariana_lighter' then
+    if style_name == 'mariana_lighter' then
       ma.bg = mariana_colors.blue5_day
       ma.fg = mariana_colors.white2
       ma.bg_alt = mariana_colors.blue2
@@ -1309,27 +1306,27 @@ local function starry_init()
       ma.contrast = ma.less_active
     end
     starry = ma
-  elseif vim.g.starry_style == 'emerald' then
+  elseif style_name == 'emerald' then
     starry = vim.tbl_extend('force', starry, emerald_colors)
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, emerald())
-  elseif vim.g.starry_style == 'middlenight_blue' then
+  elseif style_name == 'middlenight_blue' then
     starry = vim.tbl_extend('force', starry, middlenight_blue_colors)
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, middlenight_blue())
-  elseif vim.g.starry_style == 'dark_solar' then
+  elseif style_name == 'dark_solar' then
     starry = vim.tbl_extend('force', starry, dark_solar_colors)
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, dark_solar())
-  elseif vim.g.starry_style == 'ukraine' then
+  elseif style_name == 'ukraine' then
     starry = vim.tbl_extend('force', starry, ukraine_colors)
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, ukraine())
-  elseif vim.g.starry_style == 'earlysummer' or vim.g.starry_style == 'earlysummer_lighter' then
+  elseif style_name == 'earlysummer' or style_name == 'earlysummer_lighter' then
     starry = vim.tbl_extend('force', starry, earlysummer_colors)
     starry = vim.tbl_extend('force', starry, get_default(starry))
     starry = vim.tbl_extend('force', starry, earlysummer())
-    if vim.g.starry_style == 'earlysummer_lighter' then
+    if style_name == 'earlysummer_lighter' then
       starry.bg = '#292f3d'
       starry.bg_alt = '#353449'
       starry.less_active = '#212426'
@@ -1351,7 +1348,7 @@ local function starry_init()
   -- Optional colors
 
   -- Enable contrast sidebars, floating windows and popup menus
-  if vim.g.starry_contrast == false then
+  if config.contrast.enable == false then
     starry.sidebar = starry.bg
     starry.floating = starry.bg
   else
@@ -1359,9 +1356,9 @@ local function starry_init()
     starry.floating = starry.bg_alt
   end
 
-  if vim.g.starry_deep_black == true then
+  if config.style.deep_black == true then
     starry.black = '#000000'
-    local style = vim.g.starry_style
+    local style = style_name
     if
       style == 'deep ocean'
       or style == 'darker'
@@ -1372,26 +1369,17 @@ local function starry_init()
     end
   end
 
-  -- Enable custom variable colors
-  if vim.g.starry_variable_color == nil then
-    starry.variable = starry.variable or starry.blue
-  else
-    starry.variable = vim.g.starry_variable_color
-  end
-
   -- Set black titles for limestone style
-  if vim.g.starry_style == 'limestone' then
+  if style_name == 'limestone' then
     starry.title = starry.black
   else
     starry.title = starry.white
   end
 
   -- Apply user defined colors
-
-  -- Check if vim.g.starry_custom_colors = is a table
-  if type(vim.g.starry_custom_colors) == 'table' then
+  if type(config.custom_highlights) == 'table' then
     -- Iterate through the table
-    for key, value in pairs(vim.g.starry_custom_colors) do
+    for key, value in pairs(config.custom_highlights) do
       -- If the key doesn't exist:
       if not starry[key] then
         error('Color ' .. key .. ' does not exist')

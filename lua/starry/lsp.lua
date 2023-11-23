@@ -5,6 +5,7 @@ local link_v9 = function(starry, underdouble)
     ['@lsp.type.enum'] = { link = '@type' },
     ['@lsp.type.keyword'] = { link = '@keyword' },
     ['@lsp.type.interface'] = { link = 'Identifier' },
+    ['@lsp.type.class'] = { link = '@type' },
     ['@lsp.type.namespace'] = { link = '@namespace' },
     ['@lsp.type.parameter'] = { link = '@parameter' },
     ['@lsp.type.property'] = { link = '@property' },

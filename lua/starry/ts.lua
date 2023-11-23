@@ -1,3 +1,4 @@
+local config = require('starry.config').options
 return {
   link_v7 = function(starry, underdouble)
     -- TreeSitter highlight groups
@@ -60,14 +61,14 @@ return {
 
     -- Options:
 
-    -- Italic comments
-    if vim.g.starry_italic_comments == true then
+    -- italics comments
+    if config.italics.comments == true then
       treesitter.TSComment = { fg = starry.comments, style = 'italic' } -- For comment blocks.
     else
       treesitter.TSComment = { link = 'SpecialComment' } -- For comment blocks.
     end
 
-    if vim.g.starry_italic_keywords == true then
+    if config.italics.keywords == true then
       treesitter.TSConditional = { fg = starry.condition, style = 'italic' } -- For keywords related to conditionnals.
       treesitter.TSKeyword = { fg = starry.keyword, style = 'italic,bold' } -- For keywords that don't fall in previous categories.
       treesitter.TSRepeat = { fg = starry.condition, style = 'italic,bold' } -- For keywords related to loops.
@@ -85,7 +86,7 @@ return {
       } -- For keywords used to define a function.
     end
 
-    if vim.g.starry_italic_functions == true then
+    if config.italics.functions == true then
       treesitter.TSFunction = { fg = starry.func, style = 'italic,bold' } -- For function (calls and definitions).
       treesitter.TSMethod = {
         fg = starry.method or starry.func,
@@ -98,14 +99,14 @@ return {
       treesitter.TSFuncBuiltin = { fg = starry.func, style = 'bold' } -- For builtin functions: `table.insert` in Lua.
     end
 
-    if vim.g.starry_italic_variables == true then
+    if config.italics.variables == true then
       treesitter.TSVariableBuiltin = { fg = starry.variable, style = 'italic' } -- Variable names that are defined by the languages, like `this` or `self`.
     else
       treesitter.TSVariableBuiltin = { fg = starry.variable } -- Variable names that are defined by the languages, like `this` or `self`.
     end
 
     treesitter.TSVariable = { link = 'Identifier' } -- Any variable name that does not have another highlight.
-    if vim.g.starry_italic_strings == true then
+    if config.italics.strings == true then
       treesitter.TSString.style = 'italic' -- For strings.
     end
 
@@ -171,13 +172,13 @@ return {
     -- Options:
 
     -- Italic comments
-    if vim.g.starry_italic_comments == true then
+    if config.italics.comments == true then
       treesitter['@comment'] = { fg = starry.comments, style = 'italic' } -- For comment blocks.
     else
       treesitter['@comment'] = { link = 'SpecialComment' } -- For comment blocks.
     end
 
-    if vim.g.starry_italic_keywords == true then
+    if config.italics.keywords == true then
       treesitter['@conditional'] = { fg = starry.condition, style = 'italic' } -- For keywords related to conditionnals.
       treesitter['@keyword'] = { fg = starry.keyword, style = 'italic,bold' } -- For keywords that don't fall in previous categories.
       treesitter['@repeat'] = { fg = starry.condition, style = 'italic,bold' } -- For keywords related to loops.
@@ -197,7 +198,7 @@ return {
       } -- For keywords used to define a function.
     end
 
-    if vim.g.starry_italic_functions == true then
+    if config.italics.functions == true then
       treesitter['@function'] = { fg = starry.func, style = 'italic,bold' } -- For function (calls and definitions).
       treesitter['@method'] = {
         fg = starry.method or starry.func,
@@ -211,14 +212,14 @@ return {
     end
     treesitter['@method.call'] = { link = '@method' } -- For method calls and definitions.
 
-    if vim.g.starry_italic_variables == true then
+    if config.italics.variables == true then
       treesitter['@variable.builtin'] = { fg = starry.variable, style = 'italic' } -- Variable names that are defined by the languages, like `this` or `self`.
     else
       treesitter['@variable.builtin'] = { fg = starry.variable } -- Variable names that are defined by the languages, like `this` or `self`.
     end
 
     treesitter['@variable'] = { link = 'Identifier' } -- Any variable name that does not have another highlight.
-    if vim.g.starry_italic_strings == true then
+    if config.italics.strings == true then
       treesitter['@string.style'] = 'italic' -- For strings.
     end
     treesitter['@text'] = { link = 'Normal' }

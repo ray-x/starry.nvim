@@ -15,8 +15,9 @@ if vim.fn.has('nvim-0.8') == 1 then
   underdot = 'underdotted'
   underdash = 'underdashed'
 end
+local config = require('starry.config').options
 
-if vim.g.starry_disable_background == true then
+if config.disable.background == true then
   starry.bg = starry.none
   starry.bg_alt = starry.none
   starry.bg_darker = starry.none
@@ -73,21 +74,21 @@ theme.loadSyntax = function()
   }
 
   -- Options:
-
+  local config = require('starry.config').options
   -- Italic comments
-  if vim.g.starry_italic_comments == true then
+  if config.italics.comments == true then
     syntax.Comment = { fg = starry.comments, style = 'italic' } -- italic comments
   else
     syntax.Comment = { link = 'SpecialComment' } -- normal comments
   end
 
   -- Italic string
-  if vim.g.starry_italic_string == true then
+  if config.italics.string == true then
     syntax.String.style = 'italic'
   end
 
   -- Italic Keywords
-  if vim.g.starry_italic_keywords == true then
+  if config.italics.keywords == true then
     syntax.Conditional = {
       fg = starry.condition,
       style = 'italic',
@@ -108,7 +109,7 @@ theme.loadSyntax = function()
   end
 
   -- Italic Function names
-  if vim.g.starry_italic_functions == true then
+  if config.italics.functions == true then
     syntax.Function = {
       fg = starry.func,
       style = 'italic,bold',
@@ -118,7 +119,7 @@ theme.loadSyntax = function()
   end
   syntax.Method = { link = 'Function' }
 
-  if vim.g.starry_italic_variables == true then
+  if config.italics.variables == true then
     syntax.Identifier = { fg = starry.variable, style = 'italic' } -- Variable names that are defined by the languages, like `this` or `self`.
   else
     syntax.Identifier = { fg = starry.variable } -- Variable names that are defined by the languages, like `this` or `self`.
@@ -239,7 +240,7 @@ theme.loadEditor = function()
 
   -- Options:
 
-  if vim.g.starry_darker_contrast == true and starry.bg_darker then
+  if config.style.darker_contrast == true and starry.bg_darker then
     editor.Normal = { fg = starry.fg, bg = starry.bg_darker } -- normal text and background color
     editor.SignColumn = { fg = starry.fg, bg = starry.bg_darker }
     editor.NormalFloat = { fg = starry.fg, bg = starry.black } -- normal text and background color for floating windows
@@ -252,7 +253,7 @@ theme.loadEditor = function()
   end
 
   -- Remove window split borders
-  if vim.g.starry_borders == true then
+  if config.borders == true then
     editor.VertSplit = { fg = starry.border } -- the column separating vertically split windows
   else
     editor.VertSplit = { fg = starry.bg } -- the column separating vertically split windows
@@ -526,7 +527,7 @@ theme.loadPlugins = function()
   -- Options:
 
   -- Disable nvim-tree background
-  if vim.g.starry_disable_background == true then
+  if config.style.disable_background == true then
     plugins.NvimTreeNormal = { link = 'Normal' }
   else
     plugins.NvimTreeNormal = { fg = starry.fg, bg = starry.sidebar }

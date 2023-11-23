@@ -1,10 +1,7 @@
 local Config = {}
 
 local defaults = {
-
-  contrast = true, -- Enable contrast
   borders = false, -- Split window borders
-  popup_menu = 'dark', -- Popup menu style ( can be: 'dark', 'light', 'colorful' or 'stealth' )
 
   italics = {
     comments = false, -- Italic comments
@@ -14,10 +11,10 @@ local defaults = {
     variables = false -- Italic variables
   },
 
-  contrast_windows = { -- Select which windows get the contrast background
-    "terminal", -- Darker terminal
-    "packer", -- Darker packer background
-    "qf" -- Darker qf list background
+  contrast = { -- Select which windows get the contrast background
+    enable = true, -- Enable contrast
+    terminal = true, -- Darker terminal
+    filetypes = {}, -- Which filetypes get darker? e.g. *.vim, *.cpp, etc.
   },
 
   text_contrast = {
@@ -26,11 +23,20 @@ local defaults = {
   },
 
   disable = {
-    background = false, -- Disable setting the background color
+    background = false, -- true: transparent background
     term_colors = false, -- Disable setting the terminal colors
     eob_lines = false -- Make end-of-buffer lines invisible
   },
 
+  style = {
+    name = 'moonlight', -- Theme style name (moonlight, earliestsummer, etc.)
+    number = 1, -- Theme style number (1 to num of styles)
+    disable = {},  -- a list of styles to disable, e.g. {'bold', 'underline'}
+    fix = true,
+    darker_contrast = false, -- More contrast for darker style
+    daylight_swith = false, -- Enable day and night style switching
+    deep_black = false, -- Enable a deeper black background
+  },
   -- custom_colors = {}, -- TODO: define custom colors
   custom_highlights = {} -- define custom highlights
 }
@@ -40,7 +46,5 @@ Config.options = {}
 Config.setup = function(options)
   Config.options = vim.tbl_deep_extend("force", {}, defaults, options or {})
 end
-
-Config.setup()
 
 return Config

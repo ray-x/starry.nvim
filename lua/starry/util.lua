@@ -19,7 +19,7 @@ util.hlv2 = function(group, style)
   if style.style then
     local s = vim.split(style.style, ',')
     for i = 1, #s do
-      if vim.g['starry_' .. s[i]] ~= false then
+      if not vim.tbl_contains(config.style.disable, s[i]) then
         val[s[i]] = true
       end
     end
@@ -33,32 +33,14 @@ end
 
 -- Go trough the table and highlight the group with the color values
 util.highlight = function(group, color, col)
-  if nvim06 and vim.g.starry_set_hl ~= false then
-    util.hlv2(group, color)
-  else
-    local style = color.style and 'gui=' .. color.style or 'gui=NONE'
-    local fg = color.fg and 'guifg=' .. color.fg or 'guifg=NONE'
-    local bg = color.bg and 'guibg=' .. color.bg or 'guibg=NONE'
-    local sp = color.sp and 'guisp=' .. color.sp or ''
-    local blend = color.blend and 'blend=' .. tostring(color.blend) or ''
-
-    local hlcmd = 'highlight '
-      .. group
-      .. ' '
-      .. style
-      .. ' '
-      .. fg
-      .. ' '
-      .. bg
-      .. ' '
-      .. sp
-      .. blend
-    if color.link then
-      -- lprint('link' ,group, color)
-      hlcmd = 'highlight! link ' .. group .. ' ' .. color.link
-    end
-    vim.cmd(hlcmd)
+  if not nvim06 then
+    return vim.notify(
+      'Starry.nvim: Your Neovim version is outdated, please update to 0.6 or higher',
+      3
+    )
   end
+
+  util.hlv2(group, color)
 end
 
 -- Only define Starry if it's the active colorshceme
@@ -73,15 +55,35 @@ end
 
 -- Change the background for the terminal and packer windows
 util.contrast = function()
-  vim.cmd([[augroup Starry]])
-  vim.cmd([[  autocmd!]])
-  vim.cmd([[  autocmd ColorScheme * lua require("starry.util").onColorScheme()]])
-  vim.cmd([[  autocmd TermOpen * setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
-  vim.cmd(
-    [[  autocmd FileType packer setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]]
-  )
-  vim.cmd([[  autocmd FileType qf setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
-  vim.cmd([[augroup end]])
+  local group = vim.api.nvim_create_augroup('Starry', { clear = true })
+
+  -- clean up autogroups if the theme is not material
+  vim.api.nvim_create_autocmd('ColorScheme', {
+    callback = function()
+      if vim.g.colors_name ~= 'starry' then
+        vim.api.nvim_del_augroup_by_name('Starry')
+      end
+    end,
+    group = group,
+  })
+  local config = require('starry.config').options
+
+  -- apply contrast to the built-in terminal
+  if config.contrast.terminal then
+    vim.api.nvim_create_autocmd('TermOpen', {
+      command = 'setlocal winhighlight=Normal:NormalContrast,SignColumn:NormalContrast',
+      group = group,
+    })
+  end
+
+  -- apply contrast to filetypes
+  for _, ft in ipairs(config.contrast.filetypes) do
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = ft,
+      command = 'setlocal winhighlight=Normal:NormalContrast,SignColumn:SignColumnFloat',
+      group = group,
+    })
+  end
 end
 
 local themes = {
@@ -108,25 +110,26 @@ local themes_daytime =
 
 -- Load the theme
 function util.load(theme)
-  if theme == nil then
-    if vim.g.starry_daylight_switch and vim.g.starry_style_fix ~= true then
+  local config = require('starry.config').options
+  if not theme then
+    if config.style.daylight_switch and config.style.fix ~= true then
       local h = tonumber(os.date('%H'))
       if 6 < h and h < 18 then
         themes = themes_daytime
       end
     end
 
-    if vim.g.starry_style_fix ~= true then
-      vim.g.starry_style_fix = true
+    if config.style.fix ~= true then
+      config.style.fix = true
       local v = math.random(1, #themes)
-      vim.g.starry_style = themes[v]
+      config.style.name = themes[v]
     else
-      vim.g.starry_style = vim.g.starry_style or 'monokai'
+      config.style.name = config.style.name or 'monokai'
     end
-    theme = vim.g.starry_style
+    theme = config.style.name
   else
-    vim.g.starry_style = theme
-    vim.g.starry_style_fix = true
+    config.style.name = theme
+    config.style.fix = true
   end
   -- Set the theme environment
 
@@ -148,7 +151,6 @@ function util.load(theme)
   -- local ns = vim.api.nvim_create_namespace('color_starry')
   local starry = require('starry.theme')
   -- Load plugins, treesitter and lsp async
-
   local treesitter = starry.loadTreesitter()
   for group, colors in pairs(treesitter) do
     util.highlight(group, colors)

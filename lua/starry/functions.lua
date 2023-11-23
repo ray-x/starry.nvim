@@ -1,12 +1,4 @@
 -- Define style_switch
-if vim.g.starry_style_switch == nil then
-  vim.g.starry_style_switch = 1
-end
-
-if vim.g.starry_daylight_switch == nil then
-  vim.g.starry_daylight_switch = false
-end
-
 local switch = {
   "darker", "limestone", "palenight", "oceanic", "deep ocean", "moonlight", "dracula",
   "dracula_blood", "monokai", "mariana", "emerald", "middlenight_blue", "earlysummer", "dark_solar"
@@ -18,7 +10,8 @@ vim.list_extend(all_schemes, switch)
 vim.list_extend(all_schemes, switch_daytime)
 -- Change_style takes a style name as a parameter and switches to that style
 local change_style = function(style)
-  vim.g.starry_style = style
+  local config = require('starry.config').options
+  config.style.name = style
   -- print("Starry style: ", style)
   if style == 'limestone' then
     vim.cmd [[set background=light]]
@@ -30,21 +23,19 @@ end
 
 -- Toggle_style takes no parameters toggles the style on every function call
 local toggle_style = function()
-  if vim.g.starry_daylight_switch then
+  local config = require('starry.config').options
+  if config.style.daylight_switch then
     if tonumber(vim.fn.system('date +%H')) < 18 then
       switch = switch_daytime
     end
   end
-  vim.g.starry_style_switch = (vim.g.starry_style_switch % #switch) + 1
-  change_style(switch[vim.g.starry_style_switch])
+  config.style.number = (config.style.number % #switch) + 1
+  change_style(switch[config.style.number])
 end
 
 local toggle_eob = function()
-  if vim.g.starry_hide_eob == nil then
-    vim.g.starry_hide_eob = true
-  else
-    vim.g.starry_hide_eob = nil
-  end
+  local config = require('starry.config').options
+  config.disable.eob_lines = not config.disable.eob_lines
   vim.cmd [[colorscheme starry]]
 end
 

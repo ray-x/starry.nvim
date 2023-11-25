@@ -10,6 +10,11 @@ local function LightenDarkenColor(col, amt)
   if num == nil then
     return col
   end
+  if amt[1] < 1.0 then
+    amt[1] = math.floor((1.0 - amt[1]) * 0x100)
+    amt[2] = math.floor((1.0 - amt[1]) * 0x100)
+    amt[3] = math.floor((1.0 - amt[1]) * 0x100)
+  end
   local r = math.floor(num / 0x10000) + amt[1]
   local g = (math.floor(num / 0x100) % 0x100) + amt[2]
   local b = (num % 0x100) + amt[3]
@@ -84,6 +89,7 @@ local function starry_init()
     yellow1 = '#fbec9f',
     yellow2 = '#bBa03A',
     tan = '#DDCFBF',
+    brown = '#925632',
 
     blue = '#82AAFF',
     paleblue = '#B0C9FF',
@@ -109,7 +115,6 @@ local function starry_init()
 
     orange = '#F78C6C',
     red_orange = '#af5f5f',
-    dark_orange = '#af5f00',
     coral = '#ff7f50',
     pink = '#FF9CAC',
     pink1 = '#da71c2',
@@ -338,7 +343,7 @@ local function starry_init()
       fg = '#E8E8E3',
       bg2 = '#103b41',
       search_fg = starry_dracula_blood.salmon,
-      statement = starry.dark_orange,
+      statement = starry.darkorange,
       func = 'PaleGreen',
       method = '#A0E210',
       text = '#c5ddfc',
@@ -580,7 +585,6 @@ local function starry_init()
     lightgrey = '#64645e',
     warmgrey = '#657150',
 
-    brown = '#925632',
     pink = '#D675D6',
     green = '#147816',
     blue = '#36a5fa',
@@ -1407,4 +1411,4 @@ local function color_table()
   return starry_color_table
 end
 
-return { starry = starry_init, color_table = color_table }
+return { starry = starry_init, color_table = color_table, lighter_darker = LightenDarkenColorScheme }

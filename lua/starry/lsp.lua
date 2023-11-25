@@ -24,7 +24,7 @@ local link_v9 = function(starry, underdouble)
     ["@lsp.type.string"] = { link = "@string" },
     ["@lsp.type.typeAlias"] = { link = "@type.definition" },
     ["@lsp.type.unresolvedReference"] = { undercurl = true, sp = starry.yellow },
-    ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
+    ["@lsp.type.variable"] = {link = '@variable'},
     ["@lsp.typemod.class.defaultLibrary"] = { link = "@type.builtin" },
     ["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },
     ["@lsp.typemod.enumMember.defaultLibrary"] = { link = "@constant.builtin" },

@@ -1,6 +1,7 @@
 local link_v9 = function(starry, underdouble)
   -- TreeSitter highlight groups
   local lsp = {
+    ["@lsp.type"] = {link = 'Identifier'},
     ["@lsp.type.boolean"] = { link = "@boolean" },
     ["@lsp.type.builtinType"] = { link = "@type.builtin" },
     ["@lsp.type.comment"] = { link = "@comment" },
@@ -38,6 +39,8 @@ local link_v9 = function(starry, underdouble)
     ["@lsp.typemod.struct.defaultLibrary"] = { link = "@type.builtin" },
     ["@lsp.typemod.type.defaultLibrary"] = { fg = starry.blue },
     ["@lsp.typemod.typeAlias.defaultLibrary"] = { fg = starry.blue },
+    ["@lsp.typemod.variable.definition"] = { link = "@function" },
+    ["@lsp.typemod.variable.readonly"] = { link = "@constant" },
     ["@lsp.typemod.variable.callable"] = { link = "@function" },
     ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
     ["@lsp.typemod.variable.injected"] = { link = "@variable" },

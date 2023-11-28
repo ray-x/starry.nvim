@@ -10,10 +10,10 @@ local function LightenDarkenColor(col, amt)
   if num == nil then
     return col
   end
-  if amt[1] < 1.0 then
-    amt[1] = math.floor((1.0 - amt[1]) * 0x100)
-    amt[2] = math.floor((1.0 - amt[1]) * 0x100)
-    amt[3] = math.floor((1.0 - amt[1]) * 0x100)
+  if math.floor(amt[1]) ~= amt[1] then -- a float
+    amt[1] = math.floor(amt[1] * 0x100)
+    amt[2] = math.floor(amt[1] * 0x100)
+    amt[3] = math.floor(amt[1] * 0x100)
   end
   local r = math.floor(num / 0x10000) + amt[1]
   local g = (math.floor(num / 0x100) % 0x100) + amt[2]

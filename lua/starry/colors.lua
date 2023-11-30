@@ -1381,25 +1381,26 @@ local function starry_init()
   end
 
   -- Apply user defined colors
-  if type(config.custom_highlights) == 'table' then
-    -- Iterate through the table
-    for key, value in pairs(config.custom_highlights) do
-      -- If the key doesn't exist:
-      if not starry[key] then
-        error('Color ' .. key .. ' does not exist')
+  if type(config.custom_colors) ~= 'table' then
+    error('Custom colors must be a table')
+  end
+  -- Iterate through the table
+  for key, value in pairs(config.custom_colors) do
+    -- If the key doesn't exist:
+    if not starry[key] then
+      error('Color ' .. key .. ' does not exist')
+    end
+    -- If it exists and the string starts with a "#"
+    if string.sub(value, 1, 1) == '#' then
+      -- Hex override
+      starry[key] = value
+      -- IF it doesn't, dont accept it
+    else
+      -- Another group
+      if not starry[value] then
+        error('Color ' .. value .. ' does not exist')
       end
-      -- If it exists and the string starts with a "#"
-      if string.sub(value, 1, 1) == '#' then
-        -- Hex override
-        starry[key] = value
-        -- IF it doesn't, dont accept it
-      else
-        -- Another group
-        if not starry[value] then
-          error('Color ' .. value .. ' does not exist')
-        end
-        starry[key] = starry[value]
-      end
+      starry[key] = starry[value]
     end
   end
 

@@ -186,8 +186,14 @@ local config = {
     daylight_swith = false, -- Enable day and night style switching
     deep_black = false, -- Enable a deeper black background
   },
-  -- custom_colors = {}, -- TODO: define custom colors
-  custom_highlights = {} -- define custom highlights
+
+  custom_colors = {
+    variable = '#f797d7',
+  },
+  custom_highlights = {
+    LineNr = { fg = '#777777' },
+    Idnetifier = { fg = '#ff4797' },
+  }
 }
 require('starry').setup(config)
 

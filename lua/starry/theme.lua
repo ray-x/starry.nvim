@@ -50,7 +50,6 @@ theme.loadSyntax = function()
     SpecialChar = { link = 'Define' }, -- special character in a constant
     Tag = { fg = starry.lime }, -- you can use CTRL-] on this
     Delimiter = { fg = starry.blue1 }, -- character that needs attention like , or .
-    SpecialComment = { fg = starry.comments, style = 'bold' }, -- special things inside a comment
     Debug = { link = 'Special' }, -- debugging statements
     Underlined = { fg = starry.link, style = 'undercurl', sp = starry.blue }, -- text that stands out, HTML links
     Ignore = { fg = starry.disabled }, -- left blank, hidden
@@ -79,7 +78,7 @@ theme.loadSyntax = function()
   if config.italics.comments == true then
     syntax.Comment = { fg = starry.comments, style = 'italic' } -- italic comments
   else
-    syntax.Comment = { link = 'SpecialComment' } -- normal comments
+    syntax.Comment = { fg = starry.comments } -- normal comments
   end
 
   -- Italic string
@@ -144,12 +143,12 @@ theme.loadEditor = function()
     Directory = { fg = starry.directory }, -- directory names (and other special names in listings)
     DiffAdd = { bg = starry.less_active, style = 'bold,' .. underdash }, -- diff mode: Added line
     DiffChange = {
-      fg = starry.brown,   -- search is reverse
+      fg = starry.brown, -- search is reverse
       bg = starry.less_active,
       style = starry.search_style,
       -- sp = starry.red,
     }, --  diff mode: Changed line
-    DiffDelete = { bg = starry.less_active, fg = starry.active, style = 'strikethrough' }, -- diff mode: Deleted line
+    DiffDelete = { bg = starry.less_active, fg = starry.comments, style = 'strikethrough' }, -- diff mode: Deleted line
     DiffText = { bg = starry.darkgreen2, style = 'bold' }, -- diff mode: Changed text within a changed line
     TermCursor = { link = 'Cursor' },
     TermCursorNC = { link = 'Cursor' },
@@ -231,7 +230,7 @@ theme.loadEditor = function()
     NotifyBackground = { link = 'Normal' },
     -- Dashboard
     DashboardShortCut = { link = 'Special' },
-    DashboardHeader = { link = 'SpecialComment' },
+    DashboardHeader = { link = 'Comment' },
     DashboardCenter = { fg = starry.accent },
     DashboardFooter = { fg = starry.green, style = 'italic' },
 
@@ -387,7 +386,7 @@ theme.loadPlugins = function()
     NeogitHunkHeader = { fg = starry.fg, bg = starry.highlight },
     NeogitHunkHeaderHighlight = { fg = starry.blue, bg = starry.contrast },
     NeogitDiffContextHighlight = { fg = starry.text, bg = starry.contrast },
-    NeogitDiffDeleteHighlight = { link = 'Special' },
+    NeogitDiffDeleteHighlight = { link = 'DiffDelete' },
     NeogitDiffAddHighlight = { link = 'Question' },
 
     -- GitGutter
@@ -428,7 +427,7 @@ theme.loadPlugins = function()
     NvimTreeIndentMarker = { link = 'Ignore' },
     NvimTreeGitDirty = { link = 'Include' },
     NvimTreeGitNew = { link = 'Tag' },
-    NvimTreeGitStaged = { link = 'SpecialComment' },
+    NvimTreeGitStaged = { link = 'Comment' },
     NvimTreeGitDeleted = { link = 'Special' },
     NvimTreeOpenedFile = { fg = starry.accent },
     NvimTreeImageFile = { link = 'WarningMsg' },

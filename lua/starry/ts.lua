@@ -56,7 +56,7 @@ return {
       TSTitle = { fg = starry.title, style = 'bold' }, -- Text that is part of a title.
       TSLiteral = { link = 'TSText' }, -- Literal text.
       TSURI = { link = 'htmlLink' }, -- Any URI like a link or email.
-      TSNone = { link = 'SpecialComment' }, -- TODO: docs
+      TSNone = { link = 'Comment' }, -- TODO: docs
     }
 
     -- Options:
@@ -65,7 +65,7 @@ return {
     if config.italics.comments == true then
       treesitter.TSComment = { fg = starry.comments, style = 'italic' } -- For comment blocks.
     else
-      treesitter.TSComment = { link = 'SpecialComment' } -- For comment blocks.
+      treesitter.TSComment = { link = 'Comment' } -- For comment blocks.
     end
 
     if config.italics.keywords == true then
@@ -166,7 +166,7 @@ return {
       ['@title'] = { fg = starry.title, style = 'bold' }, -- Text that is part of a title.
       ['@literal'] = { link = 'Text' }, -- Literal text.
 
-      ['@none'] = { link = 'SpecialComment' }, -- TODO: docs
+      ['@none'] = { link = 'Comment' }, -- TODO: docs
     }
 
     -- Options:
@@ -175,7 +175,7 @@ return {
     if config.italics.comments == true then
       treesitter['@comment'] = { fg = starry.comments, style = 'italic' } -- For comment blocks.
     else
-      treesitter['@comment'] = { link = 'SpecialComment' } -- For comment blocks.
+      treesitter['@comment'] = { link = 'Comment' } -- For comment blocks.
     end
 
     if config.italics.keywords == true then
@@ -241,7 +241,7 @@ return {
     treesitter['@text.todo'] = { link = 'Todo' }
     treesitter['@text.todo.unchecked'] = { link = 'Todo' }
     treesitter['@text.todo.checked'] = { link = 'Comment' }
-    treesitter['@text.note'] = { link = 'SpecialComment' }
+    treesitter['@text.note'] = { link = 'Comment' }
     treesitter['@text.warning'] = { link = 'WarningMsg' }
     treesitter['@text.danger'] = { link = 'ErrorMsg' }
     -- }}}

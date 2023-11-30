@@ -147,6 +147,8 @@ end}
 
 ## Example Setup
 
+Note: vim way of setting up global variable is deprecated, please use lua way to setup color scheme
+
 ```lua
 local config = {
   border = false, -- Split window borders
@@ -189,6 +191,7 @@ local config = {
 }
 require('starry').setup(config)
 
+-- Following are deprecated
 -- let starry_italic = v:true "set to false to disable italic globally
 -- let starry_italic_comments = v:true
 -- let starry_italic_string = v:false

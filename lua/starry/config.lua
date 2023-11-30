@@ -37,7 +37,7 @@ local defaults = {
     daylight_swith = false, -- Enable day and night style switching
     deep_black = false, -- Enable a deeper black background
   },
-  -- custom_colors = {}, -- TODO: define custom colors
+  custom_colors = {}, -- define custom colors
   custom_highlights = {} -- define custom highlights
 }
 

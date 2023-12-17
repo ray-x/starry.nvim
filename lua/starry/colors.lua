@@ -571,14 +571,14 @@ local function starry_init()
 
   local emerald_colors = {
     -- Common colors
-    white = '#EEFFE0',
-    white2 = '#D7E7D0',
-    white3 = '#D8CEA9',
+    white = '#E0FFE0',
+    white2 = '#D0E7D0',
+    white3 = '#A8DEB9',
     grey = '#233323',
     darkgray = '#476b61',
 
-    dark = '#112012',
-    darker = '#101D0e',
+    dark = '#133020',
+    darker = '#101D12',
     black = '#08170A',
 
     caramel = '#f9c37a',
@@ -589,8 +589,8 @@ local function starry_init()
     green = '#147816',
     blue = '#36a5fa',
     aqua = '#66c9cf',
-    yellow = '#e29d04',
-    yellow2 = '#e2ed34',
+    yellow = '#C2DD54',
+    yellow2 = '#A2ED34',
     orange = '#F9AE58',
     orange2 = '#cd8b59',
     purple = '#ae81ff',
@@ -617,7 +617,7 @@ local function starry_init()
     cyan = '#A1EFE4',
     br_green = '#9EC400',
     br_yellow = '#E7C547',
-    br_yellow2 = '#d0ac7a',
+    br_yellow2 = '#D0AC7A',
     br_blue = '#7AA6DA',
     br_purple = '#B77EE0',
     br_cyan = '#54CED6',
@@ -642,7 +642,7 @@ local function starry_init()
       operator = emerald_colors.red2,
       label = emerald_colors.orange,
       condition = emerald_colors.green3,
-      keyword = emerald_colors.br_yellow2,
+      keyword = emerald_colors.cyan,
       func = emerald_colors.green3,
       method = emerald_colors.green6,
       text = emerald_colors.white3,

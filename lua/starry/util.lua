@@ -120,7 +120,6 @@ function util.load(theme)
     end
 
     if config.style.fix ~= true then
-      config.style.fix = true
       local v = math.random(1, #themes)
       config.style.name = themes[v]
     else
@@ -129,7 +128,6 @@ function util.load(theme)
     theme = config.style.name
   else
     config.style.name = theme
-    config.style.fix = true
   end
   -- Set the theme environment
 

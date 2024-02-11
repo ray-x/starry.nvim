@@ -23,6 +23,8 @@ if config.disable.background == true then
   starry.bg_darker = starry.none
   starry.floating = starry.none
 end
+local s = require('starry.functions').styler
+
 theme.loadSyntax = function()
   -- Syntax highlight groups
   local syntax = {
@@ -34,7 +36,7 @@ theme.loadSyntax = function()
     String = { fg = starry.string }, -- Any string
     Character = { fg = starry.orange }, -- any character constant: 'c', '\n'
     Number = { fg = starry.number }, -- a number constant: 5
-    Boolean = { fg = starry.bool, style = 'italic' }, -- a boolean constant: TRUE, false
+    Boolean = { fg = starry.bool, style = s('italic') }, -- a boolean constant: TRUE, false
     Float = { fg = starry.float }, -- a floating point constant: 2.3e10
     Statement = { fg = starry.statement }, -- any statement
     Label = { fg = starry.label }, -- case, default, etc.
@@ -45,25 +47,25 @@ theme.loadSyntax = function()
     Define = { fg = starry.pink }, -- preprocessor #define
     Macro = { fg = starry.cyan }, -- same as Define
     Typedef = { fg = starry.typedef }, -- A typedef
-    PreCondit = { fg = starry.precondit, style = 'bold' }, -- preprocessor #if, #else, #endif, etc.
+    PreCondit = { fg = starry.precondit, style = s('bold') }, -- preprocessor #if, #else, #endif, etc.
     Special = { fg = starry.red }, -- any special symbol
     SpecialChar = { link = 'Define' }, -- special character in a constant
     Tag = { fg = starry.lime }, -- you can use CTRL-] on this
     Delimiter = { fg = starry.blue1 }, -- character that needs attention like , or .
     Debug = { link = 'Special' }, -- debugging statements
-    Underlined = { fg = starry.link, style = 'undercurl', sp = starry.blue }, -- text that stands out, HTML links
+    Underlined = { fg = starry.link, style = s('undercurl'), sp = starry.blue }, -- text that stands out, HTML links
     Ignore = { fg = starry.disabled }, -- left blank, hidden
-    Error = { fg = starry.error, style = 'bold,undercurl', sp = starry.pink }, -- any erroneous construct
+    Error = { fg = starry.error, style = s('bold', 'undercurl'), sp = starry.pink }, -- any erroneous construct
     Todo = { fg = starry.yellow, bg = starry.bg_alt, style = starry.highlight_style }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     MsgArea = { fg = starry.string }, -- Any string
 
-    htmlLink = { fg = starry.link, style = 'underline', sp = starry.blue },
-    htmlH1 = { fg = starry.cyan, style = 'bold,' .. underdouble },
-    htmlH2 = { fg = starry.red, style = 'bold' },
-    htmlH3 = { fg = starry.green, style = 'bold' },
-    htmlH4 = { fg = starry.yellow, style = 'bold' },
-    htmlH5 = { fg = starry.br_purple, style = 'bold' },
+    htmlLink = { fg = starry.link, style = s('underline'), sp = starry.blue },
+    htmlH1 = { fg = starry.cyan, style = s('bold', underdouble) },
+    htmlH2 = { fg = starry.red, style = s('bold') },
+    htmlH3 = { fg = starry.green, style = s('bold') },
+    htmlH4 = { fg = starry.yellow, style = s('bold') },
+    htmlH5 = { fg = starry.br_purple, style = s('bold') },
     markdownH1 = { link = 'htmlH1' },
     markdownH2 = { link = 'htmlH2' },
     markdownH3 = { link = 'htmlH3' },
@@ -76,34 +78,34 @@ theme.loadSyntax = function()
   local config = require('starry.config').options
   -- Italic comments
   if config.italics.comments == true then
-    syntax.Comment = { fg = starry.comments, style = 'italic' } -- italic comments
+    syntax.Comment = { fg = starry.comments, style = s('italic') } -- italic comments
   else
     syntax.Comment = { fg = starry.comments } -- normal comments
   end
 
   -- Italic string
   if config.italics.string == true then
-    syntax.String.style = 'italic'
+    syntax.String.style = s('italic')
   end
 
   -- Italic Keywords
   if config.italics.keywords == true then
     syntax.Conditional = {
       fg = starry.condition,
-      style = 'italic',
+      style = s('italic'),
     } -- italic if, then, else, endif, switch, etc.
     syntax.Keyword = {
       fg = starry.keyword,
-      style = 'italic',
+      style = s('italic'),
       bold = true,
     } -- italic for, do, while, etc.
     syntax.Repeat = {
       fg = starry.condition,
-      style = 'italic',
+      style = s('italic'),
     } -- italic any other keyword
   else
-    syntax.Conditional = { fg = starry.condition, style = 'bold' } -- normal if, then, else, endif, switch, etc.
-    syntax.Keyword = { fg = starry.keyword, style = 'bold' } -- normal for, do, while, etc.
+    syntax.Conditional = { fg = starry.condition, style = s('bold') } -- normal if, then, else, endif, switch, etc.
+    syntax.Keyword = { fg = starry.keyword, style = s('bold') } -- normal for, do, while, etc.
     syntax.Repeat = { link = 'PreProc' } -- normal any other keyword
   end
 
@@ -111,15 +113,15 @@ theme.loadSyntax = function()
   if config.italics.functions == true then
     syntax.Function = {
       fg = starry.func,
-      style = 'italic,bold',
+      style = s('italic', 'bold'),
     } -- italic function names
   else
-    syntax.Function = { fg = starry.func, style = 'bold' } -- normal function names
+    syntax.Function = { fg = starry.func, style = s('bold') } -- normal function names
   end
   syntax.Method = { link = 'Function' }
 
   if config.italics.variables == true then
-    syntax.Identifier = { fg = starry.variable, style = 'italic' } -- Variable names that are defined by the languages, like `this` or `self`.
+    syntax.Identifier = { fg = starry.variable, style = s('italic') } -- Variable names that are defined by the languages, like `this` or `self`.
   else
     syntax.Identifier = { fg = starry.variable } -- Variable names that are defined by the languages, like `this` or `self`.
   end
@@ -130,7 +132,7 @@ theme.loadEditor = function()
   -- Editor highlight groups
   local lineNrStyle
   if vim.wo.relativenumber == true or vim.o.relativenumber == true then
-    lineNrStyle = 'bold,' .. underdot
+    lineNrstyle = s('bold', underdot)
   end
 
   local editor = {
@@ -138,33 +140,33 @@ theme.loadEditor = function()
     FloatShadowThrough = { bg = starry.darker, blend = 66 },
     ColorColumn = { bg = starry.active }, --  used for the columns set with 'colorcolumn'
     Conceal = { link = 'Ignore' }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor = { fg = starry.cursor, style = 'reverse' }, -- the character under the cursor
-    CursorIM = { fg = starry.cursor, style = 'reverse' }, -- like Cursor, but used when in IME mode
+    Cursor = { fg = starry.cursor, style = s('reverse') }, -- the character under the cursor
+    CursorIM = { fg = starry.cursor, style = s('reverse') }, -- like Cursor, but used when in IME mode
     Directory = { fg = starry.directory }, -- directory names (and other special names in listings)
-    DiffAdd = { bg = starry.less_active, style = 'bold,' .. underdash }, -- diff mode: Added line
+    DiffAdd = { bg = starry.less_active, style = s('bold', underdash) }, -- diff mode: Added line
     DiffChange = {
       fg = starry.brown, -- search is reverse
       bg = starry.less_active,
       style = starry.search_style,
       -- sp = starry.red,
     }, --  diff mode: Changed line
-    DiffDelete = { bg = starry.less_active, fg = starry.comments, style = 'strikethrough' }, -- diff mode: Deleted line
-    DiffText = { bg = starry.darkgreen2, style = 'bold' }, -- diff mode: Changed text within a changed line
+    DiffDelete = { bg = starry.less_active, fg = starry.comments, style = s('strikethrough') }, -- diff mode: Deleted line
+    DiffText = { bg = starry.darkgreen2, style = s('bold') }, -- diff mode: Changed text within a changed line
     TermCursor = { link = 'Cursor' },
     TermCursorNC = { link = 'Cursor' },
     EndOfBuffer = { link = 'Ignore' }, -- ~ lines at the end of a buffer
     ErrorMsg = { link = 'DiagnosticError' }, -- error messages
-    Folded = { fg = starry.link, style = 'bold' },
+    Folded = { fg = starry.link, style = s('bold') },
     FoldColumn = { link = 'Include' },
-    IncSearch = { fg = starry.inc_search, style = 'bold,reverse' },
+    IncSearch = { fg = starry.inc_search, style = s('bold', 'reverse') },
     LineNr = { fg = starry.line_numbers, style = lineNrStyle },
     LineNrAbove = { fg = starry.disabled },
     LineNrBelow = { link = 'LineNrAbove' },
-    CursorLineNr = { link = 'ModeMsg', style = 'bold' },
+    CursorLineNr = { link = 'ModeMsg', style = s('bold') },
     MatchParen = {
       fg = starry.yellow,
       bg = starry.active,
-      style = 'bold,underline',
+      style = s('bold', 'underline'),
     },
     ModeMsg = { fg = starry.accent },
     MoreMsg = { link = 'ModeMsg' },
@@ -180,16 +182,16 @@ theme.loadEditor = function()
     PmenuSbar = { fg = starry.text, bg = starry.contrast },
     PmenuThumb = { bg = starry.accent },
     Question = { fg = starry.green },
-    QuickFixLine = { fg = starry.highlight, bg = starry.white, style = 'reverse' },
-    qfLineNr = { fg = starry.highlight, bg = starry.white, style = 'reverse' },
+    QuickFixLine = { fg = starry.highlight, bg = starry.white, style = s('reverse') },
+    qfLineNr = { fg = starry.highlight, bg = starry.white, style = s('reverse') },
     Search = {
       fg = starry.search_fg,
       bg = starry.search_bg,
       style = starry.search_style,
     },
     SpecialKey = { link = 'PreProc' },
-    SpellBad = { fg = starry.orange, style = 'undercurl', sp = starry.red },
-    SpellCap = { fg = starry.blue, style = 'undercurl', sp = starry.violet },
+    SpellBad = { fg = starry.orange, style = s('undercurl'), sp = starry.red },
+    SpellCap = { fg = starry.blue, style = s('undercurl'), sp = starry.violet },
     SpellLocal = { fg = starry.cyan, style = underdot },
     SpellRare = {
       fg = starry.purple,
@@ -204,22 +206,22 @@ theme.loadEditor = function()
     TabLineFill = { fg = starry.fg },
     TablineSel = { bg = starry.accent, fg = starry.dark },
     Tabline = { fg = starry.fg },
-    Title = { fg = starry.title, style = 'bold' },
+    Title = { fg = starry.title, style = s('bold') },
     Visual = { bg = starry.selection },
     VisualNOS = { link = 'Visual' },
     VisualNC = { link = 'Visual' },
     NormalNC = { link = 'Normal' }, -- normal text and background color
     WarningMsg = { fg = starry.yellow },
-    WildMenu = { fg = starry.orange, style = 'bold' },
+    WildMenu = { fg = starry.orange, style = s('bold') },
     CursorColumn = { bg = starry.active },
     CursorLine = { bg = starry.less_active },
     ToolbarLine = { fg = starry.fg, bg = starry.bg_alt },
-    ToolbarButton = { fg = starry.fg, style = 'bold' },
-    NormalMode = { fg = starry.accent, bg = starry.bg, style = 'reverse' },
-    InsertMode = { fg = starry.green, style = 'reverse' },
-    ReplacelMode = { fg = starry.red, style = 'reverse' },
-    VisualMode = { fg = starry.purple, style = 'reverse' },
-    CommandMode = { fg = starry.gray, style = 'reverse' },
+    ToolbarButton = { fg = starry.fg, style = s('bold') },
+    NormalMode = { fg = starry.accent, bg = starry.bg, style = s('reverse') },
+    InsertMode = { fg = starry.green, style = s('reverse') },
+    ReplacelMode = { fg = starry.red, style = s('reverse') },
+    VisualMode = { fg = starry.purple, style = s('reverse') },
+    CommandMode = { fg = starry.gray, style = s('reverse') },
     Warnings = { link = 'WarningMsg' },
 
     healthError = { link = 'DiagnosticError' },
@@ -232,7 +234,7 @@ theme.loadEditor = function()
     DashboardShortCut = { link = 'Special' },
     DashboardHeader = { link = 'Comment' },
     DashboardCenter = { fg = starry.accent },
-    DashboardFooter = { fg = starry.green, style = 'italic' },
+    DashboardFooter = { fg = starry.green, style = s('italic') },
 
     WinSeparator = { fg = starry.border },
   }
@@ -293,16 +295,16 @@ theme.loadLSP = function()
   return {
     DiagnosticHint = { link = 'PreProc' },
     DiagnosticTruncateLine = { fg = starry.fg },
-    DiagnosticError = { link = 'Special', style = 'bold' }, -- used for "Error" diagnostic virtual text
+    DiagnosticError = { link = 'Special', style = s('bold') }, -- used for "Error" diagnostic virtual text
     DiagnosticSignError = { link = 'DiagnosticError' }, -- used for "Error" diagnostic signs in sign column
     DiagnosticFloatingError = { link = 'DiagnosticError' }, -- used for "Error" diagnostic messages in the diagnostics float
     DiagnosticVirtualTextError = { link = 'DiagnosticError' }, -- Virtual text "Error"
-    DiagnosticUnderlineError = { style = 'bold,undercurl', sp = starry.error }, -- used to underline "Error" diagnostics.
+    DiagnosticUnderlineError = { style = s('bold', 'undercurl'), sp = starry.error }, -- used to underline "Error" diagnostics.
     DiagnosticWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic signs in sign column
     DiagnosticSignWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic signs in sign column
     DiagnosticFloatingWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic messages in the diagnostics float
     DiagnosticVirtualTextWarn = { link = 'WarningMsg' }, -- Virtual text "Warning"
-    DiagnosticUnderlineWarn = { style = 'underline', sp = starry.yellow }, -- used to underline "Warning" diagnostics.
+    DiagnosticUnderlineWarn = { style = s('underline'), sp = starry.yellow }, -- used to underline "Warning" diagnostics.
     DiagnosticInfo = { link = 'PreCondit' }, -- used for "Information" diagnostic virtual text
     DiagnosticSignInfo = { link = 'DiagnosticInfo' }, -- used for "Information" diagnostic signs in sign column
     DiagnosticFloatingInfo = { link = 'DiagnosticInfo' }, -- used for "Information" diagnostic messages in the diagnostics float
@@ -312,21 +314,21 @@ theme.loadLSP = function()
     DiagnosticSignHint = { link = 'DiagnosticDefaultHint' }, -- used for "Hint" diagnostic signs in sign column
     DiagnosticUnderlineHint = { style = underdot, sp = starry.darkblue }, -- used to underline "Hint" diagnostics.
 
-    LspReferenceText = { style = 'bold,' .. underdot, bg = starry.less_active, sp = 'green' }, -- used for highlighting "text" references
+    LspReferenceText = { style = s('bold',  underdot), bg = starry.less_active, sp = 'green' }, -- used for highlighting "text" references
     LspReferenceRead = {
       bg = starry.less_active,
-      style = 'bold,' .. underdash,
+      style = s('bold',  underdash),
       sp = 'green',
     }, -- used for highlighting "read" references
     LspReferenceWrite = {
       bg = starry.less_active,
-      style = 'bold,' .. underdouble,
+      style = s('bold', underdouble),
       sp = 'yellow',
     }, -- used for highlighting "write" references
     LspSignatureActiveParameter = {
       fg = starry.search_fg,
       bg = starry.darkblue,
-      style = 'bold,' .. underdouble,
+      style = s('bold', underdouble),
       sp = 'violet',
     },
     LspCodeLens = { link = 'DiagnosticHint' },
@@ -336,8 +338,6 @@ end
 
 theme.loadTreesitter = function()
   if vim.fn.has('nvim-0.8') == 1 then
-    return require('starry.ts').link_v8(starry, underdouble)
-  else
     return require('starry.ts').link_v8(starry, underdouble)
   end
 end
@@ -407,7 +407,7 @@ theme.loadPlugins = function()
     GitSignsDeleteLn = { link = 'Special' }, -- diff mode: Deleted line |diff.txt|
 
     GitSignsAddInline = { style = underdot, sp = starry.green }, -- diff mode: Deleted line |diff.txt|
-    GitSignsDeleteInline = { style = 'strikethrough', sp = starry.error }, -- diff mode: Deleted line |diff.txt|
+    GitSignsDeleteInline = { style = s('strikethrough'), sp = starry.error }, -- diff mode: Deleted line |diff.txt|
     GitSignsChangeInline = { style = underdot, sp = starry.br_blue }, -- diff mode: Deleted line |diff.txt|
     -- Telescope
     TelescopeNormal = { fg = starry.text, bg = starry.bg },
@@ -419,11 +419,11 @@ theme.loadPlugins = function()
     TelescopeMatching = { link = 'Macro' },
 
     -- NvimTree
-    NvimTreeRootFolder = { fg = starry.title, style = 'italic' },
+    NvimTreeRootFolder = { fg = starry.title, style = s('italic') },
     NvimTreeFolderName = { link = 'Identifier' },
     NvimTreeFolderIcon = { fg = starry.accent },
     NvimTreeEmptyFolderName = { link = 'Ignore' },
-    NvimTreeOpenedFolderName = { fg = starry.accent, style = 'italic' },
+    NvimTreeOpenedFolderName = { fg = starry.accent, style = s('italic') },
     NvimTreeIndentMarker = { link = 'Ignore' },
     NvimTreeGitDirty = { link = 'Include' },
     NvimTreeGitNew = { link = 'Tag' },
@@ -433,7 +433,7 @@ theme.loadPlugins = function()
     NvimTreeImageFile = { link = 'WarningMsg' },
     NvimTreeMarkdownFile = { link = 'Define' },
     NvimTreeExecFile = { link = 'Question' },
-    NvimTreeSpecialFile = { fg = starry.purple, style = 'underline' },
+    NvimTreeSpecialFile = { fg = starry.purple, style = s('underline') },
     LspDiagnosticsError = { link = 'DiagnosticError' },
     LspDiagnosticsWarning = { link = 'WarningMsg' }, -- LspDiagXXX deprecated
     DiagnosticsWarning = { link = 'WarningMsg' },
@@ -443,9 +443,9 @@ theme.loadPlugins = function()
     DiagnosticsHint = { link = 'PreProc' },
 
     -- WhichKey
-    WhichKey = { fg = starry.accent, style = 'bold' },
+    WhichKey = { fg = starry.accent, style = s('bold') },
     WhichKeyGroup = { link = 'Identifier' },
-    WhichKeyDesc = { fg = starry.blue, style = 'italic' },
+    WhichKeyDesc = { fg = starry.blue, style = s('italic') },
     WhichKeySeperator = { fg = starry.fg },
     WhichKeyFloating = { bg = starry.floating },
     WhichKeyFloat = { bg = starry.floating },
@@ -474,27 +474,27 @@ theme.loadPlugins = function()
     BufferLineBackground = { bg = starry.bg },
 
     -- Sneak
-    Sneak = { bg = starry.accent, style = 'reverse' },
+    Sneak = { bg = starry.accent, style = s('reverse') },
     SneakScope = { bg = starry.selection },
 
     -- Indent Blankline
     IblIndent = { fg = starry.purple },
-    IblScope = { fg = starry.purple, style = 'bold' },
-    IndentBlanklineIndent1 = { fg = starry.purple, style = 'nocombine' },
-    IndentBlanklineIndent2 = { fg = starry.blue, style = 'nocombine' },
-    IndentBlanklineIndent3 = { fg = starry.green, style = 'nocombine' },
-    IndentBlanklineIndent4 = { fg = starry.yellow, style = 'nocombine' },
-    IndentBlanklineIndent5 = { fg = starry.orange, style = 'nocombine' },
-    IndentBlanklineIndent6 = { fg = starry.red, style = 'nocombine' },
+    IblScope = { fg = starry.purple, style = s('bold') },
+    IndentBlanklineIndent1 = { fg = starry.purple, style = s('nocombine') },
+    IndentBlanklineIndent2 = { fg = starry.blue, style = s('nocombine') },
+    IndentBlanklineIndent3 = { fg = starry.green, style = s('nocombine') },
+    IndentBlanklineIndent4 = { fg = starry.yellow, style = s('nocombine') },
+    IndentBlanklineIndent5 = { fg = starry.orange, style = s('nocombine') },
+    IndentBlanklineIndent6 = { fg = starry.red, style = s('nocombine') },
 
     -- Nvim dap
     DapBreakpoint = { link = 'Special' },
     DapStopped = { link = 'Question' },
 
     -- Hop
-    HopNextKey = { fg = starry.red, style = 'bold,undercurl' },
-    HopNextKey1 = { fg = starry.br_purple, style = 'bold,undercurl' },
-    HopNextKey2 = { fg = starry.blue, style = 'bold,undercurl' },
+    HopNextKey = { fg = starry.red, style = s('bold', 'undercurl') },
+    HopNextKey1 = { fg = starry.br_purple, style = s('bold', 'undercurl') },
+    HopNextKey2 = { fg = starry.blue, style = s('bold', 'undercurl') },
     HopUnmatched = { fg = starry.comments },
     -- Flash
     FlashLabel = { link = 'HopNextKey' },
@@ -505,12 +505,12 @@ theme.loadPlugins = function()
       fg = starry.search_fg,
       bg = starry.search_bg,
     },
-    LeapLabelPrimary = { fg = starry.purple, style = 'bold' },
-    LeapLabelSecondary = { fg = starry.blue, style = 'bold' },
+    LeapLabelPrimary = { fg = starry.purple, style = s('bold') },
+    LeapLabelSecondary = { fg = starry.blue, style = s('bold') },
     LeapBackdrop = { fg = starry.comments },
 
     -- Cmp
-    CmpItemAbbrDeprecated = { fg = starry.lightgray, style = 'strikethrough' },
+    CmpItemAbbrDeprecated = { fg = starry.lightgray, style = s('strikethrough') },
     CmpItemAbbrMatch = { fg = starry.search_fg, bg = starry.search_bg },
     CmpItemAbbrMatchFuzzy = { fg = starry.search_fg, bg = starry.search_bg },
     CmpItemKindVariable = { fg = starry.variable },

@@ -47,10 +47,34 @@ local change = function(scheme)
   end
 end
 
+local styler = function(...)
+  local args = {...}
+  if #args == 0 then
+    return ''
+  else
+    local s = ''
+    local config = require('starry.config').options
+    for _, v in ipairs(args) do
+      if v == 'italic' and not config.disable.italic then
+        s = 'italic'
+      elseif v == 'bold' and not config.disable.bold  then
+        s = #s > 1 and s .. ',bold' or 'bold'
+      elseif v == 'italic' or not config.disable.italic then
+        s = #s > 1 and s .. ',italic' or 'italic'
+      else
+        s = #s > 1 and s .. ',' .. v or v
+      end
+    end
+    return s
+  end
+end
+
+
 return {
   change_style = change_style,
   toggle_style = toggle_style,
   change = change,
   toggle_eob = toggle_eob,
+  styler = styler,
   all_schemes = all_schemes
 }

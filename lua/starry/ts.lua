@@ -53,7 +53,21 @@ return {
       ['@current.scope'] = { bg = starry.less_active or starry.active },
       ['@title'] = { fg = starry.title, style = s('bold') }, -- Text that is part of a title.
       ['@literal'] = { link = 'Text' }, -- Literal text.
-
+      ['@markup.list'] = { fg = starry.blue }, -- For special punctutation that does not fall in the catagories before.
+      ['@markup.list.markdown'] = { fg = starry.orange, bold = true },
+      ['@markup.link.label'] = { link = 'SpecialChar' },
+      ['@markup.link.label.symbol'] = { link = 'Identifier' },
+      ['@markup'] = { link = '@none' },
+      ['@markup.environment'] = { link = 'Macro' },
+      ['@markup.environment.name'] = { link = 'Type' },
+      ['@markup.raw'] = { link = 'String' },
+      ['@markup.math'] = { link = 'Special' },
+      ['@markup.strong'] = { bold = true },
+      ['@markup.emphasis'] = { italic = true },
+      ['@markup.strikethrough'] = { strikethrough = true },
+      ['@markup.underline'] = { underline = true },
+      ['@markup.heading'] = { link = 'Title' },
+      ['@markup.link.url'] = { link = 'Underlined' },
       ['@none'] = { link = 'Comment' }, -- TODO: docs
     }
 

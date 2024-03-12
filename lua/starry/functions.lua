@@ -55,13 +55,7 @@ local styler = function(...)
     local s = ''
     local config = require('starry.config').options
     for _, v in ipairs(args) do
-      if v == 'italic' and not config.disable.italic then
-        s = 'italic'
-      elseif v == 'bold' and not config.disable.bold  then
-        s = #s > 1 and s .. ',bold' or 'bold'
-      elseif v == 'italic' or not config.disable.italic then
-        s = #s > 1 and s .. ',italic' or 'italic'
-      else
+      if v and not vim.tbl_contains(config.disable, v) then
         s = #s > 1 and s .. ',' .. v or v
       end
     end

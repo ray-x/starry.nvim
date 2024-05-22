@@ -20,6 +20,7 @@ return {
       ['@label'] = { fg = starry.green1 }, -- For labels: `label:` in C and `:label:` in Lua.
       ['@namespace'] = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
       ['@number'] = { link = 'Number' }, -- For all numbers
+      ['@module'] = { link = 'Number' }, -- For all numbers
       ['@operator'] = { link = 'Operator' }, -- For any operator: `+`, but also `->` and `*` in C.
       ['@keyword.operator'] = { link = 'Operator', style = s('bold') }, -- For any operator: `+`, but also `->` and `*` in C.
       ['@parameter'] = { fg = starry.parameter, style = s('bold') }, -- For parameters of a function.
@@ -76,8 +77,12 @@ return {
     -- Italic comments
     if config.italics.comments == true then
       treesitter['@comment'] = { fg = starry.comments, style = s('italic') } -- For comment blocks.
+      treesitter['@comment.todo'] = { link = 'Title', style = s('italic') } -- For comment blocks.
+      treesitter['@comment.error'] = { link = 'WarningMsg', style = s('italic')} -- For comment blocks.
     else
       treesitter['@comment'] = { link = 'Comment' } -- For comment blocks.
+      treesitter['@comment.todo'] = { link = 'Title' } -- For comment blocks.
+      treesitter['@comment.error'] = { link = 'WarningMsg'} -- For comment blocks.
     end
 
     if config.italics.keywords == true then

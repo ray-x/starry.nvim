@@ -300,21 +300,22 @@ theme.loadLSP = function()
     DiagnosticWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic signs in sign column
     DiagnosticSignWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic signs in sign column
     DiagnosticFloatingWarn = { link = 'WarningMsg' }, -- used for "Warning" diagnostic messages in the diagnostics float
-    DiagnosticVirtualTextWarn = { link = 'WarningMsg' }, -- Virtual text "Warning"
+    DiagnosticVirtualTextWarn = { fg = starry.darkcyan }, -- Virtual text "Warning"
     DiagnosticUnderlineWarn = { style = s('underline'), sp = starry.yellow }, -- used to underline "Warning" diagnostics.
-    DiagnosticInfo = { link = 'PreCondit' }, -- used for "Information" diagnostic virtual text
+    DiagnosticInfo = { link = 'ModeMsg' }, -- used for "Information" diagnostic virtual text
     DiagnosticSignInfo = { link = 'DiagnosticInfo' }, -- used for "Information" diagnostic signs in sign column
     DiagnosticFloatingInfo = { link = 'DiagnosticInfo' }, -- used for "Information" diagnostic messages in the diagnostics float
-    DiagnosticVirtualTextInfo = { link = 'DiagnosticInfo' }, -- Virtual text "Information"
+    DiagnosticVirtualTextInfo = { fg = starry.gray5 }, -- Virtual text "Information"
     DiagnosticUnderlineInfo = { style = underdash, sp = starry.darkblue }, -- used to underline "Information" diagnostics.
     DiagnosticDefaultHint = { fg = starry.link }, -- used for "Hint" diagnostic virtual text
     DiagnosticSignHint = { link = 'DiagnosticDefaultHint' }, -- used for "Hint" diagnostic signs in sign column
+    DiagnosticVirtualTextHint = { fg = starry.disabled }, -- Virtual text "Hint"
     DiagnosticUnderlineHint = { style = underdot, sp = starry.darkblue }, -- used to underline "Hint" diagnostics.
 
-    LspReferenceText = { style = s('bold',  'undercurl'), bg = starry.less_active, sp = 'green' }, -- used for highlighting "text" references
+    LspReferenceText = { style = s('bold', 'undercurl'), bg = starry.less_active, sp = 'green' }, -- used for highlighting "text" references
     LspReferenceRead = {
       bg = starry.less_active,
-      style = s('bold',  'undercurl'),
+      style = s('bold', 'undercurl'),
       sp = 'green',
     }, -- used for highlighting "read" references
     LspReferenceWrite = {

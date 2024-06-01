@@ -1,6 +1,13 @@
 local util = require('starry.util')
 local cfg = require('starry.config')
 
+local nvim08 = (vim.fn.has('nvim-0.8') == 1)
+if not nvim08 then
+  return vim.notify(
+  'Starry.nvim: Your Neovim version is outdated, please update to 0.8 or higher',
+  3
+  )
+end
 -- Load the theme
 local set = function(theme)
   util.load(theme)

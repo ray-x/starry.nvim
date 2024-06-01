@@ -125,8 +125,8 @@ local function starry_init()
     darkgreen = '#abcf76',
     darkgreen2 = '#2b4f06',
     darkyellow = '#e6b455',
-    darkblue = '#4c7b9b',
-    darkcyan = '#71c6e7',
+    darkblue = '#5c7b9b',
+    darkcyan = '#7196a7',
     darkorange = '#e2795b',
     highlight_style = 'bold,italic',
     search_style = 'reverse,bold',
@@ -165,6 +165,11 @@ local function starry_init()
       string = starry_colors.green,
       const = starry_colors.yellow,
       directory = starry_colors.blue,
+
+
+      bg = starry_colors.dark,
+      bg_darker = starry_colors.darker,
+      bg_alt = starry_colors.neardark,
 
       selection = starry_colors.gray7,
       search_fg = starry_colors.orange,
@@ -387,6 +392,7 @@ local function starry_init()
     pink = '#F92772',
     green = '#A6E22D',
     yellow = '#E6DB74',
+    darkyellow = '#A67B44',
     orange = '#FD9720',
     purple = '#ae81ff',
     red = '#e73c50',
@@ -418,7 +424,7 @@ local function starry_init()
     return {
       -- syntax
       bg = starry_monokai.dark,
-      bg_alt = '#2C2C34',
+      bg_alt = '#30312A',
       bg_darker = starry_monokai.darker,
       fg = '#CED1D4',
       bg2 = '#103b41',
@@ -445,7 +451,8 @@ local function starry_init()
       const = '#A876FA',
       selection = '#474b51',
       search_bg = '#252056',
-      search_fg = '#B69B24',
+      search_fg = starry_monokai.dark_yellow,
+      inc_search = starry_monokai.br_yellow,
       contrast = '#1b1c2b',
       less_active = '#343032',
       active = '#343032',
@@ -1146,7 +1153,7 @@ local function starry_init()
     starry.border = '#31314B'
     starry.line_numbers = '#525272'
     starry.highlight = '#423F6F'
-    starry.disabled = '#4A4A4A'
+    starry.disabled = '#40404A'
     starry.accent = '#FF9800'
     if config.style.darker_contrast == true then
       -- Lighter theme style with high contrast

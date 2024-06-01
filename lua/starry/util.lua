@@ -1,6 +1,5 @@
 local util = {}
 local config = require('starry.config').options
-local nvim06 = (vim.fn.has('nvim-0.6') == 1)
 
 util.hlv2 = function(group, style)
   local val = {}
@@ -33,13 +32,6 @@ end
 
 -- Go trough the table and highlight the group with the color values
 util.highlight = function(group, color, col)
-  if not nvim06 then
-    return vim.notify(
-      'Starry.nvim: Your Neovim version is outdated, please update to 0.6 or higher',
-      3
-    )
-  end
-
   util.hlv2(group, color)
 end
 
@@ -185,11 +177,7 @@ function util.load(theme)
       end
     end
     util.contrast()
-    if vim.fn.has('nvim-0.8') == 0 then
-      vim.api.nvim__set_hl_ns(0)
-    else
-      vim.api.nvim_set_hl_ns(0)
-    end
+    vim.api.nvim_set_hl_ns(0)
     async:close()
     vim.cmd('doautocmd ColorScheme')
   end))

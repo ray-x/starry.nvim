@@ -1,27 +1,24 @@
 local starry = require('starry.colors').starry()
 
 local theme = {}
-local underdouble = 'underline'
-local underdot = 'underline'
-local underdash = 'underline'
-if vim.fn.has('nvim-0.8') == 0 and vim.fn.has('nvim-0.7') == 1 then
-  underdot = 'underdot'
-  underdash = 'underdash'
-  underdouble = 'underlineline'
-end
-
-if vim.fn.has('nvim-0.8') == 1 then
-  underdouble = 'underdouble'
-  underdot = 'underdotted'
-  underdash = 'underdashed'
-end
+local underdouble = 'underdouble'
+local underdot = 'underdotted'
+local underdash = 'underdashed'
 local config = require('starry.config').options
-
+local alt = starry.bg_alt
+local floating_bg = starry.bg_alt
+local darker = starry.darker
 if config.disable.background == true then
   starry.bg = starry.none
   starry.bg_alt = starry.none
   starry.bg_darker = starry.none
+end
+
+if config.disable.floating_bg == true then
   starry.floating = starry.none
+  floating_bg = starry.none
+else
+  starry.floating = floating_bg
 end
 local s = require('starry.functions').styler
 
@@ -154,8 +151,9 @@ theme.loadEditor = function()
     EndOfBuffer = { link = 'Ignore' }, -- ~ lines at the end of a buffer
     ErrorMsg = { link = 'DiagnosticError' }, -- error messages
     Folded = { fg = starry.link, style = s('bold') },
-    FoldColumn = { link = 'Include' },
+    FoldColumn = { link = 'Ignore' },
     IncSearch = { fg = starry.inc_search, style = s('bold', 'reverse') },
+    CurSearch = { fg = starry.search_fg, style = s('bold', 'reverse') },
     LineNr = { fg = starry.line_numbers, style = lineNrStyle },
     LineNrAbove = { fg = starry.disabled },
     LineNrBelow = { link = 'LineNrAbove' },
@@ -237,19 +235,21 @@ theme.loadEditor = function()
   }
 
   -- Options:
-
   if config.style.darker_contrast == true and starry.bg_darker then
     editor.Normal = { fg = starry.fg, bg = starry.bg_darker } -- normal text and background color
     editor.SignColumn = { fg = starry.fg, bg = starry.bg_darker }
-    editor.NormalFloat = { fg = starry.fg, bg = starry.black } -- normal text and background color for floating windows
-    editor.FloatBorder = { fg = starry.comments, bg = starry.bg_darker }
+    floating_bg = darker
   else
     editor.Normal = { fg = starry.fg, bg = starry.bg } -- normal text and background color
     editor.SignColumn = { fg = starry.fg, bg = starry.bg }
-    editor.NormalFloat = { fg = starry.fg, bg = starry.floating } -- normal text and background color for floating windows
-    editor.FloatBorder = { fg = starry.comments, bg = starry.bg_alt }
   end
 
+  if config.disable.floating_bg == true then
+    floating_bg = starry.none
+  end
+
+  editor.FloatBorder = { fg = starry.comments, bg = floating_bg }
+  editor.NormalFloat = { fg = starry.text, bg = floating_bg }
   -- Remove window split borders
   if config.borders == true then
     editor.VertSplit = { fg = starry.border } -- the column separating vertically split windows
@@ -290,7 +290,7 @@ end
 theme.loadLSP = function()
   -- Lsp highlight groups
   return {
-    DiagnosticHint = { link = 'PreProc' },
+    DiagnosticHint = { fg = starry.darkblue },
     DiagnosticTruncateLine = { fg = starry.fg },
     DiagnosticError = { link = 'Special', style = s('bold') }, -- used for "Error" diagnostic virtual text
     DiagnosticSignError = { link = 'DiagnosticError' }, -- used for "Error" diagnostic signs in sign column
@@ -335,9 +335,7 @@ theme.loadLSP = function()
 end
 
 theme.loadTreesitter = function()
-  if vim.fn.has('nvim-0.8') == 1 then
-    return require('starry.ts').link_v8(starry, underdouble)
-  end
+  return require('starry.ts').link_v8(starry, underdouble)
 end
 
 theme.loadLSPV9 = function()
@@ -408,12 +406,12 @@ theme.loadPlugins = function()
     GitSignsDeleteInline = { style = s('strikethrough'), sp = starry.error }, -- diff mode: Deleted line |diff.txt|
     GitSignsChangeInline = { style = underdot, sp = starry.br_blue }, -- diff mode: Deleted line |diff.txt|
     -- Telescope
-    TelescopeNormal = { fg = starry.text, bg = starry.bg },
-    TelescopePromptBorder = { link = 'Macro' },
-    TelescopeResultsBorder = { link = 'PreProc' },
-    TelescopePreviewBorder = { link = 'Question' },
+    TelescopeNormal = { fg = starry.text, bg = floating_bg },
+    TelescopePromptBorder = { fg = starry.cyan, bg = floating_bg },
+    TelescopeResultsBorder = { fg = starry.preproc, bg = floating_bg },
+    TelescopePreviewBorder = { fg = starry.green, bg = floating_bg },
     TelescopeSelectionCaret = { link = 'PreProc' },
-    TelescopeSelection = { fg = starry.purple, bg = starry.active },
+    TelescopeSelection = { bg = starry.active, style = s('bold') },
     TelescopeMatching = { link = 'Macro' },
 
     -- NvimTree

@@ -127,7 +127,7 @@ end
 
 theme.loadEditor = function()
   -- Editor highlight groups
-  local lineNrStyle
+  local lineNrStyle = s('bold')
   if vim.wo.relativenumber == true or vim.o.relativenumber == true then
     lineNrstyle = s('bold', underdot)
   end
@@ -157,7 +157,7 @@ theme.loadEditor = function()
     LineNr = { fg = starry.line_numbers, style = lineNrStyle },
     LineNrAbove = { fg = starry.disabled },
     LineNrBelow = { link = 'LineNrAbove' },
-    CursorLineNr = { link = 'ModeMsg', style = s('bold') },
+    CursorLineNr = { link = 'ModeMsg', style = lineNrStyle },
     MatchParen = {
       fg = starry.yellow,
       bg = starry.active,

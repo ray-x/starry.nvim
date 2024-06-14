@@ -166,7 +166,6 @@ local function starry_init()
       const = starry_colors.yellow,
       directory = starry_colors.blue,
 
-
       bg = starry_colors.dark,
       bg_darker = starry_colors.darker,
       bg_alt = starry_colors.neardark,
@@ -455,7 +454,7 @@ local function starry_init()
       inc_search = starry_monokai.br_yellow,
       contrast = '#1b1c2b',
       less_active = '#343032',
-      active = '#343032',
+      active = '#3E383A',
       more_active = '#503f4f',
       border = '#414245',
       line_numbers = '#676765',
@@ -565,7 +564,7 @@ local function starry_init()
       active = mariana_colors.blue7,
       more_active = mariana_colors.blue5,
       border = mariana_colors.blue4,
-      line_numbers = mariana_colors.blue4,
+      line_numbers = mariana_colors.blue1,
       highlight = '#515b70',
       disabled = mariana_colors.blue4,
       cursor = '#7c44fc',
@@ -1292,7 +1291,7 @@ local function starry_init()
       starry_monokai.bg = '#2F2F23'
       starry_monokai.bg_alt = '#33342d'
       starry_monokai.less_active = '#373830'
-      starry_monokai.active = '#494437'
+      starry_monokai.active = '#4f4947'
       starry_monokai.line_numbers = '#A2AF93'
       starry_monokai.accent = '#A9AF83'
       starry_monokai.selection = '#696F43'

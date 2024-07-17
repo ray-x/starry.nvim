@@ -152,6 +152,7 @@ Note: vim way of setting up global variable is deprecated, please use lua way to
 ```lua
 local config = {
   border = false, -- Split window borders
+  hide_eob = true, -- Hide end of buffer
   italics = {
     comments = false, -- Italic comments
     strings = false, -- Italic strings

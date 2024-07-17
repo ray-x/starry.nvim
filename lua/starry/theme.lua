@@ -230,8 +230,6 @@ theme.loadEditor = function()
     DashboardHeader = { link = 'Comment' },
     DashboardCenter = { fg = starry.accent },
     DashboardFooter = { fg = starry.green, style = s('italic') },
-
-    WinSeparator = { fg = starry.border },
   }
 
   -- Options:
@@ -252,12 +250,14 @@ theme.loadEditor = function()
   editor.NormalFloat = { fg = starry.text, bg = floating_bg }
   -- Remove window split borders
   if config.borders == true then
-    editor.VertSplit = { fg = starry.border } -- the column separating vertically split windows
+    editor.VertSplit = { fg = starry.border }
   else
-    editor.VertSplit = { fg = starry.bg } -- the column separating vertically split windows
+    editor.VertSplit = { fg = starry.bg }
   end
+
+  editor.WinSeparator = { link = 'VertSplit' }
   -- Set End of Buffer lines (~)
-  if vim.g.starry_hide_eob == true then
+  if config.hide_eob == true then
     editor.EndOfBuffer = { fg = starry.bg } -- ~ lines at the end of a buffer
   else
     editor.EndOfBuffer = { link = 'Ignore' } -- ~ lines at the end of a buffer

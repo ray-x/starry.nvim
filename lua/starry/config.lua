@@ -2,6 +2,7 @@ local Config = {}
 
 local defaults = {
   borders = false, -- Split window borders
+  hide_eob = true,
 
   italics = {
     comments = false, -- Italic comments

@@ -140,7 +140,7 @@ theme.loadEditor = function()
     Cursor = { fg = starry.cursor, style = s('reverse') }, -- the character under the cursor
     CursorIM = { fg = starry.cursor, style = s('reverse') }, -- like Cursor, but used when in IME mode
     Directory = { fg = starry.directory }, -- directory names (and other special names in listings)
-    DiffAdd = { bg = starry.less_active, fg = starry.green, style = s('bold') }, -- diff mode: Added line
+    DiffAdd = { bg = starry.neardark, style = s('bold') }, -- diff mode: Added line
     DiffChange = {
       bg = starry.active, fg = starry.yellow, style = s('bold'),
     }, --  diff mode: Changed line

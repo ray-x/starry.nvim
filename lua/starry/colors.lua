@@ -59,11 +59,11 @@ local function starry_init()
     gray7 = '#777087',
     darkgray = '#676067',
     black = '#07050f',
-    dark = '#131134',
-    dark2 = '#23213f',
-    darker = '#07102f',
-    neardark = '#18143f',
-    neardark2 = '#282437',
+    dark = '#131122',
+    dark2 = '#23212f',
+    darker = '#07101f',
+    neardark = '#18142a',
+    neardark2 = '#282430',
     aqua = '#66d9ef',
     red = '#F07178',
     red1 = '#ec5f67',
@@ -202,6 +202,7 @@ local function starry_init()
     warmgrey = '#8c9a9b',
     dark = '#212337',
     darker = '#1A2030',
+    neardark = '#29303f',
 
     black = '#101418',
     red = '#ff757f',
@@ -268,6 +269,7 @@ local function starry_init()
     gray = '#a1abe0',
     dark = '#21222c',
     darker = '#141520',
+    neardark = '#293030',
     black = '#101010',
     red = '#ff555f',
     green = '#50fa7b',
@@ -326,6 +328,7 @@ local function starry_init()
     gray = '#a1abe0',
 
     dark = '#1D1825',
+    neardark = '#203030',
     darker = '#191321',
     black = '#100511',
     red = '#A71906',
@@ -386,6 +389,7 @@ local function starry_init()
     dark = '#262721',
     darker = '#191a21',
     black = '#121812',
+    neardark = '#30312A',
 
     darkgrey = '#64645e',
     warmgrey = '#75715E',
@@ -474,6 +478,7 @@ local function starry_init()
     -- Common colors
     dark = '#2A333C',
     darker = '#243037',
+    neardark = '#30323F',
     black = '#102023',
     white = '#FFFFFF',
     white2 = '#F7F7F7',
@@ -588,6 +593,7 @@ local function starry_init()
     dark = '#133020',
     darker = '#101D12',
     black = '#08170A',
+    neardark = '#203428',
 
     caramel = '#f9c37a',
     lightgrey = '#64645e',
@@ -703,6 +709,7 @@ local function starry_init()
     darkgray = '#476b61',
 
     dark = '#101022',
+    neardark = '#181832',
     darker = '#040D16',
     black = '#010B10',
 
@@ -818,6 +825,7 @@ local function starry_init()
 
     black = '#111420',
     dark = '#212c31',
+    neardark = '#2F3841',
     darker = '#15232e',
     dark2 = '#313D46',
 
@@ -928,6 +936,7 @@ local function starry_init()
 
     bg = '#012731',
     dark = '#012731',
+    neardark = '#113441',
     darker = '#012026',
     black = '#01141D',
 
@@ -1035,6 +1044,7 @@ local function starry_init()
     darkgray = '#476b61',
 
     dark = '#1056B8',
+    neardark = '#4450A8',
     darker = '#1446a6',
     black = '#012052',
 

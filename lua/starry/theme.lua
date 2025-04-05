@@ -140,15 +140,15 @@ theme.loadEditor = function()
     Cursor = { fg = starry.cursor, style = s('reverse') }, -- the character under the cursor
     CursorIM = { fg = starry.cursor, style = s('reverse') }, -- like Cursor, but used when in IME mode
     Directory = { fg = starry.directory }, -- directory names (and other special names in listings)
-    DiffAdd = { bg = starry.less_active, style = s('bold', underdash) }, -- diff mode: Added line
+    DiffAdd = { bg = starry.less_active, fg = starry.green, style = s('bold') }, -- diff mode: Added line
     DiffChange = {
-      bg = starry.active,
+      bg = starry.active, fg = starry.yellow, style = s('bold'),
     }, --  diff mode: Changed line
-    DiffDelete = { bg = starry.less_active, fg = starry.comments, style = s('strikethrough') }, -- diff mode: Deleted line
-    DiffText = { bg = starry.darkgreen2, style = s('bold,reverse') }, -- diff mode: Changed text within a changed line
+    DiffDelete = { bg = starry.neardark, fg = starry.comments, style = s('strikethrough') }, -- diff mode: Deleted line
+    DiffText = { fg = starry.keyword, bg = starry.neardark, style = s('bold,reverse') }, -- diff mode: Changed text within a changed line
     TermCursor = { link = 'Cursor' },
     TermCursorNC = { link = 'Cursor' },
-    EndOfBuffer = { link = 'Ignore' }, -- ~ lines at the end of a buffer
+    EndOfBuffer = { link = 'Ignore' }, -- ~ lines at the end of a buffe
     ErrorMsg = { link = 'DiagnosticError' }, -- error messages
     Folded = { fg = starry.link, style = s('bold') },
     FoldColumn = { link = 'Ignore' },

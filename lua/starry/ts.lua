@@ -19,8 +19,9 @@ return {
 
       ['@label'] = { fg = starry.green1 }, -- For labels: `label:` in C and `:label:` in Lua.
       ['@namespace'] = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
+      ['@namespace.builtin'] = { link = 'Special' },
       ['@number'] = { link = 'Number' }, -- For all numbers
-      ['@module'] = { link = 'Number' }, -- For all numbers
+      ['@module'] = { link = 'Include' }, -- For all moudle
       ['@operator'] = { link = 'Operator' }, -- For any operator: `+`, but also `->` and `*` in C.
       ['@keyword.operator'] = { link = 'Operator', style = s('bold') }, -- For any operator: `+`, but also `->` and `*` in C.
       ['@parameter'] = { fg = starry.parameter, style = s('bold') }, -- For parameters of a function.

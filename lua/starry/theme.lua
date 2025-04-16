@@ -10,7 +10,7 @@ local floating_bg = starry.bg_alt
 local darker = starry.darker
 if config.disable.background == true then
   starry.bg = starry.none
-  starry.bg_alt = starry.none
+  -- starry.bg_alt = starry.none
   starry.bg_darker = starry.none
 end
 

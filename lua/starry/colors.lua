@@ -513,7 +513,7 @@ local function starry_init()
     blue7 = '#304868',
 
     blue8 = '#243038',
-    blue9 = '#303540',
+    blue9 = '#323A48',
     blueA = '#B4C0F0',
     blueB = '#303449',
     blueC = '#B0C4D5',

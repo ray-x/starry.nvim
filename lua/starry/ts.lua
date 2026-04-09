@@ -13,28 +13,33 @@ return {
       ['@constant'] = { fg = starry.const }, -- For constants
       ['@constant.builtin'] = { fg = starry.const, style = s('bold') }, -- For constant that are built in the language: `nil` in Lua.
       ['@constant.macro'] = { link = 'Special' }, -- For constants that are defined by macros: `NULL` in C.
-      ['@field'] = { fg = starry.field }, -- For fields.
-      ['@float'] = { fg = starry.float }, -- For floats.
-      ['@include'] = { link = 'Include' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+      ['@variable.member'] = { fg = starry.field }, -- For fields (canonical name).
+      ['@field'] = { link = '@variable.member' }, -- Deprecated alias.
+      ['@number.float'] = { fg = starry.float }, -- For floats (canonical name).
+      ['@float'] = { link = '@number.float' }, -- Deprecated alias.
+      ['@keyword.import'] = { link = 'Include' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+      ['@include'] = { link = '@keyword.import' }, -- Deprecated alias.
 
       ['@label'] = { fg = starry.green1 }, -- For labels: `label:` in C and `:label:` in Lua.
-      ['@namespace'] = { fg = starry.yellow1 }, -- For identifiers referring to modules and namespaces.
-      ['@namespace.builtin'] = { link = 'Special' },
+      ['@module'] = { link = 'Include' }, -- For modules (canonical name).
+      ['@module.builtin'] = { link = 'Special' }, -- Built-in modules.
+      ['@namespace'] = { link = '@module' }, -- Deprecated alias.
+      ['@namespace.builtin'] = { link = '@module.builtin' }, -- Deprecated alias.
       ['@number'] = { link = 'Number' }, -- For all numbers
-      ['@module'] = { link = 'Include' }, -- For all moudle
       ['@operator'] = { link = 'Operator' }, -- For any operator: `+`, but also `->` and `*` in C.
       ['@keyword.operator'] = { link = 'Operator', style = s('bold') }, -- For any operator: `+`, but also `->` and `*` in C.
-      ['@parameter'] = { fg = starry.parameter, style = s('bold') }, -- For parameters of a function.
-      ['@parameter.reference'] = { link = 'PreCondit' }, -- For references to parameters of a function.
-      ['@property'] = { fg = starry.field }, -- Same as `TSField`.
+      ['@variable.parameter'] = { fg = starry.parameter, style = s('bold') }, -- For parameters of a function (canonical name).
+      ['@parameter'] = { link = '@variable.parameter' }, -- Deprecated alias.
+      ['@property'] = { fg = starry.field }, -- Same as `@variable.member`.
       ['@punctuation.delimiter'] = { link = 'Macro' }, -- For delimiters ie: `.`
       ['@punctuation.bracket'] = { fg = starry.bracket }, -- For brackets and parens.
       ['@punctuation.special'] = { fg = starry.punctutation }, -- For special punctutation that does not fall in the categories before.
       ['@function.call'] = { fg = starry.func },
       ['@function.builtin'] = { link = 'Special' },
-      ['@function.marco'] = { link = 'Marco' },
+      ['@function.macro'] = { link = 'Macro' },
       ['@string'] = { link = 'String' }, -- For strings.
-      ['@string.regex'] = { fg = starry.pink2 }, -- For regexes.
+      ['@string.regexp'] = { fg = starry.pink2 }, -- For regexes (canonical name).
+      ['@string.regex'] = { link = '@string.regexp' }, -- Deprecated alias.
       ['@string.escape'] = { link = 'Ignore' }, -- For escape characters within a string.
       ['@string.special'] = { link = 'SpecialChar' }, -- For escape characters within a string.
       ['@symbol'] = { fg = starry.symbol }, -- For identifiers referring to symbols or atoms.
@@ -42,33 +47,35 @@ return {
       ['@type.builtin'] = { fg = starry.builtin or starry.purple1, style = s('bold') }, -- For builtin types.
 
       ['@type.qualifier'] = { link = 'Type' }, -- For types.
-      ['@type.deinition'] = { link = 'Typedef' }, -- For types.
+      ['@type.definition'] = { link = 'Typedef' }, -- For types.
       ['@tag'] = { fg = starry.tag or starry.red1 }, -- Tags like html tag names.
       ['@tag.delimiter'] = { fg = starry.yellow2 }, -- Tag delimiter like `<` `>` `/`
 
       ['@text'] = { fg = starry.text }, -- For strings considered text in a markup language.
 
       ['@text.reference'] = { fg = starry.keyword, bg = starry.bg_alt }, -- FIXME
-      ['@emphasis'] = { link = 'PreCondit' }, -- For text to be represented with emphasis.
-      ['@underline'] = { fg = starry.fg, style = underdouble }, -- For text to be represented with an underline.
-      ['@strike'] = { fg = starry.gray, style = s('strikethrough') }, -- For strikethrough text.
+      ['@markup.italic'] = { italic = true }, -- Canonical name for emphasis.
+      ['@emphasis'] = { link = '@markup.italic' }, -- Deprecated alias.
+      ['@markup.underline'] = { underline = true }, -- Canonical name for underline.
+      ['@underline'] = { link = '@markup.underline' }, -- Deprecated alias.
+      ['@markup.strikethrough'] = { strikethrough = true }, -- Canonical name for strikethrough.
+      ['@strike'] = { link = '@markup.strikethrough' }, -- Deprecated alias.
       ['@current.scope'] = { bg = starry.less_active or starry.active },
-      ['@title'] = { fg = starry.title, style = s('bold') }, -- Text that is part of a title.
-      ['@literal'] = { link = 'Text' }, -- Literal text.
-      ['@markup.list'] = { fg = starry.blue }, -- For special punctutation that does not fall in the catagories before.
+      ['@markup.heading'] = { link = 'Title' }, -- Canonical name for title.
+      ['@title'] = { link = '@markup.heading' }, -- Deprecated alias.
+      ['@markup.raw'] = { link = 'String' }, -- Canonical name for literal.
+      ['@literal'] = { link = '@markup.raw' }, -- Deprecated alias.
+      ['@markup.list'] = { fg = starry.blue }, -- For special punctuation that does not fall in the categories before.
       ['@markup.list.markdown'] = { fg = starry.orange, bold = true },
+      ['@markup.list.checked'] = { link = 'Comment' },
+      ['@markup.list.unchecked'] = { link = 'Todo' },
       ['@markup.link.label'] = { link = 'SpecialChar' },
       ['@markup.link.label.symbol'] = { link = 'Identifier' },
       ['@markup'] = { link = '@none' },
       ['@markup.environment'] = { link = 'Macro' },
       ['@markup.environment.name'] = { link = 'Type' },
-      ['@markup.raw'] = { link = 'String' },
-      ['@markup.math'] = { link = 'Special' },
       ['@markup.strong'] = { bold = true },
-      ['@markup.emphasis'] = { italic = true },
-      ['@markup.strikethrough'] = { strikethrough = true },
-      ['@markup.underline'] = { underline = true },
-      ['@markup.heading'] = { link = 'Title' },
+      ['@markup.math'] = { link = 'Special' },
       ['@markup.link.url'] = { link = 'Underlined' },
       ['@none'] = { link = 'Comment' }, -- TODO: docs
     }
@@ -87,19 +94,23 @@ return {
     end
 
     if config.italics.keywords == true then
-      treesitter['@conditional'] = { fg = starry.condition, style = s('italic') } -- For keywords related to conditionnals.
+      treesitter['@keyword.conditional'] = { fg = starry.condition, style = s('italic') } -- For keywords related to conditionals.
+      treesitter['@conditional'] = { link = '@keyword.conditional' } -- Deprecated alias.
       treesitter['@keyword'] = { fg = starry.keyword, style = s('italic', 'bold') } -- For keywords that don't fall in previous categories.
-      treesitter['@repeat'] = { fg = starry.condition, style = s('italic', 'bold') } -- For keywords related to loops.
-      treesitter['@keyword.return'] = { link = '@keyword' } -- For keywords related to loops.
+      treesitter['@keyword.repeat'] = { fg = starry.condition, style = s('italic', 'bold') } -- For keywords related to loops.
+      treesitter['@repeat'] = { link = '@keyword.repeat' } -- Deprecated alias.
+      treesitter['@keyword.return'] = { link = '@keyword' } -- For return keywords.
       treesitter['@keyword.function'] = {
         fg = starry.keyword_func or starry.keyword,
         style = s('italic', 'bold'),
       } -- For keywords used to define a function.
     else
-      treesitter['@conditional'] = { fg = starry.condition } -- For keywords related to conditionnals.
+      treesitter['@keyword.conditional'] = { fg = starry.condition } -- For keywords related to conditionals.
+      treesitter['@conditional'] = { link = '@keyword.conditional' } -- Deprecated alias.
       treesitter['@keyword'] = { fg = starry.keyword, style = s('bold') } -- For keywords that don't fall in previous categories.
-      treesitter['@repeat'] = { fg = starry.condition, style = s('bold') } -- For keywords related to loops.
-      treesitter['@keyword.return'] = { link = '@keyword' } -- For keywords related to loops.
+      treesitter['@keyword.repeat'] = { fg = starry.condition, style = s('bold') } -- For keywords related to loops.
+      treesitter['@repeat'] = { link = '@keyword.repeat' } -- Deprecated alias.
+      treesitter['@keyword.return'] = { link = '@keyword' } -- For return keywords.
       treesitter['@keyword.function'] = {
         fg = starry.keyword_func or starry.keyword,
         style = s('bold'),
@@ -108,17 +119,20 @@ return {
 
     if config.italics.functions == true then
       treesitter['@function'] = { fg = starry.func, style = s('italic', 'bold') } -- For function (calls and definitions).
-      treesitter['@method'] = {
+      treesitter['@function.method'] = {
         fg = starry.method or starry.func,
         style = s('italic', 'bold'),
-      } -- For method calls and definitions.
+      } -- For method calls and definitions (canonical name).
+      treesitter['@method'] = { link = '@function.method' } -- Deprecated alias.
       treesitter['@function.builtin'] = { fg = starry.func, style = s('italic', 'bold') } -- For builtin functions: `table.insert` in Lua.
     else
       treesitter['@function'] = { fg = starry.func, style = s('bold') } -- For function (calls and definitions).
-      treesitter['@method'] = { fg = starry.method, style = s('bold') } -- For method calls and definitions.
+      treesitter['@function.method'] = { fg = starry.method, style = s('bold') } -- For method calls and definitions (canonical name).
+      treesitter['@method'] = { link = '@function.method' } -- Deprecated alias.
       treesitter['@function.builtin'] = { fg = starry.func, style = s('bold') } -- For builtin functions: `table.insert` in Lua.
     end
-    treesitter['@method.call'] = { link = '@method' } -- For method calls and definitions.
+    treesitter['@function.method.call'] = { link = '@function.method' } -- For method calls.
+    treesitter['@method.call'] = { link = '@function.method.call' } -- Deprecated alias.
 
     if config.italics.variables == true then
       treesitter['@variable.builtin'] = { fg = starry.variable, style = s('italic') } -- Variable names that are defined by the languages, like `this` or `self`.
@@ -131,27 +145,30 @@ return {
       treesitter['@string.style'] = 'italic' -- For strings.
     end
     treesitter['@text'] = { link = 'Normal' }
-    treesitter['@text.strong'] = { style = s('bold') }
-    treesitter['@text.emphasis'] = { style = s('bold', 'italic') }
-    treesitter['@text.underline'] = { style = s('underline') }
-    treesitter['@text.strike'] = { style = s('strikethrough') }
-    treesitter['@text.title'] = { link = 'Title' }
-    treesitter['@text.literal'] = { link = 'String' }
+    treesitter['@text.strong'] = { link = '@markup.strong' }
+    treesitter['@text.emphasis'] = { link = '@markup.italic' }
+    treesitter['@text.underline'] = { link = '@markup.underline' }
+    treesitter['@text.strike'] = { link = '@markup.strikethrough' }
+    treesitter['@text.title'] = { link = '@markup.heading' }
+    treesitter['@text.literal'] = { link = '@markup.raw' }
     treesitter['@text.literal.markdown'] = { link = 'Normal' }
     treesitter['@text.literal.markdown_inline'] = { link = 'Special' }
-    treesitter['@text.uri'] = { link = 'Underlined' }
-    treesitter['@text.math'] = { link = 'Special' }
-    treesitter['@text.environment'] = { link = 'Macro' }
-    treesitter['@text.environment.name'] = { link = 'Type' }
+    treesitter['@text.uri'] = { link = '@markup.link.url' }
+    treesitter['@text.math'] = { link = '@markup.math' }
+    treesitter['@text.environment'] = { link = '@markup.environment' }
+    treesitter['@text.environment.name'] = { link = '@markup.environment.name' }
     treesitter['@text.reference'] = { link = 'Constant' }
-    treesitter['@exception'] = { link = 'Exception' }
+    treesitter['@keyword.exception'] = { link = 'Exception' } -- Canonical name.
+    treesitter['@exception'] = { link = '@keyword.exception' } -- Deprecated alias.
 
-    treesitter['@text.todo'] = { link = 'Todo' }
-    treesitter['@text.todo.unchecked'] = { link = 'Todo' }
-    treesitter['@text.todo.checked'] = { link = 'Comment' }
-    treesitter['@text.note'] = { link = 'Comment' }
-    treesitter['@text.warning'] = { link = 'WarningMsg' }
-    treesitter['@text.danger'] = { link = 'ErrorMsg' }
+    treesitter['@text.todo'] = { link = '@comment.todo' }
+    treesitter['@text.todo.unchecked'] = { link = '@markup.list.unchecked' }
+    treesitter['@text.todo.checked'] = { link = '@markup.list.checked' }
+    treesitter['@comment.note'] = { link = 'Comment' }
+    treesitter['@text.note'] = { link = '@comment.note' } -- Deprecated alias.
+    treesitter['@comment.warning'] = { link = 'WarningMsg' }
+    treesitter['@text.warning'] = { link = '@comment.warning' } -- Deprecated alias.
+    treesitter['@text.danger'] = { link = '@comment.error' }
     -- }}}
 
     -- Tags {{{

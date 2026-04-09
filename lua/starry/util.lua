@@ -150,8 +150,7 @@ function util.load(theme)
   -- require('starry.tsmap').link()
 
   local async
-  local uv = vim.uv or vim.loop
-  async = uv.new_async(vim.schedule_wrap(function()
+  async = vim.uv.new_async(vim.schedule_wrap(function()
     if config.disable.term_colors == false then
       starry.loadTerminal()
     end

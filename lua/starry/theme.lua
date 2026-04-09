@@ -146,8 +146,8 @@ theme.loadEditor = function()
     }, --  diff mode: Changed line
     DiffDelete = { bg = starry.neardark, fg = starry.comments, style = s('strikethrough') }, -- diff mode: Deleted line
     DiffText = { fg = starry.keyword, bg = starry.neardark, style = s('bold,reverse') }, -- diff mode: Changed text within a changed line
+    DiffTextAdd = { fg = starry.green, bg = starry.neardark, style = s('bold') }, -- diff mode: Added text within a changed line
     TermCursor = { link = 'Cursor' },
-    TermCursorNC = { link = 'Cursor' },
     EndOfBuffer = { link = 'Ignore' }, -- ~ lines at the end of a buffe
     ErrorMsg = { link = 'DiagnosticError' }, -- error messages
     Folded = { fg = starry.link, style = s('bold') },
@@ -176,6 +176,7 @@ theme.loadEditor = function()
     },
     PmenuSbar = { fg = starry.text, bg = starry.contrast },
     PmenuThumb = { bg = starry.accent },
+    PmenuBorder = { fg = starry.comments, bg = starry.contrast },
     Question = { fg = starry.green },
     QuickFixLine = { fg = starry.highlight, bg = starry.white, style = s('reverse') },
     qfLineNr = { fg = starry.highlight, bg = starry.white, style = s('reverse') },
@@ -196,8 +197,6 @@ theme.loadEditor = function()
     Rare = { link = 'SpellRare' },
     StatusLine = { fg = starry.accent, bg = starry.active },
     StatusLineNC = { fg = starry.text, bg = starry.less_active },
-    StatusLineTerm = { fg = starry.fg, bg = starry.active },
-    StatusLineTermNC = { fg = starry.text, bg = starry.less_active },
     TabLineFill = { fg = starry.fg },
     TablineSel = { bg = starry.accent, fg = starry.dark },
     Tabline = { fg = starry.fg },
@@ -218,6 +217,10 @@ theme.loadEditor = function()
     VisualMode = { fg = starry.purple, style = s('reverse') },
     CommandMode = { fg = starry.gray, style = s('reverse') },
     Warnings = { link = 'WarningMsg' },
+    OkMsg = { fg = starry.green },
+    StderrMsg = { fg = starry.orange },
+    StdoutMsg = { fg = starry.text },
+    SnippetTabstopActive = { bg = starry.active },
 
     healthError = { link = 'DiagnosticError' },
     healthSuccess = { link = 'Question' },
@@ -250,12 +253,12 @@ theme.loadEditor = function()
   editor.NormalFloat = { fg = starry.text, bg = floating_bg }
   -- Remove window split borders
   if config.borders == true then
-    editor.VertSplit = { fg = starry.border }
+    editor.WinSeparator = { fg = starry.border }
   else
-    editor.VertSplit = { fg = starry.bg }
+    editor.WinSeparator = { fg = starry.bg }
   end
 
-  editor.WinSeparator = { link = 'VertSplit' }
+  editor.VertSplit = { link = 'WinSeparator' }
   -- Set End of Buffer lines (~)
   if config.hide_eob == true then
     editor.EndOfBuffer = { fg = starry.bg } -- ~ lines at the end of a buffer
@@ -307,8 +310,8 @@ theme.loadLSP = function()
     DiagnosticFloatingInfo = { link = 'DiagnosticInfo' }, -- used for "Information" diagnostic messages in the diagnostics float
     DiagnosticVirtualTextInfo = { fg = starry.gray5 }, -- Virtual text "Information"
     DiagnosticUnderlineInfo = { style = underdash, sp = starry.darkblue }, -- used to underline "Information" diagnostics.
-    DiagnosticDefaultHint = { fg = starry.link }, -- used for "Hint" diagnostic virtual text
-    DiagnosticSignHint = { link = 'DiagnosticDefaultHint' }, -- used for "Hint" diagnostic signs in sign column
+    DiagnosticHint = { fg = starry.link }, -- used for "Hint" diagnostic virtual text
+    DiagnosticSignHint = { link = 'DiagnosticHint' }, -- used for "Hint" diagnostic signs in sign column
     DiagnosticVirtualTextHint = { fg = starry.disabled }, -- Virtual text "Hint"
     DiagnosticUnderlineHint = { style = underdot, sp = starry.darkblue }, -- used to underline "Hint" diagnostics.
 
@@ -430,13 +433,6 @@ theme.loadPlugins = function()
     NvimTreeMarkdownFile = { link = 'Define' },
     NvimTreeExecFile = { link = 'Question' },
     NvimTreeSpecialFile = { fg = starry.purple, style = s('underline') },
-    LspDiagnosticsError = { link = 'DiagnosticError' },
-    LspDiagnosticsWarning = { link = 'WarningMsg' }, -- LspDiagXXX deprecated
-    DiagnosticsWarning = { link = 'WarningMsg' },
-    LspDiagnosticsInformation = { link = 'PreCondit' },
-    DiagnosticsInformation = { link = 'PreCondit' },
-    LspDiagnosticsHint = { link = 'PreProc' },
-    DiagnosticsHint = { link = 'PreProc' },
 
     -- WhichKey
     WhichKey = { fg = starry.accent, style = s('bold') },
